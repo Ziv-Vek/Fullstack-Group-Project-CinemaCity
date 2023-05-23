@@ -1,32 +1,38 @@
-interface Movie {
+interface IMovie {
   name: string;
-  genre: string;
+  genre: string[];
   ageLimit: number;
   image: string;
   premiere: Date;
-  time: number;
+  screenDuration: number;
   description: string;
-  trailer: string;
+  trailerURL: string;
 }
 interface Seats {
-  line: number;
-  seatID: number;
+  index: [{ line: number; seatID: number }];
   status: boolean;
   accessability: boolean;
 }
 
-class Movies implements Movie {
-  key: number;
-  name: string;
-  genre: string;
-  ageLimit: number;
-  image: string;
-  premiere: Date;
-  time: number;
-  description: string;
-  trailer: string;
-  seats: Seats[];
-  constructor() {
-    this.key = key();
-  }
+class Cinema {
+  constructor(
+    public id: number,
+    public cinemaName: string,
+    public movieList: { movieID: number; screenTime: Date[]; venue: number[] }
+  ) {}
+}
+class Movie implements IMovie {
+  uuid: number;
+  constructor(
+    public name: string,
+    public genre: string[],
+    public ageLimit: number,
+    public image: string,
+    public premiere: Date,
+    public screenDuration: number,
+    public description: string,
+    public trailerURL: string,
+    public seats: Seats[],
+    public cinemaID: number[]
+  ) {}
 }
