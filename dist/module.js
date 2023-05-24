@@ -1,9 +1,8 @@
 var Cinema = /** @class */ (function () {
-    function Cinema(id, cinemaName, movieList, seats) {
+    function Cinema(id, cinemaName, movieList) {
         this.id = id;
         this.cinemaName = cinemaName;
         this.movieList = movieList;
-        this.seats = seats;
         moviesAndCinemasManager.addCinema(this);
     }
     return Cinema;

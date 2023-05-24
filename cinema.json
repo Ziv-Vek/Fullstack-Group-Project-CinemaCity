@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "cinemaName": "cinema-tlv",
+    "movieList": [
+      {
+        "movieID": 1,
+        "screenTime": "11:30",
+        "venue": [1],
+        "seats": [
+          {
+            "index": [{ "line": 1, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "13:30",
+        "venue": [4],
+        "seats": [
+          {
+            "index": [
+              { "line": 5, "seatID": 1 },
+              { "line": 5, "seatID": 2 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

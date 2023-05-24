@@ -19,8 +19,14 @@ class Cinema {
   constructor(
     public id: number,
     public cinemaName: string,
-    public movieList: { movieID: number; screenTime: Date[]; venue: number[] },
-    public seats: Seats[]
+    public movieList: [
+      {
+        movieID: number;
+        screenTime: Date;
+        venue: number[];
+        seats: [{ line: number; seatID: number }];
+      }
+    ]
   ) {
     moviesAndCinemasManager.addCinema(this);
   }

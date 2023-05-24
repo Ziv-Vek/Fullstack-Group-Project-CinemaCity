@@ -1,7 +1,7 @@
 = LIST OF MOVIES =
 
 1. FAST X
-2. THE LITTLE MERMAID
+2. THE LITTLE MERMAID - V
 3. KANDAHAR
 4. SCREAM 6
 5. BEAUTIFUL DISASTER
@@ -17,6 +17,7 @@
 15. JOHN WICK: Chapter 4
 16. ROBOTS
 17. EVIL DEAD RISE
+18. Guardians of the Galaxy: Volume 3
 
 /////////////////////////////////////////////////
 

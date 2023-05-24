@@ -7,14 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <div class"search-area-wrapper">
-        <div class="dropdown-search" onClick="OnSearchDropdownClick(location)"> 
-            <div class="dropdown-search__by-location">
-                <div class="dropdown-search__by-location" id="cinema-haifa" onclick="OnSearchDropdownClick(cinema-haifa, location)"></div>    
-                <div class="dropdown-search__by-location" id="cinema-tlv" onclick="OnSearchDropdownClick(cinema-tlv)></div>    
-                <div class="dropdown-search__by-location" id="cinema-eilat" onclick="OnSearchDropdownClick(cinema-eilat)></div>    
-            </div>
+    <div class="search-area-wrapper">
+      <div class="dropdown-search" onClick="OnSearchDropdownClick(location)">
+        <div class="dropdown-search__by-location">
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-haifa"
+            onclick="OnSearchDropdownClick('cinema-haifa', location)"
+          ></div>
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-tlv"
+            onclick="OnSearchDropdownClick('cinema-tlv')"
+          ></div>
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-eilat"
+            onclick="OnSearchDropdownClick('cinema-eilat')"
+          ></div>
         </div>
+      </div>
     </div>
   </body>
 </html>
