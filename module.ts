@@ -35,10 +35,10 @@ class venue {
 class Movie implements IMovie {
   uuid: number;
   constructor(
+    public image: string,
     public name: string,
     public genre: string[],
     public ageLimit: number,
-    public image: string,
     public premiere: Date,
     public screenDuration: number,
     public description: string,
