@@ -1,10 +1,12 @@
+let filterLocation: string;
 
-
-
-function OnListDropdownClick(searchByField: string) 
-{
-
+function OnListDropdownClick(filterSelection: string, searchByField: string) {
+  this.filterLocation = filterLocation;
+  moviesAndCinemasManager.getMoviesArr;
+  //TODO: open new search tab
+  aliyaFunction();
 }
 
-function SearchFiltering()
-{}
+function MovieSearchFiltering(searchFields: string[]) {}
+
+function aliyaFunction() {}
