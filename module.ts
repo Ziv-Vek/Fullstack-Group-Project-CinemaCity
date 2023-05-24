@@ -18,7 +18,8 @@ class Cinema {
   constructor(
     public id: number,
     public cinemaName: string,
-    public movieList: { movieID: number; screenTime: Date[]; venue: number[] }
+    public movieList: { movieID: number; screenTime: Date[]; venue: number[] },
+    public seats: Seats[]
   ) {}
 }
 class Movie implements IMovie {
@@ -32,7 +33,6 @@ class Movie implements IMovie {
     public screenDuration: number,
     public description: string,
     public trailerURL: string,
-    public seats: Seats[],
     public cinemaID: number[]
   ) {}
 }
