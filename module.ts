@@ -8,6 +8,7 @@ interface IMovie {
   description: string;
   trailerURL: string;
 }
+
 interface Seats {
   index: [{ line: number; seatID: number }];
   status: boolean;
@@ -21,6 +22,13 @@ class Cinema {
     public movieList: { movieID: number; screenTime: Date[]; venue: number[] }
   ) {}
 }
+
+class venue {
+  moviesList: Movie[] = [];
+
+  constructor() {}
+}
+
 class Movie implements IMovie {
   uuid: number;
   constructor(
