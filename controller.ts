@@ -48,6 +48,5 @@ const renderMovieCards = (movies: Movie[]) => {
     console.log(error);
   }
 };
-
 renderMovieCards(movies);
 /////////////////////////////////////////////////////////////////////////////////////
