@@ -1,0 +1,100 @@
+@import "_mixin.scss";
+@import "_variables.scss";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bgBlue;
+}
+
+.navbar {
+  width: 100%;
+  background-color: $bgBlue;
+  box-shadow: 0 2px 4px rgb(43, 43, 43);
+
+  &__savedTickets {
+    cursor: pointer;
+    float: right;
+    margin-top: 55px;
+    margin-right: 30px;
+    background-color: $mainBlue;
+    border: none;
+    @include mainBoxShadow;
+    padding-top: 3px;
+  }
+}
+
+// movie cards -
+.movieCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.movieCard {
+  position: relative;
+  @include mainCardSize(300px, 450px, 10px);
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  &:hover .movieImage {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .movieDetails {
+    transform: rotateY(0);
+  }
+
+  .movieImage,
+  .movieDetails {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    @include mainBoxShadow;
+    backface-visibility: hidden;
+    transition: transform 1s ease-in-out;
+  }
+
+  .movieImage {
+    transform: rotateY(0);
+
+    img {
+      width: 300px;
+      height: 450px;
+      border-radius: 10px;
+    }
+  }
+
+  .movieDetails {
+    transform: rotateY(180deg);
+    width: 300px;
+    height: 450px;
+    background-color: $mainBlue;
+    font-weight: bold;
+    padding: 10px;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+
+    &__movieName {
+      text-align: center;
+      padding-bottom: 20px;
+      font-size: 30px;
+    }
+
+    &__movieDescription {
+      padding-bottom: 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    p {
+      padding-bottom: 10px;
+      font-size: 15px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@mixin mainCardSize($width, $height, $border-radius) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+}
+
+@mixin mainBoxShadow {
+  box-shadow: 5px 5px 10px rgb(43, 43, 43);
+}
