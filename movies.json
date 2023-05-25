@@ -1,35 +1,206 @@
 [
   {
     "uuid": 1,
-    "name": "The Little Mermaid",
-    "genre": ["kids"],
-    "ageLimit": 0,
-    "premiere": "25/05/2023",
-    "screenDuration": 135,
-    "trailerURL": "",
+    "image": "./img/fastX.jpg",
+    "name": "Fast X",
+    "genre": ["action", "adventure"],
+    "ageLimit": 13,
+    "premiere": "18/05/2023",
+    "screenDuration": 141,
+    "trailerURL": "https://www.youtube.com/watch?v=eoOaKN4qCKw&t=19s",
     "cinemaID": [1, 2, 3],
-    "image": "https://cdn.modulus.co.il/fetch/cinemacity/w_505,h_721,mode_,v_4f7026f8-2419-4c0e-a835-774fecc120bf41/http://80.178.112.171/images/%D7%91%D7%AA%20%D7%94%D7%99%D7%9D%20%D7%94%D7%A7%D7%98%D7%A0%D7%94%20-%20%D7%A4%D7%95%D7%A1%D7%98%D7%A8(1).jpg",
-    "description": "בת הים הקטנה מביא את הסיפור האהוב והבלתי נשכח של אריאל, בת הים היפיפייה והסקרנית הצמאה להרפתקה חובקת יבשה.
-
-    אריאל, ביתו הצעירה והמתריסה של המלך טריטון, שואפת לגלות כל מה שאפשר אודות מה שנמצא מעבר לעולם התת ימי  ובאחד הגיחות שלה על פני הים היא מתאהבת בנסיך המקסים, אריק. למרות האיסור החל על בנות הים להתרועע עם בני אנוש, אריאל מרגישה שהיא חייבת להקשיב לרחשי ליבה. היא עושה הסכם עם  מכשפת הים המרשעת, אורסולה, המאפשרת לה לחוות את החיים שמחוץ למים, אולם המהלך הזה מציב את חייה ואת מלכותו של אביה בסכנה.
-    
-    את תפקיד אריאל מגלמת בסרט הזמרת והשחקנית האלי ביילי, חוויאר בארדם מככב בתפקיד המלך טריטון ומליסה מקארתי כמכשפת הים אורסולה.
-    
-    
-    **הסרט בת הים הקטנה מכיל מספר רצפים עם אורות מהבהבים שעשויים להשפיע על בעלי אפילפסיה רגישה לאור או בעלי כל רגישות אחרת לאור**"
+    "description": "Dom Toretto and his family are targeted by the vengeful son of drug kingpin Hernan Reyes."
   },
   {
     "uuid": 2,
-    "name": "Guardians of the Galaxy: Volume 3",
-    "genre": ["fantasy"],
-    "ageLimit": 12,
-    "premiere": "05/05/2023",
-    "screenDuration": 150,
-    "trailerURL": "https://youtu.be/aj8-wu9o8BE",
+    "image": "./img/littleMermaid.jpeg",
+    "name": "The Little Mermaid",
+    "genre": ["fantasy", "musical", "kids"],
+    "ageLimit": 5,
+    "premiere": "25-05-2023",
+    "screenDuration": 135,
+    "trailerURL": "https://www.youtube.com/watch?v=kpGo2_d3oYE",
     "cinemaID": [1, 2, 3],
-    "image": "https://cdn.modulus.co.il/fetch/cinemacity/w_505,h_721,mode_,v_4f7026f8-2419-4c0e-a835-774fecc120bf41/http://80.178.112.171/images/%D7%A9%D7%95%D7%9E%D7%A8%D7%99%20%D7%94%D7%92%D7%9C%D7%A7%D7%A1%D7%99%D7%94%20%D7%97%D7%9C%D7%A7%20%203%20%D7%A4%D7%95%D7%A1%D7%98%D7%A8.jpg",
-    "description": "בסרט החדש מאולפני מארוול החבורה המשונה והאהובה נראית מעט שונה בימינו. בעוד פיטר קוויל (כריס פראט) מתאבל על האובדן של גמורה (זואי סלדנה), עליו לגייס חזרה את הצוות מסביבו על מנת להגן על היקום וגם על אחד משלהם. אם הם לא יעמדו במשימה זה יהיה סופם של שומרי הגלקסיה כפי שהכרנו אותם.
-
-    הסרט שומרי הגלקסיה- חלק 3 מכיל מספר רצפים עם אורות מהבהבים שעשויים להשפיע על בעלי אפילפסיה רגישה לאור או בעלי כל רגישות אחרת לאור"
+    "description": "A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water and impress a prince."
+  },
+  {
+    "uuid": 3,
+    "image": "./img/kandahar.jpeg",
+    "name": "Kandahar",
+    "genre": ["action", "thriller"],
+    "ageLimit": 17,
+    "premiere": "26-05-2023",
+    "screenDuration": 120,
+    "trailerURL": "https://www.youtube.com/watch?v=0r6-YSKzKf4",
+    "cinemaID": [1, 2, 3],
+    "description": "A CIA operative and his translator flee from special forces in Afghanistan after exposing a covert mission."
+  },
+  {
+    "uuid": 4,
+    "image": "./img/scream6.jpg",
+    "name": "Scream 6",
+    "genre": ["horror"],
+    "ageLimit": 17,
+    "premiere": "09-03-2023",
+    "screenDuration": 122,
+    "trailerURL": "https://www.youtube.com/watch?v=h74AXqw4Opc",
+    "cinemaID": [1, 2, 3],
+    "description": "In the next installment, the survivors of the Ghostface killings leave Woodsboro behind and start a fresh chapter in New York City."
+  },
+  {
+    "uuid": 5,
+    "image": "./img/beautifulDisaster.jpg",
+    "name": "Beautiful Disaster",
+    "genre": ["romance"],
+    "ageLimit": 17,
+    "premiere": "06-04-2023",
+    "screenDuration": 105,
+    "trailerURL": "https://www.youtube.com/watch?v=4Ao_sc5sFxE",
+    "cinemaID": [1, 2, 3],
+    "description": "College freshman, Abby, tries to distance herself from her dark past while resisting her attraction to bad boy, Travis."
+  },
+  {
+    "uuid": 6,
+    "image": "./img/mummies.jpeg",
+    "name": "Mummies",
+    "genre": ["kids", "animation", "comedy"],
+    "ageLimit": 5,
+    "premiere": "02-03-2023",
+    "screenDuration": 88,
+    "trailerURL": "https://www.youtube.com/watch?v=WRB8YIc4U68",
+    "cinemaID": [1, 2, 3],
+    "description": "It follows three mummies as they end up in present-day London and embark on a journey in search of an old ring belonging to the Royal Family, stolen by the ambitious archaeologist Lord Carnaby."
+  },
+  {
+    "uuid": 7,
+    "image": "./img/suzume.jpeg",
+    "name": "SUZUME",
+    "genre": ["animation", "adventure", "foreign"],
+    "ageLimit": 9,
+    "premiere": "13-04-2023",
+    "screenDuration": 122,
+    "trailerURL": "https://www.youtube.com/watch?v=5pTcio2hTSw",
+    "cinemaID": [1, 2, 3],
+    "description": "A modern action adventure road story where a 17-year-old girl named Suzume helps a mysterious young man close doors from the other side that are releasing disasters all over in Japan."
+  },
+  {
+    "uuid": 8,
+    "image": "./img/boyFromHeaven.jpeg",
+    "name": "Boy From Heaven",
+    "genre": ["drama", "thriller", "foreign"],
+    "ageLimit": 13,
+    "premiere": "25-05-2023",
+    "screenDuration": 120,
+    "trailerURL": "https://www.youtube.com/watch?v=g_qyphrK5o0",
+    "cinemaID": [1, 2, 3],
+    "description": "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites."
+  },
+  {
+    "uuid": 9,
+    "image": "./img/oneFineMorning.jpeg",
+    "name": "One Fine Morning",
+    "genre": ["drama", "romance", "foreign"],
+    "ageLimit": 13,
+    "premiere": "18-05-2023",
+    "screenDuration": 120,
+    "trailerURL": "https://www.youtube.com/watch?v=VRI2_9IZEc8",
+    "cinemaID": [1, 2, 3],
+    "description": "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites."
+  },
+  {
+    "uuid": 10,
+    "image": "./img/playDead.jpeg",
+    "name": "Play Dead",
+    "genre": ["horror"],
+    "ageLimit": 17,
+    "premiere": "11-05-2023",
+    "screenDuration": 106,
+    "trailerURL": "https://www.youtube.com/watch?v=RLJ6Nlr3TQM",
+    "cinemaID": [1, 2, 3],
+    "description": "Chloe fakes her own death to steal evidence from a morgue. The Coroner uses the morgue as a front for a sick and twisted business. A scary game of cat and mouse ensues as Chloe learns more about the dead than she bargains for."
+  },
+  {
+    "uuid": 11,
+    "image": "./img/mamaWeed.jpeg",
+    "name": "Mama Weed",
+    "genre": ["comedy", "crime", "foreign"],
+    "ageLimit": 17,
+    "premiere": "04-05-2023",
+    "screenDuration": 104,
+    "trailerURL": "https://www.youtube.com/watch?v=cxRBU_9Cgj8",
+    "cinemaID": [1, 2, 3],
+    "description": "A translator working for the police gets involved in the other side of drug dealing."
+  },
+  {
+    "uuid": 12,
+    "image": "./img/theRitualKiller.jpeg",
+    "name": "The Ritual Killer",
+    "genre": ["thriller", "crime"],
+    "ageLimit": 17,
+    "premiere": "20-04-2023",
+    "screenDuration": 92,
+    "trailerURL": "https://www.youtube.com/watch?v=f7Hx4fMuYMQ",
+    "cinemaID": [1, 2, 3],
+    "description": "A detective on the verge of retirement teams with a professor of African Studies to track down a serial killer who is performing the ancient black magic practice of Muti."
+  },
+  {
+    "uuid": 13,
+    "image": "./img/loveAgain.jpeg",
+    "name": "Love Again",
+    "genre": ["romance", "romantic-comedy"],
+    "ageLimit": 13,
+    "premiere": "04-05-2023",
+    "screenDuration": 104,
+    "trailerURL": "https://www.youtube.com/watch?v=CQDXtD2HJAs",
+    "cinemaID": [1, 2, 3],
+    "description": "A young woman tries to ease the pain of her fiancé's death by sending romantic texts to his old cell phone number, and forms a connection with the man the number has been reassigned to."
+  },
+  {
+    "uuid": 14,
+    "image": "./img/toCatchAKiller.png",
+    "name": "To Catch A Killer",
+    "genre": ["crime", "thriller"],
+    "ageLimit": 17,
+    "premiere": "06-04-2023",
+    "screenDuration": 119,
+    "trailerURL": "https://www.youtube.com/watch?v=WEUX9HwlF5c",
+    "cinemaID": [1, 2, 3],
+    "description": "Baltimore. New Year's Eve. A talented but troubled police officer (Shailene Woodley) is recruited by the FBI's chief investigator (Ben Mendelsohn) to help profile and track down a disturbed individual terrorizing the city."
+  },
+  {
+    "uuid": 15,
+    "image": "./img/johnWick4.jpg",
+    "name": "John Wick: Chapter 4",
+    "genre": ["action"],
+    "ageLimit": 13,
+    "premiere": "23-03-2023",
+    "screenDuration": 169,
+    "trailerURL": "https://www.youtube.com/watch?v=qEVUtrk8_B4",
+    "cinemaID": [1, 2, 3],
+    "description": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes."
+  },
+  {
+    "uuid": 16,
+    "image": "./img/robots.jpeg",
+    "name": "ROBOTS",
+    "genre": ["sci-fi", "fantasy"],
+    "ageLimit": 13,
+    "premiere": "27-04-2023",
+    "screenDuration": 93,
+    "trailerURL": "https://www.youtube.com/watch?v=67MaSPjGHSs",
+    "cinemaID": [1, 2, 3],
+    "description": "Charles is a womanizer while Elaine is a gold digger. The duo learn humanity when forced to team up and pursue robot doubles of themselves."
+  },
+  {
+    "uuid": 17,
+    "image": "./img/evilDeadRise.jpg",
+    "name": "Evil Dead Rise",
+    "genre": ["horror", "fantasy"],
+    "ageLimit": 17,
+    "premiere": "20-04-2023",
+    "screenDuration": 96,
+    "trailerURL": "https://www.youtube.com/watch?v=BqQNO7BzN08",
+    "cinemaID": [1, 2, 3],
+    "description": "A twisted tale of two estranged sisters whose reunion is cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable."
   }
 ]
