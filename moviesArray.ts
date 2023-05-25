@@ -66,7 +66,7 @@ const movies: Movie[] = [
     []
   ),
   new Movie(
-    "./img/boyFromHeaven.jpeg",
+    "./img/boyFromHeaven.png",
     "BOY FROM HEAVEN",
     ["drama", "thriller", "foreign"],
     13,
