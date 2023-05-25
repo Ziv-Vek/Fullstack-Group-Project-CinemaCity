@@ -17,7 +17,6 @@
 15. JOHN WICK: Chapter 4
 16. ROBOTS
 17. EVIL DEAD RISE
-18. Guardians of the Galaxy: Volume 3
 
 /////////////////////////////////////////////////
 

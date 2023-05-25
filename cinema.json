@@ -14,15 +14,32 @@
         ]
       },
       {
-        "movieID": 1,
-        "screenTime": "13:30",
+        "movieID": 2,
+        "screenTime": "12:00",
+        "venue": [2],
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "12:20",
+        "venue": [3],
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 16,
+        "screenTime": "12:30",
         "venue": [4],
         "seats": [
           {
-            "index": [
-              { "line": 5, "seatID": 1 },
-              { "line": 5, "seatID": 2 }
-            ]
+            "index": [{ "line": 5, "seatID": 1 }]
           }
         ]
       }
