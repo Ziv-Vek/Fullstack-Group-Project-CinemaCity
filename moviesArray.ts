@@ -44,17 +44,6 @@ const movies: Movie[] = [
     []
   ),
   new Movie(
-    "./img/beautifulDisaster.jpg",
-    "BEAUTIFUL DISASTER",
-    ["romance"],
-    17,
-    new Date("06-04-2023"),
-    105,
-    "College freshman, Abby, tries to distance herself from her dark past while resisting her attraction to bad boy, Travis.",
-    "",
-    []
-  ),
-  new Movie(
     "./img/mummies.jpeg",
     "MUMMIES",
     ["kids", "animation", "comedy"],
@@ -82,17 +71,6 @@ const movies: Movie[] = [
     ["drama", "thriller", "foreign"],
     13,
     new Date("25-05-2023"),
-    120,
-    "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites.",
-    "",
-    []
-  ),
-  new Movie(
-    "./img/oneFineMorning.jpeg",
-    "ONE FINE MORNING",
-    ["drama", "romance", "foreign"],
-    13,
-    new Date("18-05-2023"),
     120,
     "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites.",
     "",
@@ -128,28 +106,6 @@ const movies: Movie[] = [
     new Date("20-04-2023"),
     92,
     "A detective on the verge of retirement teams with a professor of African Studies to track down a serial killer who is performing the ancient black magic practice of Muti.",
-    "",
-    []
-  ),
-  new Movie(
-    "./img/loveAgain.jpeg",
-    "LOVE AGAIN",
-    ["romance", "romantic-comedy"],
-    13,
-    new Date("04-05-2023"),
-    104,
-    "A young woman tries to ease the pain of her fiancé's death by sending romantic texts to his old cell phone number, and forms a connection with the man the number has been reassigned to.",
-    "",
-    []
-  ),
-  new Movie(
-    "./img/toCatchAKiller.png",
-    "TO CATCH A KILLER",
-    ["crime", "thriller"],
-    17,
-    new Date("05-04-2023"),
-    119,
-    "Baltimore. New Year's Eve. A talented but troubled police officer (Shailene Woodley) is recruited by the FBI's chief investigator (Ben Mendelsohn) to help profile and track down a disturbed individual terrorizing the city.",
     "",
     []
   ),

@@ -4,9 +4,9 @@
     "cinemaName": "cinema-tlv",
     "movieList": [
       {
-        "movieID": 1,
+        "movieID": 5,
         "screenTime": "11:30",
-        "venue": [1],
+        "venue": 1,
         "seats": [
           {
             "index": [{ "line": 1, "seatID": 1 }]
@@ -16,7 +16,7 @@
       {
         "movieID": 2,
         "screenTime": "12:00",
-        "venue": [2],
+        "venue": 2,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -24,9 +24,9 @@
         ]
       },
       {
-        "movieID": 11,
+        "movieID": 12,
         "screenTime": "12:20",
-        "venue": [3],
+        "venue": 3,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -34,9 +34,9 @@
         ]
       },
       {
-        "movieID": 16,
+        "movieID": 10,
         "screenTime": "12:30",
-        "venue": [4],
+        "venue": 4,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -44,9 +44,9 @@
         ]
       },
       {
-        "movieID": 6,
+        "movieID": 5,
         "screenTime": "12:00",
-        "venue": [5],
+        "venue": 5,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -54,9 +54,9 @@
         ]
       },
       {
-        "movieID": 16,
-        "screenTime": "12:20",
-        "venue": [6],
+        "movieID": 2,
+        "screenTime": "12:40",
+        "venue": 6,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -65,39 +65,9 @@
       },
 
       {
-        "movieID": 1,
-        "screenTime": "15:30",
-        "venue": [1],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 15,
-        "screenTime": "16:00",
-        "venue": [2],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 3,
-        "screenTime": "16:30",
-        "venue": [3],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
         "movieID": 9,
-        "screenTime": "16:20",
-        "venue": [4],
+        "screenTime": "15:30",
+        "venue": 1,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -105,9 +75,39 @@
         ]
       },
       {
-        "movieID": 8,
+        "movieID": 10,
+        "screenTime": "16:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 6,
         "screenTime": "16:30",
-        "venue": [5],
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "16:20",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "16:30",
+        "venue": 5,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -117,7 +117,7 @@
       {
         "movieID": 2,
         "screenTime": "16:40",
-        "venue": [6],
+        "venue": 6,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -126,49 +126,9 @@
       },
 
       {
-        "movieID": 2,
+        "movieID": 1,
         "screenTime": "19:00",
-        "venue": [1],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 6,
-        "screenTime": "19:00",
-        "venue": [2],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 13,
-        "screenTime": "19:20",
-        "venue": [3],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 7,
-        "screenTime": "19:30",
-        "venue": [4],
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
-      },
-      {
-        "movieID": 14,
-        "screenTime": "19:40",
-        "venue": [5],
+        "venue": 1,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -177,8 +137,48 @@
       },
       {
         "movieID": 3,
+        "screenTime": "19:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "19:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "19:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
         "screenTime": "19:40",
-        "venue": [6],
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "19:40",
+        "venue": 6,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -189,7 +189,757 @@
       {
         "movieID": 1,
         "screenTime": "22:30",
-        "venue": [1],
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "23:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "23:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "23:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "00:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "00:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "cinemaName": "cinema-Haifa",
+    "movieList": [
+      {
+        "movieID": 2,
+        "screenTime": "11:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 1, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "12:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 6,
+        "screenTime": "12:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "12:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 9,
+        "screenTime": "13:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "13:20",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 1,
+        "screenTime": "15:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "16:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "16:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "16:20",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 10,
+        "screenTime": "16:30",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "16:40",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 1,
+        "screenTime": "19:10",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "19:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "19:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 9,
+        "screenTime": "19:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "19:40",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "20:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 4,
+        "screenTime": "22:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "23:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "23:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "23:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "00:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "00:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "cinemaName": "cinema-Ashdod",
+    "movieList": [
+      {
+        "movieID": 2,
+        "screenTime": "11:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 1, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "12:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "12:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "12:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "13:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "13:20",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 3,
+        "screenTime": "15:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 9,
+        "screenTime": "16:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "16:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "16:20",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "16:30",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "17:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 9,
+        "screenTime": "19:10",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 10,
+        "screenTime": "19:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "19:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "19:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 10,
+        "screenTime": "19:40",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "19:40",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 1,
+        "screenTime": "22:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "23:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "23:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "23:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "00:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "00:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "cinemaName": "cinema-Rishon-LeTsiyon",
+    "movieList": [
+      {
+        "movieID": 6,
+        "screenTime": "11:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 1, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "12:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "12:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 5,
+        "screenTime": "12:40",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "13:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "13:30",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 2,
+        "screenTime": "15:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 10,
+        "screenTime": "16:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "16:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "16:20",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "16:30",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "17:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 10,
+        "screenTime": "19:10",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "19:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "19:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "19:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "19:40",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "20:10",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 1,
+        "screenTime": "22:30",
+        "venue": 1,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -199,7 +949,94 @@
       {
         "movieID": 4,
         "screenTime": "23:00",
-        "venue": [2],
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "23:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "23:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 6,
+        "screenTime": "00:00",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "00:20",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "cinemaName": "cinema-Be'er-Sheva",
+    "movieList": [
+      {
+        "movieID": 2,
+        "screenTime": "11:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 1, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "12:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "12:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "12:30",
+        "venue": 4,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -208,8 +1045,8 @@
       },
       {
         "movieID": 5,
-        "screenTime": "23:30",
-        "venue": [3],
+        "screenTime": "13:00",
+        "venue": 5,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -217,19 +1054,20 @@
         ]
       },
       {
-        "movieID": 10,
-        "screenTime": "23:30",
-        "venue": [4],
+        "movieID": 7,
+        "screenTime": "13:20",
+        "venue": 6,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
           }
         ]
       },
+
       {
-        "movieID": 17,
-        "screenTime": "00:00",
-        "venue": [5],
+        "movieID": 5,
+        "screenTime": "15:30",
+        "venue": 1,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]
@@ -238,8 +1076,170 @@
       },
       {
         "movieID": 12,
+        "screenTime": "16:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "16:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "16:20",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "16:30",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 2,
+        "screenTime": "17:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 5,
+        "screenTime": "19:10",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 3,
+        "screenTime": "19:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 11,
+        "screenTime": "19:20",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "19:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 12,
+        "screenTime": "19:40",
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 1,
+        "screenTime": "20:00",
+        "venue": 6,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+
+      {
+        "movieID": 1,
+        "screenTime": "22:30",
+        "venue": 1,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 4,
+        "screenTime": "23:00",
+        "venue": 2,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 7,
+        "screenTime": "23:30",
+        "venue": 3,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 8,
+        "screenTime": "23:30",
+        "venue": 4,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
         "screenTime": "00:00",
-        "venue": [6],
+        "venue": 5,
+        "seats": [
+          {
+            "index": [{ "line": 5, "seatID": 1 }]
+          }
+        ]
+      },
+      {
+        "movieID": 13,
+        "screenTime": "00:20",
+        "venue": 6,
         "seats": [
           {
             "index": [{ "line": 5, "seatID": 1 }]

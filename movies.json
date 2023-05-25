@@ -49,18 +49,6 @@
   },
   {
     "uuid": 5,
-    "image": "./img/beautifulDisaster.jpg",
-    "name": "Beautiful Disaster",
-    "genre": ["romance"],
-    "ageLimit": 17,
-    "premiere": "06-04-2023",
-    "screenDuration": 105,
-    "trailerURL": "https://www.youtube.com/watch?v=4Ao_sc5sFxE",
-    "cinemaID": [1, 2, 3],
-    "description": "College freshman, Abby, tries to distance herself from her dark past while resisting her attraction to bad boy, Travis."
-  },
-  {
-    "uuid": 6,
     "image": "./img/mummies.jpeg",
     "name": "Mummies",
     "genre": ["kids", "animation", "comedy"],
@@ -72,7 +60,7 @@
     "description": "It follows three mummies as they end up in present-day London and embark on a journey in search of an old ring belonging to the Royal Family, stolen by the ambitious archaeologist Lord Carnaby."
   },
   {
-    "uuid": 7,
+    "uuid": 6,
     "image": "./img/suzume.jpeg",
     "name": "SUZUME",
     "genre": ["animation", "adventure", "foreign"],
@@ -84,7 +72,7 @@
     "description": "A modern action adventure road story where a 17-year-old girl named Suzume helps a mysterious young man close doors from the other side that are releasing disasters all over in Japan."
   },
   {
-    "uuid": 8,
+    "uuid": 7,
     "image": "./img/boyFromHeaven.jpeg",
     "name": "Boy From Heaven",
     "genre": ["drama", "thriller", "foreign"],
@@ -96,19 +84,7 @@
     "description": "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites."
   },
   {
-    "uuid": 9,
-    "image": "./img/oneFineMorning.jpeg",
-    "name": "One Fine Morning",
-    "genre": ["drama", "romance", "foreign"],
-    "ageLimit": 13,
-    "premiere": "18-05-2023",
-    "screenDuration": 120,
-    "trailerURL": "https://www.youtube.com/watch?v=VRI2_9IZEc8",
-    "cinemaID": [1, 2, 3],
-    "description": "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites."
-  },
-  {
-    "uuid": 10,
+    "uuid": 8,
     "image": "./img/playDead.jpeg",
     "name": "Play Dead",
     "genre": ["horror"],
@@ -120,7 +96,7 @@
     "description": "Chloe fakes her own death to steal evidence from a morgue. The Coroner uses the morgue as a front for a sick and twisted business. A scary game of cat and mouse ensues as Chloe learns more about the dead than she bargains for."
   },
   {
-    "uuid": 11,
+    "uuid": 9,
     "image": "./img/mamaWeed.jpeg",
     "name": "Mama Weed",
     "genre": ["comedy", "crime", "foreign"],
@@ -132,7 +108,7 @@
     "description": "A translator working for the police gets involved in the other side of drug dealing."
   },
   {
-    "uuid": 12,
+    "uuid": 10,
     "image": "./img/theRitualKiller.jpeg",
     "name": "The Ritual Killer",
     "genre": ["thriller", "crime"],
@@ -144,31 +120,7 @@
     "description": "A detective on the verge of retirement teams with a professor of African Studies to track down a serial killer who is performing the ancient black magic practice of Muti."
   },
   {
-    "uuid": 13,
-    "image": "./img/loveAgain.jpeg",
-    "name": "Love Again",
-    "genre": ["romance", "romantic-comedy"],
-    "ageLimit": 13,
-    "premiere": "04-05-2023",
-    "screenDuration": 104,
-    "trailerURL": "https://www.youtube.com/watch?v=CQDXtD2HJAs",
-    "cinemaID": [1, 2, 3],
-    "description": "A young woman tries to ease the pain of her fiancé's death by sending romantic texts to his old cell phone number, and forms a connection with the man the number has been reassigned to."
-  },
-  {
-    "uuid": 14,
-    "image": "./img/toCatchAKiller.png",
-    "name": "To Catch A Killer",
-    "genre": ["crime", "thriller"],
-    "ageLimit": 17,
-    "premiere": "06-04-2023",
-    "screenDuration": 119,
-    "trailerURL": "https://www.youtube.com/watch?v=WEUX9HwlF5c",
-    "cinemaID": [1, 2, 3],
-    "description": "Baltimore. New Year's Eve. A talented but troubled police officer (Shailene Woodley) is recruited by the FBI's chief investigator (Ben Mendelsohn) to help profile and track down a disturbed individual terrorizing the city."
-  },
-  {
-    "uuid": 15,
+    "uuid": 11,
     "image": "./img/johnWick4.jpg",
     "name": "John Wick: Chapter 4",
     "genre": ["action"],
@@ -180,7 +132,7 @@
     "description": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes."
   },
   {
-    "uuid": 16,
+    "uuid": 12,
     "image": "./img/robots.jpeg",
     "name": "ROBOTS",
     "genre": ["sci-fi", "fantasy"],
@@ -192,7 +144,7 @@
     "description": "Charles is a womanizer while Elaine is a gold digger. The duo learn humanity when forced to team up and pursue robot doubles of themselves."
   },
   {
-    "uuid": 17,
+    "uuid": 13,
     "image": "./img/evilDeadRise.jpg",
     "name": "Evil Dead Rise",
     "genre": ["horror", "fantasy"],
