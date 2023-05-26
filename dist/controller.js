@@ -12,9 +12,9 @@ function MovieSearchFiltering(searchFields) { }
 // aliya
 function aliyaFunction() { }
 /////////////////////////////////////////////////////////////////////////////////////
-// - ALIYAH MOVIE CARDS & FILTER - //
+// - MOVIE CARDS & FILTER - //
 var moviesArr = [];
-// Fetch movie data from JSON -
+// Fetch movie data from json -
 fetch("movies.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
@@ -45,43 +45,32 @@ function renderMovieCards(movies) {
         var movieGenre = document.createElement("p");
         movieGenre.classList.add("movieDetails__genre");
         movieGenre.textContent = "Genre: " + movie.genre.join(", ");
-        // - Aliyah Movie Cards - //
-        var renderMovieCards = function (movies) {
-            try {
-                var cards = movies
-                    .map(function (m) {
-                    return "\n        <div class=\"movieCard\">\n        <div class=\"movieImage\">\n        <img src=\"" + m.image + "\" />\n        </div>\n        \n        <div class=\"movieDetailsContainer\">\n        <div class=\"movieDetails\">\n        <h1 class=\"movieDetails__movieName\"> " + m.name + " </h1>\n        <h4 class=\"movieDetails__movieDescription\"> " + m.description + " </h4>\n        <p> Genre: " + m.genre + " </p>\n        <p> Age Limit: " + m.ageLimit + " </p>\n        <p> Premiere: " + m.premiere + " </p>\n        <p> Duration in Minutes: " + m.screenDuration + " </p>\n        </div>\n        </div>\n        </div>";
-                })
-                    .join(" ");
-                var movieAgeLimit = document.createElement("p");
-                movieAgeLimit.classList.add("movieDetails__ageLimit");
-                movieAgeLimit.textContent = "Age Limit: " + movie.ageLimit;
-                var movieScreenDuration = document.createElement("p");
-                movieScreenDuration.classList.add("movieDetails__screenDuration");
-                movieScreenDuration.textContent =
-                    "Screen Duration: " + movie.screenDuration;
-                var moviePremiere = document.createElement("p");
-                moviePremiere.classList.add("movieDetails__premiere");
-                moviePremiere.textContent = "Premiere: " + movie.premiere;
-                var moviePageButton = document.createElement("button");
-                moviePageButton.classList.add("movieDetails__moviePageButton");
-                moviePageButton.textContent = "Movie Page";
-                moviePageButton.addEventListener("click", function () {
-                    window.open(movie.trailerURL, "_blank");
-                });
-                movieDetails.appendChild(movieName);
-                movieDetails.appendChild(movieDescription);
-                movieDetails.appendChild(movieGenre);
-                movieDetails.appendChild(movieAgeLimit);
-                movieDetails.appendChild(movieScreenDuration);
-                movieDetails.appendChild(moviePremiere);
-                movieDetails.appendChild(moviePageButton);
-                movieCard.appendChild(movieImage);
-                movieCard.appendChild(movieDetails);
-                movieCardsContainer.appendChild(movieCard);
-            }
-            finally { }
-        };
+        var movieAgeLimit = document.createElement("p");
+        movieAgeLimit.classList.add("movieDetails__ageLimit");
+        movieAgeLimit.textContent = "Age Limit: " + movie.ageLimit;
+        var movieScreenDuration = document.createElement("p");
+        movieScreenDuration.classList.add("movieDetails__screenDuration");
+        movieScreenDuration.textContent =
+            "Screen Duration: " + movie.screenDuration;
+        var moviePremiere = document.createElement("p");
+        moviePremiere.classList.add("movieDetails__premiere");
+        moviePremiere.textContent = "Premiere: " + movie.premiere;
+        var moviePageButton = document.createElement("button");
+        moviePageButton.classList.add("movieDetails__moviePageButton");
+        moviePageButton.textContent = "Movie Page";
+        moviePageButton.addEventListener("click", function () {
+            window.open(movie.trailerURL, "_blank");
+        });
+        movieDetails.appendChild(movieName);
+        movieDetails.appendChild(movieDescription);
+        movieDetails.appendChild(movieGenre);
+        movieDetails.appendChild(movieAgeLimit);
+        movieDetails.appendChild(movieScreenDuration);
+        movieDetails.appendChild(moviePremiere);
+        movieDetails.appendChild(moviePageButton);
+        movieCard.appendChild(movieImage);
+        movieCard.appendChild(movieDetails);
+        movieCardsContainer.appendChild(movieCard);
     });
 }
 // Genre options -
