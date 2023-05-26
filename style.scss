@@ -60,7 +60,7 @@ body {
     border-radius: 10px;
     border: 2px solid var(--color-black);
     background-color: transparent;
-    @include grid-center();
+    @include grid-center;
 
     &__title-text {
       display: inline-block;

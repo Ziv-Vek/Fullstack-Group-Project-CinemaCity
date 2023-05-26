@@ -19,7 +19,7 @@ body {
 .navbar {
   width: 100%;
   background-color: var(--color-blue-700);
-  box-shadow: 0 2px 4px #2b2b2b;
+  box-shadow: 0 3px 5px #2b2b2b;
 }
 .navbar__savedTickets {
   cursor: pointer;
@@ -118,6 +118,7 @@ body {
   transform: rotateY(180deg);
   width: 300px;
   height: 450px;
+  border-radius: 10px;
   background-color: var(--color-blue-100);
   font-weight: bold;
   padding: 10px;
@@ -148,7 +149,7 @@ body {
   font-weight: bold;
   color: white;
   font-size: 15px;
-  background-color: #0c5394;
+  background-color: var(--color-blue-700);
   border-radius: 0 0 20px 20px;
   border: none;
   box-shadow: 0 3px 5px #2b2b2b;
