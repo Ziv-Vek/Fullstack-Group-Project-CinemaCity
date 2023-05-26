@@ -14,7 +14,7 @@ body {
 .navbar {
   width: 100%;
   background-color: $bgBlue;
-  @include bottonShadow;
+  @include bottomShadow;
 
   &__savedTickets {
     cursor: pointer;
@@ -108,7 +108,7 @@ body {
       background-color: $bgBlue;
       border-radius: 0 0 20px 20px;
       border: none;
-      @include bottonShadow;
+      @include bottomShadow;
       transition: all 0.5s ease-in-out;
     }
 
