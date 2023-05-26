@@ -1,8 +1,10 @@
 @import "_mixin.scss";
 @import "_variables.scss";
 
+// Page -
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -10,6 +12,7 @@ body {
   background-color: $bgBlue;
 }
 
+// Navbar -
 .navbar {
   width: 100%;
   background-color: $bgBlue;
@@ -24,6 +27,48 @@ body {
     border: none;
     @include mainBoxShadow;
     padding-top: 3px;
+  }
+}
+
+.zia-logo {
+  height: 100px;
+  width: 170px;
+}
+
+// Search -
+.search {
+  @include flex-vertical();
+  width: 715px;
+  height: 96px;
+  background-color: var(--color-blue-400);
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px 0px;
+
+  &__header {
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-white);
+  }
+
+  &__search_groups {
+    @include flex-horizontal();
+  }
+
+  &__btn {
+    width: 155px;
+    height: 37px;
+    border-radius: 10px;
+    border: 2px solid var(--color-black);
+    background-color: transparent;
+    @include grid-center();
+
+    &__title-text {
+      display: inline-block;
+      color: var(--color-white);
+      font-size: 20px;
+      font-weight: 700;
+    }
   }
 }
 

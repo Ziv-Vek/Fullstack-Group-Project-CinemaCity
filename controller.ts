@@ -17,8 +17,6 @@ function aliyaFunction() {}
 
 /////////////////////////////////////////////////////////////////////////////////////
 // - Aliyah Movie Cards - //
-const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
-
 const renderMovieCards = (movies: Movie[]) => {
   try {
     const cards: string = movies

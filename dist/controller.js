@@ -13,7 +13,6 @@ function MovieSearchFiltering(searchFields) { }
 function aliyaFunction() { }
 /////////////////////////////////////////////////////////////////////////////////////
 // - Aliyah Movie Cards - //
-var movieCards = document.querySelector(".movieCards");
 var renderMovieCards = function (movies) {
     try {
         var cards = movies

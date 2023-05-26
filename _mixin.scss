@@ -7,3 +7,22 @@
 @mixin mainBoxShadow {
   box-shadow: 5px 5px 10px rgb(43, 43, 43);
 }
+
+@mixin flex-horizontal() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-vertical() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-center() {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
