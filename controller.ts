@@ -143,7 +143,17 @@ function filterMoviesByGenre() {
   }
 }
 
+class SearchHandler {
+  constructor() {}
+
+  public onLocationSelect(newLoc: string) {
+    console.log(newLoc);
+  }
+}
+
 // Event listener for genre change -
 const genreDropdown = document.getElementById("genreDropdown");
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
 /////////////////////////////////////////////////////////////////////////////////////
+
+const searchHandler = new SearchHandler();

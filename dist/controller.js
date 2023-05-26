@@ -114,7 +114,16 @@ function filterMoviesByGenre() {
         }
     }
 }
+var SearchHandler = /** @class */ (function () {
+    function SearchHandler() {
+    }
+    SearchHandler.prototype.onLocationSelect = function (newLoc) {
+        console.log(newLoc);
+    };
+    return SearchHandler;
+}());
 // Event listener for genre change -
 var genreDropdown = document.getElementById("genreDropdown");
 genreDropdown.addEventListener("change", filterMoviesByGenre);
 /////////////////////////////////////////////////////////////////////////////////////
+var searchHandler = new SearchHandler();
