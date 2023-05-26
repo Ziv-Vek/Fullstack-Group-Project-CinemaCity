@@ -1,66 +1,3 @@
-// let filterByLocation: string | null;
-// let filterByDate: string | null;
-// let filterByGenre: string | null;
-
-// function OnListDropdownClick(filterSelection: string, searchByField: string) {
-//   this.filterLocation = filterLocation;
-//   moviesAndCinemasManager.getMoviesArr;
-//   //TODO: open new search tab
-//   aliyaFunction();
-// }
-
-// //
-// function MovieSearchFiltering(searchFields: string[]) {}
-
-// // aliya
-// function aliyaFunction() {}
-
-/////////////////////////////////////////////////////////////////////////////////////
-// - HEADER - //
-// let movieCoverArray: string[] = [
-//   "imgCover/fastXCover.jpeg",
-//   "imgCover/littleMermaidCover.jpeg",
-//   "imgCover/screamCover.jpeg",
-// ];
-
-// function loadMovieCovers() {
-//   const movieCoversContainer = document.getElementById("movieCovers");
-
-//   movieCoverArray.forEach((coverUrl) => {
-//     const coverImage = document.createElement("img");
-//     coverImage.src = coverUrl;
-//     coverImage.classList.add("coverImage");
-
-//     // Click event listener to navigate to the movie page -
-//     coverImage.addEventListener("click", () => {
-//       // Taking the movie ID from the cover URL so it would take us to the movie page -
-//       const movieId = coverUrl.split("id=")[1];
-//       window.open("moviePage.html?id=" + movieId, "_blank");
-//     });
-
-//     const coverImageElement = coverImage as HTMLElement;
-//     coverImageElement.style.display = "none";
-
-//     movieCoversContainer?.appendChild(coverImageElement);
-//   });
-
-//   // Change the cover image every few seconds -
-//   let currentCoverIndex = 0;
-//   setInterval(() => {
-//     currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
-//     const coverImages = document.querySelectorAll(".coverImage");
-//     coverImages.forEach((coverImage, index) => {
-//       const coverImageElement = coverImage as HTMLElement;
-//       if (index === currentCoverIndex) {
-//         coverImageElement.style.display = "block";
-//       } else {
-//         coverImageElement.style.display = "none";
-//       }
-//     });
-//   }, 5000);
-// }
-
-/////////////////////////////////////////////////////////////////////////////////////
 // - MOVIE CARDS & FILTER - //
 let moviesArr: Movie[] = [];
 
@@ -227,12 +164,70 @@ function filterMoviesByGenre() {
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
 /////////////////////////////////////////////////////////////////////////////////////
 
+/** Handles user search selections */
 class SearchHandler {
+  searchFilters: Array<string> = [];
+
   constructor() {}
 
-  public onLocationSelect(newLoc: string) {
-    console.log(newLoc);
+  public onLocationSelect(searchFilter: string, location: string, eve) {
+    try {
+      if (searchFilter === "") throw new Error("No search filter was passed");
+      if (location === "")
+        throw new Error("No location filter selection was passed");
+
+      this.updateSearchTitle(searchFilter, location);
+      this.searchFilters.push(location);
+      this.filterMoviesByCinemas(location);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  private updateSearchTitle(searchFilter: string, location: string) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
+
+    selector.children[0].innerHTML = location;
+  }
+
+  private filterMoviesByCinemas(location: string) {
+    let filteredMovies: Movie[] = [];
+
+    for (const cinema of cinemasArr) {
+      if (cinema.cinemaName === location) {
+        let allMoviesId: number[] = [];
+        //let uniqueMoviesId: number[] = [];
+
+        cinema.movieList.forEach((movie) => {
+          allMoviesId.push(movie.movieID);
+        });
+
+        let uniqueMoviesId: number[] = [...new Set(allMoviesId)];
+        console.log(uniqueMoviesId);
+
+        return;
+      }
+    }
+
+    // const filteredMovies: Movie[] = moviesArr.filter((movie) => {
+
+    // });
   }
 }
 
 const searchHandler = new SearchHandler();
+
+// dropdownItem.forEach((item) => {
+//   item.addEventListener(`onclick`, testF());
+// });
+
+let cinemasArr: Cinema[] = [];
+
+fetch("cinema.json")
+  .then((response) => response.json())
+  .then((data) => {
+    cinemasArr = data;
+  })
+  .catch((error) => console.log(error));

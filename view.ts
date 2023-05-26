@@ -11,3 +11,6 @@ const genreDropdown = document.getElementById(
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
+
+// const dropdownItem: NodeListOf<HTMLAnchorElement> =
+//   document.querySelectorAll(".dropdown-item");

@@ -1,55 +1,10 @@
-// let filterByLocation: string | null;
-// let filterByDate: string | null;
-// let filterByGenre: string | null;
-// function OnListDropdownClick(filterSelection: string, searchByField: string) {
-//   this.filterLocation = filterLocation;
-//   moviesAndCinemasManager.getMoviesArr;
-//   //TODO: open new search tab
-//   aliyaFunction();
-// }
-// //
-// function MovieSearchFiltering(searchFields: string[]) {}
-// // aliya
-// function aliyaFunction() {}
-/////////////////////////////////////////////////////////////////////////////////////
-// - HEADER - //
-// let movieCoverArray: string[] = [
-//   "imgCover/fastXCover.jpeg",
-//   "imgCover/littleMermaidCover.jpeg",
-//   "imgCover/screamCover.jpeg",
-// ];
-// function loadMovieCovers() {
-//   const movieCoversContainer = document.getElementById("movieCovers");
-//   movieCoverArray.forEach((coverUrl) => {
-//     const coverImage = document.createElement("img");
-//     coverImage.src = coverUrl;
-//     coverImage.classList.add("coverImage");
-//     // Click event listener to navigate to the movie page -
-//     coverImage.addEventListener("click", () => {
-//       // Taking the movie ID from the cover URL so it would take us to the movie page -
-//       const movieId = coverUrl.split("id=")[1];
-//       window.open("moviePage.html?id=" + movieId, "_blank");
-//     });
-//     const coverImageElement = coverImage as HTMLElement;
-//     coverImageElement.style.display = "none";
-//     movieCoversContainer?.appendChild(coverImageElement);
-//   });
-//   // Change the cover image every few seconds -
-//   let currentCoverIndex = 0;
-//   setInterval(() => {
-//     currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
-//     const coverImages = document.querySelectorAll(".coverImage");
-//     coverImages.forEach((coverImage, index) => {
-//       const coverImageElement = coverImage as HTMLElement;
-//       if (index === currentCoverIndex) {
-//         coverImageElement.style.display = "block";
-//       } else {
-//         coverImageElement.style.display = "none";
-//       }
-//     });
-//   }, 5000);
-// }
-/////////////////////////////////////////////////////////////////////////////////////
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 // - MOVIE CARDS & FILTER - //
 var moviesArr = [];
 // Fetch movie data from json -
@@ -185,12 +140,61 @@ function filterMoviesByGenre() {
 // Event listener for genre change -
 genreDropdown.addEventListener("change", filterMoviesByGenre);
 /////////////////////////////////////////////////////////////////////////////////////
+/** Handles user search selections */
 var SearchHandler = /** @class */ (function () {
     function SearchHandler() {
+        this.searchFilters = [];
     }
-    SearchHandler.prototype.onLocationSelect = function (newLoc) {
-        console.log(newLoc);
+    SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve) {
+        try {
+            if (searchFilter === "")
+                throw new Error("No search filter was passed");
+            if (location === "")
+                throw new Error("No location filter selection was passed");
+            this.updateSearchTitle(searchFilter, location);
+            this.searchFilters.push(location);
+            this.filterMoviesByCinemas(location);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+    SearchHandler.prototype.updateSearchTitle = function (searchFilter, location) {
+        var selector = document.querySelector("." + searchFilter);
+        selector.children[0].innerHTML = location;
+    };
+    SearchHandler.prototype.filterMoviesByCinemas = function (location) {
+        var filteredMovies = [];
+        var _loop_1 = function (cinema) {
+            if (cinema.cinemaName === location) {
+                var allMoviesId_1 = [];
+                //let uniqueMoviesId: number[] = [];
+                cinema.movieList.forEach(function (movie) {
+                    allMoviesId_1.push(movie.movieID);
+                });
+                var uniqueMoviesId = __spreadArrays(new Set(allMoviesId_1));
+                console.log(uniqueMoviesId);
+                return { value: void 0 };
+            }
+        };
+        for (var _i = 0, cinemasArr_1 = cinemasArr; _i < cinemasArr_1.length; _i++) {
+            var cinema = cinemasArr_1[_i];
+            var state_1 = _loop_1(cinema);
+            if (typeof state_1 === "object")
+                return state_1.value;
+        }
+        // const filteredMovies: Movie[] = moviesArr.filter((movie) => {
+        // });
     };
     return SearchHandler;
 }());
 var searchHandler = new SearchHandler();
+// dropdownItem.forEach((item) => {
+//   item.addEventListener(`onclick`, testF());
+// });
+var cinemasArr = [];
+fetch("cinema.json")
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    cinemasArr = data;
+})["catch"](function (error) { return console.log(error); });
