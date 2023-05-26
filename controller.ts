@@ -205,7 +205,9 @@ function filterMoviesByGenre() {
   const genreDropdown = document.getElementById(
     "genreDropdown"
   ) as HTMLSelectElement;
-  const movieCardsContainer = document.getElementById("movieCards");
+  const movieCardsContainer = document.querySelector(
+    ".movieCards"
+  ) as HTMLDivElement;
 
   if (genreDropdown && movieCardsContainer) {
     const selectedGenre = genreDropdown.value;

@@ -168,7 +168,7 @@ function genreOptions() {
 // Handle genre change -
 function filterMoviesByGenre() {
     var genreDropdown = document.getElementById("genreDropdown");
-    var movieCardsContainer = document.getElementById("movieCards");
+    var movieCardsContainer = document.querySelector(".movieCards");
     if (genreDropdown && movieCardsContainer) {
         var selectedGenre_1 = genreDropdown.value;
         if (selectedGenre_1 === "") {
