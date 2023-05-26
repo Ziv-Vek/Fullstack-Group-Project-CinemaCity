@@ -12,8 +12,12 @@ function MovieSearchFiltering(searchFields) { }
 // aliya
 function aliyaFunction() { }
 /////////////////////////////////////////////////////////////////////////////////////
-// - MOVIE CARDS & FILTER - //
 var moviesArr = [];
+var movieCoverArray = [
+    "imgCover/fastXCover.jpeg",
+    "imgCover/littleMermaidCover.jpeg",
+    "imgCover/screamCover.jpeg",
+];
 // Fetch movie data from json -
 fetch("movies.json")
     .then(function (response) { return response.json(); })
@@ -21,10 +25,45 @@ fetch("movies.json")
     moviesArr = data;
     renderMovieCards(moviesArr);
     genreOptions();
+    // loadMovieCovers();
 })["catch"](function (error) { return console.log(error); });
+/////////////////////////////////////////////////////////////////////////////////////
+// - Header - //
+// function loadMovieCovers() {
+//   const movieCoversContainer = document.getElementById("movieCovers");
+//   movieCoverArray.forEach((coverUrl) => {
+//     const coverImage = document.createElement("img");
+//     coverImage.src = coverUrl;
+//     coverImage.classList.add("coverImage");
+//     // Click event listener to navigate to the movie page -
+//     coverImage.addEventListener("click", () => {
+//       // Extract the movie ID from the cover URL (assuming it's in the format "moviePage.html?id=<movie-id>")
+//       const movieId = coverUrl.split("id=")[1];
+//       window.open("moviePage.html?id=" + movieId, "_blank");
+//     });
+//     const coverImageElement = coverImage as HTMLElement;
+//     coverImageElement.style.display = "none";
+//     movieCoversContainer?.appendChild(coverImageElement);
+//   });
+//   // Change the cover image every few seconds -
+//   let currentCoverIndex = 0;
+//   setInterval(() => {
+//     currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
+//     const coverImages = document.querySelectorAll(".coverImage");
+//     coverImages.forEach((coverImage, index) => {
+//       const coverImageElement = coverImage as HTMLElement;
+//       if (index === currentCoverIndex) {
+//         coverImageElement.style.display = "block";
+//       } else {
+//         coverImageElement.style.display = "none";
+//       }
+//     });
+//   }, 5000);
+// }
+/////////////////////////////////////////////////////////////////////////////////////
+// - MOVIE CARDS & FILTER - //
 // Render movie cards -
 function renderMovieCards(movies) {
-    var movieCardsContainer = document.querySelector(".movieCards");
     movieCardsContainer.innerHTML = "";
     movies.forEach(function (movie) {
         var movieCard = document.createElement("div");
@@ -39,9 +78,16 @@ function renderMovieCards(movies) {
         var movieName = document.createElement("h2");
         movieName.classList.add("movieDetails__movieName");
         movieName.textContent = movie.name;
+        movieName.style.textAlign = "center";
+        movieName.style.paddingTop = "32px";
+        movieName.style.paddingBottom = "20px";
+        movieName.style.fontSize = "28px";
         var movieDescription = document.createElement("p");
         movieDescription.classList.add("movieDetails__movieDescription");
         movieDescription.textContent = movie.description;
+        movieDescription.style.paddingBottom = "20px";
+        movieDescription.style.textAlign = "center";
+        movieDescription.style.fontSize = "15px";
         var movieGenre = document.createElement("p");
         movieGenre.classList.add("movieDetails__genre");
         movieGenre.textContent = "Genre: " + movie.genre.join(", ");
@@ -55,12 +101,34 @@ function renderMovieCards(movies) {
         var moviePremiere = document.createElement("p");
         moviePremiere.classList.add("movieDetails__premiere");
         moviePremiere.textContent = "Premiere: " + movie.premiere;
-        var moviePageButton = document.createElement("button");
+        // Page button -
+        var moviePageButton = document.createElement("a");
         moviePageButton.classList.add("movieDetails__moviePageButton");
-        moviePageButton.textContent = "Movie Page";
-        moviePageButton.addEventListener("click", function () {
+        moviePageButton.href = "moviePage.html?id=" + movie.id;
+        moviePageButton.textContent = "MOVIE PAGE";
+        //-----
+        // Trailer button -
+        var trailerButton = document.createElement("button");
+        trailerButton.classList.add("movieDetails__trailerButton");
+        var trailerIcon = document.createElement("span");
+        trailerIcon.classList.add("material-symbols-outlined");
+        trailerIcon.textContent = "play_circle";
+        trailerIcon.style.position = "absolute";
+        trailerIcon.style.top = "10px";
+        trailerIcon.style.right = "10px";
+        trailerIcon.style.fontSize = "35px";
+        trailerIcon.style.cursor = "pointer";
+        trailerIcon.style.backgroundColor = "rgb(182, 11, 11)";
+        trailerIcon.style.color = "white";
+        trailerIcon.style.border = "none";
+        trailerIcon.style.borderRadius = "50%";
+        trailerButton.style.backgroundColor = "transparent";
+        trailerButton.style.border = "none";
+        trailerButton.appendChild(trailerIcon);
+        trailerButton.addEventListener("click", function () {
             window.open(movie.trailerURL, "_blank");
         });
+        //-----
         movieDetails.appendChild(movieName);
         movieDetails.appendChild(movieDescription);
         movieDetails.appendChild(movieGenre);
@@ -68,6 +136,7 @@ function renderMovieCards(movies) {
         movieDetails.appendChild(movieScreenDuration);
         movieDetails.appendChild(moviePremiere);
         movieDetails.appendChild(moviePageButton);
+        movieDetails.appendChild(trailerButton);
         movieCard.appendChild(movieImage);
         movieCard.appendChild(movieDetails);
         movieCardsContainer.appendChild(movieCard);
@@ -75,7 +144,6 @@ function renderMovieCards(movies) {
 }
 // Genre options -
 function genreOptions() {
-    var genreDropdown = document.getElementById("genreDropdown");
     var allGenres = [
         "action",
         "kids",
@@ -101,7 +169,8 @@ function genreOptions() {
 // Handle genre change -
 function filterMoviesByGenre() {
     var genreDropdown = document.getElementById("genreDropdown");
-    if (genreDropdown) {
+    var movieCardsContainer = document.getElementById("movieCards");
+    if (genreDropdown && movieCardsContainer) {
         var selectedGenre_1 = genreDropdown.value;
         if (selectedGenre_1 === "") {
             renderMovieCards(moviesArr);
@@ -115,6 +184,5 @@ function filterMoviesByGenre() {
     }
 }
 // Event listener for genre change -
-var genreDropdown = document.getElementById("genreDropdown");
 genreDropdown.addEventListener("change", filterMoviesByGenre);
 /////////////////////////////////////////////////////////////////////////////////////

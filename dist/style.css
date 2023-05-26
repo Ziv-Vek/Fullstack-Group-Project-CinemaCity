@@ -76,6 +76,15 @@ body {
   font-weight: 700;
 }
 
+.header {
+  width: 100%;
+}
+.header img {
+  width: 100%;
+  height: 450px;
+  cursor: pointer;
+}
+
 .movieCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -124,18 +133,8 @@ body {
   padding: 10px;
   letter-spacing: 0.5px;
 }
-.movieCard .movieDetails__movieName, .movieCard .movieDetails__movieDescription {
-  text-align: center;
-  padding-bottom: 20px;
-}
-.movieCard .movieDetails__movieName {
-  font-size: 25px;
-}
-.movieCard .movieDetails__movieDescription,
 .movieCard .movieDetails p {
   font-size: 15px;
-}
-.movieCard .movieDetails p {
   padding-bottom: 10px;
 }
 .movieCard .movieDetails__moviePageButton {
@@ -145,14 +144,17 @@ body {
   right: 15px;
   width: 90%;
   height: 30px;
-  cursor: pointer;
-  font-weight: bold;
+  text-decoration: none;
   color: white;
   font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
   background-color: var(--color-blue-700);
-  border-radius: 0 0 20px 20px;
   border: none;
+  border-radius: 10px;
   box-shadow: 0 3px 5px #2b2b2b;
+  cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
 .movieCard .movieDetails__moviePageButton:hover {

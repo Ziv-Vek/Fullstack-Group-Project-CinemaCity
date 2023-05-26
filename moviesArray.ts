@@ -24,7 +24,7 @@ const movies: Movie[] = [
   new Movie(
     "./img/kandahar.jpeg",
     "KANDAHAR",
-    ["action", "thriller"],
+    ["action", "thriller", "adventure"],
     17,
     new Date("May 25,2023"),
     120,
