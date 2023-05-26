@@ -9,29 +9,52 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="./dist/view.js" defer></script>
     <script src="./dist/module.js" defer></script>
     <script src="./dist/helper.js" defer></script>
     <script src="./dist/moviesArray.js" defer></script>
     <script src="./dist/controller.js" defer></script>
     <script src="./dist/index.js" defer></script>
-    <title>ZIA Cinema</title>
+    <title>zia Cinema</title>
   </head>
   <body>
-    <!--///////////////// navbar -->
+    <!-- Navbar -->
     <nav class="navbar">
-      <img
-        src="./img/logo.png"
-        alt="zia_cinema"
-        style="height: 100px; width: 170px"
-      />
+      <img src="./img/logo.png" alt="zia_cinema" class="zia-logo" />
 
       <button class="navbar__savedTickets">
         <span class="material-symbols-outlined"> play_pass </span>
       </button>
     </nav>
-    <!--///////////////// navbar -->
 
-    <!--///////////////// filter & movie cards -->
+    <!-- Search Area -->
+    <div class="search">
+      <p class="search__header">ORDER TICKETS</p>
+      <div class="search__search_groups">
+        <div class="search__btn">
+          <p class="search__btn__title-text">BY CINEMA</p>
+        </div>
+      </div>
+
+      <!-- <div class="search__background"></div>
+      <div class="dropdown-search" onClick="OnSearchDropdownClick(location)">
+        <div class="dropdown-search__by-location">
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-haifa"
+            onclick="OnSearchDropdownClick('cinema-haifa', location)"></div>
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-tlv"
+            onclick="OnSearchDropdownClick('cinema-tlv')"></div>
+          <div
+            class="dropdown-search__by-location"
+            id="cinema-eilat"
+            onclick="OnSearchDropdownClick('cinema-eilat')"></div>
+        </div>
+      </div> -->
+    </div>
+
     <div class="movieFilter">
       <label for="genreDropdown">Select Genre:</label>
       <select id="genreDropdown" onchange="filterMoviesByGenre()">
@@ -39,30 +62,8 @@
       </select>
     </div>
 
+    <!-- Movie Cards and Search Results -->
     <div class="movieCards"></div>
-    <!--///////////////// filter & movie cards -->
-
-    <div class="search-area-wrapper">
-      <div class="dropdown-search" onClick="OnSearchDropdownClick(location)">
-        <div class="dropdown-search__by-location">
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-haifa"
-            onclick="OnSearchDropdownClick('cinema-haifa', location)"
-          ></div>
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-tlv"
-            onclick="OnSearchDropdownClick('cinema-tlv')"
-          ></div>
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-eilat"
-            onclick="OnSearchDropdownClick('cinema-eilat')"
-          ></div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
 

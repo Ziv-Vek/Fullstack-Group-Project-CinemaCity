@@ -1,3 +1,20 @@
-$mainBlue: #35b9ed;
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-blue-100: #35b9ed;
+  --color-blue-400: #1889f2;
+  --color-blue-700: #0c5394;
+}
 
-$bgBlue: #0c5394;
+// Variables:
+$default-sides-padding: 14px;
+$default-font-color: var(--color-black);
+$default-font-weight: 700;
+$default-font-size: 0.9rem;
+$default-bg-color: var(--color-white);
+$page-width: 390px;
+$page-height: 850.75px;
+
+$mainBlue: var(--color-blue-100);
+
+$bgBlue: var(--color-blue-700);
