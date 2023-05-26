@@ -12,12 +12,46 @@ function MovieSearchFiltering(searchFields) { }
 // aliya
 function aliyaFunction() { }
 /////////////////////////////////////////////////////////////////////////////////////
+// - Header - //
+// let movieCoverArray: string[] = [
+//   "imgCover/fastXCover.jpeg",
+//   "imgCover/littleMermaidCover.jpeg",
+//   "imgCover/screamCover.jpeg",
+// ];
+// function loadMovieCovers() {
+//   const movieCoversContainer = document.getElementById("movieCovers");
+//   movieCoverArray.forEach((coverUrl) => {
+//     const coverImage = document.createElement("img");
+//     coverImage.src = coverUrl;
+//     coverImage.classList.add("coverImage");
+//     // Click event listener to navigate to the movie page -
+//     coverImage.addEventListener("click", () => {
+//       // Taking the movie ID from the cover URL so it would take us to the movie page -
+//       const movieId = coverUrl.split("id=")[1];
+//       window.open("moviePage.html?id=" + movieId, "_blank");
+//     });
+//     const coverImageElement = coverImage as HTMLElement;
+//     coverImageElement.style.display = "none";
+//     movieCoversContainer?.appendChild(coverImageElement);
+//   });
+//   // Change the cover image every few seconds -
+//   let currentCoverIndex = 0;
+//   setInterval(() => {
+//     currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
+//     const coverImages = document.querySelectorAll(".coverImage");
+//     coverImages.forEach((coverImage, index) => {
+//       const coverImageElement = coverImage as HTMLElement;
+//       if (index === currentCoverIndex) {
+//         coverImageElement.style.display = "block";
+//       } else {
+//         coverImageElement.style.display = "none";
+//       }
+//     });
+//   }, 5000);
+// }
+/////////////////////////////////////////////////////////////////////////////////////
+// - MOVIE CARDS & FILTER - //
 var moviesArr = [];
-var movieCoverArray = [
-    "imgCover/fastXCover.jpeg",
-    "imgCover/littleMermaidCover.jpeg",
-    "imgCover/screamCover.jpeg",
-];
 // Fetch movie data from json -
 fetch("movies.json")
     .then(function (response) { return response.json(); })
@@ -25,44 +59,8 @@ fetch("movies.json")
     moviesArr = data;
     renderMovieCards(moviesArr);
     genreOptions();
-    loadMovieCovers();
+    // loadMovieCovers();
 })["catch"](function (error) { return console.log(error); });
-/////////////////////////////////////////////////////////////////////////////////////
-// - Header - //
-function loadMovieCovers() {
-    var movieCoversContainer = document.getElementById("movieCovers");
-    movieCoverArray.forEach(function (coverUrl) {
-        var coverImage = document.createElement("img");
-        coverImage.src = coverUrl;
-        coverImage.classList.add("coverImage");
-        // Click event listener to navigate to the movie page -
-        coverImage.addEventListener("click", function () {
-            // Taking the movie ID from the cover URL so it would take us to the movie page -
-            var movieId = coverUrl.split("id=")[1];
-            window.open("moviePage.html?id=" + movieId, "_blank");
-        });
-        var coverImageElement = coverImage;
-        coverImageElement.style.display = "none";
-        movieCoversContainer === null || movieCoversContainer === void 0 ? void 0 : movieCoversContainer.appendChild(coverImageElement);
-    });
-    // Change the cover image every few seconds -
-    var currentCoverIndex = 0;
-    setInterval(function () {
-        currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
-        var coverImages = document.querySelectorAll(".coverImage");
-        coverImages.forEach(function (coverImage, index) {
-            var coverImageElement = coverImage;
-            if (index === currentCoverIndex) {
-                coverImageElement.style.display = "block";
-            }
-            else {
-                coverImageElement.style.display = "none";
-            }
-        });
-    }, 5000);
-}
-/////////////////////////////////////////////////////////////////////////////////////
-// - MOVIE CARDS & FILTER - //
 // Render movie cards -
 function renderMovieCards(movies) {
     movieCardsContainer.innerHTML = "";

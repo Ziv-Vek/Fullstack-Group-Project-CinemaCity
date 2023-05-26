@@ -3,7 +3,9 @@ const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
 
 // - Genre Dropdown - //
-const genreDropdown = document.getElementById("genreDropdown");
+const genreDropdown = document.getElementById(
+  "genreDropdown"
+) as HTMLSelectElement;
 
 // (genreOptions function and filterMoviesByGenre function)
 const secondarySearchArea = document.querySelector(
