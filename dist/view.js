@@ -1,5 +1,7 @@
 // - Movie Cards - //
+var movieCards = document.querySelector(".movieCards");
 var movieCardsContainer = document.querySelector(".movieCards");
 // - Genre Dropdown - //
-// (genreOptions function and filterMoviesByGenre function)
 var genreDropdown = document.getElementById("genreDropdown");
+// (genreOptions function and filterMoviesByGenre function)
+var secondarySearchArea = document.querySelector(".search__secondary-search");

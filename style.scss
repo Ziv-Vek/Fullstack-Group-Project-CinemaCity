@@ -38,11 +38,12 @@ body {
 .search {
   @include flex-vertical();
   width: 715px;
-  height: 96px;
+  height: 125px;
   background-color: var(--color-blue-400);
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 3px 5px 0px;
+  margin-bottom: 25px;
 
   &__header {
     font-weight: 700;
@@ -52,23 +53,37 @@ body {
 
   &__search_groups {
     @include flex-horizontal();
+    gap: 30px;
   }
 
   &__btn {
     width: 155px;
     height: 37px;
     border-radius: 10px;
+    padding: 0;
     border: 2px solid var(--color-black);
     background-color: transparent;
-    @include grid-center;
+    font-size: 20px;
+    font-weight: 700;
 
-    &__title-text {
-      display: inline-block;
-      color: var(--color-white);
-      font-size: 20px;
-      font-weight: 700;
+    &:hover {
+      background-color: var(--color-blue-700);
     }
   }
+
+  &__secondary-search {
+    display: none;
+    width: 800px;
+    background-color: var(--color-blue-400-05);
+
+    &--visible {
+      @include flex-vertical();
+    }
+  }
+}
+
+.dropDownTest {
+  background-color: red;
 }
 
 // movie header -
