@@ -91,15 +91,6 @@ body {
   background-color: red;
 }
 
-.header {
-  width: 100%;
-}
-.header img {
-  width: 100%;
-  height: 450px;
-  cursor: pointer;
-}
-
 .movieCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -146,7 +137,6 @@ body {
   background-color: var(--color-blue-100);
   font-weight: bold;
   padding: 10px;
-  letter-spacing: 0.5px;
 }
 .movieCard .movieDetails p {
   font-size: 15px;

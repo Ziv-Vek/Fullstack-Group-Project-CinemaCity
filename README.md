@@ -1,1 +1,0 @@
-# Fullstack-Group-Project-TypeScript

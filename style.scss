@@ -87,15 +87,15 @@ body {
 }
 
 // movie header -
-.header {
-  width: 100%;
+// .header {
+//   width: 100%;
 
-  img {
-    width: 100%;
-    height: 450px;
-    cursor: pointer;
-  }
-}
+//   img {
+//     width: 100%;
+//     height: 450px;
+//     cursor: pointer;
+//   }
+// }
 
 // movie cards -
 .movieCards {
@@ -142,7 +142,6 @@ body {
     background-color: $mainBlue;
     font-weight: bold;
     padding: 10px;
-    letter-spacing: 0.5px;
 
     p {
       font-size: 15px;
