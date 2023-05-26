@@ -1,7 +1,7 @@
 [
   {
     "uuid": 1,
-    "image": "./img/fastX.jpg",
+    "image": "./assets/img/fastX.jpg",
     "name": "Fast X",
     "genre": ["action", "adventure"],
     "ageLimit": 13,
@@ -13,7 +13,7 @@
   },
   {
     "uuid": 2,
-    "image": "./img/littleMermaid.jpeg",
+    "image": "./assets/img/littleMermaid.jpeg",
     "name": "The Little Mermaid",
     "genre": ["fantasy", "musical", "kids"],
     "ageLimit": 5,
@@ -25,7 +25,7 @@
   },
   {
     "uuid": 3,
-    "image": "./img/kandahar.jpeg",
+    "image": "./assets/img/kandahar.jpeg",
     "name": "Kandahar",
     "genre": ["action", "thriller", "adventure"],
     "ageLimit": 17,
@@ -37,7 +37,7 @@
   },
   {
     "uuid": 4,
-    "image": "./img/scream6.jpg",
+    "image": "./assets/img/scream6.jpg",
     "name": "Scream 6",
     "genre": ["horror"],
     "ageLimit": 17,
@@ -49,7 +49,7 @@
   },
   {
     "uuid": 5,
-    "image": "./img/mummies.jpeg",
+    "image": "./assets/img/mummies.jpeg",
     "name": "Mummies",
     "genre": ["kids", "animation", "comedy"],
     "ageLimit": 5,
@@ -61,7 +61,7 @@
   },
   {
     "uuid": 6,
-    "image": "./img/suzume.jpeg",
+    "image": "./assets/img/suzume.jpeg",
     "name": "SUZUME",
     "genre": ["animation", "adventure", "foreign"],
     "ageLimit": 9,
@@ -73,7 +73,7 @@
   },
   {
     "uuid": 7,
-    "image": "./img/boyFromHeaven.png",
+    "image": "./assets/img/boyFromHeaven.png",
     "name": "Boy From Heaven",
     "genre": ["drama", "thriller", "foreign"],
     "ageLimit": 13,
@@ -85,7 +85,7 @@
   },
   {
     "uuid": 8,
-    "image": "./img/playDead.jpeg",
+    "image": "./assets/img/playDead.jpeg",
     "name": "Play Dead",
     "genre": ["horror"],
     "ageLimit": 17,
@@ -97,7 +97,7 @@
   },
   {
     "uuid": 9,
-    "image": "./img/mamaWeed.jpeg",
+    "image": "./assets/img/mamaWeed.jpeg",
     "name": "Mama Weed",
     "genre": ["comedy", "crime", "foreign", "thriller"],
     "ageLimit": 17,
@@ -109,7 +109,7 @@
   },
   {
     "uuid": 10,
-    "image": "./img/theRitualKiller.jpeg",
+    "image": "./assets/img/theRitualKiller.jpeg",
     "name": "The Ritual Killer",
     "genre": ["thriller", "crime", "action", "drama"],
     "ageLimit": 17,
@@ -121,7 +121,7 @@
   },
   {
     "uuid": 11,
-    "image": "./img/johnWick4.jpg",
+    "image": "./assets/img/johnWick4.jpg",
     "name": "John Wick: Chapter 4",
     "genre": ["action", "thriller", "adventure"],
     "ageLimit": 13,
@@ -133,7 +133,7 @@
   },
   {
     "uuid": 12,
-    "image": "./img/robots.jpeg",
+    "image": "./assets/img/robots.jpeg",
     "name": "ROBOTS",
     "genre": ["sci-fi", "fantasy", "comedy"],
     "ageLimit": 13,
@@ -145,7 +145,7 @@
   },
   {
     "uuid": 13,
-    "image": "./img/evilDeadRise.jpg",
+    "image": "./assets/img/evilDeadRise.jpg",
     "name": "Evil Dead Rise",
     "genre": ["horror", "fantasy"],
     "ageLimit": 17,
