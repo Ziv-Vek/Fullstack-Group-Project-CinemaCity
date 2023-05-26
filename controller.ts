@@ -31,49 +31,49 @@ fetch("movies.json")
     moviesArr = data;
     renderMovieCards(moviesArr);
     genreOptions();
-    // loadMovieCovers();
+    loadMovieCovers();
   })
   .catch((error) => console.log(error));
 
 /////////////////////////////////////////////////////////////////////////////////////
 // - Header - //
 
-// function loadMovieCovers() {
-//   const movieCoversContainer = document.getElementById("movieCovers");
+function loadMovieCovers() {
+  const movieCoversContainer = document.getElementById("movieCovers");
 
-//   movieCoverArray.forEach((coverUrl) => {
-//     const coverImage = document.createElement("img");
-//     coverImage.src = coverUrl;
-//     coverImage.classList.add("coverImage");
+  movieCoverArray.forEach((coverUrl) => {
+    const coverImage = document.createElement("img");
+    coverImage.src = coverUrl;
+    coverImage.classList.add("coverImage");
 
-//     // Click event listener to navigate to the movie page -
-//     coverImage.addEventListener("click", () => {
-//       // Extract the movie ID from the cover URL (assuming it's in the format "moviePage.html?id=<movie-id>")
-//       const movieId = coverUrl.split("id=")[1];
-//       window.open("moviePage.html?id=" + movieId, "_blank");
-//     });
+    // Click event listener to navigate to the movie page -
+    coverImage.addEventListener("click", () => {
+      // Taking the movie ID from the cover URL so it would take us to the movie page -
+      const movieId = coverUrl.split("id=")[1];
+      window.open("moviePage.html?id=" + movieId, "_blank");
+    });
 
-//     const coverImageElement = coverImage as HTMLElement;
-//     coverImageElement.style.display = "none";
+    const coverImageElement = coverImage as HTMLElement;
+    coverImageElement.style.display = "none";
 
-//     movieCoversContainer?.appendChild(coverImageElement);
-//   });
+    movieCoversContainer?.appendChild(coverImageElement);
+  });
 
-//   // Change the cover image every few seconds -
-//   let currentCoverIndex = 0;
-//   setInterval(() => {
-//     currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
-//     const coverImages = document.querySelectorAll(".coverImage");
-//     coverImages.forEach((coverImage, index) => {
-//       const coverImageElement = coverImage as HTMLElement;
-//       if (index === currentCoverIndex) {
-//         coverImageElement.style.display = "block";
-//       } else {
-//         coverImageElement.style.display = "none";
-//       }
-//     });
-//   }, 5000);
-// }
+  // Change the cover image every few seconds -
+  let currentCoverIndex = 0;
+  setInterval(() => {
+    currentCoverIndex = (currentCoverIndex + 1) % movieCoverArray.length;
+    const coverImages = document.querySelectorAll(".coverImage");
+    coverImages.forEach((coverImage, index) => {
+      const coverImageElement = coverImage as HTMLElement;
+      if (index === currentCoverIndex) {
+        coverImageElement.style.display = "block";
+      } else {
+        coverImageElement.style.display = "none";
+      }
+    });
+  }, 5000);
+}
 
 /////////////////////////////////////////////////////////////////////////////////////
 // - MOVIE CARDS & FILTER - //
