@@ -6,95 +6,26 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 // - MOVIE CARDS & FILTER - //
-var moviesArr = [];
 // Fetch movie data from json -
+var movies = [];
 fetch("movies.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
-    moviesArr = data;
-    renderMovieCards(moviesArr);
+    movies = data;
+    renderMovieCards(movies);
     genreOptions();
-    // loadMovieCovers();
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
-    movieCardsContainer.innerHTML = "";
+    var movieCardsHTML = "";
     movies.forEach(function (movie) {
-        var movieCard = document.createElement("div");
-        movieCard.classList.add("movieCard");
-        var movieImage = document.createElement("div");
-        movieImage.classList.add("movieImage");
-        var image = document.createElement("img");
-        image.src = movie.image;
-        movieImage.appendChild(image);
-        var movieDetails = document.createElement("div");
-        movieDetails.classList.add("movieDetails");
-        var movieName = document.createElement("h2");
-        movieName.classList.add("movieDetails__movieName");
-        movieName.textContent = movie.name;
-        movieName.style.textAlign = "center";
-        movieName.style.paddingTop = "32px";
-        movieName.style.paddingBottom = "20px";
-        movieName.style.fontSize = "28px";
-        var movieDescription = document.createElement("p");
-        movieDescription.classList.add("movieDetails__movieDescription");
-        movieDescription.textContent = movie.description;
-        movieDescription.style.paddingBottom = "20px";
-        movieDescription.style.textAlign = "center";
-        movieDescription.style.fontSize = "15px";
-        var movieGenre = document.createElement("p");
-        movieGenre.classList.add("movieDetails__genre");
-        movieGenre.textContent = "Genre: " + movie.genre.join(", ");
-        var movieAgeLimit = document.createElement("p");
-        movieAgeLimit.classList.add("movieDetails__ageLimit");
-        movieAgeLimit.textContent = "Age Limit: " + movie.ageLimit;
-        var movieScreenDuration = document.createElement("p");
-        movieScreenDuration.classList.add("movieDetails__screenDuration");
-        movieScreenDuration.textContent =
-            "Screen Duration: " + movie.screenDuration;
-        var moviePremiere = document.createElement("p");
-        moviePremiere.classList.add("movieDetails__premiere");
-        moviePremiere.textContent = "Premiere: " + movie.premiere;
-        // Page button -
-        var moviePageButton = document.createElement("a");
-        moviePageButton.classList.add("movieDetails__moviePageButton");
-        moviePageButton.href = "moviePage.html?id=" + movie.id;
-        moviePageButton.textContent = "MOVIE PAGE";
-        //-----
-        // Trailer button -
-        var trailerButton = document.createElement("button");
-        trailerButton.classList.add("movieDetails__trailerButton");
-        var trailerIcon = document.createElement("span");
-        trailerIcon.classList.add("material-symbols-outlined");
-        trailerIcon.textContent = "play_circle";
-        trailerIcon.style.position = "absolute";
-        trailerIcon.style.top = "10px";
-        trailerIcon.style.right = "10px";
-        trailerIcon.style.fontSize = "35px";
-        trailerIcon.style.cursor = "pointer";
-        trailerIcon.style.backgroundColor = "rgb(182, 11, 11)";
-        trailerIcon.style.color = "white";
-        trailerIcon.style.border = "none";
-        trailerIcon.style.borderRadius = "50%";
-        trailerButton.style.backgroundColor = "transparent";
-        trailerButton.style.border = "none";
-        trailerButton.appendChild(trailerIcon);
-        trailerButton.addEventListener("click", function () {
-            window.open(movie.trailerURL, "_blank");
-        });
-        //-----
-        movieDetails.appendChild(movieName);
-        movieDetails.appendChild(movieDescription);
-        movieDetails.appendChild(movieGenre);
-        movieDetails.appendChild(movieAgeLimit);
-        movieDetails.appendChild(movieScreenDuration);
-        movieDetails.appendChild(moviePremiere);
-        movieDetails.appendChild(moviePageButton);
-        movieDetails.appendChild(trailerButton);
-        movieCard.appendChild(movieImage);
-        movieCard.appendChild(movieDetails);
-        movieCardsContainer.appendChild(movieCard);
+        movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n      <a class=\"movieDetails__moviePageButton\" href=\"moviePage.html?id=" + movie.uuid + "\">MOVIE PAGE</a>\n      <button class=\"movieDetails__trailerButton\" onclick=\"openTrailer('" + movie.trailerURL + "')\">\n        <span id=\"trailerBtn\" class=\"material-symbols-outlined\">play_circle</span>\n      </button>\n    </div>\n  </div>";
     });
+    movieCardsContainer.innerHTML = movieCardsHTML;
+}
+// Open trailer -
+function openTrailer(trailerURL) {
+    window.open(trailerURL, "_blank");
 }
 // Genre options -
 function genreOptions() {
@@ -122,15 +53,13 @@ function genreOptions() {
 }
 // Handle genre change -
 function filterMoviesByGenre() {
-    var genreDropdown = document.getElementById("genreDropdown");
-    var movieCardsContainer = document.querySelector(".movieCards");
     if (genreDropdown && movieCardsContainer) {
         var selectedGenre_1 = genreDropdown.value;
         if (selectedGenre_1 === "") {
-            renderMovieCards(moviesArr);
+            renderMovieCards(movies);
         }
         else {
-            var filteredMovies = moviesArr.filter(function (movie) {
+            var filteredMovies = movies.filter(function (movie) {
                 return movie.genre.includes(selectedGenre_1);
             });
             renderMovieCards(filteredMovies);
