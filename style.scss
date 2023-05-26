@@ -10,10 +10,11 @@ body {
   background-color: $bgBlue;
 }
 
+// navbar -
 .navbar {
   width: 100%;
   background-color: $bgBlue;
-  box-shadow: 0 2px 4px rgb(43, 43, 43);
+  @include bottonShadow;
 
   &__savedTickets {
     cursor: pointer;
@@ -32,7 +33,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
-  margin: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
 .movieCard {
@@ -52,49 +55,65 @@ body {
   .movieImage,
   .movieDetails {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    @include mainCardSize(300px, 450px, 10px);
     @include mainBoxShadow;
     backface-visibility: hidden;
     transition: transform 1s ease-in-out;
   }
 
   .movieImage {
-    transform: rotateY(0);
-
     img {
-      width: 300px;
-      height: 450px;
-      border-radius: 10px;
+      @include mainCardSize(300px, 450px, 10px);
     }
   }
 
   .movieDetails {
     transform: rotateY(180deg);
-    width: 300px;
-    height: 450px;
+    @include mainCardSize(300px, 450px, 10px);
     background-color: $mainBlue;
     font-weight: bold;
     padding: 10px;
     letter-spacing: 0.5px;
-    border-radius: 10px;
 
-    &__movieName {
+    &__movieName,
+    &__movieDescription {
       text-align: center;
       padding-bottom: 20px;
-      font-size: 30px;
     }
 
-    &__movieDescription {
-      padding-bottom: 20px;
+    &__movieName {
+      font-size: 25px;
+    }
+
+    &__movieDescription,
+    p {
       font-size: 15px;
-      text-align: center;
     }
 
     p {
       padding-bottom: 10px;
+    }
+
+    &__moviePageButton {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      width: 90%;
+      height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
       font-size: 15px;
+      background-color: $bgBlue;
+      border-radius: 0 0 20px 20px;
+      border: none;
+      @include bottonShadow;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &__moviePageButton:hover {
+      transform: scale(105%);
     }
   }
 }

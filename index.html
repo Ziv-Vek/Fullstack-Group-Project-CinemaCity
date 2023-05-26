@@ -31,9 +31,16 @@
     </nav>
     <!--///////////////// navbar -->
 
-    <!--///////////////// movie cards -->
+    <!--///////////////// filter & movie cards -->
+    <div class="movieFilter">
+      <label for="genreDropdown">Select Genre:</label>
+      <select id="genreDropdown" onchange="filterMoviesByGenre()">
+        <option value="">GENRE</option>
+      </select>
+    </div>
+
     <div class="movieCards"></div>
-    <!--///////////////// movie cards -->
+    <!--///////////////// filter & movie cards -->
 
     <div class="search-area-wrapper">
       <div class="dropdown-search" onClick="OnSearchDropdownClick(location)">
