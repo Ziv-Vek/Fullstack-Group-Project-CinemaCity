@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: #0c5394;
+}
+
+.zia-logo {
+  height: 100px;
+  width: 170px;
+  box-shadow: 0 3px 5px black;
+}
+
+.newMoviePage {
+  position: relative;
+  top: 50px;
+  letter-spacing: 0.5px;
+}
+.newMoviePage__image {
+  width: 200px;
+  height: 350px;
+  border: 2px solid red;
+}
+.newMoviePage__title {
+  position: absolute;
+  left: 220px;
+  color: white;
+  top: 0;
+  font-size: 40px;
+}
+.newMoviePage__description {
+  position: absolute;
+  top: 30%;
+  left: 220px;
+  color: white;
+  width: 350px;
+  font-size: 20px;
+}
+.newMoviePage__ageLimit {
+  position: absolute;
+  top: 15%;
+  left: 220px;
+  color: white;
+  font-size: 20px;
+  background-color: red;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 5px;
+}
+.newMoviePage__generalInfo {
+  position: absolute;
+  top: 80%;
+  left: 220px;
+  color: white;
+}
+.newMoviePage__genre, .newMoviePage__duration, .newMoviePage__premiere {
+  padding-bottom: 5px;
+}

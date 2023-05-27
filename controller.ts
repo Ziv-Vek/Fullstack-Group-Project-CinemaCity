@@ -39,14 +39,14 @@ function renderMovieCards(movies: any[]) {
         movie.screenDuration
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
-      <a class="movieDetails__moviePageButton" href="moviePage.html?id=${
-        movie.uuid
-      }">MOVIE PAGE</a>
       <button class="movieDetails__trailerButton" onclick="openTrailer('${
         movie.trailerURL
       }')">
-        <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
+      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
       </button>
+      <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=${
+        movie.uuid
+      }" onclick="transferMovieData(event, ${movie.uuid})">MOVIE PAGE</a>
     </div>
   </div>`;
   });
@@ -102,6 +102,36 @@ function filterMoviesByGenre() {
 }
 // Event listener for genre change -
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
+/////////////////////////////////////////////////////////////////////////////////////
+// Transfer data to movie page -
+function transferMovieData(event: Event, movieId: number) {
+  event.preventDefault();
+
+  const movie = movies.find((movie) => movie.uuid === movieId);
+  if (movie) {
+    const movieData: Movie = movie;
+
+    const movieDataString = encodeURIComponent(JSON.stringify(movieData));
+    const moviePageURL = `./moviePage/moviePage.html?data=${movieDataString}`;
+
+    window.location.href = moviePageURL;
+  }
+}
+
+function populateMoviePage(movie: Movie) {
+  document.querySelector(
+    "#movieImage"
+  )!.innerHTML = `<img src="${movie.image}" />`;
+  document.querySelector("#movieTitle")!.textContent = movie.name;
+  document.querySelector("#movieDescription")!.textContent = movie.description;
+  document.querySelector("#movieGenre")!.textContent = movie.genre.join(", ");
+  document.querySelector("#movieAgeLimit")!.textContent =
+    movie.ageLimit.toString();
+  document.querySelector("#movieDuration")!.textContent =
+    "Duration in Minutes: " + movie.screenDuration.toString();
+  document.querySelector("#moviePremiere")!.textContent =
+    "Premiere: " + movie.premiere.toString();
+}
 /////////////////////////////////////////////////////////////////////////////////////
 
 /** Handles user search selections */
