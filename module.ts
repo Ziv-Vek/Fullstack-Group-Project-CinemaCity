@@ -23,7 +23,7 @@ class Cinema {
       {
         movieID: number;
         screenTime: Date;
-        screenDate: Date;
+        screenDate: string;
         venue: number[];
         seats: [{ line: number; seatID: number }];
       }
