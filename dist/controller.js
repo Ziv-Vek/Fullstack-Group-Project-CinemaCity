@@ -1,12 +1,18 @@
 // - MOVIE CARDS & FILTER - //
 // Fetch movie data from json -
 var movies = [];
+var cinemas = [];
 fetch("movies.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     movies = data;
     renderMovieCards(movies);
     genreOptions();
+})["catch"](function (error) { return console.log(error); });
+fetch("cinema.json")
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    cinemas = data;
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
@@ -111,8 +117,8 @@ var SearchHandler = /** @class */ (function () {
                 return { value: filteredMovies };
             }
         };
-        for (var _i = 0, _a = moviesAndCinemasManager.getCinemasArr; _i < _a.length; _i++) {
-            var cinema = _a[_i];
+        for (var _i = 0, cinemas_1 = cinemas; _i < cinemas_1.length; _i++) {
+            var cinema = cinemas_1[_i];
             var state_1 = _loop_1(cinema);
             if (typeof state_1 === "object")
                 return state_1.value;
@@ -128,17 +134,13 @@ var SearchFieldsRenderer = /** @class */ (function () {
     }
     SearchFieldsRenderer.prototype.toggleSecondSearchArea = function () { };
     SearchFieldsRenderer.prototype.populateLocations = function () {
-        console.log(moviesAndCinemasManager.getCinemasArr);
-        // searchLocationMenu.innerHTML = moviesAndCinemasManager.cinemasArr
-        //   .map((cinema) => {
-        //     return `<li>
-        //     <a
-        //       class="dropdown-item"
-        //       onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
-        //       >${cinema.cinemaName}</a>
-        //   </li>`;
-        //   })
-        //   .join();
+        //searchLocationMenu.innerHTML =
+        console.log(cinemas);
+        console.log(cinemas
+            .map(function (cinema) {
+            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
+        })
+            .join());
     };
     return SearchFieldsRenderer;
 }());

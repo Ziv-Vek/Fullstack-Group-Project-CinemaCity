@@ -57,14 +57,19 @@ class Movie implements IMovie {
 
 class MoviesAndCinemasManager {
   private movies: Movie[] = [];
-  private cinemasArr: Cinema[] = [];
+  public cinemasArr: object;
 
-  constructor() {
-    this.populateCinemas();
+  constructor() {}
+
+  public get getCinemasArr() {
+    return this.cinemasArr;
   }
 
-  public get getCinemasArr(): Cinema[] {
-    return this.cinemasArr;
+  public setCinemasArr(data: any) {
+    // console.log(data);
+    // console.log(data[2].cinemaName);
+
+    this.cinemasArr = data;
   }
 
   public addMovie(movie: Movie) {
@@ -74,13 +79,23 @@ class MoviesAndCinemasManager {
   // public get getMoviesArr(): Movie[] {
   //   return this.movies;
   // }
-
-  private populateCinemas() {
-    fetch("cinema.json")
-      .then((response) => response.json())
-      .then((data) => {
-        this.cinemasArr = data;
-      })
-      .catch((error) => console.log(error));
-  }
 }
+
+//let cinemasArr: any;
+
+fetch("cinema.json")
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.length === 0) throw new Error("Data from cinema.json is empty");
+
+    handleJsonCinemaData(data);
+  })
+  .catch((error) => console.log(error));
+
+const handleJsonCinemaData = (data: any) => {
+  if (!MoviesAndCinemasManager)
+    throw new Error("MoviesAndCinemasManager not found.");
+
+  //cinemasArr = data;
+  moviesAndCinemasManager.setCinemasArr(data);
+};

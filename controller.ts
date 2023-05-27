@@ -2,6 +2,7 @@
 
 // Fetch movie data from json -
 let movies: any[] = [];
+let cinemas: any[] = [];
 
 fetch("movies.json")
   .then((response) => response.json())
@@ -9,6 +10,13 @@ fetch("movies.json")
     movies = data;
     renderMovieCards(movies);
     genreOptions();
+  })
+  .catch((error) => console.log(error));
+
+fetch("cinema.json")
+  .then((response) => response.json())
+  .then((data) => {
+    cinemas = data;
   })
   .catch((error) => console.log(error));
 
@@ -133,7 +141,7 @@ class SearchHandler {
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
 
-    for (let cinema of moviesAndCinemasManager.getCinemasArr) {
+    for (let cinema of cinemas) {
       if (cinema.cinemaName === location) {
         let allMoviesIdInCinema: number[] = [];
 
@@ -168,17 +176,21 @@ class SearchFieldsRenderer {
   public toggleSecondSearchArea() {}
 
   private populateLocations() {
-    console.log(moviesAndCinemasManager.getCinemasArr);
-
-    // searchLocationMenu.innerHTML = moviesAndCinemasManager.cinemasArr
-    //   .map((cinema) => {
-    //     return `<li>
-    //     <a
-    //       class="dropdown-item"
-    //       onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
-    //       >${cinema.cinemaName}</a>
-    //   </li>`;
-    //   })
-    //   .join();
+    //searchLocationMenu.innerHTML =
+    console.log(cinemas);
+    
+    
+    console.log(
+      cinemas
+        .map((cinema) => {
+          return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
+          >${cinema.cinemaName}</a>
+      </li>`;
+        })
+        .join()
+    );
   }
 }
