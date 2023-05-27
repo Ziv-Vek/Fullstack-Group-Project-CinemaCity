@@ -3,7 +3,7 @@ var Cinema = /** @class */ (function () {
         this.id = id;
         this.cinemaName = cinemaName;
         this.movieList = movieList;
-        moviesAndCinemasManager.addCinema(this);
+        //moviesAndCinemasManager.addCinema(this);
     }
     return Cinema;
 }());
@@ -24,35 +24,36 @@ var Movie = /** @class */ (function () {
         this.description = description;
         this.trailerURL = trailerURL;
         this.cinemaID = cinemaID;
-        moviesAndCinemasManager.addMovie(this);
+        //moviesAndCinemasManager.addMovie(this);
     }
     return Movie;
 }());
 var MoviesAndCinemasManager = /** @class */ (function () {
     function MoviesAndCinemasManager() {
         this.movies = [];
-        this.cinemas = [];
+        this.cinemasArr = [];
+        this.populateCinemas();
     }
+    Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemasArr", {
+        get: function () {
+            return this.cinemasArr;
+        },
+        enumerable: false,
+        configurable: true
+    });
     MoviesAndCinemasManager.prototype.addMovie = function (movie) {
         this.movies.push(movie);
     };
-    Object.defineProperty(MoviesAndCinemasManager.prototype, "getMoviesArr", {
-        get: function () {
-            return this.movies;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MoviesAndCinemasManager.prototype.addCinema = function (cinema) {
-        this.cinemas.push(cinema);
+    // public get getMoviesArr(): Movie[] {
+    //   return this.movies;
+    // }
+    MoviesAndCinemasManager.prototype.populateCinemas = function () {
+        var _this = this;
+        fetch("cinema.json")
+            .then(function (response) { return response.json(); })
+            .then(function (data) {
+            _this.cinemasArr = data;
+        })["catch"](function (error) { return console.log(error); });
     };
-    Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemaArr", {
-        get: function () {
-            return this.cinemas;
-        },
-        enumerable: false,
-        configurable: true
-    });
     return MoviesAndCinemasManager;
 }());
-var moviesAndCinemasManager = new MoviesAndCinemasManager();

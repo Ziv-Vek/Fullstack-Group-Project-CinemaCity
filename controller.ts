@@ -133,7 +133,7 @@ class SearchHandler {
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
 
-    for (let cinema of cinemasArr) {
+    for (let cinema of moviesAndCinemasManager.getCinemasArr) {
       if (cinema.cinemaName === location) {
         let allMoviesIdInCinema: number[] = [];
 
@@ -168,17 +168,17 @@ class SearchFieldsRenderer {
   public toggleSecondSearchArea() {}
 
   private populateLocations() {
-    console.log(cinemasArr);
+    console.log(moviesAndCinemasManager.getCinemasArr);
 
-    searchLocationMenu.innerHTML = cinemasArr
-      .map((cinema) => {
-        return `<li>
-        <a
-          class="dropdown-item"
-          onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
-          >${cinema.cinemaName}</a>
-      </li>`;
-      })
-      .join();
+    // searchLocationMenu.innerHTML = moviesAndCinemasManager.cinemasArr
+    //   .map((cinema) => {
+    //     return `<li>
+    //     <a
+    //       class="dropdown-item"
+    //       onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
+    //       >${cinema.cinemaName}</a>
+    //   </li>`;
+    //   })
+    //   .join();
   }
 }

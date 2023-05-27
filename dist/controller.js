@@ -111,8 +111,8 @@ var SearchHandler = /** @class */ (function () {
                 return { value: filteredMovies };
             }
         };
-        for (var _i = 0, cinemasArr_1 = cinemasArr; _i < cinemasArr_1.length; _i++) {
-            var cinema = cinemasArr_1[_i];
+        for (var _i = 0, _a = moviesAndCinemasManager.getCinemasArr; _i < _a.length; _i++) {
+            var cinema = _a[_i];
             var state_1 = _loop_1(cinema);
             if (typeof state_1 === "object")
                 return state_1.value;
@@ -128,12 +128,17 @@ var SearchFieldsRenderer = /** @class */ (function () {
     }
     SearchFieldsRenderer.prototype.toggleSecondSearchArea = function () { };
     SearchFieldsRenderer.prototype.populateLocations = function () {
-        console.log(cinemasArr);
-        searchLocationMenu.innerHTML = cinemasArr
-            .map(function (cinema) {
-            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
-        })
-            .join();
+        console.log(moviesAndCinemasManager.getCinemasArr);
+        // searchLocationMenu.innerHTML = moviesAndCinemasManager.cinemasArr
+        //   .map((cinema) => {
+        //     return `<li>
+        //     <a
+        //       class="dropdown-item"
+        //       onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
+        //       >${cinema.cinemaName}</a>
+        //   </li>`;
+        //   })
+        //   .join();
     };
     return SearchFieldsRenderer;
 }());
