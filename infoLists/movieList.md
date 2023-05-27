@@ -35,7 +35,7 @@
 5. MUMMIES --
    screening hours:
    TLV: 11:30 / 12:00
-   Haifa: 12:00
+   Haifa: 12:00 / 16:00
    Ashdod: 12:00 / 13:20
    RL: 12:20 / 12:40
    BS: 13:00 / 15:30 / 19:10
@@ -46,7 +46,7 @@
    Haifa: 12:20
    Ashdod: none
    RL: 11:30 / 00:00
-   BS:
+   BS: none
 
 7. BOY FROM HEAVEN --
    screening hours:
@@ -69,8 +69,8 @@
    TLV: 15:30
    Haifa: 13:00 / 19:30
    Ashdod: 16:00 / 19:10
-   RL:
-   BS:
+   RL: none
+   BS: none
 
 10. THE RITUAL KILLER --
     screening hours:
@@ -78,7 +78,7 @@
     Haifa: 16:30
     Ashdod: 19:00 / 19:40
     RL: 16:00 / 19:10
-    BS:
+    BS: none
 
 11. JOHN WICK: Chapter 4 --
     screening hours:
