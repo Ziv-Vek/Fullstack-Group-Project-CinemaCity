@@ -13,6 +13,7 @@ fetch("cinema.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     cinemas = data;
+    searchFieldsRenderer.main(data);
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
@@ -130,17 +131,18 @@ var SearchHandler = /** @class */ (function () {
 /** Responsible for rendering the search fields */
 var SearchFieldsRenderer = /** @class */ (function () {
     function SearchFieldsRenderer() {
-        this.populateLocations();
     }
+    SearchFieldsRenderer.prototype.main = function (cinemas) {
+        this.cinemas = cinemas;
+        this.populateLocations();
+    };
     SearchFieldsRenderer.prototype.toggleSecondSearchArea = function () { };
     SearchFieldsRenderer.prototype.populateLocations = function () {
-        //searchLocationMenu.innerHTML =
-        console.log(cinemas);
-        console.log(cinemas
+        searchLocationMenu.innerHTML = cinemas
             .map(function (cinema) {
             return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
         })
-            .join());
+            .join("");
     };
     return SearchFieldsRenderer;
 }());

@@ -17,6 +17,7 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
+    searchFieldsRenderer.main(data);
   })
   .catch((error) => console.log(error));
 
@@ -169,28 +170,27 @@ class SearchHandler {
 
 /** Responsible for rendering the search fields */
 class SearchFieldsRenderer {
-  constructor() {
+  public cinemas: any[];
+
+  constructor() {}
+
+  public main(cinemas) {
+    this.cinemas = cinemas;
     this.populateLocations();
   }
 
   public toggleSecondSearchArea() {}
 
   private populateLocations() {
-    //searchLocationMenu.innerHTML =
-    console.log(cinemas);
-    
-    
-    console.log(
-      cinemas
-        .map((cinema) => {
-          return `<li>
+    searchLocationMenu.innerHTML = cinemas
+      .map((cinema) => {
+        return `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
       </li>`;
-        })
-        .join()
-    );
+      })
+      .join("");
   }
 }
