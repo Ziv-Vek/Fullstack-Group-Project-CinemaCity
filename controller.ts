@@ -98,6 +98,7 @@ genreDropdown!.addEventListener("change", filterMoviesByGenre);
 /** Handles user search selections */
 class SearchHandler {
   searchFilters: Array<string> = [];
+  private filteredMovies: Movie[] = [];
 
   constructor() {}
 
@@ -109,7 +110,13 @@ class SearchHandler {
 
       this.updateSearchTitle(searchFilter, location);
       this.searchFilters.push(location);
-      this.filterMoviesByCinemas(location);
+      this.filteredMovies = this.filterMoviesByCinemas(location);
+
+      if (this.filteredMovies.length === 0) {
+        renderMovieCards(movies);
+      } else {
+        renderMovieCards(this.filteredMovies);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -123,42 +130,55 @@ class SearchHandler {
     selector.children[0].innerHTML = location;
   }
 
-  private filterMoviesByCinemas(location: string) {
+  private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
 
-    for (const cinema of cinemasArr) {
+    for (let cinema of cinemasArr) {
       if (cinema.cinemaName === location) {
-        let allMoviesId: number[] = [];
-        //let uniqueMoviesId: number[] = [];
+        let allMoviesIdInCinema: number[] = [];
 
         cinema.movieList.forEach((movie) => {
-          allMoviesId.push(movie.movieID);
+          allMoviesIdInCinema.push(movie.movieID);
         });
 
-        let uniqueMoviesId: number[] = [...new Set(allMoviesId)];
-        console.log(uniqueMoviesId);
+        const uniqueMoviesIdInCinema = new Set(allMoviesIdInCinema);
 
-        return;
+        movies.forEach((movie) => {
+          uniqueMoviesIdInCinema.forEach((idByCinema) => {
+            if (idByCinema === movie.uuid) {
+              filteredMovies.push(movie);
+            }
+          });
+        });
+
+        return filteredMovies;
       }
     }
 
-    // const filteredMovies: Movie[] = moviesArr.filter((movie) => {
-
-    // });
+    return filteredMovies;
   }
 }
 
-const searchHandler = new SearchHandler();
+/** Responsible for rendering the search fields */
+class SearchFieldsRenderer {
+  constructor() {
+    this.populateLocations();
+  }
 
-// dropdownItem.forEach((item) => {
-//   item.addEventListener(`onclick`, testF());
-// });
+  public toggleSecondSearchArea() {}
 
-let cinemasArr: Cinema[] = [];
+  private populateLocations() {
+    console.log(cinemasArr);
 
-fetch("cinema.json")
-  .then((response) => response.json())
-  .then((data) => {
-    cinemasArr = data;
-  })
-  .catch((error) => console.log(error));
+    searchLocationMenu.innerHTML = cinemasArr
+      .map((cinema) => {
+        return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
+          >${cinema.cinemaName}</a>
+      </li>`;
+      })
+      .join();
+  }
+}

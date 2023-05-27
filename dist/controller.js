@@ -1,10 +1,3 @@
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 // - MOVIE CARDS & FILTER - //
 // Fetch movie data from json -
 var movies = [];
@@ -73,6 +66,7 @@ genreDropdown.addEventListener("change", filterMoviesByGenre);
 var SearchHandler = /** @class */ (function () {
     function SearchHandler() {
         this.searchFilters = [];
+        this.filteredMovies = [];
     }
     SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve) {
         try {
@@ -82,7 +76,13 @@ var SearchHandler = /** @class */ (function () {
                 throw new Error("No location filter selection was passed");
             this.updateSearchTitle(searchFilter, location);
             this.searchFilters.push(location);
-            this.filterMoviesByCinemas(location);
+            this.filteredMovies = this.filterMoviesByCinemas(location);
+            if (this.filteredMovies.length === 0) {
+                renderMovieCards(movies);
+            }
+            else {
+                renderMovieCards(this.filteredMovies);
+            }
         }
         catch (error) {
             console.log(error);
@@ -96,14 +96,19 @@ var SearchHandler = /** @class */ (function () {
         var filteredMovies = [];
         var _loop_1 = function (cinema) {
             if (cinema.cinemaName === location) {
-                var allMoviesId_1 = [];
-                //let uniqueMoviesId: number[] = [];
+                var allMoviesIdInCinema_1 = [];
                 cinema.movieList.forEach(function (movie) {
-                    allMoviesId_1.push(movie.movieID);
+                    allMoviesIdInCinema_1.push(movie.movieID);
                 });
-                var uniqueMoviesId = __spreadArrays(new Set(allMoviesId_1));
-                console.log(uniqueMoviesId);
-                return { value: void 0 };
+                var uniqueMoviesIdInCinema_1 = new Set(allMoviesIdInCinema_1);
+                movies.forEach(function (movie) {
+                    uniqueMoviesIdInCinema_1.forEach(function (idByCinema) {
+                        if (idByCinema === movie.uuid) {
+                            filteredMovies.push(movie);
+                        }
+                    });
+                });
+                return { value: filteredMovies };
             }
         };
         for (var _i = 0, cinemasArr_1 = cinemasArr; _i < cinemasArr_1.length; _i++) {
@@ -112,18 +117,23 @@ var SearchHandler = /** @class */ (function () {
             if (typeof state_1 === "object")
                 return state_1.value;
         }
-        // const filteredMovies: Movie[] = moviesArr.filter((movie) => {
-        // });
+        return filteredMovies;
     };
     return SearchHandler;
 }());
-var searchHandler = new SearchHandler();
-// dropdownItem.forEach((item) => {
-//   item.addEventListener(`onclick`, testF());
-// });
-var cinemasArr = [];
-fetch("cinema.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    cinemasArr = data;
-})["catch"](function (error) { return console.log(error); });
+/** Responsible for rendering the search fields */
+var SearchFieldsRenderer = /** @class */ (function () {
+    function SearchFieldsRenderer() {
+        this.populateLocations();
+    }
+    SearchFieldsRenderer.prototype.toggleSecondSearchArea = function () { };
+    SearchFieldsRenderer.prototype.populateLocations = function () {
+        console.log(cinemasArr);
+        searchLocationMenu.innerHTML = cinemasArr
+            .map(function (cinema) {
+            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
+        })
+            .join();
+    };
+    return SearchFieldsRenderer;
+}());

@@ -12,5 +12,6 @@ const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
 
-// const dropdownItem: NodeListOf<HTMLAnchorElement> =
-//   document.querySelectorAll(".dropdown-item");
+const searchLocationMenu = document.querySelector(
+  ".search__location-menu"
+) as HTMLUListElement;
