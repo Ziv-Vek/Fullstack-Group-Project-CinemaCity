@@ -17,6 +17,7 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
+    searchFieldsRenderer.main(data);
   })
   .catch((error) => console.log(error));
 
@@ -146,7 +147,10 @@ class SearchHandler {
       if (location === "")
         throw new Error("No location filter selection was passed");
 
-      this.updateSearchTitle(searchFilter, location);
+      if (!searchFieldsRenderer)
+        throw new Error("searchFieldsRenderer not found");
+
+      searchFieldsRenderer.updateSearchTitle(searchFilter, location);
       this.searchFilters.push(location);
       this.filteredMovies = this.filterMoviesByCinemas(location);
 
@@ -160,16 +164,14 @@ class SearchHandler {
     }
   }
 
-  private updateSearchTitle(searchFilter: string, location: string) {
-    const selector = document.querySelector(
-      `.${searchFilter}`
-    ) as HTMLDivElement;
-
-    selector.children[0].innerHTML = location;
+  public onDateSelect(searchFilter: string, date: string, eve) {
+    console.log(date);
   }
 
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
+
+    searchFieldsRenderer.renderSecondarySearchMenus();
 
     for (let cinema of cinemas) {
       if (cinema.cinemaName === location) {
@@ -199,27 +201,67 @@ class SearchHandler {
 
 /** Responsible for rendering the search fields */
 class SearchFieldsRenderer {
-  constructor() {
+  public cinemas: any[];
+  private numOfDaysInDateSearch: number = 14;
+
+  constructor() {}
+
+  public main(cinemas) {
+    this.cinemas = cinemas;
     this.populateLocations();
   }
 
-  public toggleSecondSearchArea() {}
+  public updateSearchTitle(searchFilter: string, location: string) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
+
+    selector.children[0].innerHTML = location;
+  }
+
+  public renderSecondarySearchMenus() {
+    secondarySearchArea.classList.add("search__secondary-search--visible");
+    this.populateDates();
+    this.populateGenres();
+  }
+
+  private populateDates() {
+    const currentDayInMonth = new Date().getDate();
+    const lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
+    const today = new Date();
+
+    searchDateMenu.innerHTML = "";
+
+    for (let i = currentDayInMonth; i < lastSearchDay; i++) {
+      let newDateTimeStamp = new Date(today).setDate(i);
+      let newDate = new Date(newDateTimeStamp);
+
+      searchDateMenu.innerHTML += `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onDateSelect('search__dates-dropdown', '${newDate}', event)"
+          >${newDate.toLocaleString("default", {
+            weekday: "long",
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })}</a>
+      </li>`;
+    }
+  }
+
+  private populateGenres() {}
 
   private populateLocations() {
-    //searchLocationMenu.innerHTML =
-    console.log(cinemas);
-
-    console.log(
-      cinemas
-        .map((cinema) => {
-          return `<li>
+    searchLocationMenu.innerHTML = cinemas
+      .map((cinema) => {
+        return `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
       </li>`;
-        })
-        .join()
-    );
+      })
+      .join("");
   }
 }

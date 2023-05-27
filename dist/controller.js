@@ -13,6 +13,7 @@ fetch("cinema.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     cinemas = data;
+    searchFieldsRenderer.main(data);
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
@@ -104,7 +105,9 @@ var SearchHandler = /** @class */ (function () {
                 throw new Error("No search filter was passed");
             if (location === "")
                 throw new Error("No location filter selection was passed");
-            this.updateSearchTitle(searchFilter, location);
+            if (!searchFieldsRenderer)
+                throw new Error("searchFieldsRenderer not found");
+            searchFieldsRenderer.updateSearchTitle(searchFilter, location);
             this.searchFilters.push(location);
             this.filteredMovies = this.filterMoviesByCinemas(location);
             if (this.filteredMovies.length === 0) {
@@ -118,12 +121,12 @@ var SearchHandler = /** @class */ (function () {
             console.log(error);
         }
     };
-    SearchHandler.prototype.updateSearchTitle = function (searchFilter, location) {
-        var selector = document.querySelector("." + searchFilter);
-        selector.children[0].innerHTML = location;
+    SearchHandler.prototype.onDateSelect = function (searchFilter, date, eve) {
+        console.log(date);
     };
     SearchHandler.prototype.filterMoviesByCinemas = function (location) {
         var filteredMovies = [];
+        searchFieldsRenderer.renderSecondarySearchMenus();
         var _loop_1 = function (cinema) {
             if (cinema.cinemaName === location) {
                 var allMoviesIdInCinema_1 = [];
@@ -154,17 +157,44 @@ var SearchHandler = /** @class */ (function () {
 /** Responsible for rendering the search fields */
 var SearchFieldsRenderer = /** @class */ (function () {
     function SearchFieldsRenderer() {
-        this.populateLocations();
+        this.numOfDaysInDateSearch = 14;
     }
-    SearchFieldsRenderer.prototype.toggleSecondSearchArea = function () { };
+    SearchFieldsRenderer.prototype.main = function (cinemas) {
+        this.cinemas = cinemas;
+        this.populateLocations();
+    };
+    SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, location) {
+        var selector = document.querySelector("." + searchFilter);
+        selector.children[0].innerHTML = location;
+    };
+    SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function () {
+        secondarySearchArea.classList.add("search__secondary-search--visible");
+        this.populateDates();
+        this.populateGenres();
+    };
+    SearchFieldsRenderer.prototype.populateDates = function () {
+        var currentDayInMonth = new Date().getDate();
+        var lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
+        var today = new Date();
+        searchDateMenu.innerHTML = "";
+        for (var i = currentDayInMonth; i < lastSearchDay; i++) {
+            var newDateTimeStamp = new Date(today).setDate(i);
+            var newDate = new Date(newDateTimeStamp);
+            searchDateMenu.innerHTML += "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onDateSelect('search__dates-dropdown', '" + newDate + "', event)\"\n          >" + newDate.toLocaleString("default", {
+                weekday: "long",
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }) + "</a>\n      </li>";
+        }
+    };
+    SearchFieldsRenderer.prototype.populateGenres = function () { };
     SearchFieldsRenderer.prototype.populateLocations = function () {
-        //searchLocationMenu.innerHTML =
-        console.log(cinemas);
-        console.log(cinemas
+        searchLocationMenu.innerHTML = cinemas
             .map(function (cinema) {
             return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
         })
-            .join());
+            .join("");
     };
     return SearchFieldsRenderer;
 }());
