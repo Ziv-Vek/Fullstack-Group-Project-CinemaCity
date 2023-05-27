@@ -3,7 +3,7 @@ var Cinema = /** @class */ (function () {
         this.id = id;
         this.cinemaName = cinemaName;
         this.movieList = movieList;
-        moviesAndCinemasManager.addCinema(this);
+        //moviesAndCinemasManager.addCinema(this);
     }
     return Cinema;
 }());
@@ -24,35 +24,42 @@ var Movie = /** @class */ (function () {
         this.description = description;
         this.trailerURL = trailerURL;
         this.cinemaID = cinemaID;
-        moviesAndCinemasManager.addMovie(this);
+        //moviesAndCinemasManager.addMovie(this);
     }
     return Movie;
 }());
 var MoviesAndCinemasManager = /** @class */ (function () {
     function MoviesAndCinemasManager() {
         this.movies = [];
-        this.cinemas = [];
     }
+    Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemasArr", {
+        get: function () {
+            return this.cinemasArr;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    MoviesAndCinemasManager.prototype.setCinemasArr = function (data) {
+        // console.log(data);
+        // console.log(data[2].cinemaName);
+        this.cinemasArr = data;
+    };
     MoviesAndCinemasManager.prototype.addMovie = function (movie) {
         this.movies.push(movie);
     };
-    Object.defineProperty(MoviesAndCinemasManager.prototype, "getMoviesArr", {
-        get: function () {
-            return this.movies;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MoviesAndCinemasManager.prototype.addCinema = function (cinema) {
-        this.cinemas.push(cinema);
-    };
-    Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemaArr", {
-        get: function () {
-            return this.cinemas;
-        },
-        enumerable: false,
-        configurable: true
-    });
     return MoviesAndCinemasManager;
 }());
-var moviesAndCinemasManager = new MoviesAndCinemasManager();
+//let cinemasArr: any;
+fetch("cinema.json")
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    if (data.length === 0)
+        throw new Error("Data from cinema.json is empty");
+    handleJsonCinemaData(data);
+})["catch"](function (error) { return console.log(error); });
+var handleJsonCinemaData = function (data) {
+    if (!MoviesAndCinemasManager)
+        throw new Error("MoviesAndCinemasManager not found.");
+    //cinemasArr = data;
+    moviesAndCinemasManager.setCinemasArr(data);
+};

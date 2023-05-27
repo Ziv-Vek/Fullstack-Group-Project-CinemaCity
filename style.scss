@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
@@ -86,17 +87,6 @@ body {
   background-color: red;
 }
 
-// movie header -
-// .header {
-//   width: 100%;
-
-//   img {
-//     width: 100%;
-//     height: 450px;
-//     cursor: pointer;
-//   }
-// }
-
 // movie cards -
 .movieCards {
   display: grid;
@@ -111,7 +101,6 @@ body {
   position: relative;
   @include mainCardSize(300px, 450px, 10px);
   transform-style: preserve-3d;
-  cursor: pointer;
 
   &:hover .movieImage {
     transform: rotateY(180deg);
@@ -143,9 +132,19 @@ body {
     font-weight: bold;
     padding: 10px;
 
+    &__movieName {
+      font-size: 30px;
+    }
+
+    &__movieDescription {
+      padding: 20px 0;
+      font-size: 15px;
+      text-align: center;
+    }
+
     p {
       font-size: 15px;
-      padding-bottom: 10px;
+      margin-bottom: 2px;
     }
 
     &__moviePageButton {
@@ -154,13 +153,12 @@ body {
       left: 15px;
       right: 15px;
       width: 90%;
-      height: 30px;
       text-decoration: none;
       color: white;
       font-size: 15px;
       font-weight: bold;
       text-align: center;
-      padding: 8px;
+      padding: 5px;
       background-color: $bgBlue;
       border: none;
       border-radius: 10px;
@@ -172,5 +170,27 @@ body {
     &__moviePageButton:hover {
       transform: scale(105%);
     }
+
+    &__trailerButton {
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  #trailerBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 35px;
+    background-color: rgb(182, 11, 11);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #trailerBtn:hover {
+    transform: scale(120%);
   }
 }

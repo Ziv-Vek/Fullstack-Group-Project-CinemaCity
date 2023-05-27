@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
@@ -106,7 +107,6 @@ body {
   height: 450px;
   border-radius: 10px;
   transform-style: preserve-3d;
-  cursor: pointer;
 }
 .movieCard:hover .movieImage {
   transform: rotateY(180deg);
@@ -138,9 +138,17 @@ body {
   font-weight: bold;
   padding: 10px;
 }
+.movieCard .movieDetails__movieName {
+  font-size: 30px;
+}
+.movieCard .movieDetails__movieDescription {
+  padding: 20px 0;
+  font-size: 15px;
+  text-align: center;
+}
 .movieCard .movieDetails p {
   font-size: 15px;
-  padding-bottom: 10px;
+  margin-bottom: 2px;
 }
 .movieCard .movieDetails__moviePageButton {
   position: absolute;
@@ -148,13 +156,12 @@ body {
   left: 15px;
   right: 15px;
   width: 90%;
-  height: 30px;
   text-decoration: none;
   color: white;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
-  padding: 8px;
+  padding: 5px;
   background-color: var(--color-blue-700);
   border: none;
   border-radius: 10px;
@@ -164,4 +171,23 @@ body {
 }
 .movieCard .movieDetails__moviePageButton:hover {
   transform: scale(105%);
+}
+.movieCard .movieDetails__trailerButton {
+  background-color: transparent;
+  border: none;
+}
+.movieCard #trailerBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 35px;
+  background-color: rgb(182, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.movieCard #trailerBtn:hover {
+  transform: scale(120%);
 }/*# sourceMappingURL=style.css.map */

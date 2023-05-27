@@ -18,8 +18,12 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
+      defer
     ></script>
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script
+      src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"
+      defer
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <script src="./dist/view.js" defer></script>
     <script src="./dist/module.js" defer></script>
@@ -49,7 +53,7 @@
       <p class="search__header">ORDER TICKETS</p>
       <div class="search__search_groups">
         <!-- <div class="search__btn"> -->
-        <div class="cinemas-dropdown">
+        <div class="search__cinemas-dropdown">
           <button
             class="btn btn-secondary search__btn"
             type="button"
@@ -58,13 +62,7 @@
           >
             BY CINEMA
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" onclick="">Haifa</a></li>
-            <li><a class="dropdown-item">Tel-Aviv</a></li>
-            <li><a class="dropdown-item">Ashdod</a></li>
-            <li><a class="dropdown-item">Rishon LeZion</a></li>
-            <li><a class="dropdown-item">Be'er-Sheva</a></li>
-          </ul>
+          <ul class="dropdown-menu search__location-menu"></ul>
         </div>
       </div>
     </div>
@@ -86,13 +84,9 @@
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a
-                class="dropdown-item"
-                onclick="searchHandler.onLocationSelect(haifa)"
-                >Haifa</a
-              >
+              <a class="dropdown-item">Haifa</a>
             </li>
-            <li><a class="dropdown-item">Tel-Aviv</a></li>
+            <li onclick="testF()"><a class="dropdown-item">Tel-Aviv</a></li>
             <li><a class="dropdown-item">Ashdod</a></li>
             <li><a class="dropdown-item">Rishon LeZion</a></li>
             <li><a class="dropdown-item">Be'er-Sheva</a></li>
@@ -129,32 +123,3 @@
     <div class="movieCards"></div>
   </body>
 </html>
-
-<!-- <div class="search__background"></div>
-      <div class="dropdown-search" onClick="OnSearchDropdownClick(location)">
-        <div class="dropdown-search__by-location">
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-haifa"
-            onclick="OnSearchDropdownClick('cinema-haifa', location)"></div>
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-tlv"
-            onclick="OnSearchDropdownClick('cinema-tlv')"></div>
-          <div
-            class="dropdown-search__by-location"
-            id="cinema-eilat"
-            onclick="OnSearchDropdownClick('cinema-eilat')"></div>
-        </div>
-      </div> -->
-
-<!-- <label for="cinemasDropdown" class="search__btn__title-text"
-            >BY CINEMA</label
-          >
-          <select
-            id="genreDropdown"
-            onchange="filterMoviesByGenre()"
-            class="dropDownTest">
-            <option value="">GENRE</option>
-          </select> -->
-<!-- </div> -->

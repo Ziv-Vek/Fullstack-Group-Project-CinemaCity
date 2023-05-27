@@ -5,3 +5,4 @@ var movieCardsContainer = document.querySelector(".movieCards");
 var genreDropdown = document.getElementById("genreDropdown");
 // (genreOptions function and filterMoviesByGenre function)
 var secondarySearchArea = document.querySelector(".search__secondary-search");
+var searchLocationMenu = document.querySelector(".search__location-menu");

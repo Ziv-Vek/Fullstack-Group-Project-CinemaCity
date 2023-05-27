@@ -28,7 +28,7 @@ class Cinema {
       }
     ]
   ) {
-    moviesAndCinemasManager.addCinema(this);
+    //moviesAndCinemasManager.addCinema(this);
   }
 }
 
@@ -51,32 +51,51 @@ class Movie implements IMovie {
     public trailerURL: string,
     public cinemaID: number[]
   ) {
-    moviesAndCinemasManager.addMovie(this);
+    //moviesAndCinemasManager.addMovie(this);
   }
 }
 
 class MoviesAndCinemasManager {
   private movies: Movie[] = [];
-  private cinemas: Cinema[] = [];
+  public cinemasArr: object;
 
   constructor() {}
+
+  public get getCinemasArr() {
+    return this.cinemasArr;
+  }
+
+  public setCinemasArr(data: any) {
+    // console.log(data);
+    // console.log(data[2].cinemaName);
+
+    this.cinemasArr = data;
+  }
 
   public addMovie(movie: Movie) {
     this.movies.push(movie);
   }
 
-  public get getMoviesArr(): Movie[] {
-    return this.movies;
-  }
-
-  public addCinema(cinema: Cinema) {
-    this.cinemas.push(cinema);
-  }
-
-  public get getCinemaArr(): Cinema[] {
-    return this.cinemas;
-  }
+  // public get getMoviesArr(): Movie[] {
+  //   return this.movies;
+  // }
 }
 
-const moviesAndCinemasManager: MoviesAndCinemasManager =
-  new MoviesAndCinemasManager();
+//let cinemasArr: any;
+
+fetch("cinema.json")
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.length === 0) throw new Error("Data from cinema.json is empty");
+
+    handleJsonCinemaData(data);
+  })
+  .catch((error) => console.log(error));
+
+const handleJsonCinemaData = (data: any) => {
+  if (!MoviesAndCinemasManager)
+    throw new Error("MoviesAndCinemasManager not found.");
+
+  //cinemasArr = data;
+  moviesAndCinemasManager.setCinemasArr(data);
+};

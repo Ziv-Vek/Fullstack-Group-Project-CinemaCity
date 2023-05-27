@@ -11,3 +11,7 @@ const genreDropdown = document.getElementById(
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
+
+const searchLocationMenu = document.querySelector(
+  ".search__location-menu"
+) as HTMLUListElement;
