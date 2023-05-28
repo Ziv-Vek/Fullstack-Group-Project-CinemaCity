@@ -124,23 +124,12 @@ var SearchHandler = /** @class */ (function () {
         }
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
-        var _a;
         var newDate = new Date(dateTimeStamp);
-        var filteredMoviesByDate = [];
         searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
-        (_a = this.selectedCinema) === null || _a === void 0 ? void 0 : _a.movieList.forEach(function (movieInCinema) {
-            var movieScreenDateArr = movieInCinema.screenDate.split(" ");
-            if (Number(movieScreenDateArr[0]) === newDate.getMonth() &&
-                Number(movieScreenDateArr[1]) === newDate.getDate()) {
-                filteredMoviesByDate.push(movieInCinema);
-            }
-        });
-        console.log(filteredMoviesByDate);
-        renderMovieCards(filteredMoviesByDate);
+        renderMovieCards(this.filterMoviesByDate(newDate));
     };
     SearchHandler.prototype.filterMoviesByCinemas = function (location) {
         var filteredMovies = [];
-        searchFieldsRenderer.renderSecondarySearchMenus();
         var _loop_1 = function (cinema) {
             if (cinema.cinemaName === location) {
                 var allMoviesIdInCinema_1 = [];
@@ -156,6 +145,7 @@ var SearchHandler = /** @class */ (function () {
                         }
                     });
                 });
+                searchFieldsRenderer.renderSecondarySearchMenus(this_1.selectedCinema);
                 return { value: filteredMovies };
             }
         };
@@ -167,6 +157,28 @@ var SearchHandler = /** @class */ (function () {
                 return state_1.value;
         }
         return filteredMovies;
+    };
+    SearchHandler.prototype.filterMoviesByDate = function (newDate) {
+        var _a;
+        var filteredMoviesByDate = [];
+        (_a = this.selectedCinema) === null || _a === void 0 ? void 0 : _a.movieList.forEach(function (movieInCinema) {
+            var movieScreenDateArr = movieInCinema.screenDate.split(" ");
+            if (Number(movieScreenDateArr[0]) === newDate.getMonth() + 1 &&
+                Number(movieScreenDateArr[1]) === newDate.getDate()) {
+                filteredMoviesByDate.push(movieInCinema);
+            }
+        });
+        var filteredMoviesByDateLengh = filteredMoviesByDate.length;
+        var filteredMoviesLengh = this.filteredMovies.length;
+        var filteredMoviesByCinemaAndDate = [];
+        for (var i = 0; i < filteredMoviesByDateLengh; i++) {
+            for (var j = 0; j < filteredMoviesLengh; j++) {
+                if (filteredMoviesByDate[i].movieID === this.filteredMovies[j].uuid) {
+                    filteredMoviesByCinemaAndDate.push(this.filteredMovies[j]);
+                }
+            }
+        }
+        return filteredMoviesByCinemaAndDate;
     };
     return SearchHandler;
 }());
@@ -191,31 +203,36 @@ var SearchFieldsRenderer = /** @class */ (function () {
             month: "short"
         }) + " ";
     };
-    SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function () {
+    SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema) {
         secondarySearchArea.classList.add("search__secondary-search--visible");
-        this.populateDates();
+        this.populateDates(selectedCinema);
         this.populateGenres();
     };
-    SearchFieldsRenderer.prototype.populateDates = function () {
+    SearchFieldsRenderer.prototype.populateDates = function (selectedCinema) {
         var currentDayInMonth = new Date().getDate();
         var lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
         var today = new Date();
-        var cinema;
-        cinemas.forEach(function (cin) {
-            if (cin.cinemaName === searchHandler.locationFilter) {
-                cinema = cin;
+        var availableDates = [];
+        selectedCinema.movieList.forEach(function (movie) {
+            if (!availableDates.includes(movie.screenDate)) {
+                availableDates.push(movie.screenDate);
             }
         });
         searchDateMenu.innerHTML = "";
-        for (var i = currentDayInMonth; i < lastSearchDay; i++) {
-            var newDateTimeStamp = new Date(today).setDate(i);
-            var newDate = new Date(newDateTimeStamp);
-            searchDateMenu.innerHTML += "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onDateSelect('search__dates-dropdown', '" + newDate + "', event)\"\n          >" + newDate.toLocaleString("default", {
-                weekday: "long",
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }) + "</a>\n      </li>";
+        var availableDatesLengh = availableDates.length;
+        if (availableDatesLengh === 0) {
+            searchDateMenu.innerHTML = "No screening days found";
+        }
+        else {
+            for (var i = 0; i < availableDatesLengh; i++) {
+                var newDate = new Date(availableDates[i]);
+                searchDateMenu.innerHTML += "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onDateSelect('search__dates-dropdown', '" + newDate + "', event)\"\n          >" + newDate.toLocaleString("default", {
+                    weekday: "long",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }) + "</a>\n      </li>";
+            }
         }
     };
     SearchFieldsRenderer.prototype.populateGenres = function () { };

@@ -169,30 +169,13 @@ class SearchHandler {
 
   public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
     let newDate = new Date(dateTimeStamp);
-    let filteredMoviesByDate: any[] = [];
-
     searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
 
-    this.selectedCinema?.movieList.forEach((movieInCinema) => {
-      let movieScreenDateArr: string[] = movieInCinema.screenDate.split(" ");
-
-      if (
-        Number(movieScreenDateArr[0]) === newDate.getMonth() &&
-        Number(movieScreenDateArr[1]) === newDate.getDate()
-      ) {
-        filteredMoviesByDate.push(movieInCinema);
-      }
-    });
-
-    console.log(filteredMoviesByDate);
-
-    renderMovieCards(filteredMoviesByDate);
+    renderMovieCards(this.filterMoviesByDate(newDate));
   }
 
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
-
-    searchFieldsRenderer.renderSecondarySearchMenus();
 
     for (let cinema of cinemas) {
       if (cinema.cinemaName === location) {
@@ -214,11 +197,42 @@ class SearchHandler {
           });
         });
 
+        searchFieldsRenderer.renderSecondarySearchMenus(this.selectedCinema);
+
         return filteredMovies;
       }
     }
 
     return filteredMovies;
+  }
+
+  private filterMoviesByDate(newDate: Date): Movie[] {
+    let filteredMoviesByDate: Movie[] = [];
+
+    this.selectedCinema?.movieList.forEach((movieInCinema) => {
+      let movieScreenDateArr: string[] = movieInCinema.screenDate.split(" ");
+
+      if (
+        Number(movieScreenDateArr[0]) === newDate.getMonth() + 1 &&
+        Number(movieScreenDateArr[1]) === newDate.getDate()
+      ) {
+        filteredMoviesByDate.push(movieInCinema);
+      }
+    });
+
+    let filteredMoviesByDateLengh = filteredMoviesByDate.length;
+    let filteredMoviesLengh = this.filteredMovies.length;
+    let filteredMoviesByCinemaAndDate: Movie[] = [];
+
+    for (let i = 0; i < filteredMoviesByDateLengh; i++) {
+      for (let j = 0; j < filteredMoviesLengh; j++) {
+        if (filteredMoviesByDate[i].movieID === this.filteredMovies[j].uuid) {
+          filteredMoviesByCinemaAndDate.push(this.filteredMovies[j]);
+        }
+      }
+    }
+
+    return filteredMoviesByCinemaAndDate;
   }
 }
 
@@ -254,33 +268,35 @@ class SearchFieldsRenderer {
     })} `;
   }
 
-  public update;
-
-  public renderSecondarySearchMenus() {
+  public renderSecondarySearchMenus(selectedCinema: Cinema) {
     secondarySearchArea.classList.add("search__secondary-search--visible");
-    this.populateDates();
+    this.populateDates(selectedCinema);
     this.populateGenres();
   }
 
-  private populateDates() {
+  private populateDates(selectedCinema: Cinema) {
     const currentDayInMonth = new Date().getDate();
     const lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
     const today = new Date();
-    let cinema: Cinema;
+    let availableDates: string[] = [];
 
-    cinemas.forEach((cin) => {
-      if (cin.cinemaName === searchHandler.locationFilter) {
-        cinema = cin;
+    selectedCinema.movieList.forEach((movie) => {
+      if (!availableDates.includes(movie.screenDate)) {
+        availableDates.push(movie.screenDate);
       }
     });
 
     searchDateMenu.innerHTML = "";
 
-    for (let i = currentDayInMonth; i < lastSearchDay; i++) {
-      let newDateTimeStamp = new Date(today).setDate(i);
-      let newDate = new Date(newDateTimeStamp);
+    const availableDatesLengh: number = availableDates.length;
 
-      searchDateMenu.innerHTML += `<li>
+    if (availableDatesLengh === 0) {
+      searchDateMenu.innerHTML = `No screening days found`;
+    } else {
+      for (let i = 0; i < availableDatesLengh; i++) {
+        let newDate = new Date(availableDates[i]);
+
+        searchDateMenu.innerHTML += `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onDateSelect('search__dates-dropdown', '${newDate}', event)"
@@ -291,6 +307,7 @@ class SearchFieldsRenderer {
             year: "numeric",
           })}</a>
       </li>`;
+      }
     }
   }
 
