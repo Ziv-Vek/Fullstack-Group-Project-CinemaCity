@@ -93,7 +93,7 @@
         ]
       },
       {
-        "movieID": 6,
+        "movieID": 9,
         "screenTime": "16:30",
         "screenDate": "5 31 2023",
         "venue": 3,
@@ -300,7 +300,7 @@
         ]
       },
       {
-        "movieID": 6,
+        "movieID": 12,
         "screenTime": "12:20",
         "screenDate": "5 1 2023",
         "venue": 3,
@@ -826,7 +826,7 @@
     "cinemaName": "cinema-Rishon-LeTsiyon",
     "movieList": [
       {
-        "movieID": 6,
+        "movieID": 5,
         "screenTime": "11:30",
         "screenDate": "5 1 2023",
         "venue": 1,
@@ -1071,7 +1071,7 @@
         ]
       },
       {
-        "movieID": 6,
+        "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 9 2023",
         "venue": 5,

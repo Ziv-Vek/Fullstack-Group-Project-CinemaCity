@@ -1,9 +1,7 @@
-// - MOVIE CARDS & FILTER - //
-
-// Fetch movie data from json -
 let movies: any[] = [];
 let cinemas: any[] = [];
 
+// Fetch movie data from json -
 fetch("movies.json")
   .then((response) => response.json())
   .then((data) => {
@@ -40,7 +38,7 @@ function renderMovieCards(movies: any[]) {
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
       <button class="movieDetails__trailerButton" onclick="openTrailer('${
-        movie.trailerURL
+        movie.uuid
       }')">
       <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
       </button>
@@ -55,12 +53,30 @@ function renderMovieCards(movies: any[]) {
 }
 
 // Open trailer -
-function openTrailer(trailerURL) {
-  window.open(trailerURL, "_blank");
+function openTrailer(mov: number) {
+  const selectedMovie = movies[mov - 1];
+
+  console.log(selectedMovie.trailerURL);
+
+  const popup: string = `<div class="trailer_container">
+  <div class="trailer_container-exit" onclick="">
+    <img src="./assets/x-thin-svgrepo-com.svg" alt="" />
+  </div>
+  <div class="trailer_container-content">
+    <h2>${selectedMovie.name}</h2>
+    <iframe  width="640" height="360" 
+      src="${selectedMovie.trailerURL}"
+      frameborder="0"
+    ></iframe>
+  </div>
+</div>`;
+  const movieCardsContainer = document.querySelector(".root") as HTMLDivElement;
+
+  movieCardsContainer.innerHTML += popup;
 }
 
 // Genre options -
-function genreOptions() {
+const genreOptions = () => {
   const allGenres = [
     "action",
     "kids",
@@ -83,7 +99,7 @@ function genreOptions() {
     option.textContent = genre;
     genreDropdown!.appendChild(option);
   });
-}
+};
 
 // Handle genre change -
 function filterMoviesByGenre() {
@@ -100,7 +116,6 @@ function filterMoviesByGenre() {
     }
   }
 }
-// Event listener for genre change -
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
@@ -108,9 +123,9 @@ function transferMovieData(event: Event, movieId: number) {
   event.preventDefault();
 
   const movie = movies.find((movie) => movie.uuid === movieId);
+
   if (movie) {
     const movieData: Movie = movie;
-
     const movieDataString = encodeURIComponent(JSON.stringify(movieData));
     const moviePageURL = `./moviePage/moviePage.html?data=${movieDataString}`;
 
@@ -121,7 +136,7 @@ function transferMovieData(event: Event, movieId: number) {
 function populateMoviePage(movie: Movie) {
   document.querySelector(
     "#movieImage"
-  )!.innerHTML = `<img src="${movie.image}" />`;
+  )!.innerHTML = `<img src="../${movie.image}" class="movie-image"/>`;
   document.querySelector("#movieTitle")!.textContent = movie.name;
   document.querySelector("#movieDescription")!.textContent = movie.description;
   document.querySelector("#movieGenre")!.textContent = movie.genre.join(", ");

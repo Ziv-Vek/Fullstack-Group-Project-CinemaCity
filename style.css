@@ -35,8 +35,8 @@ body {
 }
 
 .zia-logo {
-  height: 100px;
-  width: 170px;
+  height: 120px;
+  width: 200px;
 }
 
 .search {
@@ -68,7 +68,7 @@ body {
   height: 37px;
   border-radius: 10px;
   padding: 0;
-  border: 2px solid var(--color-black);
+  box-shadow: 0 3px 5px rgb(43, 43, 43);
   background-color: transparent;
   font-size: 20px;
   font-weight: 700;
@@ -95,10 +95,10 @@ body {
 .movieCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 50px;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 50px;
 }
 
 .movieCard {

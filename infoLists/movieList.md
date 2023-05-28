@@ -40,13 +40,13 @@
    RL: 12:20 / 12:40
    BS: 13:00 / 15:30 / 19:10
 
-6. SUZUME --
+<!-- 6. SUZUME --
    screening hours:
    TLV: 16:30
    Haifa: 12:20
    Ashdod: none
    RL: 11:30 / 00:00
-   BS: none
+   BS: none -->
 
 7. BOY FROM HEAVEN --
    screening hours:

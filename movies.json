@@ -7,7 +7,7 @@
     "ageLimit": 13,
     "premiere": "May 18,2023",
     "screenDuration": 141,
-    "trailerURL": "https://www.youtube.com/watch?v=eoOaKN4qCKw&t=19s",
+    "trailerURL": "https://www.youtube.com/embed/eoOaKN4qCKw",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "Dom Toretto and his family are targeted by the vengeful son of drug kingpin Hernan Reyes."
   },
@@ -17,9 +17,9 @@
     "name": "The Little Mermaid",
     "genre": ["fantasy", "musical", "kids"],
     "ageLimit": 5,
-    "premiere": "May 25,2023",
+    "premiere": "May 26,2023",
     "screenDuration": 135,
-    "trailerURL": "https://www.youtube.com/watch?v=kpGo2_d3oYE",
+    "trailerURL": "https://www.youtube.com/embed/kpGo2_d3oYE",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water and impress a prince."
   },
@@ -31,7 +31,7 @@
     "ageLimit": 17,
     "premiere": "May 26,2023",
     "screenDuration": 120,
-    "trailerURL": "https://www.youtube.com/watch?v=0r6-YSKzKf4",
+    "trailerURL": "https://www.youtube.com/embed/0r6-YSKzKf4",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "A CIA operative and his translator flee from special forces in Afghanistan after exposing a covert mission."
   },
@@ -43,7 +43,7 @@
     "ageLimit": 17,
     "premiere": "March 09,2023",
     "screenDuration": 122,
-    "trailerURL": "https://www.youtube.com/watch?v=h74AXqw4Opc",
+    "trailerURL": "https://www.youtube.com/embed/h74AXqw4Opc",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "In the next installment, the survivors of the Ghostface killings leave Woodsboro behind and start a fresh chapter in New York City."
   },
@@ -55,21 +55,9 @@
     "ageLimit": 5,
     "premiere": "March 02,2023",
     "screenDuration": 88,
-    "trailerURL": "https://www.youtube.com/watch?v=WRB8YIc4U68",
+    "trailerURL": "https://www.youtube.com/embed/WRB8YIc4U68",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "It follows three mummies as they end up in present-day London and embark on a journey in search of an old ring belonging to the Royal Family, stolen by the ambitious archaeologist Lord Carnaby."
-  },
-  {
-    "uuid": 6,
-    "image": "./assets/img/suzume.jpeg",
-    "name": "SUZUME",
-    "genre": ["animation", "adventure", "foreign"],
-    "ageLimit": 9,
-    "premiere": "April 13,2023",
-    "screenDuration": 122,
-    "trailerURL": "https://www.youtube.com/watch?v=5pTcio2hTSw",
-    "cinemaID": [1, 2, 4],
-    "description": "A modern action adventure road story where a 17-year-old girl named Suzume helps a mysterious young man close doors from the other side that are releasing disasters all over in Japan."
   },
   {
     "uuid": 7,
@@ -77,9 +65,9 @@
     "name": "Boy From Heaven",
     "genre": ["drama", "thriller", "foreign"],
     "ageLimit": 13,
-    "premiere": "May 25,2023",
+    "premiere": "May 26,2023",
     "screenDuration": 120,
-    "trailerURL": "https://www.youtube.com/watch?v=g_qyphrK5o0",
+    "trailerURL": "https://www.youtube.com/embed/g_qyphrK5o0",
     "cinemaID": [1, 2, 5],
     "description": "Adam, the son of a fisherman, is offered the privilege to study at the Al-Azhar University in Cairo, the center of power of Sunni Islam. Adam becomes a pawn in the conflict between Egypt's religious and political elites."
   },
@@ -91,7 +79,7 @@
     "ageLimit": 17,
     "premiere": "May 11,2023",
     "screenDuration": 106,
-    "trailerURL": "https://www.youtube.com/watch?v=RLJ6Nlr3TQM",
+    "trailerURL": "https://www.youtube.com/embed/RLJ6Nlr3TQM",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "Chloe fakes her own death to steal evidence from a morgue. The Coroner uses the morgue as a front for a sick and twisted business. A scary game of cat and mouse ensues as Chloe learns more about the dead than she bargains for."
   },
@@ -103,7 +91,7 @@
     "ageLimit": 17,
     "premiere": "May 04,2023",
     "screenDuration": 104,
-    "trailerURL": "https://www.youtube.com/watch?v=cxRBU_9Cgj8",
+    "trailerURL": "https://www.youtube.com/embed/cxRBU_9Cgj8",
     "cinemaID": [1, 2, 3],
     "description": "A translator working for the police gets involved in the other side of drug dealing."
   },
@@ -115,7 +103,7 @@
     "ageLimit": 17,
     "premiere": "April 20,2023",
     "screenDuration": 92,
-    "trailerURL": "https://www.youtube.com/watch?v=f7Hx4fMuYMQ",
+    "trailerURL": "https://www.youtube.com/embed/f7Hx4fMuYMQ",
     "cinemaID": [1, 2, 3, 4],
     "description": "A detective on the verge of retirement teams with a professor of African Studies to track down a serial killer who is performing the ancient black magic practice of Muti."
   },
@@ -127,7 +115,7 @@
     "ageLimit": 13,
     "premiere": "March 23,2023",
     "screenDuration": 169,
-    "trailerURL": "https://www.youtube.com/watch?v=qEVUtrk8_B4",
+    "trailerURL": "https://www.youtube.com/embed/qEVUtrk8_B4",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes."
   },
@@ -139,7 +127,7 @@
     "ageLimit": 13,
     "premiere": "April 27,2023",
     "screenDuration": 93,
-    "trailerURL": "https://www.youtube.com/watch?v=67MaSPjGHSs",
+    "trailerURL": "https://www.youtube.com/embed/67MaSPjGHSs",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "Charles is a womanizer while Elaine is a gold digger. The duo learn humanity when forced to team up and pursue robot doubles of themselves."
   },
@@ -151,7 +139,7 @@
     "ageLimit": 17,
     "premiere": "April 20,2023",
     "screenDuration": 96,
-    "trailerURL": "https://www.youtube.com/watch?v=BqQNO7BzN08",
+    "trailerURL": "https://www.youtube.com/embed/BqQNO7BzN08",
     "cinemaID": [1, 2, 3, 4, 5],
     "description": "A twisted tale of two estranged sisters whose reunion is cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable."
   }
