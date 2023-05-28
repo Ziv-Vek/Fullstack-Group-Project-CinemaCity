@@ -68,12 +68,10 @@
     </div>
 
     <!-- Search Area - Secondary search -->
-    <div
-      class="search search__secondary-search search__secondary-search--visible"
-    >
+    <div class="search search__secondary-search">
       <div class="search__search_groups">
         <!-- <div class="search__btn"> -->
-        <div class="cinemas-dropdown">
+        <div class="search__dates-dropdown">
           <button
             class="btn btn-secondary dropdown-toggle search__btn"
             type="button"
@@ -82,15 +80,7 @@
           >
             DATE
           </button>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item">Haifa</a>
-            </li>
-            <li onclick="testF()"><a class="dropdown-item">Tel-Aviv</a></li>
-            <li><a class="dropdown-item">Ashdod</a></li>
-            <li><a class="dropdown-item">Rishon LeZion</a></li>
-            <li><a class="dropdown-item">Be'er-Sheva</a></li>
-          </ul>
+          <ul class="dropdown-menu search__date-menu"></ul>
         </div>
         <div class="cinemas-dropdown">
           <button
@@ -101,13 +91,7 @@
           >
             GENRE
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item">Haifa</a></li>
-            <li><a class="dropdown-item">Tel-Aviv</a></li>
-            <li><a class="dropdown-item">Ashdod</a></li>
-            <li><a class="dropdown-item">Rishon LeZion</a></li>
-            <li><a class="dropdown-item">Be'er-Sheva</a></li>
-          </ul>
+          <ul class="dropdown-menu search__genre-menu"></ul>
         </div>
       </div>
     </div>

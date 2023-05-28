@@ -17,6 +17,7 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
+    searchFieldsRenderer.main(data);
   })
   .catch((error) => console.log(error));
 
@@ -38,14 +39,14 @@ function renderMovieCards(movies: any[]) {
         movie.screenDuration
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
-      <a class="movieDetails__moviePageButton" href="moviePage.html?id=${
-        movie.uuid
-      }">MOVIE PAGE</a>
-      <button class="movieDetails__trailerButton" onclick="openTrailer(${
-        movie.uuid
-      })">
-        <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
+      <button class="movieDetails__trailerButton" onclick="openTrailer('${
+        movie.trailerURL
+      }')">
+      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
       </button>
+      <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=${
+        movie.uuid
+      }" onclick="transferMovieData(event, ${movie.uuid})">MOVIE PAGE</a>
     </div>
   </div>`;
   });
@@ -119,12 +120,45 @@ function filterMoviesByGenre() {
 }
 // Event listener for genre change -
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
-/////////////////////////////////////////////////////////////////////////////////////
+
+// Transfer data to movie page -
+function transferMovieData(event: Event, movieId: number) {
+  event.preventDefault();
+
+  const movie = movies.find((movie) => movie.uuid === movieId);
+  if (movie) {
+    const movieData: Movie = movie;
+
+    const movieDataString = encodeURIComponent(JSON.stringify(movieData));
+    const moviePageURL = `./moviePage/moviePage.html?data=${movieDataString}`;
+
+    window.location.href = moviePageURL;
+  }
+}
+
+function populateMoviePage(movie: Movie) {
+  document.querySelector(
+    "#movieImage"
+  )!.innerHTML = `<img src="${movie.image}" />`;
+  document.querySelector("#movieTitle")!.textContent = movie.name;
+  document.querySelector("#movieDescription")!.textContent = movie.description;
+  document.querySelector("#movieGenre")!.textContent = movie.genre.join(", ");
+  document.querySelector("#movieAgeLimit")!.textContent =
+    movie.ageLimit.toString();
+  document.querySelector("#movieDuration")!.textContent =
+    "Duration in Minutes: " + movie.screenDuration.toString();
+  document.querySelector("#moviePremiere")!.textContent =
+    "Premiere: " + movie.premiere.toString();
+}
 
 /** Handles user search selections */
 class SearchHandler {
-  searchFilters: Array<string> = [];
+  selectedCinema: Cinema | null = null;
+  selectedDate: Date | null = null;
+  selectedGenre: string | null = null;
   private filteredMovies: Movie[] = [];
+  locationFilterText: string | null = null;
+  dateFilterText: string | null = null;
 
   constructor() {}
 
@@ -134,8 +168,11 @@ class SearchHandler {
       if (location === "")
         throw new Error("No location filter selection was passed");
 
-      this.updateSearchTitle(searchFilter, location);
-      this.searchFilters.push(location);
+      if (!searchFieldsRenderer)
+        throw new Error("searchFieldsRenderer not found");
+
+      searchFieldsRenderer.updateSearchTitle(searchFilter, location);
+      this.locationFilterText = location;
       this.filteredMovies = this.filterMoviesByCinemas(location);
 
       if (this.filteredMovies.length === 0) {
@@ -148,20 +185,38 @@ class SearchHandler {
     }
   }
 
-  private updateSearchTitle(searchFilter: string, location: string) {
-    const selector = document.querySelector(
-      `.${searchFilter}`
-    ) as HTMLDivElement;
+  public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
+    let newDate = new Date(dateTimeStamp);
+    let filteredMoviesByDate: any[] = [];
 
-    selector.children[0].innerHTML = location;
+    searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
+
+    this.selectedCinema?.movieList.forEach((movieInCinema) => {
+      let movieScreenDateArr: string[] = movieInCinema.screenDate.split(" ");
+
+      if (
+        Number(movieScreenDateArr[0]) === newDate.getMonth() &&
+        Number(movieScreenDateArr[1]) === newDate.getDate()
+      ) {
+        filteredMoviesByDate.push(movieInCinema);
+      }
+    });
+
+    console.log(filteredMoviesByDate);
+
+    renderMovieCards(filteredMoviesByDate);
   }
 
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
 
+    searchFieldsRenderer.renderSecondarySearchMenus();
+
     for (let cinema of cinemas) {
       if (cinema.cinemaName === location) {
         let allMoviesIdInCinema: number[] = [];
+
+        this.selectedCinema = cinema;
 
         cinema.movieList.forEach((movie) => {
           allMoviesIdInCinema.push(movie.movieID);
@@ -187,27 +242,88 @@ class SearchHandler {
 
 /** Responsible for rendering the search fields */
 class SearchFieldsRenderer {
-  constructor() {
+  public cinemas: any[];
+  private numOfDaysInDateSearch: number = 14;
+
+  constructor() {}
+
+  public main(cinemas) {
+    this.cinemas = cinemas;
     this.populateLocations();
   }
 
-  public toggleSecondSearchArea() {}
+  public updateSearchTitle(searchFilter: string, location: string) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
+
+    selector.children[0].innerHTML = location;
+  }
+
+  public updateDateSearchTitle(searchFilter: string, date: Date) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
+
+    selector.children[0].innerHTML = ` ${date.toLocaleString("default", {
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+    })} `;
+  }
+
+  public update;
+
+  public renderSecondarySearchMenus() {
+    secondarySearchArea.classList.add("search__secondary-search--visible");
+    this.populateDates();
+    this.populateGenres();
+  }
+
+  private populateDates() {
+    const currentDayInMonth = new Date().getDate();
+    const lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
+    const today = new Date();
+    let cinema: Cinema;
+
+    cinemas.forEach((cin) => {
+      if (cin.cinemaName === searchHandler.locationFilter) {
+        cinema = cin;
+      }
+    });
+
+    searchDateMenu.innerHTML = "";
+
+    for (let i = currentDayInMonth; i < lastSearchDay; i++) {
+      let newDateTimeStamp = new Date(today).setDate(i);
+      let newDate = new Date(newDateTimeStamp);
+
+      searchDateMenu.innerHTML += `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onDateSelect('search__dates-dropdown', '${newDate}', event)"
+          >${newDate.toLocaleString("default", {
+            weekday: "long",
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })}</a>
+      </li>`;
+    }
+  }
+
+  private populateGenres() {}
 
   private populateLocations() {
-    //searchLocationMenu.innerHTML =
-    console.log(cinemas);
-
-    console.log(
-      cinemas
-        .map((cinema) => {
-          return `<li>
+    searchLocationMenu.innerHTML = cinemas
+      .map((cinema) => {
+        return `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
       </li>`;
-        })
-        .join()
-    );
+      })
+      .join("");
   }
 }

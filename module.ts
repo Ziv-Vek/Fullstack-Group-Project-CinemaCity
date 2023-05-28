@@ -23,6 +23,7 @@ class Cinema {
       {
         movieID: number;
         screenTime: Date;
+        screenDate: string;
         venue: number[];
         seats: [{ line: number; seatID: number }];
       }
@@ -99,3 +100,7 @@ const handleJsonCinemaData = (data: any) => {
   //cinemasArr = data;
   moviesAndCinemasManager.setCinemasArr(data);
 };
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////
