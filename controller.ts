@@ -20,7 +20,7 @@ fetch("cinema.json")
   .catch((error) => console.log(error));
 
 // Render movie cards -
-const renderMovieCards = (movies: any[]) => {
+function renderMovieCards(movies: any[]) {
   let movieCardsHTML = "";
 
   movies.forEach((movie) => {
@@ -50,7 +50,7 @@ const renderMovieCards = (movies: any[]) => {
   });
 
   movieCardsContainer!.innerHTML = movieCardsHTML;
-};
+}
 
 // Open trailer -
 const openTrailer = (trailerURL) => {
@@ -84,7 +84,7 @@ const genreOptions = () => {
 };
 
 // Handle genre change -
-const filterMoviesByGenre = () => {
+function filterMoviesByGenre() {
   if (genreDropdown && movieCardsContainer) {
     const selectedGenre = genreDropdown.value;
 
@@ -97,26 +97,25 @@ const filterMoviesByGenre = () => {
       renderMovieCards(filteredMovies);
     }
   }
-};
-// Event listener for genre change -
+}
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
-const transferMovieData = (event: Event, movieId: number) => {
+function transferMovieData(event: Event, movieId: number) {
   event.preventDefault();
 
   const movie = movies.find((movie) => movie.uuid === movieId);
+
   if (movie) {
     const movieData: Movie = movie;
-
     const movieDataString = encodeURIComponent(JSON.stringify(movieData));
     const moviePageURL = `./moviePage/moviePage.html?data=${movieDataString}`;
 
     window.location.href = moviePageURL;
   }
-};
+}
 
-const populateMoviePage = (movie: Movie) => {
+function populateMoviePage(movie: Movie) {
   document.querySelector(
     "#movieImage"
   )!.innerHTML = `<img src="../${movie.image}" class="movie-image"/>`;
@@ -129,7 +128,7 @@ const populateMoviePage = (movie: Movie) => {
     "Duration in Minutes: " + movie.screenDuration.toString();
   document.querySelector("#moviePremiere")!.textContent =
     "Premiere: " + movie.premiere.toString();
-};
+}
 
 /** Handles user search selections */
 class SearchHandler {
