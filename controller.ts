@@ -53,9 +53,27 @@ function renderMovieCards(movies: any[]) {
 }
 
 // Open trailer -
-const openTrailer = (trailerURL) => {
-  window.open(trailerURL, "_blank");
-};
+function openTrailer(mov: number) {
+  const selectedMovie = movies[mov - 1];
+
+  console.log(selectedMovie.trailerURL);
+
+  const popup: string = `<div class="trailer_container">
+  <div class="trailer_container-exit" onclick="">
+    <img src="./assets/x-thin-svgrepo-com.svg" alt="" />
+  </div>
+  <div class="trailer_container-content">
+    <h2>${selectedMovie.name}</h2>
+    <iframe  width="640" height="360" 
+      src="${selectedMovie.trailerURL}"
+      frameborder="0"
+    ></iframe>
+  </div>
+</div>`;
+  const movieCardsContainer = document.querySelector(".root") as HTMLDivElement;
+
+  movieCardsContainer.innerHTML += popup;
+}
 
 // Genre options -
 const genreOptions = () => {

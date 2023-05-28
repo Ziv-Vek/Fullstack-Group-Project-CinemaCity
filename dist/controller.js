@@ -23,9 +23,13 @@ function renderMovieCards(movies) {
     movieCardsContainer.innerHTML = movieCardsHTML;
 }
 // Open trailer -
-var openTrailer = function (trailerURL) {
-    window.open(trailerURL, "_blank");
-};
+function openTrailer(mov) {
+    var selectedMovie = movies[mov - 1];
+    console.log(selectedMovie.trailerURL);
+    var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container-exit\" onclick=\"\">\n    <img src=\"./assets/x-thin-svgrepo-com.svg\" alt=\"\" />\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n</div>";
+    var movieCardsContainer = document.querySelector(".root");
+    movieCardsContainer.innerHTML += popup;
+}
 // Genre options -
 var genreOptions = function () {
     var allGenres = [
