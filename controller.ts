@@ -1,9 +1,7 @@
-// - MOVIE CARDS & FILTER - //
-
-// Fetch movie data from json -
 let movies: any[] = [];
 let cinemas: any[] = [];
 
+// Fetch movie data from json -
 fetch("movies.json")
   .then((response) => response.json())
   .then((data) => {
@@ -22,7 +20,7 @@ fetch("cinema.json")
   .catch((error) => console.log(error));
 
 // Render movie cards -
-function renderMovieCards(movies: any[]) {
+const renderMovieCards = (movies: any[]) => {
   let movieCardsHTML = "";
 
   movies.forEach((movie) => {
@@ -40,7 +38,7 @@ function renderMovieCards(movies: any[]) {
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
       <button class="movieDetails__trailerButton" onclick="openTrailer('${
-        movie.trailerURL
+        movie.uuid
       }')">
       <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
       </button>
@@ -52,15 +50,15 @@ function renderMovieCards(movies: any[]) {
   });
 
   movieCardsContainer!.innerHTML = movieCardsHTML;
-}
+};
 
 // Open trailer -
-function openTrailer(trailerURL) {
+const openTrailer = (trailerURL) => {
   window.open(trailerURL, "_blank");
-}
+};
 
 // Genre options -
-function genreOptions() {
+const genreOptions = () => {
   const allGenres = [
     "action",
     "kids",
@@ -83,10 +81,10 @@ function genreOptions() {
     option.textContent = genre;
     genreDropdown!.appendChild(option);
   });
-}
+};
 
 // Handle genre change -
-function filterMoviesByGenre() {
+const filterMoviesByGenre = () => {
   if (genreDropdown && movieCardsContainer) {
     const selectedGenre = genreDropdown.value;
 
@@ -99,12 +97,12 @@ function filterMoviesByGenre() {
       renderMovieCards(filteredMovies);
     }
   }
-}
+};
 // Event listener for genre change -
 genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
-function transferMovieData(event: Event, movieId: number) {
+const transferMovieData = (event: Event, movieId: number) => {
   event.preventDefault();
 
   const movie = movies.find((movie) => movie.uuid === movieId);
@@ -116,12 +114,12 @@ function transferMovieData(event: Event, movieId: number) {
 
     window.location.href = moviePageURL;
   }
-}
+};
 
-function populateMoviePage(movie: Movie) {
+const populateMoviePage = (movie: Movie) => {
   document.querySelector(
     "#movieImage"
-  )!.innerHTML = `<img src="${movie.image}" />`;
+  )!.innerHTML = `<img src="../${movie.image}" class="movie-image"/>`;
   document.querySelector("#movieTitle")!.textContent = movie.name;
   document.querySelector("#movieDescription")!.textContent = movie.description;
   document.querySelector("#movieGenre")!.textContent = movie.genre.join(", ");
@@ -131,7 +129,7 @@ function populateMoviePage(movie: Movie) {
     "Duration in Minutes: " + movie.screenDuration.toString();
   document.querySelector("#moviePremiere")!.textContent =
     "Premiere: " + movie.premiere.toString();
-}
+};
 
 /** Handles user search selections */
 class SearchHandler {
