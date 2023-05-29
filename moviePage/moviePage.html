@@ -13,26 +13,32 @@
     <title>zia Cinema</title>
   </head>
   <body>
-    <div>
-      <a href="../index.html">
+    <nav class="navbar">
+      <a class="navbar__nav" href="../index.html">
         <img
           src="../assets/img/backTo.png"
           alt="zia_cinema"
-          class="zia-backToLogo"
-      /></a>
-    </div>
+          class="navbar__zia-backToLogo"
+        />
+      </a>
+    </nav>
 
     <div class="newMoviePage">
       <div id="movieImage" class="newMoviePage__image"></div>
-      <div id="movieTitle" class="newMoviePage__title"></div>
-      <div id="movieDescription" class="newMoviePage__description"></div>
-      <div id="movieAgeLimit" class="newMoviePage__ageLimit"></div>
 
-      <div class="newMoviePage__generalInfo">
-        <div id="movieGenre" class="newMoviePage__genre"></div>
-        <div id="movieDuration" class="newMoviePage__duration"></div>
-        <div id="moviePremiere" class="newMoviePage__premiere"></div>
+      <div class="newMoviePage__allText">
+        <div id="movieTitle" class="newMoviePage__title"></div>
+        <div id="movieAgeLimit" class="newMoviePage__ageLimit"></div>
+        <div id="movieDescription" class="newMoviePage__description"></div>
+
+        <div class="newMoviePage__generalInfo">
+          <div id="movieGenre" class="newMoviePage__genre"></div>
+          <div id="movieDuration" class="newMoviePage__duration"></div>
+          <div id="moviePremiere" class="newMoviePage__premiere"></div>
+        </div>
       </div>
+
+      <div id="movieTrailer" class="newMoviePage__trailer"></div>
     </div>
   </body>
 </html>

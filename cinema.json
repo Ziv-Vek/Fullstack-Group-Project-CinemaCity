@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "cinemaName": "cinema-tlv",
+    "cinemaName": "Tel-Aviv",
     "movieList": [
       {
         "movieID": 5,
@@ -275,7 +275,7 @@
 
   {
     "id": 2,
-    "cinemaName": "cinema-Haifa",
+    "cinemaName": "Haifa",
     "movieList": [
       {
         "movieID": 2,
@@ -549,7 +549,7 @@
 
   {
     "id": 3,
-    "cinemaName": "cinema-Ashdod",
+    "cinemaName": "Ashdod",
     "movieList": [
       {
         "movieID": 2,
@@ -823,7 +823,7 @@
 
   {
     "id": 4,
-    "cinemaName": "cinema-Rishon-LeTsiyon",
+    "cinemaName": "Rishon-LeTsiyon",
     "movieList": [
       {
         "movieID": 5,
@@ -1097,7 +1097,7 @@
 
   {
     "id": 5,
-    "cinemaName": "cinema-Beer-Sheva",
+    "cinemaName": "Beer-Sheva",
     "movieList": [
       {
         "movieID": 2,

@@ -2,56 +2,135 @@ var movies = [];
 var cinemas = [];
 // Fetch movie data from json -
 fetch("movies.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
     movies = data;
     renderMovieCards(movies);
     searchFieldsRenderer.populateMovies(data);
 })["catch"](function (error) { return console.log(error); });
 fetch("cinema.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
     cinemas = data;
-    searchFieldsRenderer.populateLocations(data);
+    searchFieldsRenderer.main(data);
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
-    var movieCardsHTML = "";
-    movies.forEach(function (movie) {
-        movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n      <button class=\"movieDetails__trailerButton\" onclick=\"openTrailer('" + movie.uuid + "')\">\n      <span id=\"trailerBtn\" class=\"material-symbols-outlined\">play_circle</span>\n      </button>\n      <a class=\"movieDetails__moviePageButton\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">MOVIE PAGE</a>\n    </div>\n  </div>";
-    });
-    movieCardsContainer.innerHTML = movieCardsHTML;
+  var movieCardsHTML = "";
+  movies.forEach(function (movie) {
+    movieCardsHTML +=
+      '<div class="movieCard">\n    <div class="movieImage">\n      <img src="' +
+      movie.image +
+      '" />\n    </div>\n    <div class="movieDetails">\n      <h2 class="movieDetails__movieName">' +
+      movie.name +
+      '</h2>\n      <p class="movieDetails__movieDescription">' +
+      movie.description +
+      '</p>\n      <p class="movieDetails__genre">Genre: ' +
+      movie.genre.join(", ") +
+      '</p>\n      <p class="movieDetails__ageLimit">Age Limit: ' +
+      movie.ageLimit +
+      '</p>\n      <p class="movieDetails__screenDuration">Screen Duration: ' +
+      movie.screenDuration +
+      '</p>\n      <p class="movieDetails__premiere">Premiere: ' +
+      movie.premiere +
+      '</p>\n      <button class="movieDetails__trailerButton" onclick="openTrailer(\'' +
+      movie.uuid +
+      '\')">\n      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>\n      </button>\n      <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=' +
+      movie.uuid +
+      '" onclick="transferMovieData(event, ' +
+      movie.uuid +
+      ')">MOVIE PAGE</a>\n    </div>\n  </div>';
+  });
+  movieCardsContainer.innerHTML = movieCardsHTML;
 }
 // Open trailer -
 function openTrailer(mov) {
-    var selectedMovie = movies[mov - 1];
-    console.log(selectedMovie.trailerURL);
-    var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container-exit\" onclick=\"\">\n    <img src=\"./assets/x-thin-svgrepo-com.svg\" alt=\"\" />\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n</div>";
-    var movieCardsContainer = document.querySelector(".root");
-    movieCardsContainer.innerHTML += popup;
+  var selectedMovie = movies[mov - 1];
+  console.log(selectedMovie.trailerURL);
+  var popup =
+    '<div class="trailer_container">\n  <div class="trailer_container-exit" onclick="">\n    <img src="./assets/x-thin-svgrepo-com.svg" alt="" />\n  </div>\n  <div class="trailer_container-content">\n    <h2>' +
+    selectedMovie.name +
+    '</h2>\n    <iframe  width="640" height="360" \n      src="' +
+    selectedMovie.trailerURL +
+    '"\n      frameborder="0"\n    ></iframe>\n  </div>\n</div>';
+  var movieCardsContainer = document.querySelector(".root");
+  movieCardsContainer.innerHTML += popup;
 }
+// Genre options -
+var genreOptions = function () {
+  var allGenres = [
+    "Action",
+    "Kids",
+    "Animation",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Sci-fi",
+    "Horror",
+    "Thriller",
+    "Fantasy",
+    "Musical",
+    "Adventure",
+    "Foreign",
+  ];
+  allGenres.forEach(function (genre) {
+    var option = document.createElement("option");
+    option.value = genre;
+    option.textContent = genre;
+    genreDropdown.appendChild(option);
+  });
+};
+// Handle genre change -
+function filterMoviesByGenre() {
+  if (genreDropdown && movieCardsContainer) {
+    var selectedGenre_1 = genreDropdown.value;
+    if (selectedGenre_1 === "") {
+      renderMovieCards(movies);
+    } else {
+      var filteredMovies = movies.filter(function (movie) {
+        return movie.genre.includes(selectedGenre_1);
+      });
+      renderMovieCards(filteredMovies);
+    }
+  }
+}
+genreDropdown.addEventListener("change", filterMoviesByGenre);
 // Transfer data to movie page -
 function transferMovieData(event, movieId) {
-    event.preventDefault();
-    var movie = movies.find(function (movie) { return movie.uuid === movieId; });
-    if (movie) {
-        var movieData = movie;
-        var movieDataString = encodeURIComponent(JSON.stringify(movieData));
-        var moviePageURL = "./moviePage/moviePage.html?data=" + movieDataString;
-        window.location.href = moviePageURL;
-    }
+  event.preventDefault();
+  var movie = movies.find(function (movie) {
+    return movie.uuid === movieId;
+  });
+  if (movie) {
+    var movieData = movie;
+    var movieDataString = encodeURIComponent(JSON.stringify(movieData));
+    var moviePageURL = "./moviePage/moviePage.html?data=" + movieDataString;
+    window.location.href = moviePageURL;
+  }
 }
 function populateMoviePage(movie) {
-    document.querySelector("#movieImage").innerHTML = "<img src=\"../" + movie.image + "\" class=\"movie-image\"/>";
-    document.querySelector("#movieTitle").textContent = movie.name;
-    document.querySelector("#movieDescription").textContent = movie.description;
-    document.querySelector("#movieGenre").textContent = movie.genre.join(", ");
-    document.querySelector("#movieAgeLimit").textContent =
-        movie.ageLimit.toString();
-    document.querySelector("#movieDuration").textContent =
-        "Duration in Minutes: " + movie.screenDuration.toString();
-    document.querySelector("#moviePremiere").textContent =
-        "Premiere: " + movie.premiere.toString();
+  document.querySelector("#movieImage").innerHTML =
+    '<img src="../' + movie.image + '" class="movie-image"/>';
+  document.querySelector("#movieTitle").textContent = movie.name;
+  document.querySelector("#movieDescription").textContent = movie.description;
+  document.querySelector("#movieGenre").textContent = movie.genre.join(", ");
+  document.querySelector("#movieAgeLimit").textContent =
+    movie.ageLimit.toString();
+  document.querySelector("#movieDuration").textContent =
+    "Duration in Minutes: " + movie.screenDuration.toString();
+  document.querySelector("#moviePremiere").textContent =
+    "Premiere: " + movie.premiere.toString();
+  var movieTrailerContainer = document.querySelector("#movieTrailer");
+  var iframe = document.createElement("iframe");
+  iframe.src = movie.trailerURL;
+  iframe.allowFullscreen = true;
+  iframe.width = "500px";
+  iframe.height = "300px";
+  movieTrailerContainer.appendChild(iframe);
 }
 /** Handles user search selections */
 var SearchHandler = /** @class */ (function () {
@@ -91,11 +170,6 @@ var SearchHandler = /** @class */ (function () {
         catch (error) {
             console.log(error);
         }
-    };
-    SearchHandler.prototype.onMovieSelect = function (searchFilter, movieUuid, eve) {
-        var filteredMovies = [];
-        var moviesLenght = movies.length;
-        //for (let i = 0 ; i < moviesLenght)
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
         var newDate = new Date(dateTimeStamp);
@@ -147,40 +221,43 @@ var SearchHandler = /** @class */ (function () {
                 filteredMoviesByDate.push(movieInCinema);
             }
         });
-        var filteredMoviesByDateLengh = filteredMoviesByDate.length;
-        var filteredMoviesLengh = this.filteredMovies.length;
-        var filteredMoviesByCinemaAndDate = [];
-        for (var i = 0; i < filteredMoviesByDateLengh; i++) {
-            for (var j = 0; j < filteredMoviesLengh; j++) {
-                if (filteredMoviesByDate[i].movieID === this.filteredMovies[j].uuid) {
-                    filteredMoviesByCinemaAndDate.push(this.filteredMovies[j]);
-                }
-            }
+    var filteredMoviesByDateLengh = filteredMoviesByDate.length;
+    var filteredMoviesLengh = this.filteredMovies.length;
+    var filteredMoviesByCinemaAndDate = [];
+    for (var i = 0; i < filteredMoviesByDateLengh; i++) {
+      for (var j = 0; j < filteredMoviesLengh; j++) {
+        if (filteredMoviesByDate[i].movieID === this.filteredMovies[j].uuid) {
+          filteredMoviesByCinemaAndDate.push(this.filteredMovies[j]);
         }
-        return filteredMoviesByCinemaAndDate;
-    };
-    SearchHandler.prototype.filterMoviesByGenre = function (selectedGenre) {
-        var filteredMovies = [];
-        var filteredMoviesLengh = this.filteredMovies.length;
-        for (var i = 0; i < filteredMoviesLengh; i++) {
-            var movieGenresLengh = this.filteredMovies[i].genre.length;
-            for (var j = 0; j < movieGenresLengh; j++) {
-                if (this.filteredMovies[i].genre[j] === selectedGenre) {
-                    filteredMovies.push(this.filteredMovies[i]);
-                    break;
-                }
-            }
+      }
+    }
+    return filteredMoviesByCinemaAndDate;
+  };
+  SearchHandler.prototype.filterMoviesByGenre = function (selectedGenre) {
+    var filteredMovies = [];
+    var filteredMoviesLengh = this.filteredMovies.length;
+    for (var i = 0; i < filteredMoviesLengh; i++) {
+      var movieGenresLengh = this.filteredMovies[i].genre.length;
+      for (var j = 0; j < movieGenresLengh; j++) {
+        if (this.filteredMovies[i].genre[j] === selectedGenre) {
+          filteredMovies.push(this.filteredMovies[i]);
+          break;
         }
-        return filteredMovies;
-    };
-    return SearchHandler;
-}());
+      }
+    }
+    return filteredMovies;
+  };
+  return SearchHandler;
+})();
 /** Responsible for rendering the search fields */
 var SearchFieldsRenderer = /** @class */ (function () {
     function SearchFieldsRenderer() {
-        this.movies = [];
         this.numOfDaysInDateSearch = 14;
     }
+    SearchFieldsRenderer.prototype.main = function (cinemas) {
+        this.cinemas = cinemas;
+        this.populateLocations();
+    };
     SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, location) {
         var selector = document.querySelector("." + searchFilter);
         selector.children[0].innerHTML = location;
@@ -246,19 +323,10 @@ var SearchFieldsRenderer = /** @class */ (function () {
         })
             .join("");
     };
-    SearchFieldsRenderer.prototype.populateLocations = function (cinemas) {
-        this.cinemas = cinemas;
+    SearchFieldsRenderer.prototype.populateLocations = function () {
         searchLocationMenu.innerHTML = cinemas
             .map(function (cinema) {
             return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
-        })
-            .join("");
-    };
-    SearchFieldsRenderer.prototype.populateMovies = function (movies) {
-        this.movies = movies;
-        searchMoviesMenu.innerHTML = movies
-            .map(function (movie) {
-            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onMovieSelect('search__movies-dropdown', '" + movie.uuid + "', event)\"\n          >" + movie.name + "</a>\n      </li>";
         })
             .join("");
     };
