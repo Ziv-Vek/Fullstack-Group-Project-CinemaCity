@@ -76,47 +76,47 @@ function openTrailer(mov: number) {
 }
 
 // Genre options -
-const genreOptions = () => {
-  const allGenres = [
-    "Action",
-    "Kids",
-    "Animation",
-    "Comedy",
-    "Crime",
-    "Drama",
-    "Sci-fi",
-    "Horror",
-    "Thriller",
-    "Fantasy",
-    "Musical",
-    "Adventure",
-    "Foreign",
-  ];
+// const genreOptions = () => {
+//   const allGenres = [
+//     "Action",
+//     "Kids",
+//     "Animation",
+//     "Comedy",
+//     "Crime",
+//     "Drama",
+//     "Sci-fi",
+//     "Horror",
+//     "Thriller",
+//     "Fantasy",
+//     "Musical",
+//     "Adventure",
+//     "Foreign",
+//   ];
 
-  allGenres.forEach((genre) => {
-    const option = document.createElement("option");
-    option.value = genre;
-    option.textContent = genre;
-    genreDropdown!.appendChild(option);
-  });
-};
+//   allGenres.forEach((genre) => {
+//     const option = document.createElement("option");
+//     option.value = genre;
+//     option.textContent = genre;
+//     genreDropdown!.appendChild(option);
+//   });
+// };
 
 // Handle genre change -
-function filterMoviesByGenre() {
-  if (genreDropdown && movieCardsContainer) {
-    const selectedGenre = genreDropdown.value;
+// function filterMoviesByGenre() {
+//   if (genreDropdown && movieCardsContainer) {
+//     const selectedGenre = genreDropdown.value;
 
-    if (selectedGenre === "") {
-      renderMovieCards(movies);
-    } else {
-      const filteredMovies = movies.filter((movie) =>
-        movie.genre.includes(selectedGenre)
-      );
-      renderMovieCards(filteredMovies);
-    }
-  }
-}
-genreDropdown!.addEventListener("change", filterMoviesByGenre);
+//     if (selectedGenre === "") {
+//       renderMovieCards(movies);
+//     } else {
+//       const filteredMovies = movies.filter((movie) =>
+//         movie.genre.includes(selectedGenre)
+//       );
+//       renderMovieCards(filteredMovies);
+//     }
+//   }
+// }
+// genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
 function transferMovieData(event: Event, movieId: number) {
@@ -198,7 +198,15 @@ class SearchHandler {
     let filteredMovies: Movie[] = [];
     const moviesLenght: number = movies.length;
 
-    //for (let i = 0 ; i < moviesLenght)
+    for (let i = 0; i < moviesLenght; i++) {
+      if (movies[i].uuid === Number(movieUuid)) {
+        filteredMovies.push(movies[i]);
+
+        break;
+      }
+    }
+
+    renderMovieCards(filteredMovies);
   }
 
   public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
