@@ -103,6 +103,13 @@ var SearchHandler = /** @class */ (function () {
         this.locationFilterText = null;
         this.dateFilterText = null;
     }
+    Object.defineProperty(SearchHandler.prototype, "getFilteredMoviesByLocation", {
+        get: function () {
+            return this.filteredMovies;
+        },
+        enumerable: false,
+        configurable: true
+    });
     SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve) {
         try {
             if (searchFilter === "")
@@ -130,6 +137,10 @@ var SearchHandler = /** @class */ (function () {
         searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
         renderMovieCards(this.filterMoviesByDate(newDate));
     };
+    SearchHandler.prototype.onGenreSelect = function (searchFilter, genre, eve) {
+        searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+        renderMovieCards(this.filterMoviesByGenre(genre));
+    };
     SearchHandler.prototype.filterMoviesByCinemas = function (location) {
         var filteredMovies = [];
         var _loop_1 = function (cinema) {
@@ -147,6 +158,7 @@ var SearchHandler = /** @class */ (function () {
                         }
                     });
                 });
+                this_1.filteredMovies = filteredMovies;
                 searchFieldsRenderer.renderSecondarySearchMenus(this_1.selectedCinema);
                 return { value: filteredMovies };
             }
@@ -182,6 +194,20 @@ var SearchHandler = /** @class */ (function () {
         }
         return filteredMoviesByCinemaAndDate;
     };
+    SearchHandler.prototype.filterMoviesByGenre = function (selectedGenre) {
+        var filteredMovies = [];
+        var filteredMoviesLengh = this.filteredMovies.length;
+        for (var i = 0; i < filteredMoviesLengh; i++) {
+            var movieGenresLengh = this.filteredMovies[i].genre.length;
+            for (var j = 0; j < movieGenresLengh; j++) {
+                if (this.filteredMovies[i].genre[j] === selectedGenre) {
+                    filteredMovies.push(this.filteredMovies[i]);
+                    break;
+                }
+            }
+        }
+        return filteredMovies;
+    };
     return SearchHandler;
 }());
 /** Responsible for rendering the search fields */
@@ -205,10 +231,14 @@ var SearchFieldsRenderer = /** @class */ (function () {
             month: "short"
         }) + " ";
     };
+    SearchFieldsRenderer.prototype.updateGenreSearchTitle = function (searchFilter, genre) {
+        var selector = document.querySelector("." + searchFilter);
+        selector.children[0].innerHTML = " " + genre + " ";
+    };
     SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema) {
         secondarySearchArea.classList.add("search__secondary-search--visible");
         this.populateDates(selectedCinema);
-        this.populateGenres();
+        this.populateGenres(selectedCinema);
     };
     SearchFieldsRenderer.prototype.populateDates = function (selectedCinema) {
         var currentDayInMonth = new Date().getDate();
@@ -237,7 +267,23 @@ var SearchFieldsRenderer = /** @class */ (function () {
             }
         }
     };
-    SearchFieldsRenderer.prototype.populateGenres = function () { };
+    SearchFieldsRenderer.prototype.populateGenres = function (selectedCinema) {
+        var availableGenres = [];
+        var filteredMovies = searchHandler.getFilteredMoviesByLocation;
+        filteredMovies.forEach(function (movie) {
+            movie.genre.forEach(function (movieGenre) {
+                if (!availableGenres.includes(movieGenre)) {
+                    availableGenres.push(movieGenre);
+                }
+            });
+        });
+        searchGenreMenu.innerHTML = "";
+        searchGenreMenu.innerHTML = availableGenres
+            .map(function (genre) {
+            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onGenreSelect('search__genre-dropdown', '" + genre + "', event)\"\n          >" + genre + "</a>\n      </li>";
+        })
+            .join("");
+    };
     SearchFieldsRenderer.prototype.populateLocations = function () {
         searchLocationMenu.innerHTML = cinemas
             .map(function (cinema) {

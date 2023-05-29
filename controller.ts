@@ -159,6 +159,10 @@ class SearchHandler {
 
   constructor() {}
 
+  public get getFilteredMoviesByLocation(): Movie[] {
+    return this.filteredMovies;
+  }
+
   public onLocationSelect(searchFilter: string, location: string, eve) {
     try {
       if (searchFilter === "") throw new Error("No search filter was passed");
@@ -189,6 +193,12 @@ class SearchHandler {
     renderMovieCards(this.filterMoviesByDate(newDate));
   }
 
+  public onGenreSelect(searchFilter: string, genre: string, eve) {
+    searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+
+    renderMovieCards(this.filterMoviesByGenre(genre));
+  }
+
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
 
@@ -212,6 +222,7 @@ class SearchHandler {
           });
         });
 
+        this.filteredMovies = filteredMovies;
         searchFieldsRenderer.renderSecondarySearchMenus(this.selectedCinema);
 
         return filteredMovies;
@@ -249,6 +260,24 @@ class SearchHandler {
 
     return filteredMoviesByCinemaAndDate;
   }
+
+  private filterMoviesByGenre(selectedGenre: string): Movie[] {
+    let filteredMovies: Movie[] = [];
+
+    let filteredMoviesLengh: number = this.filteredMovies.length;
+
+    for (let i = 0; i < filteredMoviesLengh; i++) {
+      let movieGenresLengh: number = this.filteredMovies[i].genre.length;
+      for (let j = 0; j < movieGenresLengh; j++) {
+        if (this.filteredMovies[i].genre[j] === selectedGenre) {
+          filteredMovies.push(this.filteredMovies[i]);
+          break;
+        }
+      }
+    }
+
+    return filteredMovies;
+  }
 }
 
 /** Responsible for rendering the search fields */
@@ -283,10 +312,18 @@ class SearchFieldsRenderer {
     })} `;
   }
 
+  public updateGenreSearchTitle(searchFilter: string, genre: string) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
+
+    selector.children[0].innerHTML = ` ${genre} `;
+  }
+
   public renderSecondarySearchMenus(selectedCinema: Cinema) {
     secondarySearchArea.classList.add("search__secondary-search--visible");
     this.populateDates(selectedCinema);
-    this.populateGenres();
+    this.populateGenres(selectedCinema);
   }
 
   private populateDates(selectedCinema: Cinema) {
@@ -326,7 +363,31 @@ class SearchFieldsRenderer {
     }
   }
 
-  private populateGenres() {}
+  private populateGenres(selectedCinema: Cinema) {
+    let availableGenres: string[] = [];
+    let filteredMovies: Movie[] = searchHandler.getFilteredMoviesByLocation;
+
+    filteredMovies.forEach((movie) => {
+      movie.genre.forEach((movieGenre) => {
+        if (!availableGenres.includes(movieGenre)) {
+          availableGenres.push(movieGenre);
+        }
+      });
+    });
+
+    searchGenreMenu.innerHTML = "";
+
+    searchGenreMenu.innerHTML = availableGenres
+      .map((genre) => {
+        return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onGenreSelect('search__genre-dropdown', '${genre}', event)"
+          >${genre}</a>
+      </li>`;
+      })
+      .join("");
+  }
 
   private populateLocations() {
     searchLocationMenu.innerHTML = cinemas
