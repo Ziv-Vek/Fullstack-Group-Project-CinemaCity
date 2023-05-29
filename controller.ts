@@ -7,7 +7,7 @@ fetch("movies.json")
   .then((data) => {
     movies = data;
     renderMovieCards(movies);
-    genreOptions();
+    searchFieldsRenderer.populateMovies(data);
   })
   .catch((error) => console.log(error));
 
@@ -15,7 +15,7 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
-    searchFieldsRenderer.main(data);
+    searchFieldsRenderer.populateLocations(data);
   })
   .catch((error) => console.log(error));
 
@@ -143,6 +143,13 @@ class SearchHandler {
     }
   }
 
+  public onMovieSelect(searchFilter: string, movieUuid: string, eve) {
+    let filteredMovies: Movie[] = [];
+    const moviesLenght: number = movies.length;
+
+    //for (let i = 0 ; i < moviesLenght)
+  }
+
   public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
     let newDate = new Date(dateTimeStamp);
     searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
@@ -240,14 +247,10 @@ class SearchHandler {
 /** Responsible for rendering the search fields */
 class SearchFieldsRenderer {
   public cinemas: any[];
+  public movies: Movie[] = [];
   private numOfDaysInDateSearch: number = 14;
 
   constructor() {}
-
-  public main(cinemas) {
-    this.cinemas = cinemas;
-    this.populateLocations();
-  }
 
   public updateSearchTitle(searchFilter: string, location: string) {
     const selector = document.querySelector(
@@ -346,7 +349,9 @@ class SearchFieldsRenderer {
       .join("");
   }
 
-  private populateLocations() {
+  public populateLocations(cinemas: any[]) {
+    this.cinemas = cinemas;
+
     searchLocationMenu.innerHTML = cinemas
       .map((cinema) => {
         return `<li>
@@ -354,6 +359,21 @@ class SearchFieldsRenderer {
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
+      </li>`;
+      })
+      .join("");
+  }
+
+  public populateMovies(movies: any[]) {
+    this.movies = movies;
+
+    searchMoviesMenu.innerHTML = movies
+      .map((movie) => {
+        return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onMovieSelect('search__movies-dropdown', '${movie.uuid}', event)"
+          >${movie.name}</a>
       </li>`;
       })
       .join("");

@@ -6,13 +6,13 @@ fetch("movies.json")
     .then(function (data) {
     movies = data;
     renderMovieCards(movies);
-    genreOptions();
+    searchFieldsRenderer.populateMovies(data);
 })["catch"](function (error) { return console.log(error); });
 fetch("cinema.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     cinemas = data;
-    searchFieldsRenderer.main(data);
+    searchFieldsRenderer.populateLocations(data);
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
@@ -91,6 +91,11 @@ var SearchHandler = /** @class */ (function () {
         catch (error) {
             console.log(error);
         }
+    };
+    SearchHandler.prototype.onMovieSelect = function (searchFilter, movieUuid, eve) {
+        var filteredMovies = [];
+        var moviesLenght = movies.length;
+        //for (let i = 0 ; i < moviesLenght)
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
         var newDate = new Date(dateTimeStamp);
@@ -173,12 +178,9 @@ var SearchHandler = /** @class */ (function () {
 /** Responsible for rendering the search fields */
 var SearchFieldsRenderer = /** @class */ (function () {
     function SearchFieldsRenderer() {
+        this.movies = [];
         this.numOfDaysInDateSearch = 14;
     }
-    SearchFieldsRenderer.prototype.main = function (cinemas) {
-        this.cinemas = cinemas;
-        this.populateLocations();
-    };
     SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, location) {
         var selector = document.querySelector("." + searchFilter);
         selector.children[0].innerHTML = location;
@@ -244,10 +246,19 @@ var SearchFieldsRenderer = /** @class */ (function () {
         })
             .join("");
     };
-    SearchFieldsRenderer.prototype.populateLocations = function () {
+    SearchFieldsRenderer.prototype.populateLocations = function (cinemas) {
+        this.cinemas = cinemas;
         searchLocationMenu.innerHTML = cinemas
             .map(function (cinema) {
             return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
+        })
+            .join("");
+    };
+    SearchFieldsRenderer.prototype.populateMovies = function (movies) {
+        this.movies = movies;
+        searchMoviesMenu.innerHTML = movies
+            .map(function (movie) {
+            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onMovieSelect('search__movies-dropdown', '" + movie.uuid + "', event)\"\n          >" + movie.name + "</a>\n      </li>";
         })
             .join("");
     };
