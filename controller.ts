@@ -75,49 +75,6 @@ function openTrailer(mov: number) {
   movieCardsContainer.innerHTML += popup;
 }
 
-// Genre options -
-const genreOptions = () => {
-  const allGenres = [
-    "action",
-    "kids",
-    "animation",
-    "comedy",
-    "crime",
-    "drama",
-    "sci-fi",
-    "horror",
-    "thriller",
-    "fantasy",
-    "musical",
-    "adventure",
-    "foreign",
-  ];
-
-  allGenres.forEach((genre) => {
-    const option = document.createElement("option");
-    option.value = genre;
-    option.textContent = genre;
-    genreDropdown!.appendChild(option);
-  });
-};
-
-// Handle genre change -
-function filterMoviesByGenre() {
-  if (genreDropdown && movieCardsContainer) {
-    const selectedGenre = genreDropdown.value;
-
-    if (selectedGenre === "") {
-      renderMovieCards(movies);
-    } else {
-      const filteredMovies = movies.filter((movie) =>
-        movie.genre.includes(selectedGenre)
-      );
-      renderMovieCards(filteredMovies);
-    }
-  }
-}
-genreDropdown!.addEventListener("change", filterMoviesByGenre);
-
 // Transfer data to movie page -
 function transferMovieData(event: Event, movieId: number) {
   event.preventDefault();
