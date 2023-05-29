@@ -6,6 +6,7 @@ fetch("movies.json")
   .then((response) => response.json())
   .then((data) => {
     movies = data;
+    setData("movieData", movies);
     renderMovieCards(movies);
     genreOptions();
   })
@@ -15,6 +16,7 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
+    setData("cinemas", cinemas);
     searchFieldsRenderer.main(data);
   })
   .catch((error) => console.log(error));

@@ -5,6 +5,7 @@ fetch("movies.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     movies = data;
+    setData("movieData", movies);
     renderMovieCards(movies);
     genreOptions();
 })["catch"](function (error) { return console.log(error); });
@@ -12,6 +13,7 @@ fetch("cinema.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
     cinemas = data;
+    setData("cinemas", cinemas);
     searchFieldsRenderer.main(data);
 })["catch"](function (error) { return console.log(error); });
 // Render movie cards -

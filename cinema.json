@@ -4,271 +4,247 @@
     "cinemaName": "cinema-tlv",
     "movieList": [
       {
+        "uuid": 1,
         "movieID": 5,
         "screenTime": "11:30",
         "screenDate": "4 27 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 1, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 1, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 2,
         "movieID": 2,
         "screenTime": "12:00",
         "screenDate": "4 27 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 2 }]
+        }
       },
       {
+        "uuid": 3,
         "movieID": 12,
         "screenTime": "12:20",
         "screenDate": "4 27 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 2 }]
+        }
       },
       {
+        "uuid": 4,
         "movieID": 10,
         "screenTime": "12:30",
         "screenDate": "4 30 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 5,
         "movieID": 5,
         "screenTime": "12:00",
         "screenDate": "4 30 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 6,
         "movieID": 2,
         "screenTime": "12:40",
         "screenDate": "4 30 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 7,
         "movieID": 9,
         "screenTime": "15:30",
         "screenDate": "4 30 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 8,
         "movieID": 10,
         "screenTime": "16:00",
         "screenDate": "4 31 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 9,
         "movieID": 6,
         "screenTime": "16:30",
         "screenDate": "4 31 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 10,
         "movieID": 11,
         "screenTime": "16:20",
         "screenDate": "4 31 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 11,
         "movieID": 7,
         "screenTime": "16:30",
         "screenDate": "4 31 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 12,
         "movieID": 2,
         "screenTime": "16:40",
         "screenDate": "5 1 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 13,
         "movieID": 1,
         "screenTime": "19:00",
         "screenDate": "5 1 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 14,
         "movieID": 3,
         "screenTime": "19:00",
         "screenDate": "5 1 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 15,
         "movieID": 11,
         "screenTime": "19:20",
         "screenDate": "5 2 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 16,
         "movieID": 3,
         "screenTime": "19:30",
         "screenDate": "5 2 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 17,
         "movieID": 1,
         "screenTime": "19:40",
         "screenDate": "5 2 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 18,
         "movieID": 12,
         "screenTime": "19:40",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 19,
         "movieID": 1,
         "screenTime": "22:30",
         "screenDate": "5 3 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 20,
         "movieID": 3,
         "screenTime": "23:00",
         "screenDate": "5 3 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 21,
         "movieID": 4,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 22,
         "movieID": 8,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 23,
         "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 3 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 24,
         "movieID": 4,
         "screenTime": "00:00",
         "screenDate": "5 3 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       }
     ]
   },
@@ -278,39 +254,42 @@
     "cinemaName": "cinema-Haifa",
     "movieList": [
       {
+        "uuid": 25,
         "movieID": 2,
         "screenTime": "11:30",
         "screenDate": "5 1 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 1, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 1, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 26,
         "movieID": 5,
         "screenTime": "12:00",
         "screenDate": "5 1 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 1 },
+            { "line": 1, "seatID": 5 },
+            { "line": 1, "seatID": 4 }
+          ]
+        }
       },
       {
+        "uuid": 27,
         "movieID": 6,
         "screenTime": "12:20",
         "screenDate": "5 1 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 28,
         "movieID": 7,
         "screenTime": "12:30",
         "screenDate": "5 1 2023",
@@ -322,227 +301,207 @@
         ]
       },
       {
+        "uuid": 29,
         "movieID": 9,
         "screenTime": "13:00",
         "screenDate": "5 1 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 30,
         "movieID": 2,
         "screenTime": "13:20",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 31,
         "movieID": 1,
         "screenTime": "15:30",
         "screenDate": "5 2 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 32,
         "movieID": 5,
         "screenTime": "16:00",
         "screenDate": "5 2 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 33,
         "movieID": 2,
         "screenTime": "16:30",
         "screenDate": "5 2 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 34,
         "movieID": 12,
         "screenTime": "16:20",
         "screenDate": "5 3 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 35,
         "movieID": 10,
         "screenTime": "16:30",
         "screenDate": "5 3 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 36,
         "movieID": 11,
         "screenTime": "16:40",
         "screenDate": "5 3 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 37,
         "movieID": 1,
         "screenTime": "19:10",
         "screenDate": "5 3 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 38,
         "movieID": 3,
         "screenTime": "19:00",
         "screenDate": "5 8 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 39,
         "movieID": 7,
         "screenTime": "19:20",
         "screenDate": "5 8 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 40,
         "movieID": 9,
         "screenTime": "19:30",
         "screenDate": "5 8 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 41,
         "movieID": 11,
         "screenTime": "19:40",
         "screenDate": "5 9 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 42,
         "movieID": 1,
         "screenTime": "20:00",
         "screenDate": "5 9 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 43,
         "movieID": 4,
         "screenTime": "22:30",
         "screenDate": "5 9 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 44,
         "movieID": 8,
         "screenTime": "23:00",
         "screenDate": "5 9 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 45,
         "movieID": 13,
         "screenTime": "23:30",
         "screenDate": "5 9 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 46,
         "movieID": 3,
         "screenTime": "23:30",
         "screenDate": "5 9 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 47,
         "movieID": 8,
         "screenTime": "00:00",
         "screenDate": "5 9 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 48,
         "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 9 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       }
     ]
   },
@@ -552,271 +511,247 @@
     "cinemaName": "cinema-Ashdod",
     "movieList": [
       {
+        "uuid": 49,
         "movieID": 2,
         "screenTime": "11:30",
         "screenDate": "5 1 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 1, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 1, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 50,
         "movieID": 5,
         "screenTime": "12:00",
         "screenDate": "5 1 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 51,
         "movieID": 2,
         "screenTime": "12:20",
         "screenDate": "5 1 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 52,
         "movieID": 12,
         "screenTime": "12:30",
         "screenDate": "5 1 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 53,
         "movieID": 11,
         "screenTime": "13:00",
         "screenDate": "5 2 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 54,
         "movieID": 5,
         "screenTime": "13:20",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 55,
         "movieID": 3,
         "screenTime": "15:30",
         "screenDate": "5 2 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 56,
         "movieID": 9,
         "screenTime": "16:00",
         "screenDate": "5 2 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 57,
         "movieID": 1,
         "screenTime": "16:30",
         "screenDate": "5 2 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 58,
         "movieID": 12,
         "screenTime": "16:20",
         "screenDate": "5 2 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 59,
         "movieID": 3,
         "screenTime": "16:30",
         "screenDate": "5 2 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 60,
         "movieID": 2,
         "screenTime": "17:00",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 61,
         "movieID": 9,
         "screenTime": "19:10",
         "screenDate": "5 3 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 62,
         "movieID": 10,
         "screenTime": "19:00",
         "screenDate": "5 3 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 63,
         "movieID": 11,
         "screenTime": "19:20",
         "screenDate": "5 3 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 64,
         "movieID": 1,
         "screenTime": "19:30",
         "screenDate": "5 3 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 65,
         "movieID": 10,
         "screenTime": "19:40",
         "screenDate": "5 3 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 66,
         "movieID": 13,
         "screenTime": "19:40",
         "screenDate": "5 3 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 67,
         "movieID": 1,
         "screenTime": "22:30",
         "screenDate": "5 3 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 68,
         "movieID": 3,
         "screenTime": "23:00",
         "screenDate": "5 3 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 69,
         "movieID": 8,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 70,
         "movieID": 4,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 71,
         "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 3 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 72,
         "movieID": 4,
         "screenTime": "00:00",
         "screenDate": "5 3 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       }
     ]
   },
@@ -826,271 +761,247 @@
     "cinemaName": "cinema-Rishon-LeTsiyon",
     "movieList": [
       {
+        "uuid": 73,
         "movieID": 6,
         "screenTime": "11:30",
         "screenDate": "5 1 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 1, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 1, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 74,
         "movieID": 2,
         "screenTime": "12:00",
         "screenDate": "5 1 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 75,
         "movieID": 5,
         "screenTime": "12:20",
         "screenDate": "5 1 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 76,
         "movieID": 5,
         "screenTime": "12:40",
         "screenDate": "5 2 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 77,
         "movieID": 2,
         "screenTime": "13:00",
         "screenDate": "5 2 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 78,
         "movieID": 12,
         "screenTime": "13:30",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 79,
         "movieID": 2,
         "screenTime": "15:30",
         "screenDate": "5 3 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 80,
         "movieID": 10,
         "screenTime": "16:00",
         "screenDate": "5 3 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 81,
         "movieID": 11,
         "screenTime": "16:30",
         "screenDate": "5 3 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 82,
         "movieID": 12,
         "screenTime": "16:20",
         "screenDate": "5 4 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 83,
         "movieID": 3,
         "screenTime": "16:30",
         "screenDate": "5 4 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 84,
         "movieID": 1,
         "screenTime": "17:00",
         "screenDate": "5 5 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 85,
         "movieID": 10,
         "screenTime": "19:10",
         "screenDate": "5 6 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 86,
         "movieID": 12,
         "screenTime": "19:00",
         "screenDate": "5 6 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 87,
         "movieID": 3,
         "screenTime": "19:20",
         "screenDate": "5 7 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 88,
         "movieID": 1,
         "screenTime": "19:30",
         "screenDate": "5 7 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 89,
         "movieID": 11,
         "screenTime": "19:40",
         "screenDate": "5 8 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 90,
         "movieID": 4,
         "screenTime": "20:10",
         "screenDate": "5 8 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 91,
         "movieID": 1,
         "screenTime": "22:30",
         "screenDate": "5 8 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 92,
         "movieID": 4,
         "screenTime": "23:00",
         "screenDate": "5 8 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 93,
         "movieID": 8,
         "screenTime": "23:30",
         "screenDate": "5 9 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 94,
         "movieID": 13,
         "screenTime": "23:30",
         "screenDate": "5 9 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 95,
         "movieID": 6,
         "screenTime": "00:00",
         "screenDate": "5 9 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 96,
         "movieID": 8,
         "screenTime": "00:20",
         "screenDate": "5 9 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       }
     ]
   },
@@ -1100,271 +1011,247 @@
     "cinemaName": "cinema-Beer-Sheva",
     "movieList": [
       {
+        "uuid": 97,
         "movieID": 2,
         "screenTime": "11:30",
         "screenDate": "4 30 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 1, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 1, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 98,
         "movieID": 2,
         "screenTime": "12:00",
         "screenDate": "4 30 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 99,
         "movieID": 3,
         "screenTime": "12:20",
         "screenDate": "4 30 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 100,
         "movieID": 2,
         "screenTime": "12:30",
         "screenDate": "4 30 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 101,
         "movieID": 5,
         "screenTime": "13:00",
         "screenDate": "4 30 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 102,
         "movieID": 7,
         "screenTime": "13:20",
         "screenDate": "4 31 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 103,
         "movieID": 5,
         "screenTime": "15:30",
         "screenDate": "4 31 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 104,
         "movieID": 12,
         "screenTime": "16:00",
         "screenDate": "4 31 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 105,
         "movieID": 7,
         "screenTime": "16:30",
         "screenDate": "4 31 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 106,
         "movieID": 3,
         "screenTime": "16:20",
         "screenDate": "5 1 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 107,
         "movieID": 11,
         "screenTime": "16:30",
         "screenDate": "5 1 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 108,
         "movieID": 2,
         "screenTime": "17:00",
         "screenDate": "5 1 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 109,
         "movieID": 5,
         "screenTime": "19:10",
         "screenDate": "5 1 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 110,
         "movieID": 3,
         "screenTime": "19:00",
         "screenDate": "5 1 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 111,
         "movieID": 11,
         "screenTime": "19:20",
         "screenDate": "5 2 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 112,
         "movieID": 7,
         "screenTime": "19:30",
         "screenDate": "5 2 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 113,
         "movieID": 12,
         "screenTime": "19:40",
         "screenDate": "5 2 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 114,
         "movieID": 1,
         "screenTime": "20:00",
         "screenDate": "5 2 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
 
       {
+        "uuid": 115,
         "movieID": 1,
         "screenTime": "22:30",
         "screenDate": "5 2 2023",
         "venue": 1,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 116,
         "movieID": 4,
         "screenTime": "23:00",
         "screenDate": "5 3 2023",
         "venue": 2,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 117,
         "movieID": 7,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 3,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 118,
         "movieID": 8,
         "screenTime": "23:30",
         "screenDate": "5 3 2023",
         "venue": 4,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 119,
         "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 3 2023",
         "venue": 5,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       },
       {
+        "uuid": 120,
         "movieID": 13,
         "screenTime": "00:20",
         "screenDate": "5 3 2023",
         "venue": 6,
-        "seats": [
-          {
-            "index": [{ "line": 5, "seatID": 1 }]
-          }
-        ]
+        "seats": {
+          "index": [{ "line": 5, "seatID": 1 }]
+        }
       }
     ]
   }
