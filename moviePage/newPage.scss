@@ -9,42 +9,57 @@ body {
   background-color: #0c5394;
 }
 
-.zia-backToLogo {
-  height: 120px;
-  width: 200px;
+.navbar {
+  width: 100%;
   box-shadow: 0 3px 5px black;
+
+  &__zia-backToLogo {
+    height: 120px;
+    width: 200px;
+  }
 }
 
 .newMoviePage {
   position: relative;
   top: 60px;
   letter-spacing: 0.5px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
+  &__image,
   &__title,
   &__description,
   &__ageLimit,
   &__generalInfo {
-    position: absolute;
-    left: 380px;
+    margin-bottom: 20px;
+  }
+
+  &__image {
+    margin-right: 20px;
   }
 
   &__title {
     color: white;
-    top: 0;
     font-size: 40px;
+    margin-bottom: 20px;
   }
 
   &__description {
-    top: 30%;
     color: white;
-    width: 350px;
+    width: 330px;
     font-size: 20px;
+    margin-right: 20px;
+    padding-bottom: 50px;
   }
 
   &__ageLimit {
-    top: 15%;
+    width: 30px;
     color: white;
     font-size: 20px;
+    text-align: center;
     background-color: red;
     border: 1px solid white;
     border-radius: 50%;
@@ -52,14 +67,14 @@ body {
   }
 
   &__generalInfo {
-    top: 80%;
     color: white;
   }
 
-  &__genre,
-  &__duration,
-  &__premiere {
-    padding-bottom: 5px;
+  &__trailer {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
   }
 }
 
@@ -67,6 +82,58 @@ body {
   width: 300px;
   height: 450px;
   border-radius: 10px;
-  margin-left: 50px;
   box-shadow: 5px 5px 10px rgb(43, 43, 43);
 }
+// @media (max-width: 768px) {
+//   .newMoviePage {
+//     position: relative;
+//     top: 60px;
+//     letter-spacing: 0.5px;
+//     padding-bottom: 50px;
+//     flex-direction: column;
+//     align-items: center;
+
+//     &__image {
+//       margin-right: 0;
+//     }
+
+//     &__title {
+//       color: white;
+//       font-size: 20px;
+//     }
+
+//     &__ageLimit {
+//       width: 25px;
+//       color: white;
+//       font-size: 15px;
+//       text-align: center;
+//       background-color: red;
+//       border: 1px solid white;
+//       border-radius: 50%;
+//       padding: 5px;
+//     }
+
+//     &__description {
+//       color: white;
+//       width: 200px;
+//       font-size: 15px;
+//     }
+
+//     &__generalInfo {
+//       font-size: 12px;
+//       color: white;
+//     }
+
+//     &__trailer {
+//       order: 1;
+//       margin-bottom: 20px;
+//     }
+//   }
+
+//   .movie-image {
+//     width: 150px;
+//     height: 250px;
+//     border-radius: 10px;
+//     box-shadow: 5px 5px 10px rgb(43, 43, 43);
+//   }
+// }

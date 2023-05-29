@@ -78,19 +78,19 @@ function openTrailer(mov: number) {
 // Genre options -
 const genreOptions = () => {
   const allGenres = [
-    "action",
-    "kids",
-    "animation",
-    "comedy",
-    "crime",
-    "drama",
-    "sci-fi",
-    "horror",
-    "thriller",
-    "fantasy",
-    "musical",
-    "adventure",
-    "foreign",
+    "Action",
+    "Kids",
+    "Animation",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Sci-fi",
+    "Horror",
+    "Thriller",
+    "Fantasy",
+    "Musical",
+    "Adventure",
+    "Foreign",
   ];
 
   allGenres.forEach((genre) => {
@@ -146,6 +146,14 @@ function populateMoviePage(movie: Movie) {
     "Duration in Minutes: " + movie.screenDuration.toString();
   document.querySelector("#moviePremiere")!.textContent =
     "Premiere: " + movie.premiere.toString();
+
+  const movieTrailerContainer = document.querySelector("#movieTrailer")!;
+  const iframe = document.createElement("iframe");
+  iframe.src = movie.trailerURL;
+  iframe.allowFullscreen = true;
+  iframe.width = "500px";
+  iframe.height = "300px";
+  movieTrailerContainer.appendChild(iframe);
 }
 
 /** Handles user search selections */
