@@ -55,17 +55,6 @@
 //     []
 //   ),
 //   new Movie(
-//     "./img/suzume.jpeg",
-//     "SUZUME",
-//     ["animation", "adventure", "foreign"],
-//     9,
-//     new Date("April 13,2023"),
-//     122,
-//     "A modern action adventure road story where a 17-year-old girl named Suzume helps a mysterious young man close doors from the other side that are releasing disasters all over in Japan.",
-//     "",
-//     []
-//   ),
-//   new Movie(
 //     "./img/boyFromHeaven.png",
 //     "BOY FROM HEAVEN",
 //     ["drama", "thriller", "foreign"],

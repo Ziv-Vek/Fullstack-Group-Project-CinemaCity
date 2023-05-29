@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <link rel="stylesheet" href="newPage.css" />
     <script src="../dist/view.js" defer></script>
     <script src="../dist/module.js" defer></script>
@@ -13,19 +17,38 @@
     <title>zia Cinema</title>
   </head>
   <body>
-    <img src="../assets/img/logo.png" alt="zia_cinema" class="zia-logo" />
+    <nav class="navbar">
+      <a class="navbar__nav" href="../index.html">
+        <img
+          src="../assets/img/backTo.png"
+          alt="zia_cinema"
+          class="navbar__zia-backToLogo"
+        />
+      </a>
+
+      <button class="navbar__savedTickets">
+        <span class="material-symbols-outlined"> play_pass </span>
+      </button>
+    </nav>
 
     <div class="newMoviePage">
       <div id="movieImage" class="newMoviePage__image"></div>
-      <div id="movieTitle" class="newMoviePage__title"></div>
-      <div id="movieDescription" class="newMoviePage__description"></div>
-      <div id="movieAgeLimit" class="newMoviePage__ageLimit"></div>
 
-      <div class="newMoviePage__generalInfo">
-        <div id="movieGenre" class="newMoviePage__genre"></div>
-        <div id="movieDuration" class="newMoviePage__duration"></div>
-        <div id="moviePremiere" class="newMoviePage__premiere"></div>
+      <div class="newMoviePage__allText">
+        <div id="movieTitle" class="newMoviePage__title"></div>
+        <div id="movieAgeLimit" class="newMoviePage__ageLimit"></div>
+        <div id="movieDescription" class="newMoviePage__description"></div>
+
+        <div class="newMoviePage__generalInfo">
+          <div id="movieGenre" class="newMoviePage__genre"></div>
+          <div id="movieDuration" class="newMoviePage__duration"></div>
+          <div id="moviePremiere" class="newMoviePage__premiere"></div>
+        </div>
       </div>
+
+      <div id="movieTrailer" class="newMoviePage__trailer"></div>
     </div>
+
+    <!-- <button class="purchaseButton">ORDER TICKETS</button> -->
   </body>
 </html>

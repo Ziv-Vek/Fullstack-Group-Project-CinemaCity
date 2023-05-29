@@ -8,7 +8,7 @@ fetch("movies.json")
     movies = data;
     setData("movieData", movies);
     renderMovieCards(movies);
-    genreOptions();
+    searchFieldsRenderer.populateMovies(data);
   })
   .catch((error) => console.log(error));
 
@@ -16,13 +16,12 @@ fetch("cinema.json")
   .then((response) => response.json())
   .then((data) => {
     cinemas = data;
-    setData("cinemas", cinemas);
-    searchFieldsRenderer.main(data);
+    searchFieldsRenderer.populateLocations(data);
   })
   .catch((error) => console.log(error));
 
 // Render movie cards -
-const renderMovieCards = (movies: any[]) => {
+function renderMovieCards(movies: any[]) {
   let movieCardsHTML = "";
 
   movies.forEach((movie) => {
@@ -52,7 +51,7 @@ const renderMovieCards = (movies: any[]) => {
   });
 
   movieCardsContainer!.innerHTML = movieCardsHTML;
-};
+}
 
 // Open trailer -
 function openTrailer(mov: number) {
@@ -78,65 +77,64 @@ function openTrailer(mov: number) {
 }
 
 // Genre options -
-const genreOptions = () => {
-  const allGenres = [
-    "action",
-    "kids",
-    "animation",
-    "comedy",
-    "crime",
-    "drama",
-    "sci-fi",
-    "horror",
-    "thriller",
-    "fantasy",
-    "musical",
-    "adventure",
-    "foreign",
-  ];
+// const genreOptions = () => {
+//   const allGenres = [
+//     "Action",
+//     "Kids",
+//     "Animation",
+//     "Comedy",
+//     "Crime",
+//     "Drama",
+//     "Sci-fi",
+//     "Horror",
+//     "Thriller",
+//     "Fantasy",
+//     "Musical",
+//     "Adventure",
+//     "Foreign",
+//   ];
 
-  allGenres.forEach((genre) => {
-    const option = document.createElement("option");
-    option.value = genre;
-    option.textContent = genre;
-    genreDropdown!.appendChild(option);
-  });
-};
+//   allGenres.forEach((genre) => {
+//     const option = document.createElement("option");
+//     option.value = genre;
+//     option.textContent = genre;
+//     genreDropdown!.appendChild(option);
+//   });
+// };
 
 // Handle genre change -
-const filterMoviesByGenre = () => {
-  if (genreDropdown && movieCardsContainer) {
-    const selectedGenre = genreDropdown.value;
+// function filterMoviesByGenre() {
+//   if (genreDropdown && movieCardsContainer) {
+//     const selectedGenre = genreDropdown.value;
 
-    if (selectedGenre === "") {
-      renderMovieCards(movies);
-    } else {
-      const filteredMovies = movies.filter((movie) =>
-        movie.genre.includes(selectedGenre)
-      );
-      renderMovieCards(filteredMovies);
-    }
-  }
-};
-// Event listener for genre change -
-genreDropdown!.addEventListener("change", filterMoviesByGenre);
+//     if (selectedGenre === "") {
+//       renderMovieCards(movies);
+//     } else {
+//       const filteredMovies = movies.filter((movie) =>
+//         movie.genre.includes(selectedGenre)
+//       );
+//       renderMovieCards(filteredMovies);
+//     }
+//   }
+// }
+// genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
-const transferMovieData = (event: Event, movieId: number) => {
+function transferMovieData(event: Event, movieId: number) {
   event.preventDefault();
 
   const movie = movies.find((movie) => movie.uuid === movieId);
+
   if (movie) {
     const movieData: Movie = movie;
-
     const movieDataString = encodeURIComponent(JSON.stringify(movieData));
     const moviePageURL = `./moviePage/moviePage.html?data=${movieDataString}`;
 
     window.location.href = moviePageURL;
   }
-};
+}
 
-const populateMoviePage = (movie: Movie) => {
+function populateMoviePage(movie: Movie) {
   document.querySelector(
     "#movieImage"
   )!.innerHTML = `<img src="../${movie.image}" class="movie-image"/>`;
@@ -149,7 +147,15 @@ const populateMoviePage = (movie: Movie) => {
     "Duration in Minutes: " + movie.screenDuration.toString();
   document.querySelector("#moviePremiere")!.textContent =
     "Premiere: " + movie.premiere.toString();
-};
+
+  const movieTrailerContainer = document.querySelector("#movieTrailer")!;
+  const iframe = document.createElement("iframe");
+  iframe.src = movie.trailerURL;
+  iframe.allowFullscreen = true;
+  iframe.width = "500px";
+  iframe.height = "300px";
+  movieTrailerContainer.appendChild(iframe);
+}
 
 /** Handles user search selections */
 class SearchHandler {
@@ -161,6 +167,10 @@ class SearchHandler {
   dateFilterText: string | null = null;
 
   constructor() {}
+
+  public get getFilteredMoviesByLocation(): Movie[] {
+    return this.filteredMovies;
+  }
 
   public onLocationSelect(searchFilter: string, location: string, eve) {
     try {
@@ -185,32 +195,36 @@ class SearchHandler {
     }
   }
 
+  public onMovieSelect(searchFilter: string, movieUuid: string, eve) {
+    let filteredMovies: Movie[] = [];
+    const moviesLenght: number = movies.length;
+
+    for (let i = 0; i < moviesLenght; i++) {
+      if (movies[i].uuid === Number(movieUuid)) {
+        filteredMovies.push(movies[i]);
+
+        break;
+      }
+    }
+
+    renderMovieCards(filteredMovies);
+  }
+
   public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
     let newDate = new Date(dateTimeStamp);
-    let filteredMoviesByDate: any[] = [];
-
     searchFieldsRenderer.updateDateSearchTitle(searchFilter, newDate);
 
-    this.selectedCinema?.movieList.forEach((movieInCinema) => {
-      let movieScreenDateArr: string[] = movieInCinema.screenDate.split(" ");
+    renderMovieCards(this.filterMoviesByDate(newDate));
+  }
 
-      if (
-        Number(movieScreenDateArr[0]) === newDate.getMonth() &&
-        Number(movieScreenDateArr[1]) === newDate.getDate()
-      ) {
-        filteredMoviesByDate.push(movieInCinema);
-      }
-    });
+  public onGenreSelect(searchFilter: string, genre: string, eve) {
+    searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
 
-    console.log(filteredMoviesByDate);
-
-    renderMovieCards(filteredMoviesByDate);
+    renderMovieCards(this.filterMoviesByGenre(genre));
   }
 
   private filterMoviesByCinemas(location: string): Movie[] {
     let filteredMovies: Movie[] = [];
-
-    searchFieldsRenderer.renderSecondarySearchMenus();
 
     for (let cinema of cinemas) {
       if (cinema.cinemaName === location) {
@@ -232,7 +246,57 @@ class SearchHandler {
           });
         });
 
+        this.filteredMovies = filteredMovies;
+        searchFieldsRenderer.renderSecondarySearchMenus(this.selectedCinema);
+
         return filteredMovies;
+      }
+    }
+
+    return filteredMovies;
+  }
+
+  private filterMoviesByDate(newDate: Date): Movie[] {
+    let filteredMoviesByDate: Movie[] = [];
+
+    this.selectedCinema?.movieList.forEach((movieInCinema) => {
+      let movieScreenDateArr: string[] = movieInCinema.screenDate.split(" ");
+
+      if (
+        Number(movieScreenDateArr[0]) === newDate.getMonth() + 1 &&
+        Number(movieScreenDateArr[1]) === newDate.getDate()
+      ) {
+        filteredMoviesByDate.push(movieInCinema);
+      }
+    });
+
+    let filteredMoviesByDateLengh = filteredMoviesByDate.length;
+    let filteredMoviesLengh = this.filteredMovies.length;
+    let filteredMoviesByCinemaAndDate: Movie[] = [];
+
+    for (let i = 0; i < filteredMoviesByDateLengh; i++) {
+      for (let j = 0; j < filteredMoviesLengh; j++) {
+        if (filteredMoviesByDate[i].movieID === this.filteredMovies[j].uuid) {
+          filteredMoviesByCinemaAndDate.push(this.filteredMovies[j]);
+        }
+      }
+    }
+
+    return filteredMoviesByCinemaAndDate;
+  }
+
+  private filterMoviesByGenre(selectedGenre: string): Movie[] {
+    let filteredMovies: Movie[] = [];
+
+    let filteredMoviesLengh: number = this.filteredMovies.length;
+
+    for (let i = 0; i < filteredMoviesLengh; i++) {
+      let movieGenresLengh: number = this.filteredMovies[i].genre.length;
+      for (let j = 0; j < movieGenresLengh; j++) {
+        if (this.filteredMovies[i].genre[j] === selectedGenre) {
+          filteredMovies.push(this.filteredMovies[i]);
+          break;
+        }
       }
     }
 
@@ -243,14 +307,10 @@ class SearchHandler {
 /** Responsible for rendering the search fields */
 class SearchFieldsRenderer {
   public cinemas: any[];
+  public movies: Movie[] = [];
   private numOfDaysInDateSearch: number = 14;
 
   constructor() {}
-
-  public main(cinemas) {
-    this.cinemas = cinemas;
-    this.populateLocations();
-  }
 
   public updateSearchTitle(searchFilter: string, location: string) {
     const selector = document.querySelector(
@@ -272,33 +332,43 @@ class SearchFieldsRenderer {
     })} `;
   }
 
-  public update;
+  public updateGenreSearchTitle(searchFilter: string, genre: string) {
+    const selector = document.querySelector(
+      `.${searchFilter}`
+    ) as HTMLDivElement;
 
-  public renderSecondarySearchMenus() {
-    secondarySearchArea.classList.add("search__secondary-search--visible");
-    this.populateDates();
-    this.populateGenres();
+    selector.children[0].innerHTML = ` ${genre} `;
   }
 
-  private populateDates() {
+  public renderSecondarySearchMenus(selectedCinema: Cinema) {
+    secondarySearchArea.classList.add("search__secondary-search--visible");
+    this.populateDates(selectedCinema);
+    this.populateGenres(selectedCinema);
+  }
+
+  private populateDates(selectedCinema: Cinema) {
     const currentDayInMonth = new Date().getDate();
     const lastSearchDay = currentDayInMonth + this.numOfDaysInDateSearch;
     const today = new Date();
-    let cinema: Cinema;
+    let availableDates: string[] = [];
 
-    cinemas.forEach((cin) => {
-      if (cin.cinemaName === searchHandler.locationFilter) {
-        cinema = cin;
+    selectedCinema.movieList.forEach((movie) => {
+      if (!availableDates.includes(movie.screenDate)) {
+        availableDates.push(movie.screenDate);
       }
     });
 
     searchDateMenu.innerHTML = "";
 
-    for (let i = currentDayInMonth; i < lastSearchDay; i++) {
-      let newDateTimeStamp = new Date(today).setDate(i);
-      let newDate = new Date(newDateTimeStamp);
+    const availableDatesLengh: number = availableDates.length;
 
-      searchDateMenu.innerHTML += `<li>
+    if (availableDatesLengh === 0) {
+      searchDateMenu.innerHTML = `No screening days found`;
+    } else {
+      for (let i = 0; i < availableDatesLengh; i++) {
+        let newDate = new Date(availableDates[i]);
+
+        searchDateMenu.innerHTML += `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onDateSelect('search__dates-dropdown', '${newDate}', event)"
@@ -309,12 +379,39 @@ class SearchFieldsRenderer {
             year: "numeric",
           })}</a>
       </li>`;
+      }
     }
   }
 
-  private populateGenres() {}
+  private populateGenres(selectedCinema: Cinema) {
+    let availableGenres: string[] = [];
+    let filteredMovies: Movie[] = searchHandler.getFilteredMoviesByLocation;
 
-  private populateLocations() {
+    filteredMovies.forEach((movie) => {
+      movie.genre.forEach((movieGenre) => {
+        if (!availableGenres.includes(movieGenre)) {
+          availableGenres.push(movieGenre);
+        }
+      });
+    });
+
+    searchGenreMenu.innerHTML = "";
+
+    searchGenreMenu.innerHTML = availableGenres
+      .map((genre) => {
+        return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onGenreSelect('search__genre-dropdown', '${genre}', event)"
+          >${genre}</a>
+      </li>`;
+      })
+      .join("");
+  }
+
+  public populateLocations(cinemas: any[]) {
+    this.cinemas = cinemas;
+
     searchLocationMenu.innerHTML = cinemas
       .map((cinema) => {
         return `<li>
@@ -322,6 +419,21 @@ class SearchFieldsRenderer {
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
+      </li>`;
+      })
+      .join("");
+  }
+
+  public populateMovies(movies: any[]) {
+    this.movies = movies;
+
+    searchMoviesMenu.innerHTML = movies
+      .map((movie) => {
+        return `<li>
+        <a
+          class="dropdown-item"
+          onclick="searchHandler.onMovieSelect('search__movies-dropdown', '${movie.uuid}', event)"
+          >${movie.name}</a>
       </li>`;
       })
       .join("");

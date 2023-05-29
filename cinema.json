@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "cinemaName": "cinema-tlv",
+    "cinemaName": "Tel-Aviv",
     "movieList": [
       {
         "uuid": 1,
         "movieID": 5,
         "screenTime": "11:30",
-        "screenDate": "4 27 2023",
+        "screenDate": "5 29 2023",
         "venue": 1,
         "seats": {
           "index": [{ "line": 1, "seatID": 1 }]
@@ -17,7 +17,7 @@
         "uuid": 2,
         "movieID": 2,
         "screenTime": "12:00",
-        "screenDate": "4 27 2023",
+        "screenDate": "5 29 2023",
         "venue": 2,
         "seats": {
           "index": [{ "line": 5, "seatID": 2 }]
@@ -27,7 +27,7 @@
         "uuid": 3,
         "movieID": 12,
         "screenTime": "12:20",
-        "screenDate": "4 27 2023",
+        "screenDate": "5 29 2023",
         "venue": 3,
         "seats": {
           "index": [{ "line": 5, "seatID": 2 }]
@@ -37,7 +37,7 @@
         "uuid": 4,
         "movieID": 10,
         "screenTime": "12:30",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 4,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -47,7 +47,7 @@
         "uuid": 5,
         "movieID": 5,
         "screenTime": "12:00",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 5,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -57,7 +57,7 @@
         "uuid": 6,
         "movieID": 2,
         "screenTime": "12:40",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 6,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -68,7 +68,7 @@
         "uuid": 7,
         "movieID": 9,
         "screenTime": "15:30",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 1,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -78,17 +78,17 @@
         "uuid": 8,
         "movieID": 10,
         "screenTime": "16:00",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 2,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
         }
       },
       {
-        "uuid": 9,
-        "movieID": 6,
+        "uuid": 11,
+        "movieID": 9,
         "screenTime": "16:30",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 3,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -98,7 +98,7 @@
         "uuid": 10,
         "movieID": 11,
         "screenTime": "16:20",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 4,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -108,7 +108,7 @@
         "uuid": 11,
         "movieID": 7,
         "screenTime": "16:30",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 5,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -251,7 +251,7 @@
 
   {
     "id": 2,
-    "cinemaName": "cinema-Haifa",
+    "cinemaName": "Haifa",
     "movieList": [
       {
         "uuid": 25,
@@ -280,7 +280,7 @@
       },
       {
         "uuid": 27,
-        "movieID": 6,
+        "movieID": 12,
         "screenTime": "12:20",
         "screenDate": "5 1 2023",
         "venue": 3,
@@ -508,7 +508,7 @@
 
   {
     "id": 3,
-    "cinemaName": "cinema-Ashdod",
+    "cinemaName": "Ashdod",
     "movieList": [
       {
         "uuid": 49,
@@ -758,11 +758,11 @@
 
   {
     "id": 4,
-    "cinemaName": "cinema-Rishon-LeTsiyon",
+    "cinemaName": "Rishon-LeTsiyon",
     "movieList": [
       {
         "uuid": 73,
-        "movieID": 6,
+        "movieID": 5,
         "screenTime": "11:30",
         "screenDate": "5 1 2023",
         "venue": 1,
@@ -985,7 +985,7 @@
       },
       {
         "uuid": 95,
-        "movieID": 6,
+        "movieID": 13,
         "screenTime": "00:00",
         "screenDate": "5 9 2023",
         "venue": 5,
@@ -1008,13 +1008,13 @@
 
   {
     "id": 5,
-    "cinemaName": "cinema-Beer-Sheva",
+    "cinemaName": "Beer-Sheva",
     "movieList": [
       {
         "uuid": 97,
         "movieID": 2,
         "screenTime": "11:30",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 1,
         "seats": {
           "index": [{ "line": 1, "seatID": 1 }]
@@ -1024,7 +1024,7 @@
         "uuid": 98,
         "movieID": 2,
         "screenTime": "12:00",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 2,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1034,7 +1034,7 @@
         "uuid": 99,
         "movieID": 3,
         "screenTime": "12:20",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 3,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1044,7 +1044,7 @@
         "uuid": 100,
         "movieID": 2,
         "screenTime": "12:30",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 4,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1054,7 +1054,7 @@
         "uuid": 101,
         "movieID": 5,
         "screenTime": "13:00",
-        "screenDate": "4 30 2023",
+        "screenDate": "5 30 2023",
         "venue": 5,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1064,7 +1064,7 @@
         "uuid": 102,
         "movieID": 7,
         "screenTime": "13:20",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 6,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1075,7 +1075,7 @@
         "uuid": 103,
         "movieID": 5,
         "screenTime": "15:30",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 1,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1085,7 +1085,7 @@
         "uuid": 104,
         "movieID": 12,
         "screenTime": "16:00",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 2,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
@@ -1095,7 +1095,7 @@
         "uuid": 105,
         "movieID": 7,
         "screenTime": "16:30",
-        "screenDate": "4 31 2023",
+        "screenDate": "5 31 2023",
         "venue": 3,
         "seats": {
           "index": [{ "line": 5, "seatID": 1 }]
