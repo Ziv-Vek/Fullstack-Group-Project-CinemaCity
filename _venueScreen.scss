@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.venue {
+  &__line {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__seat,
+  &__seat--taken {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &__seat--taken {
+    cursor: not-allowed;
+    background-color: red;
+    color: white;
+  }
+}

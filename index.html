@@ -26,6 +26,7 @@
     ></script>
     <link rel="stylesheet" href="style.css" />
     <script src="./dist/view.js" defer></script>
+    <script src="./dist/localstorage.js" defer></script>
     <script src="./dist/module.js" defer></script>
     <script src="./dist/helper.js" defer></script>
     <script src="./dist/moviesArray.js" defer></script>
@@ -58,7 +59,6 @@
     <div class="search">
       <p class="search__header">ORDER TICKETS</p>
       <div class="search__search_groups">
-        <!-- <div class="search__btn"> -->
         <div class="search__cinemas-dropdown">
           <button
             class="btn btn-secondary search__btn"
@@ -69,6 +69,17 @@
             BY CINEMA
           </button>
           <ul class="dropdown-menu search__location-menu"></ul>
+        </div>
+
+        <div class="search__movies-dropdown">
+          <button
+            class="btn btn-secondary search__btn"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            BY MOVIE
+          </button>
+          <ul class="dropdown-menu search__movies-menu"></ul>
         </div>
       </div>
     </div>

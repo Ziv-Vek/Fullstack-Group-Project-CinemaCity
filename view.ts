@@ -4,17 +4,11 @@ const MainHeader = document.querySelector(".header") as HTMLDivElement;
 // - Movie Cards - //
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
-
-// - Genre Dropdown - //
-const genreDropdown = document.getElementById(
-  "genreDropdown"
-) as HTMLSelectElement;
-
 // (genreOptions function and filterMoviesByGenre function)
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
-// Location menu search
+// Cinema menu search
 const searchLocationMenu = document.querySelector(
   ".search__location-menu"
 ) as HTMLUListElement;
@@ -25,4 +19,8 @@ const searchDateMenu = document.querySelector(
 // Genre menu search
 const searchGenreMenu = document.querySelector(
   ".search__genre-menu"
+) as HTMLUListElement;
+// Movies menu search
+const searchMoviesMenu = document.querySelector(
+  ".search__movies-menu"
 ) as HTMLUListElement;
