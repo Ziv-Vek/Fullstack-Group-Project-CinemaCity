@@ -71,13 +71,13 @@ function renderMovieCards(movies: any[]) {
 
 // Open trailer -
 function openTrailer(mov: number) {
-  const selectedMovie = movies[mov - 1];
+  const selectedMovie = movies.find((element) => element.uuid === Number(mov));
 
-  console.log(selectedMovie.trailerURL);
+  console.log();
 
   const popup: string = `<div class="trailer_container">
-  <div class="trailer_container-exit" onclick="">
-    <img src="./assets/x-thin-svgrepo-com.svg" alt="" />
+  <div class="trailer_container-exit" onclick="closePopup()">
+    <img src="./assets/x-thin-svgrepo-com.svg" alt=""  class="x-icon"/>
   </div>
   <div class="trailer_container-content">
     <h2>${selectedMovie.name}</h2>
@@ -87,9 +87,15 @@ function openTrailer(mov: number) {
     ></iframe>
   </div>
 </div>`;
-  const movieCardsContainer = document.querySelector(".root") as HTMLDivElement;
+  const movieCardsContainer = document.querySelector(
+    ".trailer_popup"
+  ) as HTMLDivElement;
 
   movieCardsContainer.innerHTML += popup;
+}
+
+function closePopup() {
+  document.querySelector(".trailer_container")!.remove();
 }
 
 // Genre options -

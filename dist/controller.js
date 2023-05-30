@@ -38,11 +38,14 @@ function renderMovieCards(movies) {
 }
 // Open trailer -
 function openTrailer(mov) {
-    var selectedMovie = movies[mov - 1];
-    console.log(selectedMovie.trailerURL);
-    var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container-exit\" onclick=\"\">\n    <img src=\"./assets/x-thin-svgrepo-com.svg\" alt=\"\" />\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n</div>";
-    var movieCardsContainer = document.querySelector(".root");
+    var selectedMovie = movies.find(function (element) { return element.uuid === Number(mov); });
+    console.log();
+    var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container-exit\" onclick=\"closePopup()\">\n    <img src=\"./assets/x-thin-svgrepo-com.svg\" alt=\"\"  class=\"x-icon\"/>\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n</div>";
+    var movieCardsContainer = document.querySelector(".trailer_popup");
     movieCardsContainer.innerHTML += popup;
+}
+function closePopup() {
+    document.querySelector(".trailer_container").remove();
 }
 // Genre options -
 // const genreOptions = () => {

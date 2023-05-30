@@ -63,5 +63,12 @@ var handleJsonCinemaData = function (data) {
     //cinemasArr = data;
     moviesAndCinemasManager.setCinemasArr(data);
 };
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
+var Cart = /** @class */ (function () {
+    function Cart(barcode, price, movieID, seats) {
+        this.barcode = barcode;
+        this.price = price;
+        this.movieID = movieID;
+        this.seats = seats;
+    }
+    return Cart;
+}());

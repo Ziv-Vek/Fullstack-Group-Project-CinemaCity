@@ -101,6 +101,18 @@ const handleJsonCinemaData = (data: any) => {
   moviesAndCinemasManager.setCinemasArr(data);
 };
 
-/////////////////////////////////////////////////////////////////////////////////////
+interface _Cart {
+  barcode: string;
+  price: number;
+  movieID: number;
+  seats: { line: number; seatID: number };
+}
 
-/////////////////////////////////////////////////////////////////////////////////////
+class Cart implements _Cart {
+  constructor(
+    public barcode: string,
+    public price: number,
+    public movieID: number,
+    public seats: { line: number; seatID: number }
+  ) {}
+}
