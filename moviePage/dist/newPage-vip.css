@@ -15,8 +15,8 @@ body::-webkit-scrollbar {
 
 .navbar {
   width: 100%;
-  background-color: #0c5394;
-  box-shadow: 0 3px 5px black;
+  background-color: #0c4173;
+  box-shadow: 0 3px 5px #0c4173;
 }
 .navbar__savedTickets {
   cursor: pointer;
@@ -28,10 +28,24 @@ body::-webkit-scrollbar {
   box-shadow: 0 3px 5px black;
   padding-top: 3px;
 }
+.navbar__nav {
+  display: flex;
+  text-decoration: none;
+  margin: 30px 0 40px 20px;
+  background-color: #0c4173;
+  border-radius: 10px;
+  width: 95px;
+  color: yellow;
+  padding: 5px;
+  box-shadow: 0 2px 5px #0c4173;
+}
+.navbar__nav p {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
 
 .newMoviePage {
   position: relative;
-  top: 60px;
   letter-spacing: 0.5px;
   padding-bottom: 50px;
   display: flex;
