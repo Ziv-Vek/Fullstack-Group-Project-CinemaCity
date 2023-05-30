@@ -195,3 +195,40 @@ body {
     transform: scale(120%);
   }
 }
+
+.trailer_container {
+  background-color: #80808091;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-exit {
+    position: absolute;
+    right: 550px;
+    top: 235px;
+  }
+  &-content {
+    background-color: white;
+    width: 800px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 15px 14px 20px 0px;
+  }
+}
+
+.x-icon {
+  &:hover {
+    // filter: invert(49%) sepia(119%) saturate(1257%) hue-rotate(222deg)
+    //   brightness(170%) contrast(177%);
+    cursor: pointer;
+  }
+}
