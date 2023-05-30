@@ -1,3 +1,20 @@
+function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
+  if (activeButton === button) {
+    if (activeMenu === menu) {
+      activeMenu.style.display = "none";
+      activeMenu = null;
+      activeButton = null;
+    }
+  } else {
+    if (activeMenu) {
+      activeMenu.style.display = "none";
+    }
+    menu.style.display = "block";
+    activeMenu = menu;
+    activeButton = button;
+  }
+}
+
 const telAvivButton = document.querySelector(
   "#telAvivButton"
 ) as HTMLDivElement;
@@ -7,11 +24,9 @@ const rishonButton = document.querySelector("#rishonButton") as HTMLDivElement;
 const beerShevaButton = document.querySelector(
   "#beerShevaButton"
 ) as HTMLDivElement;
-
 const vipMenuTlvHaifaBeer = document.querySelector(
   ".menuTLV-BeerSheva-Haifa"
 ) as HTMLDivElement;
-
 const menuRishonAshdod = document.querySelector(
   ".menuRishonAshdod"
 ) as HTMLDivElement;
@@ -19,87 +34,18 @@ const menuRishonAshdod = document.querySelector(
 let activeMenu: HTMLDivElement | null = null;
 let activeButton: HTMLDivElement | null = null;
 
-telAvivButton.addEventListener("click", () => {
-  if (activeButton === telAvivButton) {
-    if (activeMenu === vipMenuTlvHaifaBeer) {
-      activeMenu.style.display = "none";
-      activeMenu = null;
-      activeButton = null;
-    }
-  } else {
-    if (activeMenu) {
-      activeMenu.style.display = "none";
-    }
-    vipMenuTlvHaifaBeer.style.display = "block";
-    activeMenu = vipMenuTlvHaifaBeer;
-    activeButton = telAvivButton;
-  }
-});
-
-haifaButton.addEventListener("click", () => {
-  if (activeButton === haifaButton) {
-    if (activeMenu === vipMenuTlvHaifaBeer) {
-      activeMenu.style.display = "none";
-      activeMenu = null;
-      activeButton = null;
-    }
-  } else {
-    if (activeMenu) {
-      activeMenu.style.display = "none";
-    }
-    vipMenuTlvHaifaBeer.style.display = "block";
-    activeMenu = vipMenuTlvHaifaBeer;
-    activeButton = haifaButton;
-  }
-});
-
-beerShevaButton.addEventListener("click", () => {
-  if (activeButton === beerShevaButton) {
-    if (activeMenu === vipMenuTlvHaifaBeer) {
-      activeMenu.style.display = "none";
-      activeMenu = null;
-      activeButton = null;
-    }
-  } else {
-    if (activeMenu) {
-      activeMenu.style.display = "none";
-    }
-    vipMenuTlvHaifaBeer.style.display = "block";
-    activeMenu = vipMenuTlvHaifaBeer;
-    activeButton = beerShevaButton;
-  }
-});
-
-rishonButton.addEventListener("click", () => {
-  if (activeButton === rishonButton) {
-    if (activeMenu === menuRishonAshdod) {
-      activeMenu.style.display = "none";
-      activeMenu = null;
-      activeButton = null;
-    }
-  } else {
-    if (activeMenu) {
-      activeMenu.style.display = "none";
-    }
-    menuRishonAshdod.style.display = "block";
-    activeMenu = menuRishonAshdod;
-    activeButton = rishonButton;
-  }
-});
-
-ashdodButton.addEventListener("click", () => {
-  if (activeButton === ashdodButton) {
-    if (activeMenu === menuRishonAshdod) {
-      activeMenu.style.display = "none";
-      activeMenu = null;
-      activeButton = null;
-    }
-  } else {
-    if (activeMenu) {
-      activeMenu.style.display = "none";
-    }
-    menuRishonAshdod.style.display = "block";
-    activeMenu = menuRishonAshdod;
-    activeButton = ashdodButton;
-  }
-});
+telAvivButton.addEventListener("click", () =>
+  handleClick(telAvivButton, vipMenuTlvHaifaBeer)
+);
+haifaButton.addEventListener("click", () =>
+  handleClick(haifaButton, vipMenuTlvHaifaBeer)
+);
+beerShevaButton.addEventListener("click", () =>
+  handleClick(beerShevaButton, vipMenuTlvHaifaBeer)
+);
+rishonButton.addEventListener("click", () =>
+  handleClick(rishonButton, menuRishonAshdod)
+);
+ashdodButton.addEventListener("click", () =>
+  handleClick(ashdodButton, menuRishonAshdod)
+);

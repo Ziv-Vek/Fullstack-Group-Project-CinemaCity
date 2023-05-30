@@ -280,10 +280,12 @@ header::after {
   background-color: transparent;
   border: none;
   position: relative;
+  transition: all 0.5s ease-in-out;
 
   &__first,
   &__second,
-  &__third {
+  &__third,
+  &__forth {
     position: absolute;
     color: white;
     letter-spacing: 2px;
@@ -292,21 +294,32 @@ header::after {
 
   &__first {
     font-size: 20px;
-    margin-top: -275px;
-    margin-left: 120px;
     word-spacing: 70px;
+    top: 305px;
+    left: 120px;
   }
 
   &__second {
     font-size: 40px;
-    margin-top: -240px;
-    margin-left: 160px;
     letter-spacing: 3px;
+    top: 335px;
+    left: 160px;
   }
 
   &__third {
     font-size: 20px;
-    margin-top: -180px;
-    margin-left: 150px;
+    top: 400px;
+    left: 140px;
   }
+
+  &__forth {
+    font-size: 20px;
+    top: 470px;
+    left: 80px;
+    transform: rotate(5deg);
+  }
+}
+
+.vipButton:hover {
+  transform: scale(110%);
 }

@@ -110,6 +110,23 @@ h1 {
   cursor: pointer;
 }
 
+#telAvivButton,
+#ashdodButton,
+#haifaButton,
+#rishonButton,
+#beerShevaButton {
+  transition: all 0.5s ease-in-out;
+}
+
+#telAvivButton:hover,
+#ashdodButton:hover,
+#haifaButton:hover,
+#rishonButton:hover,
+#beerShevaButton:hover {
+  transform: scale(110%);
+  color: #0c5394;
+}
+
 .menuTLV-BeerSheva-Haifa,
 .menuRishonAshdod {
   width: 650px;
