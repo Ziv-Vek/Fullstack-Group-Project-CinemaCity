@@ -19,15 +19,15 @@ window.addEventListener("load", () => {
 
 // Fetch movie data from json -
 
+// const getSavedDataOnPageLoad = (key: string) => {
+//   if (key === "cinemaData") {
+//     const any = getData(key);
+//   }
 
-const getSavedDataOnPageLoad = (key: string) => {
-  if (key === "cinemaData") {
-    const any = getData(key);
-  }
-
-  if (key === "movieData") {
-    const any = getData(key);
-  }
+//   if (key === "movieData") {
+//     const any = getData(key);
+//   }
+// };
 
 // Fetch movie data from json -
 fetch("movies.json")
@@ -40,7 +40,7 @@ fetch("movies.json")
   })
   .catch((error) => console.log(error));
 
-getSavedDataOnPageLoad("movieData");
+//getSavedDataOnPageLoad("movieData");
 
 // Render movie cards -
 function renderMovieCards(movies: any[]) {
@@ -65,6 +65,10 @@ function renderMovieCards(movies: any[]) {
       }')">
       <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
       </button>
+      <div class="movieDetails__hours-container">
+      ${generateHoursHtml(movie.uuid)}
+      
+      </div>
       <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=${
         movie.uuid
       }" onclick="transferMovieData(event, ${movie.uuid})">MOVIE PAGE</a>
@@ -75,6 +79,38 @@ function renderMovieCards(movies: any[]) {
   movieCardsContainer!.innerHTML = movieCardsHTML;
 }
 
+const generateHoursHtml = (movieUuid: number): string => {
+  let cinema: Cinema | null = searchHandler.getSelectedCinema;
+  let screenTimes: string[] = [];
+
+  if (cinema === null) {
+    return "";
+  }
+
+  //console.log(cinema);
+
+  const movieListLenght: number = cinema.movieList.length;
+  for (let i = 0; i < movieListLenght; i++) {
+    let movieInstance = cinema.movieList[i];
+    if (movieInstance.movieID === movieUuid) {
+      screenTimes.push(movieInstance.screenTime);
+    }
+  }
+
+  let html = screenTimes
+    .map((screenTime) => {
+      return `<a
+       class="movieDetails__hour"
+       href="./venueScreen.html?id=${movieUuid}"
+       onclick="setData('selectedMovie', {${movieUuid}, ${cinema}, ${screenTime}})">
+       ${screenTime}
+     </a>
+    `;
+    })
+    .join();
+
+  return html;
+};
 // Open trailer -
 function openTrailer(mov: number) {
   const selectedMovie = movies.find((element) => element.uuid === Number(mov));
@@ -157,6 +193,10 @@ class SearchHandler {
 
   public get getFilteredMoviesByLocation(): Movie[] {
     return this.filteredMovies;
+  }
+
+  public get getSelectedCinema(): Cinema | null {
+    return this.selectedCinema;
   }
 
   public onLocationSelect(searchFilter: string, location: string, eve) {

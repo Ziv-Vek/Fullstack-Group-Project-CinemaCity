@@ -231,6 +231,17 @@ header::after {
   background-color: transparent;
   border: none;
 }
+.movieCard .movieDetails__hours-container {
+  display: grid;
+  height: 100px;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 3fr 3fr 3fr;
+  overflow-y: scroll;
+  grid-gap: 10px;
+}
+.movieCard .movieDetails__hour {
+  background-color: orange;
+}
 .movieCard #trailerBtn {
   position: absolute;
   top: 10px;
@@ -245,6 +256,26 @@ header::after {
 }
 .movieCard #trailerBtn:hover {
   transform: scale(120%);
+}
+
+.movieDetails__hours-container::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-track {
+  background: #1e2f97;
+  border-radius: 100vw;
+  margin-block: 0.2em;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-thumb {
+  background: #1aa7ec;
+  border: 0.15em solid #1e2f97;
+  border-radius: 100vw;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-thumb:hover {
+  background: #4adede;
 }
 
 .trailer_container {
