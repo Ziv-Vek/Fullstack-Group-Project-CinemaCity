@@ -1,3 +1,6 @@
+// - Header - //
+const MainHeader = document.querySelector(".header") as HTMLDivElement;
+
 // - Movie Cards - //
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");

@@ -1,3 +1,5 @@
+// - Header - //
+var MainHeader = document.querySelector(".header");
 // - Movie Cards - //
 var movieCards = document.querySelector(".movieCards");
 var movieCardsContainer = document.querySelector(".movieCards");
