@@ -45,15 +45,7 @@
     </nav>
 
     <!-- Header -->
-    <div class="header">
-      <div
-        class="cover-images"
-        style="
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $bgBlue),
-            url('./assets/imgCover/fastXCover.jpeg');
-        "
-      ></div>
-    </div>
+    <header class="header"></header>
 
     <!-- Search Area - Primary search -->
     <div class="search">
@@ -76,7 +68,8 @@
             class="btn btn-secondary search__btn"
             type="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false">
+            aria-expanded="false"
+          >
             BY MOVIE
           </button>
           <ul class="dropdown-menu search__movies-menu"></ul>
@@ -115,5 +108,13 @@
 
     <!-- Movie Cards and Search Results -->
     <div class="movieCards"></div>
+
+    <!-- VIP Button -->
+    <button class="vipButton">
+      <img src="./assets/img/vip-back.png" alt="VIP" />
+      <p class="vipButton__first">ENJOY OUR</p>
+      <h1 class="vipButton__second">V I P</h1>
+      <p class="vipButton__third">EXPERIENCE</p>
+    </button>
   </body>
 </html>

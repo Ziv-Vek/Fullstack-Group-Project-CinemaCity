@@ -60,6 +60,37 @@ body {
   padding-top: 3px;
 }
 
+header {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: no-repeat center center/cover;
+  transition: 1s linear;
+  z-index: 2;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(0deg, var(--color-blue-700), transparent);
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-blue-700), transparent);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .search {
   display: flex;
   flex-direction: column;
@@ -212,4 +243,33 @@ body {
 }
 .movieCard #trailerBtn:hover {
   transform: scale(120%);
+}
+
+.vipButton {
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+.vipButton__first, .vipButton__second, .vipButton__third {
+  position: absolute;
+  color: white;
+  letter-spacing: 2px;
+  transform: rotate(9deg);
+}
+.vipButton__first {
+  font-size: 20px;
+  margin-top: -275px;
+  margin-left: 120px;
+  word-spacing: 70px;
+}
+.vipButton__second {
+  font-size: 40px;
+  margin-top: -240px;
+  margin-left: 160px;
+  letter-spacing: 3px;
+}
+.vipButton__third {
+  font-size: 20px;
+  margin-top: -180px;
+  margin-left: 150px;
 }

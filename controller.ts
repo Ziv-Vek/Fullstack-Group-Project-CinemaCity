@@ -1,11 +1,23 @@
 // Header -
+const images = [
+  "./assets/imgCover/fastXCover.jpeg",
+  "./assets/imgCover/mermaidCover.jpeg",
+  "./assets/imgCover/screamCover.jpg",
+];
 
-//
+let currentImageIndex = 0;
+const imageElement = document.querySelector(".header") as HTMLDivElement;
 
+function changeCoverImage() {
+  imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+}
+setInterval(changeCoverImage, 3000);
+
+// Fetch movie data from json -
 let movies: any[] = [];
 let cinemas: any[] = [];
 
-// Fetch movie data from json -
 fetch("movies.json")
   .then((response) => response.json())
   .then((data) => {
@@ -443,3 +455,5 @@ class SearchFieldsRenderer {
       .join("");
   }
 }
+
+// VIP -
