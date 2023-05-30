@@ -1,5 +1,3 @@
-// - Header - //
-var MainHeader = document.querySelector(".header");
 // - Movie Cards - //
 var movieCards = document.querySelector(".movieCards");
 var movieCardsContainer = document.querySelector(".movieCards");
@@ -13,3 +11,5 @@ var searchDateMenu = document.querySelector(".search__date-menu");
 var searchGenreMenu = document.querySelector(".search__genre-menu");
 // Movies menu search
 var searchMoviesMenu = document.querySelector(".search__movies-menu");
+// VIP button
+var vipButton = document.querySelector(".vipButton");

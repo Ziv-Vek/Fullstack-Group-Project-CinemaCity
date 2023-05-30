@@ -1,3 +1,23 @@
+// Header -
+const images = [
+  "./assets/imgCover/fastXCover.jpeg",
+  "./assets/imgCover/mermaidCover.jpeg",
+  "./assets/imgCover/screamCover.jpg",
+];
+
+let currentImageIndex = 0;
+const imageElement = document.querySelector(".header") as HTMLDivElement;
+
+function changeCoverImage() {
+  imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+}
+window.addEventListener("load", () => {
+  changeCoverImage();
+  setInterval(changeCoverImage, 3000);
+});
+
+// Fetch movie data from json -
 
 
 const getSavedDataOnPageLoad = (key: string) => {
@@ -9,8 +29,16 @@ const getSavedDataOnPageLoad = (key: string) => {
     const any = getData(key);
   }
 
-  console.log("yes");
-};
+// Fetch movie data from json -
+fetch("movies.json")
+  .then((response) => response.json())
+  .then((data) => {
+    movies = data;
+    setData("movieData", movies);
+    renderMovieCards(movies);
+    searchFieldsRenderer.populateMovies(data);
+  })
+  .catch((error) => console.log(error));
 
 getSavedDataOnPageLoad("movieData");
 
@@ -54,6 +82,7 @@ function openTrailer(mov: number) {
   console.log();
 
   const popup: string = `<div class="trailer_container">
+  <div class="trailer_container__exitBox">
   <div class="trailer_container-exit" onclick="closePopup()">
     <img src="./assets/x-thin-svgrepo-com.svg" alt=""  class="x-icon"/>
   </div>
@@ -63,6 +92,7 @@ function openTrailer(mov: number) {
       src="${selectedMovie.trailerURL}"
       frameborder="0"
     ></iframe>
+  </div>
   </div>
 </div>`;
   const movieCardsContainer = document.querySelector(
@@ -396,3 +426,8 @@ class SearchFieldsRenderer {
       .join("");
   }
 }
+
+// VIP -
+vipButton?.addEventListener("click", () => {
+  window.location.href = "./vipPage/vip.html";
+});

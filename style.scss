@@ -12,6 +12,9 @@
 body {
   background-color: $bgBlue;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .navbar {
   width: 100%;
@@ -31,6 +34,34 @@ body {
 }
 
 // Header -
+header {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: no-repeat center center/cover;
+  transition: 1s linear;
+  z-index: 2;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg, $bgBlue, transparent);
+  top: 0;
+  z-index: -1;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg, transparent, $bgBlue);
+  bottom: 0;
+  z-index: -1;
+}
 
 // Search -
 .search {
@@ -196,7 +227,7 @@ body {
 .trailer_container {
   background-color: #80808091;
   position: fixed;
-  z-index: 2;
+  z-index: 200;
   width: 100%;
   height: 100%;
   display: flex;
@@ -204,14 +235,20 @@ body {
   justify-content: center;
   align-items: center;
 
+  &__exitBox {
+    position: relative;
+  }
+
   &-exit {
     position: absolute;
-    right: 550px;
-    top: 235px;
+    top: 20px;
+    right: 20px;
+    transition: all 0.5s ease-in-out;
   }
+
   &-content {
-    background-color: white;
-    width: 800px;
+    background-color: #35b9eda8;
+    width: 700px;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -226,6 +263,63 @@ body {
   &:hover {
     // filter: invert(49%) sepia(119%) saturate(1257%) hue-rotate(222deg)
     //   brightness(170%) contrast(177%);
+    transform: scale(150%);
     cursor: pointer;
   }
+}
+
+// VIP Button -
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.vipButton {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+
+  &__first,
+  &__second,
+  &__third,
+  &__forth {
+    position: absolute;
+    color: white;
+    letter-spacing: 2px;
+    transform: rotate(9deg);
+  }
+
+  &__first {
+    font-size: 20px;
+    word-spacing: 70px;
+    top: 305px;
+    left: 120px;
+  }
+
+  &__second {
+    font-size: 40px;
+    letter-spacing: 3px;
+    top: 335px;
+    left: 160px;
+  }
+
+  &__third {
+    font-size: 20px;
+    top: 400px;
+    left: 140px;
+  }
+
+  &__forth {
+    font-size: 20px;
+    top: 470px;
+    left: 80px;
+    transform: rotate(5deg);
+  }
+}
+
+.vipButton:hover {
+  transform: scale(110%);
 }

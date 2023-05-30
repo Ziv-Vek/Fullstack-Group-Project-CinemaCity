@@ -1,6 +1,3 @@
-// - Header - //
-const MainHeader = document.querySelector(".header") as HTMLDivElement;
-
 // - Movie Cards - //
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
@@ -24,3 +21,6 @@ const searchGenreMenu = document.querySelector(
 const searchMoviesMenu = document.querySelector(
   ".search__movies-menu"
 ) as HTMLUListElement;
+
+// VIP button
+const vipButton = document.querySelector(".vipButton");

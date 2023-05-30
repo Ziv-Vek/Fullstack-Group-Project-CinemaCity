@@ -44,6 +44,10 @@ body {
   background-color: var(--color-blue-700);
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .navbar {
   width: 100%;
   background-color: var(--color-blue-700);
@@ -58,6 +62,35 @@ body {
   border: none;
   box-shadow: 5px 5px 10px rgb(43, 43, 43);
   padding-top: 3px;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: no-repeat center center/cover;
+  transition: 1s linear;
+  z-index: 2;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg, var(--color-blue-700), transparent);
+  top: 0;
+  z-index: -1;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg, transparent, var(--color-blue-700));
+  bottom: 0;
+  z-index: -1;
 }
 
 .search {
@@ -217,7 +250,7 @@ body {
 .trailer_container {
   background-color: rgba(128, 128, 128, 0.568627451);
   position: fixed;
-  z-index: 2;
+  z-index: 200;
   width: 100%;
   height: 100%;
   display: flex;
@@ -225,14 +258,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+.trailer_container__exitBox {
+  position: relative;
+}
 .trailer_container-exit {
   position: absolute;
-  right: 550px;
-  top: 235px;
+  top: 20px;
+  right: 20px;
+  transition: all 0.5s ease-in-out;
 }
 .trailer_container-content {
-  background-color: white;
-  width: 800px;
+  background-color: rgba(53, 185, 237, 0.6588235294);
+  width: 700px;
   height: 450px;
   display: flex;
   flex-direction: column;
@@ -243,5 +280,53 @@ body {
 }
 
 .x-icon:hover {
+  transform: scale(150%);
   cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.vipButton {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.vipButton__first, .vipButton__second, .vipButton__third, .vipButton__forth {
+  position: absolute;
+  color: white;
+  letter-spacing: 2px;
+  transform: rotate(9deg);
+}
+.vipButton__first {
+  font-size: 20px;
+  word-spacing: 70px;
+  top: 305px;
+  left: 120px;
+}
+.vipButton__second {
+  font-size: 40px;
+  letter-spacing: 3px;
+  top: 335px;
+  left: 160px;
+}
+.vipButton__third {
+  font-size: 20px;
+  top: 400px;
+  left: 140px;
+}
+.vipButton__forth {
+  font-size: 20px;
+  top: 470px;
+  left: 80px;
+  transform: rotate(5deg);
+}
+
+.vipButton:hover {
+  transform: scale(110%);
 }/*# sourceMappingURL=style.css.map */

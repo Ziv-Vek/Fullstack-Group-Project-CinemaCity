@@ -1,13 +1,20 @@
-var getSavedDataOnPageLoad = function (key) {
-    if (key === "cinemaData") {
-        var any = getData(key);
-    }
-    if (key === "movieData") {
-        var any = getData(key);
-    }
-    console.log("yes");
-};
-getSavedDataOnPageLoad("movieData");
+var movies = [];
+var cinemas = [];
+// Fetch movie data from json -
+fetch("movies.json")
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    movies = data;
+    setData("movieData", movies);
+    renderMovieCards(movies);
+    searchFieldsRenderer.populateMovies(data);
+})["catch"](function (error) { return console.log(error); });
+fetch("cinema.json")
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    cinemas = data;
+    searchFieldsRenderer.populateLocations(data);
+})["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
     var movieCardsHTML = "";
@@ -27,6 +34,45 @@ function openTrailer(mov) {
 function closePopup() {
     document.querySelector(".trailer_container").remove();
 }
+// Genre options -
+// const genreOptions = () => {
+//   const allGenres = [
+//     "Action",
+//     "Kids",
+//     "Animation",
+//     "Comedy",
+//     "Crime",
+//     "Drama",
+//     "Sci-fi",
+//     "Horror",
+//     "Thriller",
+//     "Fantasy",
+//     "Musical",
+//     "Adventure",
+//     "Foreign",
+//   ];
+//   allGenres.forEach((genre) => {
+//     const option = document.createElement("option");
+//     option.value = genre;
+//     option.textContent = genre;
+//     genreDropdown!.appendChild(option);
+//   });
+// };
+// Handle genre change -
+// function filterMoviesByGenre() {
+//   if (genreDropdown && movieCardsContainer) {
+//     const selectedGenre = genreDropdown.value;
+//     if (selectedGenre === "") {
+//       renderMovieCards(movies);
+//     } else {
+//       const filteredMovies = movies.filter((movie) =>
+//         movie.genre.includes(selectedGenre)
+//       );
+//       renderMovieCards(filteredMovies);
+//     }
+//   }
+// }
+// genreDropdown!.addEventListener("change", filterMoviesByGenre);
 // Transfer data to movie page -
 function transferMovieData(event, movieId) {
     event.preventDefault();
