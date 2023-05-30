@@ -10,7 +10,10 @@ function changeCoverImage() {
     imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
     currentImageIndex = (currentImageIndex + 1) % images.length;
 }
-setInterval(changeCoverImage, 3000);
+window.addEventListener("load", function () {
+    changeCoverImage();
+    setInterval(changeCoverImage, 3000);
+});
 // Fetch movie data from json -
 var movies = [];
 var cinemas = [];
@@ -334,3 +337,6 @@ var SearchFieldsRenderer = /** @class */ (function () {
     return SearchFieldsRenderer;
 }());
 // VIP -
+vipButton === null || vipButton === void 0 ? void 0 : vipButton.addEventListener("click", function () {
+    window.location.href = "./vipPage/vip.html";
+});

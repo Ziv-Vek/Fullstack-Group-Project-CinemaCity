@@ -44,21 +44,19 @@ header::before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 40%;
-  background: linear-gradient(0deg, $bgBlue, transparent);
-  bottom: 0;
-  left: 0;
+  height: 30%;
+  background: linear-gradient(180deg, $bgBlue, transparent);
+  top: 0;
   z-index: -1;
 }
 
 header::after {
   content: "";
   position: absolute;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(90deg, $bgBlue, transparent);
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(180deg, transparent, $bgBlue);
+  bottom: 0;
   z-index: -1;
 }
 
@@ -223,42 +221,6 @@ header::after {
   }
 }
 
-// VIP Button -
-.vipButton {
-  background-color: transparent;
-  border: none;
-  position: relative;
-
-  &__first,
-  &__second,
-  &__third {
-    position: absolute;
-    color: white;
-    letter-spacing: 2px;
-    transform: rotate(9deg);
-  }
-
-  &__first {
-    font-size: 20px;
-    margin-top: -275px;
-    margin-left: 120px;
-    word-spacing: 70px;
-  }
-
-  &__second {
-    font-size: 40px;
-    margin-top: -240px;
-    margin-left: 160px;
-    letter-spacing: 3px;
-  }
-
-  &__third {
-    font-size: 20px;
-    margin-top: -180px;
-    margin-left: 150px;
-  }
-}
-
 .trailer_container {
   background-color: #80808091;
   position: fixed;
@@ -293,5 +255,48 @@ header::after {
     // filter: invert(49%) sepia(119%) saturate(1257%) hue-rotate(222deg)
     //   brightness(170%) contrast(177%);
     cursor: pointer;
+  }
+}
+
+// VIP Button -
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.vipButton {
+  background-color: transparent;
+  border: none;
+  position: relative;
+
+  &__first,
+  &__second,
+  &__third {
+    position: absolute;
+    color: white;
+    letter-spacing: 2px;
+    transform: rotate(9deg);
+  }
+
+  &__first {
+    font-size: 20px;
+    margin-top: -275px;
+    margin-left: 120px;
+    word-spacing: 70px;
+  }
+
+  &__second {
+    font-size: 40px;
+    margin-top: -240px;
+    margin-left: 160px;
+    letter-spacing: 3px;
+  }
+
+  &__third {
+    font-size: 20px;
+    margin-top: -180px;
+    margin-left: 150px;
   }
 }

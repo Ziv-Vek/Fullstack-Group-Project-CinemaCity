@@ -21,3 +21,6 @@ const searchGenreMenu = document.querySelector(
 const searchMoviesMenu = document.querySelector(
   ".search__movies-menu"
 ) as HTMLUListElement;
+
+// VIP button
+const vipButton = document.querySelector(".vipButton");

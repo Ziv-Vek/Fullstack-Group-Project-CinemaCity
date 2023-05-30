@@ -12,7 +12,10 @@ function changeCoverImage() {
   imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
   currentImageIndex = (currentImageIndex + 1) % images.length;
 }
-setInterval(changeCoverImage, 3000);
+window.addEventListener("load", () => {
+  changeCoverImage();
+  setInterval(changeCoverImage, 3000);
+});
 
 // Fetch movie data from json -
 let movies: any[] = [];
@@ -463,3 +466,6 @@ class SearchFieldsRenderer {
 }
 
 // VIP -
+vipButton?.addEventListener("click", () => {
+  window.location.href = "./vipPage/vip.html";
+});
