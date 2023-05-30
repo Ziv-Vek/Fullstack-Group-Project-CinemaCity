@@ -12,6 +12,9 @@
 body {
   background-color: $bgBlue;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .navbar {
   width: 100%;
@@ -224,7 +227,7 @@ header::after {
 .trailer_container {
   background-color: #80808091;
   position: fixed;
-  z-index: 2;
+  z-index: 200;
   width: 100%;
   height: 100%;
   display: flex;
@@ -232,14 +235,20 @@ header::after {
   justify-content: center;
   align-items: center;
 
+  &__exitBox {
+    position: relative;
+  }
+
   &-exit {
     position: absolute;
-    right: 550px;
-    top: 235px;
+    top: 20px;
+    right: 20px;
+    transition: all 0.5s ease-in-out;
   }
+
   &-content {
-    background-color: white;
-    width: 800px;
+    background-color: #35b9eda8;
+    width: 700px;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -254,6 +263,7 @@ header::after {
   &:hover {
     // filter: invert(49%) sepia(119%) saturate(1257%) hue-rotate(222deg)
     //   brightness(170%) contrast(177%);
+    transform: scale(150%);
     cursor: pointer;
   }
 }

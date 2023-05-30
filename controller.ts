@@ -79,6 +79,7 @@ function openTrailer(mov: number) {
   console.log();
 
   const popup: string = `<div class="trailer_container">
+  <div class="trailer_container__exitBox">
   <div class="trailer_container-exit" onclick="closePopup()">
     <img src="./assets/x-thin-svgrepo-com.svg" alt=""  class="x-icon"/>
   </div>
@@ -88,6 +89,7 @@ function openTrailer(mov: number) {
       src="${selectedMovie.trailerURL}"
       frameborder="0"
     ></iframe>
+  </div>
   </div>
 </div>`;
   const movieCardsContainer = document.querySelector(

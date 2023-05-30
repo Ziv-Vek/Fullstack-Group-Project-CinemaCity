@@ -44,6 +44,10 @@ body {
   background-color: var(--color-blue-700);
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .navbar {
   width: 100%;
   background-color: var(--color-blue-700);
@@ -246,7 +250,7 @@ header::after {
 .trailer_container {
   background-color: rgba(128, 128, 128, 0.568627451);
   position: fixed;
-  z-index: 2;
+  z-index: 200;
   width: 100%;
   height: 100%;
   display: flex;
@@ -254,14 +258,18 @@ header::after {
   justify-content: center;
   align-items: center;
 }
+.trailer_container__exitBox {
+  position: relative;
+}
 .trailer_container-exit {
   position: absolute;
-  right: 550px;
-  top: 235px;
+  top: 20px;
+  right: 20px;
+  transition: all 0.5s ease-in-out;
 }
 .trailer_container-content {
-  background-color: white;
-  width: 800px;
+  background-color: rgba(53, 185, 237, 0.6588235294);
+  width: 700px;
   height: 450px;
   display: flex;
   flex-direction: column;
@@ -272,6 +280,7 @@ header::after {
 }
 
 .x-icon:hover {
+  transform: scale(150%);
   cursor: pointer;
 }
 
