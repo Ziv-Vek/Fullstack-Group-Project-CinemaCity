@@ -9,6 +9,6 @@ const setData = (key: string, value: unknown) => {
   }
 };
 
-const getData = (key: string) => {
+const getData = (key: string): any => {
   return JSON.parse(localStorage.getItem(key) || "");
 };

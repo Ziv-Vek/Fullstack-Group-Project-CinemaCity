@@ -1,3 +1,6 @@
+@import "../_mixin";
+@import "../_variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -90,4 +93,52 @@ body {
   height: 450px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(43, 43, 43);
+}
+
+.search {
+  @include flex-vertical();
+  width: 715px;
+  height: 125px;
+  background-color: var(--color-blue-400);
+  margin: auto;
+  border-radius: 10px;
+  @include mainBoxShadow;
+  margin-bottom: 25px;
+
+  &__header {
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-white);
+  }
+
+  &__search_groups {
+    @include flex-horizontal();
+    gap: 30px;
+  }
+
+  &__btn {
+    width: 155px;
+    height: 37px;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    @include bottomShadow;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 700;
+
+    &:hover {
+      background-color: var(--color-blue-700);
+    }
+  }
+
+  &__secondary-search {
+    display: none;
+    width: 800px;
+    background-color: var(--color-blue-400-05);
+
+    &--visible {
+      @include flex-vertical();
+    }
+  }
 }

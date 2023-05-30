@@ -6,3 +6,8 @@ const movieData: Movie = JSON.parse(decodeURIComponent(movieDataString));
 
 // Call populateMoviePage to populate movie page elements with the transferred movie data
 populateMoviePage(movieData);
+
+const moviesAndCinemasManager: MoviesAndCinemasManager =
+  new MoviesAndCinemasManager();
+const searchFieldsRenderer = new SearchFieldsRenderer();
+const searchHandler = new SearchHandler();
