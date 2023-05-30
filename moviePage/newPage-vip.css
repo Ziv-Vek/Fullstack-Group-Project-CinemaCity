@@ -30,18 +30,22 @@ body::-webkit-scrollbar {
 }
 .navbar__nav {
   display: flex;
-  text-decoration: none;
-  margin: 30px 0 40px 20px;
-  background-color: #0c4173;
-  border-radius: 10px;
   width: 95px;
-  color: yellow;
+  margin: 30px 0 40px 20px;
   padding: 5px;
+  background-color: #0c4173;
   box-shadow: 0 2px 5px #0c4173;
+  border-radius: 10px;
+  text-decoration: none;
+  color: yellow;
+  transition: all 0.5s ease-in-out;
 }
 .navbar__nav p {
   font-size: 20px;
   letter-spacing: 3px;
+}
+.navbar__nav:hover {
+  transform: scale(110%);
 }
 
 .newMoviePage {
