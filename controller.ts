@@ -1,7 +1,3 @@
-// Header -
-
-//
-
 let movies: any[] = [];
 let cinemas: any[] = [];
 
@@ -59,11 +55,9 @@ function renderMovieCards(movies: any[]) {
 
 // Open trailer -
 function openTrailer(mov: number) {
-  console.log(mov);
+  const selectedMovie = movies.find((element) => element.uuid === Number(mov));
 
-  const selectedMovie = movies[mov - 1];
-
-  console.log(selectedMovie.trailerURL);
+  console.log();
 
   const popup: string = `<div class="trailer_container">
   <div class="trailer_container-exit" onclick="closePopup()">
