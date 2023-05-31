@@ -4,7 +4,6 @@ var mov = cinemaData.find(function (result) { return result.id === Number(movieS
 var movie_Details = getData("movieData");
 var thisMovie = movie_Details.find(function (result) { return result.uuid === Number(movieSelected[0]); });
 var selectedMov = mov.movieList.find(function (result) { return result.uuid === Number(movieSelected[3]); });
-console.log(selectedMov);
 var selectionData = selectedMov;
 var movieViewDetails = "\n<div>\n<lable>Movie Name: </lable></div>";
 function renderDetails(element, renderDetails) {

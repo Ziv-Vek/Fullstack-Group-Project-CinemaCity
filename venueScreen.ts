@@ -15,7 +15,6 @@ const thisMovie: Movie | undefined = movie_Details.find(
 const selectedMov = mov.movieList.find(
   (result) => result.uuid === Number(movieSelected[3])
 );
-console.log(selectedMov);
 
 const selectionData = selectedMov;
 
