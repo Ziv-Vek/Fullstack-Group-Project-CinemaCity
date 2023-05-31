@@ -44,7 +44,7 @@ var generateHoursHtml = function (movieUuid) {
     var html = screenTimes
         .map(function (screenTime) {
         screenUuidIndex++;
-        return "<a\n       class=\"movieDetails__hour\"\n       onclick=\"onHourSelection(" + movieUuid + ", " + cinema.id + ", '" + screenTime + "', " + screenUuid[screenUuidIndex] + ")\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       >\n       " + screenTime + "\n     </a>\n    ";
+        return "<a\n       class=\"movieDetails__hour\"\n       onclick=\"onHourSelection(" + movieUuid + ", " + cinema.id + ", '" + screenTime + "', " + screenUuid[screenUuidIndex] + ")\"\n       href=\"./venueScreen.html\"\n       >\n       " + screenTime + "\n     </a>\n    ";
     })
         .join(" ");
     return html;

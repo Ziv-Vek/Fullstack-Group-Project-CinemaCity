@@ -86,7 +86,7 @@ const generateHoursHtml = (movieUuid: number): string => {
       return `<a
        class="movieDetails__hour"
        onclick="onHourSelection(${movieUuid}, ${cinema.id}, '${screenTime}', ${screenUuid[screenUuidIndex]})"
-       href="./venueScreen.html?id=${movieUuid}"
+       href="./venueScreen.html"
        >
        ${screenTime}
      </a>
