@@ -63,6 +63,7 @@ function renderMovieCards(movies: any[]) {
 const generateHoursHtml = (movieUuid: number): string => {
   let cinema: Cinema | null = searchHandler.getSelectedCinema;
   let screenTimes: string[] = [];
+  let screenUuid: number[] = [];
 
   if (cinema === null) {
     return "";
@@ -73,14 +74,18 @@ const generateHoursHtml = (movieUuid: number): string => {
     let movieInstance = cinema.movieList[i];
     if (movieInstance.movieID === movieUuid) {
       screenTimes.push(movieInstance.screenTime);
+      screenUuid.push(movieInstance.uuid);
     }
   }
 
+  let screenUuidIndex: number = -1;
   let html = screenTimes
     .map((screenTime) => {
+      screenUuidIndex++;
+
       return `<a
        class="movieDetails__hour"
-       onclick="onHourSelection(${movieUuid}, ${cinema.id}, '${screenTime}')"
+       onclick="onHourSelection(${movieUuid}, ${cinema.id}, '${screenTime}', ${screenUuid[screenUuidIndex]})"
        href="./venueScreen.html?id=${movieUuid}"
        >
        ${screenTime}
@@ -95,9 +100,13 @@ const generateHoursHtml = (movieUuid: number): string => {
 const onHourSelection = (
   movieUuid: string,
   cinemaId: string,
-  screenTime: string
+  screenTime: string,
+  screenUuid: string
 ) => {
-  setData("selectedMovie", `${movieUuid}, ${cinemaId}, ${screenTime}`);
+  setData(
+    "selectedMovie",
+    `${movieUuid}, ${cinemaId}, ${screenTime}, ${screenUuid}`
+  );
 };
 
 // Open trailer -

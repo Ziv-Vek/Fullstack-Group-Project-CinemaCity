@@ -28,6 +28,7 @@ function renderMovieCards(movies) {
 var generateHoursHtml = function (movieUuid) {
     var cinema = searchHandler.getSelectedCinema;
     var screenTimes = [];
+    var screenUuid = [];
     if (cinema === null) {
         return "";
     }
@@ -36,17 +37,20 @@ var generateHoursHtml = function (movieUuid) {
         var movieInstance = cinema.movieList[i];
         if (movieInstance.movieID === movieUuid) {
             screenTimes.push(movieInstance.screenTime);
+            screenUuid.push(movieInstance.uuid);
         }
     }
+    var screenUuidIndex = -1;
     var html = screenTimes
         .map(function (screenTime) {
-        return "<a\n       class=\"movieDetails__hour\"\n       onclick=\"onHourSelection(" + movieUuid + ", " + cinema.id + ", '" + screenTime + "')\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       >\n       " + screenTime + "\n     </a>\n    ";
+        screenUuidIndex++;
+        return "<a\n       class=\"movieDetails__hour\"\n       onclick=\"onHourSelection(" + movieUuid + ", " + cinema.id + ", '" + screenTime + "', " + screenUuid[screenUuidIndex] + ")\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       >\n       " + screenTime + "\n     </a>\n    ";
     })
         .join(" ");
     return html;
 };
-var onHourSelection = function (movieUuid, cinemaId, screenTime) {
-    setData("selectedMovie", movieUuid + ", " + cinemaId + ", " + screenTime);
+var onHourSelection = function (movieUuid, cinemaId, screenTime, screenUuid) {
+    setData("selectedMovie", movieUuid + ", " + cinemaId + ", " + screenTime + ", " + screenUuid);
 };
 // Open trailer -
 function openTrailer(mov) {
