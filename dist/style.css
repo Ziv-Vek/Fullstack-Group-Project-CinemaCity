@@ -41,7 +41,7 @@
 }
 
 body {
-  background-color: var(--color-blue-700);
+  background-image: linear-gradient(#0c5394 20%, #1889f2, #35b9ed);
 }
 
 body::-webkit-scrollbar {
@@ -184,7 +184,8 @@ header::after {
   height: 450px;
   border-radius: 10px;
 }
-.movieCard .movieDetails {
+
+.movieDetails {
   transform: rotateY(180deg);
   width: 300px;
   height: 450px;
@@ -193,19 +194,22 @@ header::after {
   font-weight: bold;
   padding: 10px;
 }
-.movieCard .movieDetails__movieName {
+.movieDetails__movieName {
   font-size: 30px;
 }
-.movieCard .movieDetails__movieDescription {
-  padding: 20px 0;
+.movieDetails__movieDescription {
+  padding: 10px 0;
   font-size: 15px;
   text-align: center;
 }
-.movieCard .movieDetails p {
+.movieDetails p {
   font-size: 15px;
   margin-bottom: 2px;
 }
-.movieCard .movieDetails__moviePageButton {
+.movieDetails__moreInfo {
+  padding: 5px;
+}
+.movieDetails__moviePageButton {
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -224,14 +228,31 @@ header::after {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-.movieCard .movieDetails__moviePageButton:hover {
+.movieDetails__moviePageButton:hover {
   transform: scale(105%);
 }
-.movieCard .movieDetails__trailerButton {
-  background-color: transparent;
-  border: none;
+.movieDetails__hours-container {
+  display: grid;
+  height: 100px;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  grid-gap: 10px;
 }
-.movieCard #trailerBtn {
+.movieDetails__hour {
+  background-color: #0c1f42;
+  border-radius: 10px;
+  width: 118px;
+  height: 40px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+  -webkit-text-stroke: 1px #35b9edc0;
+}
+
+#trailerBtn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -243,8 +264,29 @@ header::after {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
-.movieCard #trailerBtn:hover {
+
+#trailerBtn:hover {
   transform: scale(120%);
+}
+
+.movieDetails__hours-container::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-track {
+  background: #1e2f97;
+  border-radius: 100vw;
+  margin-block: 0.2em;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-thumb {
+  background: #1aa7ec;
+  border: 0.15em solid #1e2f97;
+  border-radius: 100vw;
+}
+
+.movieDetails__hours-container::-webkit-scrollbar-thumb:hover {
+  background: #4adede;
 }
 
 .trailer_container {

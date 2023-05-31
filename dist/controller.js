@@ -7,38 +7,44 @@ var images = [
 var currentImageIndex = 0;
 var imageElement = document.querySelector(".header");
 function changeCoverImage() {
-    imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
-    currentImageIndex = (currentImageIndex + 1) % images.length;
+    if (imageElement) {
+        imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
 }
 window.addEventListener("load", function () {
+    imageElement = document.querySelector(".header");
     changeCoverImage();
     setInterval(changeCoverImage, 3000);
 });
-// Fetch movie data from json -
-var movies = [];
-var cinemas = [];
-fetch("movies.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    movies = data;
-    setData("movieData", movies);
-    renderMovieCards(movies);
-    searchFieldsRenderer.populateMovies(data);
-})["catch"](function (error) { return console.log(error); });
-fetch("cinema.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    cinemas = data;
-    searchFieldsRenderer.populateLocations(data);
-})["catch"](function (error) { return console.log(error); });
 // Render movie cards -
 function renderMovieCards(movies) {
     var movieCardsHTML = "";
     movies.forEach(function (movie) {
-        movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n      <button class=\"movieDetails__trailerButton\" onclick=\"openTrailer('" + movie.uuid + "')\">\n      <span id=\"trailerBtn\" class=\"material-symbols-outlined\">play_circle</span>\n      </button>\n      <a class=\"movieDetails__moviePageButton\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">MOVIE PAGE</a>\n    </div>\n  </div>";
+        movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <span onclick=\"openTrailer('" + movie.uuid + "')\" id=\"trailerBtn\" class=\"material-symbols-outlined movieDetails__trailerButton\">play_circle</span>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n\n      <div class=\"movieDetails__moreInfo\">\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n   </div>\n\n      <div class=\"movieDetails__hours-container\">\n      " + generateHoursHtml(movie.uuid) + "\n      \n      </div>\n      <a class=\"movieDetails__moviePageButton\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">MOVIE PAGE</a>\n    </div>\n  </div>";
     });
     movieCardsContainer.innerHTML = movieCardsHTML;
 }
+var generateHoursHtml = function (movieUuid) {
+    var cinema = searchHandler.getSelectedCinema;
+    var screenTimes = [];
+    if (cinema === null) {
+        return "";
+    }
+    var movieListLenght = cinema.movieList.length;
+    for (var i = 0; i < movieListLenght; i++) {
+        var movieInstance = cinema.movieList[i];
+        if (movieInstance.movieID === movieUuid) {
+            screenTimes.push(movieInstance.screenTime);
+        }
+    }
+    var html = screenTimes
+        .map(function (screenTime) {
+        return "<a\n       class=\"movieDetails__hour\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       onclick=\"setData('selectedMovie', {" + movieUuid + ", " + cinema + ", " + screenTime + "})\">\n       " + screenTime + "\n     </a>\n    ";
+    })
+        .join(" ");
+    return html;
+};
 // Open trailer -
 function openTrailer(mov) {
     var selectedMovie = movies.find(function (element) { return element.uuid === Number(mov); });
@@ -50,45 +56,6 @@ function openTrailer(mov) {
 function closePopup() {
     document.querySelector(".trailer_container").remove();
 }
-// Genre options -
-// const genreOptions = () => {
-//   const allGenres = [
-//     "Action",
-//     "Kids",
-//     "Animation",
-//     "Comedy",
-//     "Crime",
-//     "Drama",
-//     "Sci-fi",
-//     "Horror",
-//     "Thriller",
-//     "Fantasy",
-//     "Musical",
-//     "Adventure",
-//     "Foreign",
-//   ];
-//   allGenres.forEach((genre) => {
-//     const option = document.createElement("option");
-//     option.value = genre;
-//     option.textContent = genre;
-//     genreDropdown!.appendChild(option);
-//   });
-// };
-// Handle genre change -
-// function filterMoviesByGenre() {
-//   if (genreDropdown && movieCardsContainer) {
-//     const selectedGenre = genreDropdown.value;
-//     if (selectedGenre === "") {
-//       renderMovieCards(movies);
-//     } else {
-//       const filteredMovies = movies.filter((movie) =>
-//         movie.genre.includes(selectedGenre)
-//       );
-//       renderMovieCards(filteredMovies);
-//     }
-//   }
-// }
-// genreDropdown!.addEventListener("change", filterMoviesByGenre);
 // Transfer data to movie page -
 function transferMovieData(event, movieId) {
     event.preventDefault();
@@ -136,6 +103,13 @@ var SearchHandler = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(SearchHandler.prototype, "getSelectedCinema", {
+        get: function () {
+            return this.selectedCinema;
+        },
+        enumerable: false,
+        configurable: true
+    });
     SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve) {
         try {
             if (searchFilter === "")
@@ -167,6 +141,7 @@ var SearchHandler = /** @class */ (function () {
                 break;
             }
         }
+        searchFieldsRenderer.updateSearchTitle(searchFilter, filteredMovies[0].name);
         renderMovieCards(filteredMovies);
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
@@ -175,7 +150,7 @@ var SearchHandler = /** @class */ (function () {
         renderMovieCards(this.filterMoviesByDate(newDate));
     };
     SearchHandler.prototype.onGenreSelect = function (searchFilter, genre, eve) {
-        searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+        searchFieldsRenderer.updateSearchTitle(searchFilter, genre);
         renderMovieCards(this.filterMoviesByGenre(genre));
     };
     SearchHandler.prototype.filterMoviesByCinemas = function (location) {
@@ -253,9 +228,9 @@ var SearchFieldsRenderer = /** @class */ (function () {
         this.movies = [];
         this.numOfDaysInDateSearch = 14;
     }
-    SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, location) {
+    SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, newTitle) {
         var selector = document.querySelector("." + searchFilter);
-        selector.children[0].innerHTML = location;
+        selector.children[0].innerHTML = newTitle;
     };
     SearchFieldsRenderer.prototype.updateDateSearchTitle = function (searchFilter, date) {
         var selector = document.querySelector("." + searchFilter);
@@ -264,10 +239,6 @@ var SearchFieldsRenderer = /** @class */ (function () {
             day: "2-digit",
             month: "short"
         }) + " ";
-    };
-    SearchFieldsRenderer.prototype.updateGenreSearchTitle = function (searchFilter, genre) {
-        var selector = document.querySelector("." + searchFilter);
-        selector.children[0].innerHTML = " " + genre + " ";
     };
     SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema) {
         secondarySearchArea.classList.add("search__secondary-search--visible");

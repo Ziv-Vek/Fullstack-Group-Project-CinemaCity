@@ -2,8 +2,6 @@
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-// Header -
-//
 var movies = [];
 var cinemas = []; // Fetch movie data from json -
 
@@ -29,17 +27,19 @@ fetch("cinema.json").then(function (response) {
 function renderMovieCards(movies) {
   var movieCardsHTML = "";
   movies.forEach(function (movie) {
-    movieCardsHTML += '<div class="movieCard">\n    <div class="movieImage">\n      <img src="' + movie.image + '" />\n    </div>\n    <div class="movieDetails">\n      <h2 class="movieDetails__movieName">' + movie.name + '</h2>\n      <p class="movieDetails__movieDescription">' + movie.description + '</p>\n      <p class="movieDetails__genre">Genre: ' + movie.genre.join(", ") + '</p>\n      <p class="movieDetails__ageLimit">Age Limit: ' + movie.ageLimit + '</p>\n      <p class="movieDetails__screenDuration">Screen Duration: ' + movie.screenDuration + '</p>\n      <p class="movieDetails__premiere">Premiere: ' + movie.premiere + '</p>\n      <button class="movieDetails__trailerButton" onclick="openTrailer(\'' + movie.uuid + '\')">\n      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>\n      </button>\n      <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=' + movie.uuid + '" onclick="transferMovieData(event, ' + movie.uuid + ')">MOVIE PAGE</a>\n    </div>\n  </div>';
+    movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n      <button class=\"movieDetails__trailerButton\" onclick=\"openTrailer('" + movie.uuid + "')\">\n      <span id=\"trailerBtn\" class=\"material-symbols-outlined\">play_circle</span>\n      </button>\n      <a class=\"movieDetails__moviePageButton\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">MOVIE PAGE</a>\n    </div>\n  </div>";
   });
   movieCardsContainer.innerHTML = movieCardsHTML;
 } // Open trailer -
 
 
 function openTrailer(mov) {
-  var selectedMovie = movies[mov - 1];
-  console.log(selectedMovie.trailerURL);
-  var popup = '<div class="trailer_container">\n  <div class="trailer_container-exit" onclick="">\n    <img src="./assets/x-thin-svgrepo-com.svg" alt="" />\n  </div>\n  <div class="trailer_container-content">\n    <h2>' + selectedMovie.name + '</h2>\n    <iframe  width="640" height="360" \n      src="' + selectedMovie.trailerURL + '"\n      frameborder="0"\n    ></iframe>\n  </div>\n</div>';
-  var movieCardsContainer = document.querySelector(".root");
+  var selectedMovie = movies.find(function (element) {
+    return element.uuid === Number(mov);
+  });
+  console.log();
+  var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container-exit\" onclick=\"closePopup()\">\n    <img src=\"./assets/x-thin-svgrepo-com.svg\" alt=\"\"  class=\"x-icon\"/>\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n</div>";
+  var movieCardsContainer = document.querySelector(".trailer_popup");
   movieCardsContainer.innerHTML += popup;
 }
 
@@ -102,7 +102,7 @@ function transferMovieData(event, movieId) {
 }
 
 function populateMoviePage(movie) {
-  document.querySelector("#movieImage").innerHTML = '<img src="../' + movie.image + '" class="movie-image"/>';
+  document.querySelector("#movieImage").innerHTML = "<img src=\"../" + movie.image + "\" class=\"movie-image\"/>";
   document.querySelector("#movieTitle").textContent = movie.name;
   document.querySelector("#movieDescription").textContent = movie.description;
   document.querySelector("#movieGenre").textContent = movie.genre.join(", ");

@@ -6,38 +6,20 @@ const images = [
 ];
 
 let currentImageIndex = 0;
-const imageElement = document.querySelector(".header") as HTMLDivElement;
+let imageElement = document.querySelector(".header") as HTMLDivElement;
 
 function changeCoverImage() {
-  imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
-  currentImageIndex = (currentImageIndex + 1) % images.length;
+  if (imageElement) {
+    imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
 }
+
 window.addEventListener("load", () => {
+  imageElement = document.querySelector(".header") as HTMLDivElement;
   changeCoverImage();
   setInterval(changeCoverImage, 3000);
 });
-
-// Fetch movie data from json -
-let movies: any[] = [];
-let cinemas: any[] = [];
-
-fetch("movies.json")
-  .then((response) => response.json())
-  .then((data) => {
-    movies = data;
-    setData("movieData", movies);
-    renderMovieCards(movies);
-    searchFieldsRenderer.populateMovies(data);
-  })
-  .catch((error) => console.log(error));
-
-fetch("cinema.json")
-  .then((response) => response.json())
-  .then((data) => {
-    cinemas = data;
-    searchFieldsRenderer.populateLocations(data);
-  })
-  .catch((error) => console.log(error));
 
 // Render movie cards -
 function renderMovieCards(movies: any[]) {
@@ -50,18 +32,24 @@ function renderMovieCards(movies: any[]) {
     </div>
     <div class="movieDetails">
       <h2 class="movieDetails__movieName">${movie.name}</h2>
+      <span onclick="openTrailer('${
+        movie.uuid
+      }')" id="trailerBtn" class="material-symbols-outlined movieDetails__trailerButton">play_circle</span>
       <p class="movieDetails__movieDescription">${movie.description}</p>
+
+      <div class="movieDetails__moreInfo">
       <p class="movieDetails__genre">Genre: ${movie.genre.join(", ")}</p>
       <p class="movieDetails__ageLimit">Age Limit: ${movie.ageLimit}</p>
       <p class="movieDetails__screenDuration">Screen Duration: ${
         movie.screenDuration
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
-      <button class="movieDetails__trailerButton" onclick="openTrailer('${
-        movie.uuid
-      }')">
-      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
-      </button>
+   </div>
+
+      <div class="movieDetails__hours-container">
+      ${generateHoursHtml(movie.uuid)}
+      
+      </div>
       <a class="movieDetails__moviePageButton" href="./moviePage/moviePage.html?id=${
         movie.uuid
       }" onclick="transferMovieData(event, ${movie.uuid})">MOVIE PAGE</a>
@@ -71,6 +59,37 @@ function renderMovieCards(movies: any[]) {
 
   movieCardsContainer!.innerHTML = movieCardsHTML;
 }
+
+const generateHoursHtml = (movieUuid: number): string => {
+  let cinema: Cinema | null = searchHandler.getSelectedCinema;
+  let screenTimes: string[] = [];
+
+  if (cinema === null) {
+    return "";
+  }
+
+  const movieListLenght: number = cinema.movieList.length;
+  for (let i = 0; i < movieListLenght; i++) {
+    let movieInstance = cinema.movieList[i];
+    if (movieInstance.movieID === movieUuid) {
+      screenTimes.push(movieInstance.screenTime);
+    }
+  }
+
+  let html = screenTimes
+    .map((screenTime) => {
+      return `<a
+       class="movieDetails__hour"
+       href="./venueScreen.html?id=${movieUuid}"
+       onclick="setData('selectedMovie', {${movieUuid}, ${cinema}, ${screenTime}})">
+       ${screenTime}
+     </a>
+    `;
+    })
+    .join(" ");
+
+  return html;
+};
 
 // Open trailer -
 function openTrailer(mov: number) {
@@ -102,49 +121,6 @@ function openTrailer(mov: number) {
 function closePopup() {
   document.querySelector(".trailer_container")!.remove();
 }
-
-// Genre options -
-// const genreOptions = () => {
-//   const allGenres = [
-//     "Action",
-//     "Kids",
-//     "Animation",
-//     "Comedy",
-//     "Crime",
-//     "Drama",
-//     "Sci-fi",
-//     "Horror",
-//     "Thriller",
-//     "Fantasy",
-//     "Musical",
-//     "Adventure",
-//     "Foreign",
-//   ];
-
-//   allGenres.forEach((genre) => {
-//     const option = document.createElement("option");
-//     option.value = genre;
-//     option.textContent = genre;
-//     genreDropdown!.appendChild(option);
-//   });
-// };
-
-// Handle genre change -
-// function filterMoviesByGenre() {
-//   if (genreDropdown && movieCardsContainer) {
-//     const selectedGenre = genreDropdown.value;
-
-//     if (selectedGenre === "") {
-//       renderMovieCards(movies);
-//     } else {
-//       const filteredMovies = movies.filter((movie) =>
-//         movie.genre.includes(selectedGenre)
-//       );
-//       renderMovieCards(filteredMovies);
-//     }
-//   }
-// }
-// genreDropdown!.addEventListener("change", filterMoviesByGenre);
 
 // Transfer data to movie page -
 function transferMovieData(event: Event, movieId: number) {
@@ -199,6 +175,10 @@ class SearchHandler {
     return this.filteredMovies;
   }
 
+  public get getSelectedCinema(): Cinema | null {
+    return this.selectedCinema;
+  }
+
   public onLocationSelect(searchFilter: string, location: string, eve) {
     try {
       if (searchFilter === "") throw new Error("No search filter was passed");
@@ -234,6 +214,11 @@ class SearchHandler {
       }
     }
 
+    searchFieldsRenderer.updateSearchTitle(
+      searchFilter,
+      filteredMovies[0].name
+    );
+
     renderMovieCards(filteredMovies);
   }
 
@@ -245,7 +230,7 @@ class SearchHandler {
   }
 
   public onGenreSelect(searchFilter: string, genre: string, eve) {
-    searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+    searchFieldsRenderer.updateSearchTitle(searchFilter, genre);
 
     renderMovieCards(this.filterMoviesByGenre(genre));
   }
@@ -339,12 +324,12 @@ class SearchFieldsRenderer {
 
   constructor() {}
 
-  public updateSearchTitle(searchFilter: string, location: string) {
+  public updateSearchTitle(searchFilter: string, newTitle: string) {
     const selector = document.querySelector(
       `.${searchFilter}`
     ) as HTMLDivElement;
 
-    selector.children[0].innerHTML = location;
+    selector.children[0].innerHTML = newTitle;
   }
 
   public updateDateSearchTitle(searchFilter: string, date: Date) {
@@ -357,14 +342,6 @@ class SearchFieldsRenderer {
       day: "2-digit",
       month: "short",
     })} `;
-  }
-
-  public updateGenreSearchTitle(searchFilter: string, genre: string) {
-    const selector = document.querySelector(
-      `.${searchFilter}`
-    ) as HTMLDivElement;
-
-    selector.children[0].innerHTML = ` ${genre} `;
   }
 
   public renderSecondarySearchMenus(selectedCinema: Cinema) {
