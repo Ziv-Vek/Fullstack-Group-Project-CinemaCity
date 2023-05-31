@@ -210,12 +210,21 @@ header::after {
       height: 100px;
       grid-template-columns: 2fr 2fr;
       grid-template-rows: 3fr 3fr 3fr;
-      overflow-y: scroll;
+      overflow-y: auto;
       grid-gap: 10px;
+      }
     }
 
     &__hour {
-      background-color: orange;
+      background-color: #0c1f42;
+      border-radius: 10px;
+      width: 118px;
+      height: 44px;
+      @include grid-center();
+      color: white;
+      text-decoration: none;
+      font-size: x-large;
+      -webkit-text-stroke: 1px #35b9edc0;
     }
   }
 

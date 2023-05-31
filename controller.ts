@@ -87,8 +87,6 @@ const generateHoursHtml = (movieUuid: number): string => {
     return "";
   }
 
-  //console.log(cinema);
-
   const movieListLenght: number = cinema.movieList.length;
   for (let i = 0; i < movieListLenght; i++) {
     let movieInstance = cinema.movieList[i];
@@ -107,10 +105,11 @@ const generateHoursHtml = (movieUuid: number): string => {
      </a>
     `;
     })
-    .join();
+    .join(" ");
 
   return html;
 };
+
 // Open trailer -
 function openTrailer(mov: number) {
   const selectedMovie = movies.find((element) => element.uuid === Number(mov));
@@ -234,6 +233,11 @@ class SearchHandler {
       }
     }
 
+    searchFieldsRenderer.updateSearchTitle(
+      searchFilter,
+      filteredMovies[0].name
+    );
+
     renderMovieCards(filteredMovies);
   }
 
@@ -245,7 +249,7 @@ class SearchHandler {
   }
 
   public onGenreSelect(searchFilter: string, genre: string, eve) {
-    searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+    searchFieldsRenderer.updateSearchTitle(searchFilter, genre);
 
     renderMovieCards(this.filterMoviesByGenre(genre));
   }
@@ -339,12 +343,12 @@ class SearchFieldsRenderer {
 
   constructor() {}
 
-  public updateSearchTitle(searchFilter: string, location: string) {
+  public updateSearchTitle(searchFilter: string, newTitle: string) {
     const selector = document.querySelector(
       `.${searchFilter}`
     ) as HTMLDivElement;
 
-    selector.children[0].innerHTML = location;
+    selector.children[0].innerHTML = newTitle;
   }
 
   public updateDateSearchTitle(searchFilter: string, date: Date) {
@@ -357,14 +361,6 @@ class SearchFieldsRenderer {
       day: "2-digit",
       month: "short",
     })} `;
-  }
-
-  public updateGenreSearchTitle(searchFilter: string, genre: string) {
-    const selector = document.querySelector(
-      `.${searchFilter}`
-    ) as HTMLDivElement;
-
-    selector.children[0].innerHTML = ` ${genre} `;
   }
 
   public renderSecondarySearchMenus(selectedCinema: Cinema) {

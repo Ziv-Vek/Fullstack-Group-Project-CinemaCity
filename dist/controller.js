@@ -47,7 +47,6 @@ var generateHoursHtml = function (movieUuid) {
     if (cinema === null) {
         return "";
     }
-    //console.log(cinema);
     var movieListLenght = cinema.movieList.length;
     for (var i = 0; i < movieListLenght; i++) {
         var movieInstance = cinema.movieList[i];
@@ -59,7 +58,7 @@ var generateHoursHtml = function (movieUuid) {
         .map(function (screenTime) {
         return "<a\n       class=\"movieDetails__hour\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       onclick=\"setData('selectedMovie', {" + movieUuid + ", " + cinema + ", " + screenTime + "})\">\n       " + screenTime + "\n     </a>\n    ";
     })
-        .join();
+        .join(" ");
     return html;
 };
 // Open trailer -
@@ -158,6 +157,7 @@ var SearchHandler = /** @class */ (function () {
                 break;
             }
         }
+        searchFieldsRenderer.updateSearchTitle(searchFilter, filteredMovies[0].name);
         renderMovieCards(filteredMovies);
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
@@ -166,7 +166,7 @@ var SearchHandler = /** @class */ (function () {
         renderMovieCards(this.filterMoviesByDate(newDate));
     };
     SearchHandler.prototype.onGenreSelect = function (searchFilter, genre, eve) {
-        searchFieldsRenderer.updateGenreSearchTitle(searchFilter, genre);
+        searchFieldsRenderer.updateSearchTitle(searchFilter, genre);
         renderMovieCards(this.filterMoviesByGenre(genre));
     };
     SearchHandler.prototype.filterMoviesByCinemas = function (location) {
@@ -244,9 +244,9 @@ var SearchFieldsRenderer = /** @class */ (function () {
         this.movies = [];
         this.numOfDaysInDateSearch = 14;
     }
-    SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, location) {
+    SearchFieldsRenderer.prototype.updateSearchTitle = function (searchFilter, newTitle) {
         var selector = document.querySelector("." + searchFilter);
-        selector.children[0].innerHTML = location;
+        selector.children[0].innerHTML = newTitle;
     };
     SearchFieldsRenderer.prototype.updateDateSearchTitle = function (searchFilter, date) {
         var selector = document.querySelector("." + searchFilter);
@@ -255,10 +255,6 @@ var SearchFieldsRenderer = /** @class */ (function () {
             day: "2-digit",
             month: "short"
         }) + " ";
-    };
-    SearchFieldsRenderer.prototype.updateGenreSearchTitle = function (searchFilter, genre) {
-        var selector = document.querySelector("." + searchFilter);
-        selector.children[0].innerHTML = " " + genre + " ";
     };
     SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema) {
         secondarySearchArea.classList.add("search__secondary-search--visible");
