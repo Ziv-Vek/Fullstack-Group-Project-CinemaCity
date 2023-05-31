@@ -147,7 +147,7 @@ function closePopup() {
 function transferMovieData(event: Event, movieId: number) {
   event.preventDefault();
 
-  const movie = movies.find((movie) => movie.uuid === movieId);
+  const movie = this.movies.find((movie) => movie.uuid === movieId);
 
   if (movie) {
     const movieData: Movie = movie;
@@ -240,6 +240,8 @@ class SearchHandler {
       filteredMovies[0].name
     );
 
+    searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
+
     renderMovieCards(filteredMovies);
   }
 
@@ -280,7 +282,10 @@ class SearchHandler {
         });
 
         this.filteredMovies = filteredMovies;
-        searchFieldsRenderer.renderSecondarySearchMenus(this.selectedCinema);
+        searchFieldsRenderer.renderSecondarySearchMenus(
+          this.selectedCinema,
+          null
+        );
 
         return filteredMovies;
       }
@@ -365,10 +370,59 @@ class SearchFieldsRenderer {
     })} `;
   }
 
-  public renderSecondarySearchMenus(selectedCinema: Cinema) {
-    secondarySearchArea.classList.add("search__secondary-search--visible");
-    this.populateDates(selectedCinema);
-    this.populateGenres(selectedCinema);
+  public renderSecondarySearchMenus(
+    selectedCinema: Cinema | null,
+    selectedMovie: Movie | null
+  ) {
+    if (selectedCinema) {
+      if (
+        !secondarySearchArea.classList.contains(
+          "search__secondary-search--visible"
+        )
+      )
+        secondarySearchArea.classList.add("search__secondary-search--visible");
+
+      if (
+        genreSecondaryDropdown.classList.contains(
+          "search__secondary-search--invisible"
+        )
+      )
+        genreSecondaryDropdown.classList.remove(
+          "search__secondary-search--invisible"
+        );
+
+      if (
+        datesSecondaryDropdown.classList.contains(
+          "search__secondary-search--invisible"
+        )
+      )
+        datesSecondaryDropdown.classList.remove(
+          "search__secondary-search--invisible"
+        );
+
+      this.populateDates(selectedCinema);
+      this.populateGenres(selectedCinema);
+    }
+
+    if (selectedMovie) {
+      if (
+        !secondarySearchArea.classList.contains(
+          "search__secondary-search--visible"
+        )
+      )
+        secondarySearchArea.classList.add("search__secondary-search--visible");
+
+      if (
+        cinemaSecondaryDropdown.classList.contains(
+          "search__secondary-search--invisible"
+        )
+      )
+        cinemaSecondaryDropdown.classList.remove(
+          "search__secondary-search--invisible"
+        );
+
+      this.populateLocations(getData("cinemaData"));
+    }
   }
 
   private populateDates(selectedCinema: Cinema) {
@@ -435,18 +489,22 @@ class SearchFieldsRenderer {
   }
 
   public populateLocations(cinemas: any[]) {
+    console.log(cinemas);
+
     this.cinemas = cinemas;
 
-    searchLocationMenu.innerHTML = cinemas
-      .map((cinema) => {
-        return `<li>
+    for (let i = 0; i < searchLocationMenu.length; i++) {
+      searchLocationMenu[i].innerHTML = cinemas
+        .map((cinema) => {
+          return `<li>
         <a
           class="dropdown-item"
           onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
           >${cinema.cinemaName}</a>
       </li>`;
-      })
-      .join("");
+        })
+        .join("");
+    }
   }
 
   public populateMovies(movies: any[]) {

@@ -142,6 +142,9 @@ header::after {
   justify-content: center;
   align-items: center;
 }
+.search__secondary-search--invisible {
+  display: none;
+}
 
 .dropDownTest {
   background-color: red;

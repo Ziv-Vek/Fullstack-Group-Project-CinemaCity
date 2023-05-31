@@ -75,7 +75,7 @@ function closePopup() {
 // Transfer data to movie page -
 function transferMovieData(event, movieId) {
     event.preventDefault();
-    var movie = movies.find(function (movie) { return movie.uuid === movieId; });
+    var movie = this.movies.find(function (movie) { return movie.uuid === movieId; });
     if (movie) {
         var movieData = movie;
         var movieDataString = encodeURIComponent(JSON.stringify(movieData));
@@ -158,6 +158,7 @@ var SearchHandler = /** @class */ (function () {
             }
         }
         searchFieldsRenderer.updateSearchTitle(searchFilter, filteredMovies[0].name);
+        searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
         renderMovieCards(filteredMovies);
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
@@ -187,7 +188,7 @@ var SearchHandler = /** @class */ (function () {
                     });
                 });
                 this_1.filteredMovies = filteredMovies;
-                searchFieldsRenderer.renderSecondarySearchMenus(this_1.selectedCinema);
+                searchFieldsRenderer.renderSecondarySearchMenus(this_1.selectedCinema, null);
                 return { value: filteredMovies };
             }
         };
@@ -256,10 +257,24 @@ var SearchFieldsRenderer = /** @class */ (function () {
             month: "short"
         }) + " ";
     };
-    SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema) {
-        secondarySearchArea.classList.add("search__secondary-search--visible");
-        this.populateDates(selectedCinema);
-        this.populateGenres(selectedCinema);
+    SearchFieldsRenderer.prototype.renderSecondarySearchMenus = function (selectedCinema, selectedMovie) {
+        if (selectedCinema) {
+            if (!secondarySearchArea.classList.contains("search__secondary-search--visible"))
+                secondarySearchArea.classList.add("search__secondary-search--visible");
+            if (genreSecondaryDropdown.classList.contains("search__secondary-search--invisible"))
+                genreSecondaryDropdown.classList.remove("search__secondary-search--invisible");
+            if (datesSecondaryDropdown.classList.contains("search__secondary-search--invisible"))
+                datesSecondaryDropdown.classList.remove("search__secondary-search--invisible");
+            this.populateDates(selectedCinema);
+            this.populateGenres(selectedCinema);
+        }
+        if (selectedMovie) {
+            if (!secondarySearchArea.classList.contains("search__secondary-search--visible"))
+                secondarySearchArea.classList.add("search__secondary-search--visible");
+            if (cinemaSecondaryDropdown.classList.contains("search__secondary-search--invisible"))
+                cinemaSecondaryDropdown.classList.remove("search__secondary-search--invisible");
+            this.populateLocations(getData("cinemaData"));
+        }
     };
     SearchFieldsRenderer.prototype.populateDates = function (selectedCinema) {
         var currentDayInMonth = new Date().getDate();
@@ -306,12 +321,15 @@ var SearchFieldsRenderer = /** @class */ (function () {
             .join("");
     };
     SearchFieldsRenderer.prototype.populateLocations = function (cinemas) {
+        console.log(cinemas);
         this.cinemas = cinemas;
-        searchLocationMenu.innerHTML = cinemas
-            .map(function (cinema) {
-            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
-        })
-            .join("");
+        for (var i = 0; i < searchLocationMenu.length; i++) {
+            searchLocationMenu[i].innerHTML = cinemas
+                .map(function (cinema) {
+                return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
+            })
+                .join("");
+        }
     };
     SearchFieldsRenderer.prototype.populateMovies = function (movies) {
         this.movies = movies;

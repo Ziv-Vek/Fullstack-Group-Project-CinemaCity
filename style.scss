@@ -109,6 +109,10 @@ header::after {
     &--visible {
       @include flex-vertical();
     }
+
+    &--invisible {
+      display: none;
+    }
   }
 }
 
