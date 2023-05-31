@@ -84,22 +84,22 @@ class MoviesAndCinemasManager {
 
 //let cinemasArr: any;
 
-fetch("cinema.json")
-  .then((response) => response.json())
-  .then((data) => {
-    if (data.length === 0) throw new Error("Data from cinema.json is empty");
+// fetch("cinema.json")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     if (data.length === 0) throw new Error("Data from cinema.json is empty");
 
-    handleJsonCinemaData(data);
-  })
-  .catch((error) => console.log(error));
+//     handleJsonCinemaData(data);
+//   })
+//   .catch((error) => console.log(error));
 
-const handleJsonCinemaData = (data: any) => {
-  if (!MoviesAndCinemasManager)
-    throw new Error("MoviesAndCinemasManager not found.");
+// const handleJsonCinemaData = (data: any) => {
+//   if (!MoviesAndCinemasManager)
+//     throw new Error("MoviesAndCinemasManager not found.");
 
-  //cinemasArr = data;
-  moviesAndCinemasManager.setCinemasArr(data);
-};
+//   //cinemasArr = data;
+//   moviesAndCinemasManager.setCinemasArr(data);
+// };
 
 interface _Cart {
   barcode: string;

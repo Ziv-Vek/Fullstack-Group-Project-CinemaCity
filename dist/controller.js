@@ -7,32 +7,16 @@ var images = [
 var currentImageIndex = 0;
 var imageElement = document.querySelector(".header");
 function changeCoverImage() {
-    imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
-    currentImageIndex = (currentImageIndex + 1) % images.length;
+    if (imageElement) {
+        imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
 }
 window.addEventListener("load", function () {
+    imageElement = document.querySelector(".header");
     changeCoverImage();
     setInterval(changeCoverImage, 3000);
 });
-// Fetch movie data from json -
-// const getSavedDataOnPageLoad = (key: string) => {
-//   if (key === "cinemaData") {
-//     const any = getData(key);
-//   }
-//   if (key === "movieData") {
-//     const any = getData(key);
-//   }
-// };
-// Fetch movie data from json -
-fetch("movies.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    movies = data;
-    setData("movieData", movies);
-    renderMovieCards(movies);
-    searchFieldsRenderer.populateMovies(data);
-})["catch"](function (error) { return console.log(error); });
-//getSavedDataOnPageLoad("movieData");
 // Render movie cards -
 function renderMovieCards(movies) {
     var movieCardsHTML = "";

@@ -49,20 +49,6 @@ var MoviesAndCinemasManager = /** @class */ (function () {
     };
     return MoviesAndCinemasManager;
 }());
-//let cinemasArr: any;
-fetch("cinema.json")
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-    if (data.length === 0)
-        throw new Error("Data from cinema.json is empty");
-    handleJsonCinemaData(data);
-})["catch"](function (error) { return console.log(error); });
-var handleJsonCinemaData = function (data) {
-    if (!MoviesAndCinemasManager)
-        throw new Error("MoviesAndCinemasManager not found.");
-    //cinemasArr = data;
-    moviesAndCinemasManager.setCinemasArr(data);
-};
 var Cart = /** @class */ (function () {
     function Cart(barcode, price, movieID, seats) {
         this.barcode = barcode;
