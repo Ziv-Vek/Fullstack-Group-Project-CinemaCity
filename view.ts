@@ -1,10 +1,12 @@
 // - Movie Cards - //
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
+
 // (genreOptions function and filterMoviesByGenre function)
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
+
 // Cinema menu search
 const searchLocationMenu: NodeListOf<HTMLDivElement> =
   document.querySelectorAll(".search__location-menu");
@@ -12,10 +14,12 @@ const searchLocationMenu: NodeListOf<HTMLDivElement> =
 const searchDateMenu = document.querySelector(
   ".search__date-menu"
 ) as HTMLUListElement;
+
 // Genre menu search
 const searchGenreMenu = document.querySelector(
   ".search__genre-menu"
 ) as HTMLUListElement;
+
 // Movies menu search
 const searchMoviesMenu = document.querySelector(
   ".search__movies-menu"

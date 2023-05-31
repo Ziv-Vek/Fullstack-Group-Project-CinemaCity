@@ -1,5 +1,13 @@
-var selectionData = getData("cinemas")[1].movieList[1].seats;
-var html = document.querySelector(".root");
+var selectionData = getData("cinemas")[1].movieList[1];
+console.log(selectionData);
+var movieInfo = getData("movieData").find(function (result) { return result.uuid === selectionData.movieID; });
+var movieViewDetails = "\n<div>\n<lable>Movie Name: </lable></div>";
+console.log(movieInfo);
+function renderDetails(element, renderDetails) {
+    element.innerHTML = renderDetails;
+}
+var html = document.querySelector(".venue_view");
+var movieDetails = document.querySelector(".movie_details");
 var venueData = [];
 var selected = [];
 fetch("venue.json")
@@ -13,7 +21,7 @@ fetch("venue.json")
             isTaken: seat.isTaken
         });
     });
-    updateSeatTakenStatus(venueData, selectionData.index);
+    updateSeatTakenStatus(venueData, selectionData.seats.index);
     seatsRender(venueData);
 })["catch"](function (error) { return console.log(error); });
 function updateSeatTakenStatus(seats, selectionIndex) {

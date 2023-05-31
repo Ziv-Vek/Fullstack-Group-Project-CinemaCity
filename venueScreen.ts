@@ -4,9 +4,23 @@ interface Seat {
   isTaken: boolean;
 }
 
-const selectionData = getData("cinemas")[1].movieList[1].seats;
+const selectionData = getData("cinemas")[1].movieList[1];
+console.log(selectionData);
+const movieInfo = getData("movieData").find(
+  (result) => result.uuid === selectionData.movieID
+);
 
-const html = document.querySelector(".root") as HTMLDivElement;
+const movieViewDetails: string = `
+<div>
+<lable>Movie Name: </lable></div>`;
+console.log(movieInfo);
+
+function renderDetails(element: HTMLDivElement, renderDetails: string) {
+  element.innerHTML = renderDetails;
+}
+
+const html = document.querySelector(".venue_view") as HTMLDivElement;
+const movieDetails = document.querySelector(".movie_details") as HTMLDivElement;
 const venueData: Seat[] = [];
 
 const selected: { line: number; seat: number }[] = [];
@@ -23,7 +37,7 @@ fetch("venue.json")
       });
     });
 
-    updateSeatTakenStatus(venueData, selectionData.index);
+    updateSeatTakenStatus(venueData, selectionData.seats.index);
     seatsRender(venueData);
   })
   .catch((error) => console.log(error));

@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #0c5394;
+  background-image: linear-gradient(#0c5394, #1889f2, #35b9ed);
 }
 
 body::-webkit-scrollbar {
@@ -15,8 +15,6 @@ body::-webkit-scrollbar {
 
 .navbar {
   width: 100%;
-  background-color: #0c4173;
-  box-shadow: 0 3px 5px #0c4173;
 }
 .navbar__savedTickets {
   cursor: pointer;
@@ -32,10 +30,9 @@ body::-webkit-scrollbar {
   display: flex;
   width: 95px;
   height: 35px;
-  margin: 30px 0 40px 20px;
+  margin: 20px 0 40px 20px;
   padding: 5px;
-  background-color: #0c4173;
-  box-shadow: 0 2px 5px #0c4173;
+  box-shadow: 5px 5px 10px #0c4173;
   border-radius: 10px;
   text-decoration: none;
   color: yellow;
@@ -101,81 +98,4 @@ body::-webkit-scrollbar {
   height: 450px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(43, 43, 43);
-}
-
-h1 {
-  font-size: 60px;
-  text-align: center;
-  margin: 60px 0 20px 0;
-  color: #35b9ed;
-  letter-spacing: 15px;
-  text-shadow: 3px 3px black;
-}
-
-.menu-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.menu-buttons__button {
-  width: 250px;
-  padding: 5px 0;
-  margin: 20px 10px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 2px 2px 5px black;
-  font-size: 30px;
-  letter-spacing: 2px;
-  background-color: black;
-  color: #0c5394;
-  text-align: center;
-  cursor: pointer;
-}
-
-#telAvivButton,
-#ashdodButton,
-#haifaButton,
-#rishonButton,
-#beerShevaButton {
-  transition: all 0.5s ease-in-out;
-}
-
-#telAvivButton:hover,
-#ashdodButton:hover,
-#haifaButton:hover,
-#rishonButton:hover,
-#beerShevaButton:hover {
-  transform: scale(110%);
-  color: #35b9ed;
-}
-
-.menuTLV-BeerSheva-Haifa,
-.menuRishonAshdod {
-  width: 650px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 5px 5px 10px black;
-  padding: 20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  color: white;
-  display: none;
-}
-.menuTLV-BeerSheva-Haifa h2,
-.menuRishonAshdod h2 {
-  font-size: 40px;
-  padding-bottom: 20px;
-}
-.menuTLV-BeerSheva-Haifa p,
-.menuRishonAshdod p {
-  padding-top: 10px;
-}
-.menuTLV-BeerSheva-Haifa h3,
-.menuRishonAshdod h3 {
-  padding-top: 30px;
-  color: #35b9ed;
-}
-.menuTLV-BeerSheva-Haifa__last,
-.menuRishonAshdod__last {
-  padding: 40px 0;
 }/*# sourceMappingURL=newPage-vip.css.map */

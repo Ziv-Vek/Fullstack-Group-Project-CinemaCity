@@ -41,7 +41,7 @@
 }
 
 body {
-  background-color: var(--color-blue-700);
+  background-image: linear-gradient(#0c5394 20%, #1889f2, #35b9ed);
 }
 
 body::-webkit-scrollbar {
