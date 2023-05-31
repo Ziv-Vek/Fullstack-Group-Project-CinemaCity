@@ -184,7 +184,8 @@ header::after {
   height: 450px;
   border-radius: 10px;
 }
-.movieCard .movieDetails {
+
+.movieDetails {
   transform: rotateY(180deg);
   width: 300px;
   height: 450px;
@@ -193,19 +194,22 @@ header::after {
   font-weight: bold;
   padding: 10px;
 }
-.movieCard .movieDetails__movieName {
+.movieDetails__movieName {
   font-size: 30px;
 }
-.movieCard .movieDetails__movieDescription {
-  padding: 20px 0;
+.movieDetails__movieDescription {
+  padding: 10px 0;
   font-size: 15px;
   text-align: center;
 }
-.movieCard .movieDetails p {
+.movieDetails p {
   font-size: 15px;
   margin-bottom: 2px;
 }
-.movieCard .movieDetails__moviePageButton {
+.movieDetails__moreInfo {
+  padding: 5px;
+}
+.movieDetails__moviePageButton {
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -224,29 +228,21 @@ header::after {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-.movieCard .movieDetails__moviePageButton:hover {
+.movieDetails__moviePageButton:hover {
   transform: scale(105%);
 }
-.movieCard .movieDetails__trailerButton {
-  background-color: transparent;
-  border: none;
-}
-.movieCard .movieDetails__hours-container {
+.movieDetails__hours-container {
   display: grid;
   height: 100px;
   grid-template-columns: 2fr 2fr;
-  grid-template-rows: 3fr 3fr 3fr;
-  overflow-y: auto;
+  grid-template-rows: 2fr 2fr;
   grid-gap: 10px;
 }
-.movieCard .movieDetails__hours-container--no-overflow {
-  overflow-y: auto;
-}
-.movieCard .movieDetails__hour {
+.movieDetails__hour {
   background-color: #0c1f42;
   border-radius: 10px;
   width: 118px;
-  height: 44px;
+  height: 40px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -255,7 +251,8 @@ header::after {
   font-size: x-large;
   -webkit-text-stroke: 1px #35b9edc0;
 }
-.movieCard #trailerBtn {
+
+#trailerBtn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -267,7 +264,8 @@ header::after {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
-.movieCard #trailerBtn:hover {
+
+#trailerBtn:hover {
   transform: scale(120%);
 }
 

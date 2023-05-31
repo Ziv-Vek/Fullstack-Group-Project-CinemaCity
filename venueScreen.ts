@@ -114,3 +114,27 @@ setTimeout(function () {
     });
   });
 }, 100);
+
+// Render movie tickets -
+const renderMovieTickets = (movies, cinema) => {
+  let movieTickets = "";
+
+  movies.forEach((movie) => {
+    const seats = movie.seats
+      .map((seat) => `Line ${seat.line}, Seat ${seat.seatID}`)
+      .join(", ");
+
+    movieTickets += `<div class="ticket"> 
+      <div>${movie.uuid}</div>
+      <h1>${movie.name}</h1>
+      <img class="ticket__image" src="${movie.image}" />
+      <div class="ticket__screenDate">${movie.screenDate}</div> 
+      <div class="ticket__screenTime">${movie.screenTime}</div>
+      <div class="ticket__venue">${cinema.cinemaName} - Venue ${movie.venue[0]}</div> 
+      <div class="ticket__seats">Selected Seats: ${seats}</div> 
+    </div>`;
+  });
+
+  const ticketContainer = document.querySelector(".ticket-container");
+  ticketContainer!.innerHTML = movieTickets;
+};

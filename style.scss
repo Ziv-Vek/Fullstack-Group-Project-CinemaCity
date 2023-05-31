@@ -153,97 +153,94 @@ header::after {
       @include mainCardSize(300px, 450px, 10px);
     }
   }
+}
 
-  .movieDetails {
-    transform: rotateY(180deg);
-    @include mainCardSize(300px, 450px, 10px);
-    background-color: $mainBlue;
-    font-weight: bold;
-    padding: 10px;
+.movieDetails {
+  transform: rotateY(180deg);
+  @include mainCardSize(300px, 450px, 10px);
+  background-color: $mainBlue;
+  font-weight: bold;
+  padding: 10px;
 
-    &__movieName {
-      font-size: 30px;
-    }
-
-    &__movieDescription {
-      padding: 20px 0;
-      font-size: 15px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 15px;
-      margin-bottom: 2px;
-    }
-
-    &__moviePageButton {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      right: 15px;
-      width: 90%;
-      text-decoration: none;
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: center;
-      padding: 5px;
-      background-color: $bgBlue;
-      border: none;
-      border-radius: 10px;
-      @include bottomShadow;
-      cursor: pointer;
-      transition: all 0.5s ease-in-out;
-    }
-
-    &__moviePageButton:hover {
-      transform: scale(105%);
-    }
-
-    &__trailerButton {
-      background-color: transparent;
-      border: none;
-    }
-
-    &__hours-container {
-      display: grid;
-      height: 100px;
-      grid-template-columns: 2fr 2fr;
-      grid-template-rows: 3fr 3fr 3fr;
-      overflow-y: auto;
-      grid-gap: 10px;
-      }
-    }
-
-    &__hour {
-      background-color: #0c1f42;
-      border-radius: 10px;
-      width: 118px;
-      height: 44px;
-      @include grid-center();
-      color: white;
-      text-decoration: none;
-      font-size: x-large;
-      -webkit-text-stroke: 1px #35b9edc0;
-    }
+  &__movieName {
+    font-size: 30px;
   }
 
-  #trailerBtn {
+  &__movieDescription {
+    padding: 10px 0;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  &__moreInfo {
+    padding: 5px;
+  }
+
+  &__moviePageButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 35px;
-    background-color: rgb(182, 11, 11);
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    width: 90%;
+    text-decoration: none;
     color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    background-color: $bgBlue;
     border: none;
-    border-radius: 50%;
-    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    @include bottomShadow;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
   }
 
-  #trailerBtn:hover {
-    transform: scale(120%);
+  &__moviePageButton:hover {
+    transform: scale(105%);
   }
+
+  &__hours-container {
+    display: grid;
+    height: 100px;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 2fr 2fr;
+    grid-gap: 10px;
+  }
+
+  &__hour {
+    background-color: #0c1f42;
+    border-radius: 10px;
+    width: 118px;
+    height: 40px;
+    @include grid-center();
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+    -webkit-text-stroke: 1px #35b9edc0;
+  }
+}
+
+#trailerBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 35px;
+  background-color: rgb(182, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#trailerBtn:hover {
+  transform: scale(120%);
 }
 
 .movieDetails__hours-container::-webkit-scrollbar {

@@ -31,6 +31,7 @@ body::-webkit-scrollbar {
 .navbar__nav {
   display: flex;
   width: 95px;
+  height: 35px;
   margin: 30px 0 40px 20px;
   padding: 5px;
   background-color: #0c4173;
@@ -103,11 +104,11 @@ body::-webkit-scrollbar {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
   margin: 60px 0 20px 0;
   color: #35b9ed;
-  letter-spacing: 3px;
+  letter-spacing: 15px;
   text-shadow: 3px 3px black;
 }
 
@@ -117,14 +118,17 @@ h1 {
   align-items: center;
 }
 .menu-buttons__button {
-  padding: 10px;
-  margin: 20px 30px;
-  border-radius: 10px;
+  width: 250px;
+  padding: 5px 0;
+  margin: 20px 10px;
+  border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 5px black;
   font-size: 30px;
-  background-color: #35b9ed;
-  color: white;
+  letter-spacing: 2px;
+  background-color: black;
+  color: #0c5394;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -142,7 +146,7 @@ h1 {
 #rishonButton:hover,
 #beerShevaButton:hover {
   transform: scale(110%);
-  color: #0c5394;
+  color: #35b9ed;
 }
 
 .menuTLV-BeerSheva-Haifa,

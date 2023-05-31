@@ -53,18 +53,20 @@ function renderMovieCards(movies: any[]) {
     </div>
     <div class="movieDetails">
       <h2 class="movieDetails__movieName">${movie.name}</h2>
+      <span onclick="openTrailer('${
+        movie.uuid
+      }')" id="trailerBtn" class="material-symbols-outlined movieDetails__trailerButton">play_circle</span>
       <p class="movieDetails__movieDescription">${movie.description}</p>
+
+      <div class="movieDetails__moreInfo">
       <p class="movieDetails__genre">Genre: ${movie.genre.join(", ")}</p>
       <p class="movieDetails__ageLimit">Age Limit: ${movie.ageLimit}</p>
       <p class="movieDetails__screenDuration">Screen Duration: ${
         movie.screenDuration
       }</p>
       <p class="movieDetails__premiere">Premiere: ${movie.premiere}</p>
-      <button class="movieDetails__trailerButton" onclick="openTrailer('${
-        movie.uuid
-      }')">
-      <span id="trailerBtn" class="material-symbols-outlined">play_circle</span>
-      </button>
+   </div>
+
       <div class="movieDetails__hours-container">
       ${generateHoursHtml(movie.uuid)}
       

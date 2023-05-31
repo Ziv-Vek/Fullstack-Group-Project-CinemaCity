@@ -84,3 +84,15 @@ setTimeout(function () {
         });
     });
 }, 100);
+// Render movie tickets -
+var renderMovieTickets = function (movies, cinema) {
+    var movieTickets = "";
+    movies.forEach(function (movie) {
+        var seats = movie.seats
+            .map(function (seat) { return "Line " + seat.line + ", Seat " + seat.seatID; })
+            .join(", ");
+        movieTickets += "<div class=\"ticket\"> \n      <div>" + movie.uuid + "</div>\n      <h1>" + movie.name + "</h1>\n      <img class=\"ticket__image\" src=\"" + movie.image + "\" />\n      <div class=\"ticket__screenDate\">" + movie.screenDate + "</div> \n      <div class=\"ticket__screenTime\">" + movie.screenTime + "</div>\n      <div class=\"ticket__venue\">" + cinema.cinemaName + " - Venue " + movie.venue[0] + "</div> \n      <div class=\"ticket__seats\">Selected Seats: " + seats + "</div> \n    </div>";
+    });
+    var ticketContainer = document.querySelector(".ticket-container");
+    ticketContainer.innerHTML = movieTickets;
+};
