@@ -40,10 +40,13 @@ var generateHoursHtml = function (movieUuid) {
     }
     var html = screenTimes
         .map(function (screenTime) {
-        return "<a\n       class=\"movieDetails__hour\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       onclick=\"setData('selectedMovie', {" + movieUuid + ", " + cinema + ", " + screenTime + "})\">\n       " + screenTime + "\n     </a>\n    ";
+        return "<a\n       class=\"movieDetails__hour\"\n       onclick=\"onHourSelection(" + movieUuid + ", " + cinema.id + ", '" + screenTime + "')\"\n       href=\"./venueScreen.html?id=" + movieUuid + "\"\n       >\n       " + screenTime + "\n     </a>\n    ";
     })
         .join(" ");
     return html;
+};
+var onHourSelection = function (movieUuid, cinemaId, screenTime) {
+    setData("selectedMovie", movieUuid + ", " + cinemaId + ", " + screenTime);
 };
 // Open trailer -
 function openTrailer(mov) {
@@ -110,7 +113,7 @@ var SearchHandler = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve) {
+    SearchHandler.prototype.onLocationSelect = function (searchFilter, location, eve, isPrimarySearch) {
         try {
             if (searchFilter === "")
                 throw new Error("No search filter was passed");
@@ -120,7 +123,8 @@ var SearchHandler = /** @class */ (function () {
                 throw new Error("searchFieldsRenderer not found");
             searchFieldsRenderer.updateSearchTitle(searchFilter, location);
             this.locationFilterText = location;
-            this.filteredMovies = this.filterMoviesByCinemas(location);
+            if (isPrimarySearch)
+                this.filteredMovies = this.filterMoviesByCinemas(location);
             if (this.filteredMovies.length === 0) {
                 renderMovieCards(movies);
             }
@@ -257,7 +261,7 @@ var SearchFieldsRenderer = /** @class */ (function () {
                 secondarySearchArea.classList.add("search__secondary-search--visible");
             if (cinemaSecondaryDropdown.classList.contains("search__secondary-search--invisible"))
                 cinemaSecondaryDropdown.classList.remove("search__secondary-search--invisible");
-            this.populateLocations(getData("cinemaData"));
+            this.populateLocations(getData("cinemaData"), false);
         }
     };
     SearchFieldsRenderer.prototype.populateDates = function (selectedCinema) {
@@ -304,13 +308,12 @@ var SearchFieldsRenderer = /** @class */ (function () {
         })
             .join("");
     };
-    SearchFieldsRenderer.prototype.populateLocations = function (cinemas) {
-        console.log(cinemas);
+    SearchFieldsRenderer.prototype.populateLocations = function (cinemas, isPrimarySearch) {
         this.cinemas = cinemas;
         for (var i = 0; i < searchLocationMenu.length; i++) {
             searchLocationMenu[i].innerHTML = cinemas
                 .map(function (cinema) {
-                return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event)\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
+                return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onLocationSelect('search__cinemas-dropdown', '" + cinema.cinemaName + "', event, " + isPrimarySearch + ")\"\n          >" + cinema.cinemaName + "</a>\n      </li>";
             })
                 .join("");
         }

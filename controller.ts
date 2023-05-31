@@ -80,8 +80,9 @@ const generateHoursHtml = (movieUuid: number): string => {
     .map((screenTime) => {
       return `<a
        class="movieDetails__hour"
+       onclick="onHourSelection(${movieUuid}, ${cinema.id}, '${screenTime}')"
        href="./venueScreen.html?id=${movieUuid}"
-       onclick="setData('selectedMovie', {${movieUuid}, ${cinema}, ${screenTime}})">
+       >
        ${screenTime}
      </a>
     `;
@@ -89,6 +90,14 @@ const generateHoursHtml = (movieUuid: number): string => {
     .join(" ");
 
   return html;
+};
+
+const onHourSelection = (
+  movieUuid: string,
+  cinemaId: string,
+  screenTime: string
+) => {
+  setData("selectedMovie", `${movieUuid}, ${cinemaId}, ${screenTime}`);
 };
 
 // Open trailer -
@@ -179,7 +188,12 @@ class SearchHandler {
     return this.selectedCinema;
   }
 
-  public onLocationSelect(searchFilter: string, location: string, eve) {
+  public onLocationSelect(
+    searchFilter: string,
+    location: string,
+    eve,
+    isPrimarySearch: boolean
+  ) {
     try {
       if (searchFilter === "") throw new Error("No search filter was passed");
       if (location === "")
@@ -190,7 +204,9 @@ class SearchHandler {
 
       searchFieldsRenderer.updateSearchTitle(searchFilter, location);
       this.locationFilterText = location;
-      this.filteredMovies = this.filterMoviesByCinemas(location);
+
+      if (isPrimarySearch)
+        this.filteredMovies = this.filterMoviesByCinemas(location);
 
       if (this.filteredMovies.length === 0) {
         renderMovieCards(movies);
@@ -400,7 +416,7 @@ class SearchFieldsRenderer {
           "search__secondary-search--invisible"
         );
 
-      this.populateLocations(getData("cinemaData"));
+      this.populateLocations(getData("cinemaData"), false);
     }
   }
 
@@ -467,9 +483,7 @@ class SearchFieldsRenderer {
       .join("");
   }
 
-  public populateLocations(cinemas: any[]) {
-    console.log(cinemas);
-
+  public populateLocations(cinemas: any[], isPrimarySearch: boolean) {
     this.cinemas = cinemas;
 
     for (let i = 0; i < searchLocationMenu.length; i++) {
@@ -478,7 +492,7 @@ class SearchFieldsRenderer {
           return `<li>
         <a
           class="dropdown-item"
-          onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event)"
+          onclick="searchHandler.onLocationSelect('search__cinemas-dropdown', '${cinema.cinemaName}', event, ${isPrimarySearch})"
           >${cinema.cinemaName}</a>
       </li>`;
         })
