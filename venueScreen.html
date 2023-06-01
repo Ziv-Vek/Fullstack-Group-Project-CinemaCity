@@ -61,10 +61,19 @@
     <div class="movie_details"></div>
     <div class="venue_view"></div>
 
-    <div class="order">
-      <button onclick="goToPayment()" class="order__btn">Order Tickets</button>
+    <div class="order"></div>
+
+    <div class="container">
+      <button
+        type="submit"
+        onclick="goToPayment()"
+        class="container__order-btn"
+      >
+        Order Tickets
+      </button>
     </div>
 
+    <!-- /////////////////////////////////////////////// -->
     <form class="credit-form" onsubmit="(event)">
       <label class="credit-form__lable" for="name">Full Name</label>
       <br />
@@ -112,16 +121,16 @@
         type="text"
         name="month"
         id="month"
-        placeholder="month"
+        placeholder="03"
         maxlength="2"
       />
-      <p>/</p>
+      <span>/</span>
       <input
         class="credit-form__year"
         type="text"
         name="year"
         id="year"
-        placeholder="year"
+        placeholder="27"
         maxlength="2"
       />
       <br />
