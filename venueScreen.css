@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
   width: 100%;
   background-color: var(--color-blue-700);
   margin-bottom: 50px;
-  box-shadow: 0 3px 5px #2b2b2b;
+  box-shadow: 0 3px 5px rgb(43, 43, 43);
 }
 .navbar__savedTickets {
   cursor: pointer;
@@ -36,7 +36,7 @@ body::-webkit-scrollbar {
   margin-right: 30px;
   background-color: var(--color-blue-100);
   border: none;
-  box-shadow: 5px 5px 10px #2b2b2b;
+  box-shadow: 5px 5px 10px rgb(43, 43, 43);
   padding-top: 3px;
 }
 
@@ -126,10 +126,10 @@ body::-webkit-scrollbar {
   background-color: var(--color-blue-700);
   border: none;
   border-radius: 10px;
-  box-shadow: 0 3px 5px #2b2b2b;
+  box-shadow: 0 3px 5px rgb(43, 43, 43);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .order__btn:hover {
   transform: scale(105%);
-}
+}/*# sourceMappingURL=venueScreen.css.map */

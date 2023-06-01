@@ -1,22 +1,27 @@
+/// Present screening details in Navbar
+const screeningDetails = document.querySelector(".screening") as HTMLDivElement;
+
 interface Seat {
   line: number;
   seatID: number;
   isTaken: boolean;
 }
-const movieSelected = getData("selectedMovie").split(", ");
-const cinemaData = getData("cinemaData");
-const mov = cinemaData.find((result) => result.id === Number(movieSelected[1]));
-const movie_Details: Movie[] = getData("movieData");
 
-const thisMovie: Movie | undefined = movie_Details.find(
-  (result) => result.uuid === Number(movieSelected[0])
+const selectedScreeningRaw = getData("selectedMovie").split(", ");
+const cinemas = getData("cinemaData");
+const selectedCinema = cinemas.find(
+  (result) => result.id === Number(selectedScreeningRaw[1])
+);
+const movies: Movie[] = getData("movieData");
+const selectedMovie: Movie | undefined = movies.find(
+  (result) => result.uuid === Number(selectedScreeningRaw[0])
 );
 
-const selectedMov = mov.movieList.find(
-  (result) => result.uuid === Number(movieSelected[3])
+const selectedScreening = selectedCinema.movieList.find(
+  (result) => result.uuid === Number(selectedScreeningRaw[3])
 );
 
-const selectionData = selectedMov;
+console.log(selectedScreening);
 
 const movieViewDetails: string = `
 <div>
@@ -29,6 +34,34 @@ function renderDetails(element: HTMLDivElement, renderDetails: string) {
 const html = document.querySelector(".venue_view") as HTMLDivElement;
 const movieDetails = document.querySelector(".movie_details") as HTMLDivElement;
 const venueData: Seat[] = [];
+
+const renderScreeningInNavbar = (
+  selectedMovie: Movie,
+  selectedCinema: Cinema,
+  selectedScreening: any
+) => {
+  const screeningDate = new Date(selectedScreening.screenDate);
+  const dateString: string = screeningDate.toLocaleString("default", {
+    weekday: "long",
+    day: "2-digit",
+    month: "short",
+  });
+
+  console.log(selectedScreening);
+
+  screeningDetails.innerHTML = `<img
+  src="${selectedMovie.image}"
+  alt=""
+  class="screening__movie-img" />
+  <div class="screening__text-container">
+  <p class="screening__text-container__title">${selectedMovie.name}</p>
+  <p class="screening__text-container__details">${selectedCinema.cinemaName}</p>
+  <p class="screening__text-container__details">${dateString}, ${selectedScreening.screenTime} </p>
+  <p class="screening__text-container__details">Venue ${selectedScreening.venue} </p>
+  </div>`;
+};
+
+renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
 
 const selected: { line: number; seat: number }[] = [];
 fetch("venue.json")
@@ -44,7 +77,7 @@ fetch("venue.json")
       });
     });
 
-    updateSeatTakenStatus(venueData, selectionData.seats.index);
+    updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
   })
   .catch((error) => console.log(error));
@@ -125,7 +158,7 @@ setTimeout(function () {
         selected.splice(seatIndex, 1); // Remove the selected seat from the array
         seat.style.backgroundColor = "white";
       } else {
-        seat.style.backgroundColor = "blue";
+        seat.style.backgroundColor = "green";
         selected.push({
           line,
           seat: seatID,
@@ -162,7 +195,7 @@ const renderMovieTickets = (movies, cinema) => {
 
 function goToPayment() {
   setData("selectedSeats", selected);
-  setData("orderMovie", selectedMov);
-  setData("cinemaSelected", mov);
-  setData("movieDetails", thisMovie);
+  setData("orderMovie", selectedScreening);
+  setData("cinemaSelected", selectedCinema);
+  setData("movieDetails", selectedMovie);
 }

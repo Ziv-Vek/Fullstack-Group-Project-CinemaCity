@@ -1,10 +1,12 @@
-var movieSelected = getData("selectedMovie").split(", ");
-var cinemaData = getData("cinemaData");
-var mov = cinemaData.find(function (result) { return result.id === Number(movieSelected[1]); });
-var movie_Details = getData("movieData");
-var thisMovie = movie_Details.find(function (result) { return result.uuid === Number(movieSelected[0]); });
-var selectedMov = mov.movieList.find(function (result) { return result.uuid === Number(movieSelected[3]); });
-var selectionData = selectedMov;
+/// Present screening details in Navbar
+var screeningDetails = document.querySelector(".screening");
+var selectedScreeningRaw = getData("selectedMovie").split(", ");
+var cinemas = getData("cinemaData");
+var selectedCinema = cinemas.find(function (result) { return result.id === Number(selectedScreeningRaw[1]); });
+var movies = getData("movieData");
+var selectedMovie = movies.find(function (result) { return result.uuid === Number(selectedScreeningRaw[0]); });
+var selectedScreening = selectedCinema.movieList.find(function (result) { return result.uuid === Number(selectedScreeningRaw[3]); });
+console.log(selectedScreening);
 var movieViewDetails = "\n<div>\n<lable>Movie Name: </lable></div>";
 function renderDetails(element, renderDetails) {
     element.innerHTML = renderDetails;
@@ -12,6 +14,17 @@ function renderDetails(element, renderDetails) {
 var html = document.querySelector(".venue_view");
 var movieDetails = document.querySelector(".movie_details");
 var venueData = [];
+var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedScreening) {
+    var screeningDate = new Date(selectedScreening.screenDate);
+    var dateString = screeningDate.toLocaleString("default", {
+        weekday: "long",
+        day: "2-digit",
+        month: "short"
+    });
+    console.log(selectedScreening);
+    screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  alt=\"\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
+};
+renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
 var selected = [];
 fetch("venue.json")
     .then(function (response) { return response.json(); })
@@ -24,7 +37,7 @@ fetch("venue.json")
             isTaken: seat.isTaken
         });
     });
-    updateSeatTakenStatus(venueData, selectionData.seats.index);
+    updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
 })["catch"](function (error) { return console.log(error); });
 function updateSeatTakenStatus(seats, selectionIndex) {
@@ -85,7 +98,7 @@ setTimeout(function () {
                 seat.style.backgroundColor = "white";
             }
             else {
-                seat.style.backgroundColor = "blue";
+                seat.style.backgroundColor = "green";
                 selected.push({
                     line: line,
                     seat: seatID
@@ -109,7 +122,7 @@ var renderMovieTickets = function (movies, cinema) {
 };
 function goToPayment() {
     setData("selectedSeats", selected);
-    setData("orderMovie", selectedMov);
-    setData("cinemaSelected", mov);
-    setData("movieDetails", thisMovie);
+    setData("orderMovie", selectedScreening);
+    setData("cinemaSelected", selectedCinema);
+    setData("movieDetails", selectedMovie);
 }
