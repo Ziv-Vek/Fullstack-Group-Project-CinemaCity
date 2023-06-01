@@ -261,10 +261,9 @@ legend {
   @include popupCenter;
   width: 500px;
   height: 350px;
-  background-color: #929292;
+  background-color: white;
   box-shadow: 5px 5px 30px black;
   border-radius: 20px;
-  color: white;
   display: flex;
 
   span {
@@ -293,15 +292,15 @@ legend {
         to bottom,
         transparent 20px,
         transparent 40px,
-        white 25px,
-        white 60px
+        black 25px,
+        black 70px
       )
       1;
     border-image-slice: 1;
   }
 
   h2 {
-    color: #0c4173;
+    color: $mainBlue;
     text-align: center;
   }
 
@@ -332,7 +331,7 @@ legend {
   }
 
   &__label {
-    color: #0c4173;
+    color: $mainBlue;
     padding-left: 4px;
     padding-right: 4px;
   }

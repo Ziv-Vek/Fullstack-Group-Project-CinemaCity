@@ -252,10 +252,9 @@ legend {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 350px;
-  background-color: #929292;
+  background-color: white;
   box-shadow: 5px 5px 30px black;
   border-radius: 20px;
-  color: white;
   display: flex;
 }
 .ticket span {
@@ -277,11 +276,11 @@ legend {
   height: 100%;
   border-radius: 20px 0 0 20px;
   border-right: 3px dashed white;
-  border-image: repeating-linear-gradient(to bottom, transparent 20px, transparent 40px, white 25px, white 60px) 1;
+  border-image: repeating-linear-gradient(to bottom, transparent 20px, transparent 40px, black 25px, black 70px) 1;
   border-image-slice: 1;
 }
 .ticket h2 {
-  color: #0c4173;
+  color: var(--color-blue-100);
   text-align: center;
 }
 .ticket__Details {
@@ -308,7 +307,7 @@ legend {
   margin-bottom: 30px;
 }
 .ticket__label {
-  color: #0c4173;
+  color: var(--color-blue-100);
   padding-left: 4px;
   padding-right: 4px;
 }
