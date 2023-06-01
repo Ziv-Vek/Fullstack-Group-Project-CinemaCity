@@ -62,7 +62,7 @@ const renderScreeningInNavbar = (
 
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
 
-const selected: { line: number; seat: number }[] = [];
+const selectedSeats: { line: number; seat: number }[] = [];
 fetch("venue.json")
   .then((response) => response.json())
   .then((data) => {
@@ -111,7 +111,7 @@ function seatsRender(seats: Seat[]) {
 
     for (let seat = 1; seat <= seatsPerLine; seat++) {
       const foundSeat = seats.find((s) => s.line === line && s.seatID === seat);
-      const isSelected = selected.some(
+      const isSelected = selectedSeats.some(
         (s) => s.line === line && s.seat === seat
       );
 
@@ -185,20 +185,20 @@ const enableSeatsSelection = () => {
       const line = Number(selectedSeat[0]);
       const seatID = Number(selectedSeat[1]);
 
-      const seatIndex = selected.findIndex(
+      const seatIndex = selectedSeats.findIndex(
         (rs) => rs.line === line && rs.seat === seatID
       );
       if (seatIndex !== -1) {
-        selected.splice(seatIndex, 1); // Remove the selected seat from the array
+        selectedSeats.splice(seatIndex, 1); // Remove the selected seat from the array
         seat.style.backgroundColor = "white";
       } else {
         seat.style.backgroundColor = "rgb(150, 247, 140)";
-        selected.push({
+        selectedSeats.push({
           line,
           seat: seatID,
         });
       }
-      console.log(selected);
+      console.log(selectedSeats);
     });
   });
 };
@@ -228,7 +228,7 @@ const renderMovieTickets = (movies, cinema) => {
 };
 
 function onOrderTicketsClicked() {
-  setData("selectedSeats", selected);
+  setData("selectedSeats", selectedSeats);
   setData("orderMovie", selectedScreening);
   setData("cinemaSelected", selectedCinema);
   setData("movieDetails", selectedMovie);

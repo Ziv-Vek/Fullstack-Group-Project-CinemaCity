@@ -27,7 +27,7 @@ var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedS
     screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
 };
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
-var selected = [];
+var selectedSeats = [];
 fetch("venue.json")
     .then(function (response) { return response.json(); })
     .then(function (data) {
@@ -66,7 +66,7 @@ function seatsRender(seats) {
         lineElement.classList.add("venue__line");
         var _loop_2 = function (seat) {
             var foundSeat = seats.find(function (s) { return s.line === line && s.seatID === seat; });
-            var isSelected = selected.some(function (s) { return s.line === line && s.seat === seat; });
+            var isSelected = selectedSeats.some(function (s) { return s.line === line && s.seat === seat; });
             var isTaken = foundSeat ? foundSeat.isTaken : false;
             seatsRenderTaken(isTaken, isSelected, lineElement, seat, line);
         };
@@ -125,19 +125,19 @@ var enableSeatsSelection = function () {
             var selectedSeat = seat.classList[1].split("-");
             var line = Number(selectedSeat[0]);
             var seatID = Number(selectedSeat[1]);
-            var seatIndex = selected.findIndex(function (rs) { return rs.line === line && rs.seat === seatID; });
+            var seatIndex = selectedSeats.findIndex(function (rs) { return rs.line === line && rs.seat === seatID; });
             if (seatIndex !== -1) {
-                selected.splice(seatIndex, 1); // Remove the selected seat from the array
+                selectedSeats.splice(seatIndex, 1); // Remove the selected seat from the array
                 seat.style.backgroundColor = "white";
             }
             else {
                 seat.style.backgroundColor = "rgb(150, 247, 140)";
-                selected.push({
+                selectedSeats.push({
                     line: line,
                     seat: seatID
                 });
             }
-            console.log(selected);
+            console.log(selectedSeats);
         });
     });
 };
@@ -154,7 +154,7 @@ var renderMovieTickets = function (movies, cinema) {
     ticketContainer.innerHTML = movieTickets;
 };
 function onOrderTicketsClicked() {
-    setData("selectedSeats", selected);
+    setData("selectedSeats", selectedSeats);
     setData("orderMovie", selectedScreening);
     setData("cinemaSelected", selectedCinema);
     setData("movieDetails", selectedMovie);
