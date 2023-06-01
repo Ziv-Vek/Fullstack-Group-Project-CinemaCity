@@ -41,6 +41,8 @@ fetch("venue.json")
     });
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
+    enableSeatsSelection();
+    enableOrderTickets();
 })["catch"](function (error) { return console.log(error); });
 function updateSeatTakenStatus(seats, selectionIndex) {
     seats.forEach(function (seat) {
@@ -91,7 +93,32 @@ function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     }
     element.appendChild(seatElement);
 }
-setTimeout(function () {
+// setTimeout(function () {
+//   const allSeats: NodeListOf<HTMLElement> =
+//     document.querySelectorAll(".venue__seat");
+//   allSeats.forEach((seat) => {
+//     seat.addEventListener("click", () => {
+//       const selectedSeat: string[] = seat.classList[1].split("-");
+//       const line = Number(selectedSeat[0]);
+//       const seatID = Number(selectedSeat[1]);
+//       const seatIndex = selected.findIndex(
+//         (rs) => rs.line === line && rs.seat === seatID
+//       );
+//       if (seatIndex !== -1) {
+//         selected.splice(seatIndex, 1); // Remove the selected seat from the array
+//         seat.style.backgroundColor = "white";
+//       } else {
+//         seat.style.backgroundColor = "rgb(150, 247, 140)";
+//         selected.push({
+//           line,
+//           seat: seatID,
+//         });
+//       }
+//       console.log(selected);
+//     });
+//   });
+// }, 1000);
+var enableSeatsSelection = function () {
     var allSeats = document.querySelectorAll(".venue__seat");
     allSeats.forEach(function (seat) {
         seat.addEventListener("click", function () {
@@ -113,7 +140,7 @@ setTimeout(function () {
             console.log(selected);
         });
     });
-}, 100);
+};
 // Render movie tickets -
 var renderMovieTickets = function (movies, cinema) {
     var movieTickets = "";
@@ -126,7 +153,7 @@ var renderMovieTickets = function (movies, cinema) {
     var ticketContainer = document.querySelector(".ticket-container");
     ticketContainer.innerHTML = movieTickets;
 };
-function goToPayment() {
+function onOrderTicketsClicked() {
     setData("selectedSeats", selected);
     setData("orderMovie", selectedScreening);
     setData("cinemaSelected", selectedCinema);
