@@ -118,7 +118,9 @@ function openTrailer(mov: number) {
   const popup: string = `<div class="trailer_container">
   <div class="trailer_container__exitBox">
   <div class="trailer_container-exit" onclick="closePopup()">
-    <img src="./assets/x-thin-svgrepo-com.svg" alt=""  class="x-icon"/>
+  <span class="material-symbols-outlined trailer_container-exitBtn">
+  close
+  </span>
   </div>
   <div class="trailer_container-content">
     <h2>${selectedMovie.name}</h2>

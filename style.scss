@@ -287,6 +287,17 @@ header::after {
     top: 20px;
     right: 20px;
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  &-exitBtn {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  &-exit:hover {
+    transform: scale(150%);
+    font-weight: bolder;
   }
 
   &-content {
@@ -299,15 +310,6 @@ header::after {
     align-items: center;
     border-radius: 15px;
     box-shadow: 15px 14px 20px 0px;
-  }
-}
-
-.x-icon {
-  &:hover {
-    // filter: invert(49%) sepia(119%) saturate(1257%) hue-rotate(222deg)
-    //   brightness(170%) contrast(177%);
-    transform: scale(150%);
-    cursor: pointer;
   }
 }
 

@@ -47,6 +47,8 @@
       <p>BACK</p>
     </a>
 
+    <div class="movie_details"></div>
+
     <div class="title">
       <p class="title__text">Choose your seats</p>
     </div>
@@ -58,17 +60,19 @@
       <span>Selected</span>
     </div>
 
-    <div class="movie_details"></div>
-    <div class="venue_view"></div>
+    <div class="venue-container">
+      <div class="venue_view"></div>
 
-    <div class="order">
-      <button onclick="onOrderTicketsClicked()" class="order__btn">
+      <div class="seat-error-message">You Must Choose Seats First !</div>
+    </div>
+
+    <div class="order-container">
+      <button type="submit" class="order-container__order-btn">
         Order Tickets
       </button>
     </div>
 
-    <!-- /////////////////////////////////////////////// -->
-    <form class="credit-form" onsubmit="(event)">
+    <form class="credit-form" onsubmit="handlePaymentForm(event)">
       <label class="credit-form__lable" for="name">Full Name</label>
       <br />
       <input
@@ -130,5 +134,8 @@
       <br />
       <input type="submit" name="submit" id="submit" />
     </form>
+
+    <div class="loading-container"></div>
+    <div class="ticket-container"></div>
   </body>
 </html>

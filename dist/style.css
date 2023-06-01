@@ -285,6 +285,15 @@ header::after {
   top: 20px;
   right: 20px;
   transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.trailer_container-exitBtn {
+  font-size: 30px;
+  font-weight: bold;
+}
+.trailer_container-exit:hover {
+  transform: scale(150%);
+  font-weight: bolder;
 }
 .trailer_container-content {
   background-color: #35b9eda8;
@@ -296,11 +305,6 @@ header::after {
   align-items: center;
   border-radius: 15px;
   box-shadow: 15px 14px 20px 0px;
-}
-
-.x-icon:hover {
-  transform: scale(150%);
-  cursor: pointer;
 }
 
 .buttonContainer {

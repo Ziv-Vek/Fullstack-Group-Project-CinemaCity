@@ -1,17 +1,3 @@
-var Cinema = /** @class */ (function () {
-    function Cinema(id, cinemaName, movieList) {
-        this.id = id;
-        this.cinemaName = cinemaName;
-        this.movieList = movieList;
-    }
-    return Cinema;
-}());
-var venue = /** @class */ (function () {
-    function venue() {
-        this.moviesList = [];
-    }
-    return venue;
-}());
 var Movie = /** @class */ (function () {
     function Movie(image, name, genre, ageLimit, premiere, screenDuration, description, trailerURL, cinemaID) {
         this.image = image;
@@ -27,6 +13,18 @@ var Movie = /** @class */ (function () {
     }
     return Movie;
 }());
+var Cinema = /** @class */ (function () {
+    function Cinema(id, cinemaName, movieList) {
+        this.id = id;
+        this.cinemaName = cinemaName;
+        this.movieList = movieList;
+    }
+    return Cinema;
+}());
+// class venue {
+//   moviesList: Movie[] = [];
+//   constructor() {}
+// }
 var MoviesAndCinemasManager = /** @class */ (function () {
     function MoviesAndCinemasManager() {
         this.movies = [];
@@ -56,4 +54,15 @@ var Cart = /** @class */ (function () {
         this.seats = seats;
     }
     return Cart;
+}());
+var PayForm = /** @class */ (function () {
+    function PayForm(name, idNumber, cardNumber, month, year, seatCount) {
+        this.name = name;
+        this.idNumber = idNumber;
+        this.cardNumber = cardNumber;
+        this.month = month;
+        this.year = year;
+        this.seatCount = seatCount;
+    }
+    return PayForm;
 }());

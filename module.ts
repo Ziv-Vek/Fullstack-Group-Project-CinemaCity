@@ -9,6 +9,23 @@ interface IMovie {
   trailerURL: string;
 }
 
+class Movie implements IMovie {
+  uuid: number;
+  constructor(
+    public image: string,
+    public name: string,
+    public genre: string[],
+    public ageLimit: number,
+    public premiere: Date,
+    public screenDuration: number,
+    public description: string,
+    public trailerURL: string,
+    public cinemaID: number[]
+  ) {
+    //moviesAndCinemasManager.addMovie(this);
+  }
+}
+
 interface Seats {
   index: [{ line: number; seatID: number }];
   status: boolean;
@@ -31,28 +48,11 @@ class Cinema {
   ) {}
 }
 
-class venue {
-  moviesList: Movie[] = [];
+// class venue {
+//   moviesList: Movie[] = [];
 
-  constructor() {}
-}
-
-class Movie implements IMovie {
-  uuid: number;
-  constructor(
-    public image: string,
-    public name: string,
-    public genre: string[],
-    public ageLimit: number,
-    public premiere: Date,
-    public screenDuration: number,
-    public description: string,
-    public trailerURL: string,
-    public cinemaID: number[]
-  ) {
-    //moviesAndCinemasManager.addMovie(this);
-  }
-}
+//   constructor() {}
+// }
 
 class MoviesAndCinemasManager {
   private movies: Movie[] = [];
@@ -93,5 +93,16 @@ class Cart implements _Cart {
     public price: number,
     public movieID: number,
     public seats: { line: number; seatID: number }
+  ) {}
+}
+
+class PayForm {
+  constructor(
+    public name: string,
+    public idNumber: string,
+    public cardNumber: string,
+    public month: string,
+    public year: string,
+    public seatCount: string
   ) {}
 }

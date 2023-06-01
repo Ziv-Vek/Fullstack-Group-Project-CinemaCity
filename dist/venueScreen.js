@@ -7,9 +7,6 @@ var movies = getData("movieData");
 var selectedMovie = movies.find(function (result) { return result.uuid === Number(selectedScreeningRaw[0]); });
 var selectedScreening = selectedCinema.movieList.find(function (result) { return result.uuid === Number(selectedScreeningRaw[3]); });
 console.log(selectedScreening);
-// const movieViewDetails: string = `
-// <div>
-// <lable>Movie Name: </lable></div>`;
 function renderDetails(element, renderDetails) {
     element.innerHTML = renderDetails;
 }
@@ -42,7 +39,7 @@ fetch("venue.json")
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
     enableSeatsSelection();
-    enableOrderTickets();
+    handlePaymentForm();
 })["catch"](function (error) { return console.log(error); });
 function updateSeatTakenStatus(seats, selectionIndex) {
     seats.forEach(function (seat) {
@@ -93,31 +90,6 @@ function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     }
     element.appendChild(seatElement);
 }
-// setTimeout(function () {
-//   const allSeats: NodeListOf<HTMLElement> =
-//     document.querySelectorAll(".venue__seat");
-//   allSeats.forEach((seat) => {
-//     seat.addEventListener("click", () => {
-//       const selectedSeat: string[] = seat.classList[1].split("-");
-//       const line = Number(selectedSeat[0]);
-//       const seatID = Number(selectedSeat[1]);
-//       const seatIndex = selected.findIndex(
-//         (rs) => rs.line === line && rs.seat === seatID
-//       );
-//       if (seatIndex !== -1) {
-//         selected.splice(seatIndex, 1); // Remove the selected seat from the array
-//         seat.style.backgroundColor = "white";
-//       } else {
-//         seat.style.backgroundColor = "rgb(150, 247, 140)";
-//         selected.push({
-//           line,
-//           seat: seatID,
-//         });
-//       }
-//       console.log(selected);
-//     });
-//   });
-// }, 1000);
 var enableSeatsSelection = function () {
     var allSeats = document.querySelectorAll(".venue__seat");
     allSeats.forEach(function (seat) {
@@ -126,6 +98,10 @@ var enableSeatsSelection = function () {
             var line = Number(selectedSeat[0]);
             var seatID = Number(selectedSeat[1]);
             var seatIndex = selectedSeats.findIndex(function (rs) { return rs.line === line && rs.seat === seatID; });
+            var isSeatTaken = seat.classList.contains("venue__seat--taken");
+            if (isSeatTaken) {
+                return seatErrorMessage;
+            }
             if (seatIndex !== -1) {
                 selectedSeats.splice(seatIndex, 1); // Remove the selected seat from the array
                 seat.style.backgroundColor = "white";
@@ -141,21 +117,60 @@ var enableSeatsSelection = function () {
         });
     });
 };
-// Render movie tickets -
-var renderMovieTickets = function (movies, cinema) {
-    var movieTickets = "";
-    movies.forEach(function (movie) {
-        var seats = movie.seats
-            .map(function (seat) { return "Line " + seat.line + ", Seat " + seat.seatID; })
-            .join(", ");
-        movieTickets += "<div class=\"ticket\"> \n      <div>" + movie.uuid + "</div>\n      <h1>" + movie.name + "</h1>\n      <img class=\"ticket__image\" src=\"" + movie.image + "\" />\n      <div class=\"ticket__screenDate\">" + movie.screenDate + "</div> \n      <div class=\"ticket__screenTime\">" + movie.screenTime + "</div>\n      <div class=\"ticket__venue\">" + cinema.cinemaName + " - Venue " + movie.venue[0] + "</div> \n      <div class=\"ticket__seats\">Selected Seats: " + seats + "</div> \n    </div>";
-    });
-    var ticketContainer = document.querySelector(".ticket-container");
-    ticketContainer.innerHTML = movieTickets;
+/////////////////////////////////////////////////////
+var orderBtn = document.querySelector(".order-container__order-btn");
+var paymentForm = document.querySelector(".credit-form");
+var seatErrorMessage = document.querySelector(".seat-error-message");
+orderBtn.addEventListener("click", function () {
+    if (selectedSeats.length === 0) {
+        seatErrorMessage.style.display = "block";
+    }
+    else {
+        seatErrorMessage.style.display = "none";
+        paymentForm.style.display = "block";
+    }
+});
+/////////////////////////////////////////////////////
+var loadingContainer = document.querySelector(".loading-container");
+var ticketContainer = document.querySelector(".ticket-container");
+var submitButton = document.querySelector("#submit");
+var forms = [];
+var handlePaymentForm = function (evt) {
+    try {
+        evt.preventDefault();
+        var name = evt.target.elements.name.value;
+        var idNumber = evt.target.elements.idNumber.value;
+        var cardNumber = evt.target.elements.cardNumber.value;
+        var month = evt.target.elements.month.value;
+        var year = evt.target.elements.year.value;
+        forms.push(new PayForm(name, idNumber, cardNumber, month, year));
+        console.dir(forms);
+        displayMovieTicket();
+        paymentForm.style.display = "none";
+    }
+    catch (error) {
+        console.log(error);
+    }
 };
-function onOrderTicketsClicked() {
-    setData("selectedSeats", selectedSeats);
-    setData("orderMovie", selectedScreening);
-    setData("cinemaSelected", selectedCinema);
-    setData("movieDetails", selectedMovie);
+var displayMovieTicket = function () {
+    var selectedLines = selectedSeats.reduce(function (lines, seat) {
+        if (!lines.includes(seat.line)) {
+            lines.push(seat.line);
+        }
+        return lines;
+    }, []);
+    var ticketHTML = "<div class=\"ticket\">\n  <span onclick=\"closeTicket()\" class=\"material-symbols-outlined\">\nclose\n</span>\n    <h1>" + selectedMovie.name + "</h1>\n    <img class=\"ticket__image\" src=\"" + selectedMovie.image + "\" />\n    <div class=\"ticket__screenDate\">" + selectedScreening.screenDate + "</div>\n    <div class=\"ticket__screenTime\">" + selectedScreening.screenTime + "</div>\n    <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n    <div class=\"ticket__venue\"> Venue " + selectedScreening.venue + "</div>\n    <div class=\"ticket__line\">Line: " + selectedLines.join(" ") + "</div>\n    <div class=\"ticket__seats\">Seats: " + selectedSeats
+        .map(function (seat) { return "" + seat.seat; })
+        .join(", ") + "</div>\n    </div>\n  ";
+    ticketContainer.innerHTML = ticketHTML;
+    ticketContainer.style.display = "block";
+    // Clear form inputs
+    name.value = "";
+    idNumber.value = "";
+    cardNumber.value = "";
+    month.value = "";
+    year.value = "";
+};
+function closeTicket() {
+    document.querySelector(".ticket").remove();
 }

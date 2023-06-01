@@ -23,10 +23,6 @@ const selectedScreening = selectedCinema.movieList.find(
 
 console.log(selectedScreening);
 
-// const movieViewDetails: string = `
-// <div>
-// <lable>Movie Name: </lable></div>`;
-
 function renderDetails(element: HTMLDivElement, renderDetails: string) {
   element.innerHTML = renderDetails;
 }
@@ -78,7 +74,7 @@ fetch("venue.json")
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
     enableSeatsSelection();
-    enableOrderTickets();
+    handlePaymentForm();
   })
   .catch((error) => console.log(error));
 
@@ -147,34 +143,6 @@ function seatsRenderTaken(
   element.appendChild(seatElement);
 }
 
-// setTimeout(function () {
-//   const allSeats: NodeListOf<HTMLElement> =
-//     document.querySelectorAll(".venue__seat");
-
-//   allSeats.forEach((seat) => {
-//     seat.addEventListener("click", () => {
-//       const selectedSeat: string[] = seat.classList[1].split("-");
-//       const line = Number(selectedSeat[0]);
-//       const seatID = Number(selectedSeat[1]);
-
-//       const seatIndex = selected.findIndex(
-//         (rs) => rs.line === line && rs.seat === seatID
-//       );
-//       if (seatIndex !== -1) {
-//         selected.splice(seatIndex, 1); // Remove the selected seat from the array
-//         seat.style.backgroundColor = "white";
-//       } else {
-//         seat.style.backgroundColor = "rgb(150, 247, 140)";
-//         selected.push({
-//           line,
-//           seat: seatID,
-//         });
-//       }
-//       console.log(selected);
-//     });
-//   });
-// }, 1000);
-
 const enableSeatsSelection = () => {
   const allSeats: NodeListOf<HTMLElement> =
     document.querySelectorAll(".venue__seat");
@@ -188,6 +156,13 @@ const enableSeatsSelection = () => {
       const seatIndex = selectedSeats.findIndex(
         (rs) => rs.line === line && rs.seat === seatID
       );
+
+      const isSeatTaken = seat.classList.contains("venue__seat--taken");
+
+      if (isSeatTaken) {
+        return seatErrorMessage;
+      }
+
       if (seatIndex !== -1) {
         selectedSeats.splice(seatIndex, 1); // Remove the selected seat from the array
         seat.style.backgroundColor = "white";
@@ -203,33 +178,91 @@ const enableSeatsSelection = () => {
   });
 };
 
-// Render movie tickets -
-const renderMovieTickets = (movies, cinema) => {
-  let movieTickets = "";
+/////////////////////////////////////////////////////
+const orderBtn = document.querySelector(
+  ".order-container__order-btn"
+) as HTMLButtonElement;
+const paymentForm = document.querySelector(".credit-form") as HTMLFormElement;
+const seatErrorMessage = document.querySelector(
+  ".seat-error-message"
+) as HTMLDivElement;
 
-  movies.forEach((movie) => {
-    const seats = movie.seats
-      .map((seat) => `Line ${seat.line}, Seat ${seat.seatID}`)
-      .join(", ");
+orderBtn.addEventListener("click", () => {
+  if (selectedSeats.length === 0) {
+    seatErrorMessage.style.display = "block";
+  } else {
+    seatErrorMessage.style.display = "none";
+    paymentForm.style.display = "block";
+  }
+});
 
-    movieTickets += `<div class="ticket"> 
-      <div>${movie.uuid}</div>
-      <h1>${movie.name}</h1>
-      <img class="ticket__image" src="${movie.image}" />
-      <div class="ticket__screenDate">${movie.screenDate}</div> 
-      <div class="ticket__screenTime">${movie.screenTime}</div>
-      <div class="ticket__venue">${cinema.cinemaName} - Venue ${movie.venue[0]}</div> 
-      <div class="ticket__seats">Selected Seats: ${seats}</div> 
-    </div>`;
-  });
+/////////////////////////////////////////////////////
+const loadingContainer = document.querySelector(
+  ".loading-container"
+) as HTMLDivElement;
+const ticketContainer = document.querySelector(
+  ".ticket-container"
+) as HTMLDivElement;
+const submitButton = document.querySelector("#submit") as HTMLInputElement;
 
-  const ticketContainer = document.querySelector(".ticket-container");
-  ticketContainer!.innerHTML = movieTickets;
+let forms: PayForm[] = [];
+
+const handlePaymentForm = (evt) => {
+  try {
+    evt.preventDefault();
+
+    const name = evt.target.elements.name.value;
+    const idNumber = evt.target.elements.idNumber.value;
+    const cardNumber = evt.target.elements.cardNumber.value;
+    const month = evt.target.elements.month.value;
+    const year = evt.target.elements.year.value;
+
+    forms.push(new PayForm(name, idNumber, cardNumber, month, year));
+    console.dir(forms);
+
+    displayMovieTicket();
+    paymentForm.style.display = "none";
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-function onOrderTicketsClicked() {
-  setData("selectedSeats", selectedSeats);
-  setData("orderMovie", selectedScreening);
-  setData("cinemaSelected", selectedCinema);
-  setData("movieDetails", selectedMovie);
+const displayMovieTicket = () => {
+  const selectedLines = selectedSeats.reduce((lines: number[], seat: any) => {
+    if (!lines.includes(seat.line)) {
+      lines.push(seat.line);
+    }
+    return lines;
+  }, []);
+
+  const ticketHTML = `<div class="ticket">
+  <span onclick="closeTicket()" class="material-symbols-outlined">
+close
+</span>
+    <h1>${selectedMovie!.name}</h1>
+    <img class="ticket__image" src="${selectedMovie!.image}" />
+    <div class="ticket__screenDate">${selectedScreening.screenDate}</div>
+    <div class="ticket__screenTime">${selectedScreening.screenTime}</div>
+    <div class="ticket__cinema"> Cinema ${selectedCinema.cinemaName} </div>
+    <div class="ticket__venue"> Venue ${selectedScreening.venue}</div>
+    <div class="ticket__line">Line: ${selectedLines.join(" ")}</div>
+    <div class="ticket__seats">Seats: ${selectedSeats
+      .map((seat) => `${seat.seat}`)
+      .join(", ")}</div>
+    </div>
+  `;
+
+  ticketContainer.innerHTML = ticketHTML;
+  ticketContainer.style.display = "block";
+
+  // Clear form inputs
+  name.value = "";
+  idNumber.value = "";
+  cardNumber.value = "";
+  month.value = "";
+  year.value = "";
+};
+
+function closeTicket() {
+  document.querySelector(".ticket")!.remove();
 }
