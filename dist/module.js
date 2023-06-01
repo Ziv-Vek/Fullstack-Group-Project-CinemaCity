@@ -3,7 +3,6 @@ var Cinema = /** @class */ (function () {
         this.id = id;
         this.cinemaName = cinemaName;
         this.movieList = movieList;
-        //moviesAndCinemasManager.addCinema(this);
     }
     return Cinema;
 }());

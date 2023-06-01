@@ -9,42 +9,50 @@
 }
 
 body {
-  //background-image: linear-gradient(#0c5394 20%, #1889f2, #35b9ed);
+  background-color: white;
 }
 body::-webkit-scrollbar {
   display: none;
 }
 
-.root {
-  display: flex;
-  flex-direction: column;
-}
+// .root {
+//   display: flex;
+//   flex-direction: column;
+// }
 
 .navbar {
   width: 100%;
   background-color: $bgBlue;
-  margin-bottom: 50px;
   @include bottomShadow;
 
-  &__savedTickets {
-    cursor: pointer;
-    float: right;
-    margin-top: 55px;
-    margin-right: 30px;
-    background-color: $mainBlue;
-    border: none;
-    @include mainBoxShadow;
-    padding-top: 3px;
+  &__nav {
+    display: flex;
+    width: 95px;
+    height: 35px;
+    margin: 20px 0 0 20px;
+    padding: 5px;
+    box-shadow: 3px 3px 5px rgb(63, 63, 63);
+    background-color: #0c4173;
+    border-radius: 10px;
+    text-decoration: none;
+    color: yellow;
+    transition: all 0.5s ease-in-out;
+
+    p {
+      font-size: 20px;
+      letter-spacing: 3px;
+      margin-top: -2px;
+    }
   }
 }
 
 .screening {
   @include flex-horizontal();
-  padding: $default-sides-padding;
+  padding: 14px 60px 14px 0;
 
   &__movie-img {
-    height: 120px;
-    padding: 0;
+    height: 150px;
+    border-radius: 10px;
     padding-right: $default-sides-padding;
   }
 
@@ -53,7 +61,9 @@ body::-webkit-scrollbar {
     justify-content: space-between;
     align-items: flex-start;
     padding-right: $default-sides-padding;
-    height: 120px;
+    padding-bottom: 5px;
+    height: 150px;
+    letter-spacing: 2px;
   }
 
   &__text-container__title {
@@ -73,7 +83,7 @@ body::-webkit-scrollbar {
 
 .title {
   @include grid-center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 
   &__text {
     font-size: 3rem;
@@ -85,6 +95,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    font-size: 20px;
   }
 
   &__seat,
@@ -92,6 +103,8 @@ body::-webkit-scrollbar {
     width: 30px;
     height: 30px;
     border: 1px solid #000;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 2px 5px black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,8 +114,36 @@ body::-webkit-scrollbar {
 
   &__seat--taken {
     cursor: not-allowed;
-    background-color: red;
+    background-color: rgb(110, 110, 110);
     color: white;
+  }
+}
+
+.selection-explained {
+  width: 200px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  &__gray-seat,
+  &__green-seat {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+
+  &__gray-seat {
+    background-color: rgb(110, 110, 110);
+    margin: 2px 5px 0 0;
+  }
+
+  &__green-seat {
+    background-color: rgb(150, 247, 140);
+    margin: 2px 5px 0 0;
+  }
+
+  &__text {
+    margin-right: 50px;
   }
 }
 
@@ -115,13 +156,14 @@ body::-webkit-scrollbar {
 
   &__btn {
     width: 150px;
-    height: 30px;
+    height: 40px;
     text-decoration: none;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     padding: 5px;
+    margin-bottom: 30px;
     background-color: $bgBlue;
     border: none;
     border-radius: 10px;
@@ -133,4 +175,10 @@ body::-webkit-scrollbar {
       transform: scale(105%);
     }
   }
+}
+
+.credit-form {
+  border: 2px solid black;
+  width: 350px;
+  margin: 0 auto;
 }

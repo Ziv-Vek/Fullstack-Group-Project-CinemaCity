@@ -10,7 +10,19 @@
         "screenDate": "5 29 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 1, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -20,7 +32,22 @@
         "screenDate": "5 29 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 2 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -30,7 +57,26 @@
         "screenDate": "5 29 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 2 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -40,7 +86,24 @@
         "screenDate": "5 30 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -50,7 +113,16 @@
         "screenDate": "5 30 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -60,7 +132,22 @@
         "screenDate": "5 30 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
 
@@ -71,7 +158,24 @@
         "screenDate": "5 30 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -81,7 +185,22 @@
         "screenDate": "5 31 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -91,7 +210,22 @@
         "screenDate": "5 31 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -101,7 +235,19 @@
         "screenDate": "5 31 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -111,7 +257,26 @@
         "screenDate": "5 31 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -121,7 +286,28 @@
         "screenDate": "5 1 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
 
@@ -132,7 +318,19 @@
         "screenDate": "5 1 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -142,7 +340,28 @@
         "screenDate": "5 1 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -152,7 +371,22 @@
         "screenDate": "5 2 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -162,7 +396,19 @@
         "screenDate": "5 2 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -172,7 +418,22 @@
         "screenDate": "5 2 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -182,7 +443,22 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
 
@@ -193,7 +469,19 @@
         "screenDate": "5 3 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -203,7 +491,26 @@
         "screenDate": "5 3 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -213,7 +520,22 @@
         "screenDate": "5 3 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -223,7 +545,26 @@
         "screenDate": "5 3 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -233,7 +574,24 @@
         "screenDate": "5 3 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -243,7 +601,16 @@
         "screenDate": "5 3 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       }
     ]
@@ -260,7 +627,22 @@
         "screenDate": "5 1 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 1, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -274,7 +656,10 @@
             { "line": 5, "seatID": 2 },
             { "line": 5, "seatID": 1 },
             { "line": 1, "seatID": 5 },
-            { "line": 1, "seatID": 4 }
+            { "line": 1, "seatID": 4 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
           ]
         }
       },
@@ -285,7 +670,16 @@
         "screenDate": "5 1 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -296,7 +690,28 @@
         "venue": 4,
         "seats": [
           {
-            "index": [{ "line": 5, "seatID": 1 }]
+            "index": [
+              { "line": 5, "seatID": 1 },
+              { "line": 5, "seatID": 2 },
+              { "line": 5, "seatID": 3 },
+              { "line": 5, "seatID": 4 },
+              { "line": 5, "seatID": 5 },
+              { "line": 5, "seatID": 6 },
+              { "line": 4, "seatID": 9 },
+              { "line": 4, "seatID": 10 },
+              { "line": 4, "seatID": 11 },
+              { "line": 4, "seatID": 12 },
+              { "line": 6, "seatID": 6 },
+              { "line": 6, "seatID": 7 },
+              { "line": 6, "seatID": 8 },
+              { "line": 6, "seatID": 9 },
+              { "line": 3, "seatID": 1 },
+              { "line": 3, "seatID": 2 },
+              { "line": 3, "seatID": 3 },
+              { "line": 3, "seatID": 4 },
+              { "line": 3, "seatID": 5 },
+              { "line": 3, "seatID": 6 }
+            ]
           }
         ]
       },
@@ -307,7 +722,22 @@
         "screenDate": "5 1 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -317,7 +747,26 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
 
@@ -328,7 +777,22 @@
         "screenDate": "5 2 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -338,7 +802,19 @@
         "screenDate": "5 2 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -348,7 +824,24 @@
         "screenDate": "5 2 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -358,7 +851,26 @@
         "screenDate": "5 3 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -368,7 +880,22 @@
         "screenDate": "5 3 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -378,7 +905,16 @@
         "screenDate": "5 3 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
 
@@ -389,7 +925,28 @@
         "screenDate": "5 3 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -399,7 +956,22 @@
         "screenDate": "5 8 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -409,7 +981,26 @@
         "screenDate": "5 8 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -419,7 +1010,19 @@
         "screenDate": "5 8 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -429,7 +1032,22 @@
         "screenDate": "5 9 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -439,7 +1057,28 @@
         "screenDate": "5 9 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
 
@@ -450,7 +1089,16 @@
         "screenDate": "5 9 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -460,7 +1108,24 @@
         "screenDate": "5 9 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -470,7 +1135,22 @@
         "screenDate": "5 9 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -480,7 +1160,16 @@
         "screenDate": "5 9 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -490,7 +1179,19 @@
         "screenDate": "5 9 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -500,7 +1201,28 @@
         "screenDate": "5 9 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       }
     ]
@@ -517,7 +1239,26 @@
         "screenDate": "5 1 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 1, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -527,7 +1268,16 @@
         "screenDate": "5 1 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -537,7 +1287,26 @@
         "screenDate": "5 1 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -547,7 +1316,28 @@
         "screenDate": "5 1 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -557,7 +1347,28 @@
         "screenDate": "5 2 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -567,7 +1378,19 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
 
@@ -578,7 +1401,22 @@
         "screenDate": "5 2 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -588,7 +1426,24 @@
         "screenDate": "5 2 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -598,7 +1453,16 @@
         "screenDate": "5 2 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -608,7 +1472,26 @@
         "screenDate": "5 2 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -618,7 +1501,28 @@
         "screenDate": "5 2 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -628,7 +1532,19 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
 
@@ -639,7 +1555,22 @@
         "screenDate": "5 3 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -649,7 +1580,24 @@
         "screenDate": "5 3 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -659,7 +1607,22 @@
         "screenDate": "5 3 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -669,7 +1632,28 @@
         "screenDate": "5 3 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -679,7 +1663,26 @@
         "screenDate": "5 3 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -689,7 +1692,19 @@
         "screenDate": "5 3 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
 
@@ -700,7 +1715,28 @@
         "screenDate": "5 3 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -710,7 +1746,24 @@
         "screenDate": "5 3 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -720,7 +1773,16 @@
         "screenDate": "5 3 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -730,7 +1792,28 @@
         "screenDate": "5 3 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -740,7 +1823,26 @@
         "screenDate": "5 3 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -750,7 +1852,16 @@
         "screenDate": "5 3 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       }
     ]
@@ -767,7 +1878,22 @@
         "screenDate": "5 1 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 1, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -777,7 +1903,19 @@
         "screenDate": "5 1 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -787,7 +1925,28 @@
         "screenDate": "5 1 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -797,7 +1956,24 @@
         "screenDate": "5 2 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -807,7 +1983,16 @@
         "screenDate": "5 2 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -817,7 +2002,26 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
 
@@ -828,7 +2032,16 @@
         "screenDate": "5 3 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -838,7 +2051,22 @@
         "screenDate": "5 3 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -848,7 +2076,28 @@
         "screenDate": "5 3 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -858,7 +2107,24 @@
         "screenDate": "5 4 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -868,7 +2134,22 @@
         "screenDate": "5 4 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -878,7 +2159,16 @@
         "screenDate": "5 5 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
 
@@ -889,7 +2179,28 @@
         "screenDate": "5 6 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -899,7 +2210,16 @@
         "screenDate": "5 6 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -909,7 +2229,24 @@
         "screenDate": "5 7 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -919,7 +2256,26 @@
         "screenDate": "5 7 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -929,7 +2285,28 @@
         "screenDate": "5 8 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -939,7 +2316,16 @@
         "screenDate": "5 8 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
 
@@ -950,7 +2336,24 @@
         "screenDate": "5 8 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -960,7 +2363,26 @@
         "screenDate": "5 8 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -970,7 +2392,16 @@
         "screenDate": "5 9 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -980,7 +2411,22 @@
         "screenDate": "5 9 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -990,7 +2436,16 @@
         "screenDate": "5 9 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -1000,7 +2455,28 @@
         "screenDate": "5 9 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       }
     ]
@@ -1017,7 +2493,19 @@
         "screenDate": "5 30 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 1, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -1027,7 +2515,24 @@
         "screenDate": "5 30 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -1037,7 +2542,22 @@
         "screenDate": "5 30 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -1047,7 +2567,16 @@
         "screenDate": "5 30 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -1057,7 +2586,26 @@
         "screenDate": "5 30 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -1067,7 +2615,28 @@
         "screenDate": "5 31 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
 
@@ -1078,7 +2647,16 @@
         "screenDate": "5 31 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -1088,7 +2666,22 @@
         "screenDate": "5 31 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -1098,7 +2691,16 @@
         "screenDate": "5 31 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -1108,7 +2710,28 @@
         "screenDate": "5 1 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 },
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 }
+          ]
         }
       },
       {
@@ -1118,7 +2741,24 @@
         "screenDate": "5 1 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -1128,7 +2768,22 @@
         "screenDate": "5 1 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
 
@@ -1139,7 +2794,26 @@
         "screenDate": "5 1 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -1149,7 +2823,19 @@
         "screenDate": "5 1 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -1159,7 +2845,26 @@
         "screenDate": "5 2 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -1169,7 +2874,24 @@
         "screenDate": "5 2 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -1179,7 +2901,26 @@
         "screenDate": "5 2 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -1189,7 +2930,16 @@
         "screenDate": "5 2 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
 
@@ -1200,7 +2950,24 @@
         "screenDate": "5 2 2023",
         "venue": 1,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 3, "seatID": 1 },
+            { "line": 3, "seatID": 2 },
+            { "line": 3, "seatID": 3 },
+            { "line": 3, "seatID": 4 },
+            { "line": 3, "seatID": 5 },
+            { "line": 3, "seatID": 6 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 14 },
+            { "line": 5, "seatID": 6 },
+            { "line": 5, "seatID": 7 },
+            { "line": 7, "seatID": 1 },
+            { "line": 7, "seatID": 2 },
+            { "line": 7, "seatID": 3 }
+          ]
         }
       },
       {
@@ -1210,7 +2977,22 @@
         "screenDate": "5 3 2023",
         "venue": 2,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       },
       {
@@ -1220,7 +3002,19 @@
         "screenDate": "5 3 2023",
         "venue": 3,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 7, "seatID": 5 },
+            { "line": 7, "seatID": 6 },
+            { "line": 7, "seatID": 7 }
+          ]
         }
       },
       {
@@ -1230,7 +3024,26 @@
         "screenDate": "5 3 2023",
         "venue": 4,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 },
+            { "line": 6, "seatID": 13 },
+            { "line": 6, "seatID": 12 },
+            { "line": 6, "seatID": 11 },
+            { "line": 6, "seatID": 10 },
+            { "line": 6, "seatID": 9 },
+            { "line": 6, "seatID": 8 },
+            { "line": 2, "seatID": 7 },
+            { "line": 2, "seatID": 8 },
+            { "line": 2, "seatID": 9 },
+            { "line": 2, "seatID": 10 },
+            { "line": 4, "seatID": 1 },
+            { "line": 4, "seatID": 2 },
+            { "line": 4, "seatID": 3 },
+            { "line": 4, "seatID": 4 }
+          ]
         }
       },
       {
@@ -1240,7 +3053,16 @@
         "screenDate": "5 3 2023",
         "venue": 5,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 1, "seatID": 1 },
+            { "line": 1, "seatID": 2 },
+            { "line": 1, "seatID": 3 },
+            { "line": 1, "seatID": 4 },
+            { "line": 5, "seatID": 11 },
+            { "line": 5, "seatID": 12 },
+            { "line": 5, "seatID": 13 },
+            { "line": 5, "seatID": 14 }
+          ]
         }
       },
       {
@@ -1250,7 +3072,22 @@
         "screenDate": "5 3 2023",
         "venue": 6,
         "seats": {
-          "index": [{ "line": 5, "seatID": 1 }]
+          "index": [
+            { "line": 5, "seatID": 1 },
+            { "line": 5, "seatID": 2 },
+            { "line": 5, "seatID": 3 },
+            { "line": 5, "seatID": 4 },
+            { "line": 5, "seatID": 5 },
+            { "line": 5, "seatID": 6 },
+            { "line": 4, "seatID": 9 },
+            { "line": 4, "seatID": 10 },
+            { "line": 4, "seatID": 11 },
+            { "line": 4, "seatID": 12 },
+            { "line": 6, "seatID": 6 },
+            { "line": 6, "seatID": 7 },
+            { "line": 6, "seatID": 8 },
+            { "line": 6, "seatID": 9 }
+          ]
         }
       }
     ]

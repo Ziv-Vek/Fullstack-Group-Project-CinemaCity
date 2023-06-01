@@ -14,41 +14,47 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+body {
+  background-color: white;
 }
 
-.root {
-  display: flex;
-  flex-direction: column;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar {
   width: 100%;
   background-color: var(--color-blue-700);
-  margin-bottom: 50px;
   box-shadow: 0 3px 5px rgb(43, 43, 43);
 }
-.navbar__savedTickets {
-  cursor: pointer;
-  float: right;
-  margin-top: 55px;
-  margin-right: 30px;
-  background-color: var(--color-blue-100);
-  border: none;
-  box-shadow: 5px 5px 10px rgb(43, 43, 43);
-  padding-top: 3px;
+.navbar__nav {
+  display: flex;
+  width: 95px;
+  height: 35px;
+  margin: 20px 0 0 20px;
+  padding: 5px;
+  box-shadow: 3px 3px 5px rgb(63, 63, 63);
+  background-color: #0c4173;
+  border-radius: 10px;
+  text-decoration: none;
+  color: yellow;
+  transition: all 0.5s ease-in-out;
+}
+.navbar__nav p {
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-top: -2px;
 }
 
 .screening {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px;
+  padding: 14px 60px 14px 0;
 }
 .screening__movie-img {
-  height: 120px;
-  padding: 0;
+  height: 150px;
+  border-radius: 10px;
   padding-right: 14px;
 }
 .screening__text-container {
@@ -59,7 +65,9 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   align-items: flex-start;
   padding-right: 14px;
-  height: 120px;
+  padding-bottom: 5px;
+  height: 150px;
+  letter-spacing: 2px;
 }
 .screening__text-container__title {
   font-weight: 700;
@@ -78,7 +86,7 @@ body::-webkit-scrollbar {
   display: grid;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .title__text {
   font-size: 3rem;
@@ -88,11 +96,14 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 .venue__seat, .venue__seat--taken {
   width: 30px;
   height: 30px;
   border: 1px solid #000;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 2px 5px black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,8 +112,31 @@ body::-webkit-scrollbar {
 }
 .venue__seat--taken {
   cursor: not-allowed;
-  background-color: red;
+  background-color: rgb(110, 110, 110);
   color: white;
+}
+
+.selection-explained {
+  width: 200px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.selection-explained__gray-seat, .selection-explained__green-seat {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.selection-explained__gray-seat {
+  background-color: rgb(110, 110, 110);
+  margin: 2px 5px 0 0;
+}
+.selection-explained__green-seat {
+  background-color: rgb(150, 247, 140);
+  margin: 2px 5px 0 0;
+}
+.selection-explained__text {
+  margin-right: 50px;
 }
 
 .venue_view {
@@ -116,13 +150,14 @@ body::-webkit-scrollbar {
 }
 .order__btn {
   width: 150px;
-  height: 30px;
+  height: 40px;
   text-decoration: none;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   padding: 5px;
+  margin-bottom: 30px;
   background-color: var(--color-blue-700);
   border: none;
   border-radius: 10px;
@@ -132,4 +167,10 @@ body::-webkit-scrollbar {
 }
 .order__btn:hover {
   transform: scale(105%);
+}
+
+.credit-form {
+  border: 2px solid black;
+  width: 350px;
+  margin: 0 auto;
 }/*# sourceMappingURL=venueScreen.css.map */

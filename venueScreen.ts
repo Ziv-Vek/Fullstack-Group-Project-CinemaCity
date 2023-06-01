@@ -23,9 +23,9 @@ const selectedScreening = selectedCinema.movieList.find(
 
 console.log(selectedScreening);
 
-const movieViewDetails: string = `
-<div>
-<lable>Movie Name: </lable></div>`;
+// const movieViewDetails: string = `
+// <div>
+// <lable>Movie Name: </lable></div>`;
 
 function renderDetails(element: HTMLDivElement, renderDetails: string) {
   element.innerHTML = renderDetails;
@@ -51,7 +51,6 @@ const renderScreeningInNavbar = (
 
   screeningDetails.innerHTML = `<img
   src="${selectedMovie.image}"
-  alt=""
   class="screening__movie-img" />
   <div class="screening__text-container">
   <p class="screening__text-container__title">${selectedMovie.name}</p>
@@ -111,9 +110,12 @@ function seatsRender(seats: Seat[]) {
 
     for (let seat = 1; seat <= seatsPerLine; seat++) {
       const foundSeat = seats.find((s) => s.line === line && s.seatID === seat);
+      const isSelected = selected.some(
+        (s) => s.line === line && s.seat === seat
+      );
 
       const isTaken = foundSeat ? foundSeat.isTaken : false;
-      seatsRenderTaken(isTaken, lineElement, seat, line);
+      seatsRenderTaken(isTaken, isSelected, lineElement, seat, line);
     }
 
     lineElements.push(lineElement);
@@ -124,6 +126,7 @@ function seatsRender(seats: Seat[]) {
 
 function seatsRenderTaken(
   isTaken: boolean,
+  isSelected: boolean,
   element: HTMLElement,
   seat: number,
   line: number
@@ -136,6 +139,8 @@ function seatsRenderTaken(
 
   if (isTaken) {
     seatElement.classList.replace("venue__seat", "venue__seat--taken");
+  } else if (isSelected) {
+    seatElement.style.backgroundColor = "rgb(150, 247, 140)";
   }
 
   element.appendChild(seatElement);
@@ -158,7 +163,7 @@ setTimeout(function () {
         selected.splice(seatIndex, 1); // Remove the selected seat from the array
         seat.style.backgroundColor = "white";
       } else {
-        seat.style.backgroundColor = "green";
+        seat.style.backgroundColor = "rgb(150, 247, 140)";
         selected.push({
           line,
           seat: seatID,

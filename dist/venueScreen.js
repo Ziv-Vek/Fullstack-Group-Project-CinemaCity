@@ -7,7 +7,9 @@ var movies = getData("movieData");
 var selectedMovie = movies.find(function (result) { return result.uuid === Number(selectedScreeningRaw[0]); });
 var selectedScreening = selectedCinema.movieList.find(function (result) { return result.uuid === Number(selectedScreeningRaw[3]); });
 console.log(selectedScreening);
-var movieViewDetails = "\n<div>\n<lable>Movie Name: </lable></div>";
+// const movieViewDetails: string = `
+// <div>
+// <lable>Movie Name: </lable></div>`;
 function renderDetails(element, renderDetails) {
     element.innerHTML = renderDetails;
 }
@@ -22,7 +24,7 @@ var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedS
         month: "short"
     });
     console.log(selectedScreening);
-    screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  alt=\"\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
+    screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
 };
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
 var selected = [];
@@ -62,8 +64,9 @@ function seatsRender(seats) {
         lineElement.classList.add("venue__line");
         var _loop_2 = function (seat) {
             var foundSeat = seats.find(function (s) { return s.line === line && s.seatID === seat; });
+            var isSelected = selected.some(function (s) { return s.line === line && s.seat === seat; });
             var isTaken = foundSeat ? foundSeat.isTaken : false;
-            seatsRenderTaken(isTaken, lineElement, seat, line);
+            seatsRenderTaken(isTaken, isSelected, lineElement, seat, line);
         };
         for (var seat = 1; seat <= seatsPerLine; seat++) {
             _loop_2(seat);
@@ -75,13 +78,16 @@ function seatsRender(seats) {
     }
     html.append.apply(html, lineElements);
 }
-function seatsRenderTaken(isTaken, element, seat, line) {
+function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     var seatElement = document.createElement("div");
     seatElement.classList.add("venue__seat");
     seatElement.classList.add(line + "-" + seat);
     seatElement.textContent = "" + seat;
     if (isTaken) {
         seatElement.classList.replace("venue__seat", "venue__seat--taken");
+    }
+    else if (isSelected) {
+        seatElement.style.backgroundColor = "rgb(150, 247, 140)";
     }
     element.appendChild(seatElement);
 }
@@ -98,7 +104,7 @@ setTimeout(function () {
                 seat.style.backgroundColor = "white";
             }
             else {
-                seat.style.backgroundColor = "green";
+                seat.style.backgroundColor = "rgb(150, 247, 140)";
                 selected.push({
                     line: line,
                     seat: seatID
