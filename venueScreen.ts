@@ -74,7 +74,7 @@ fetch("venue.json")
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
     enableSeatsSelection();
-    handlePaymentForm();
+    handlePaymentForm(Event);
   })
   .catch((error) => console.log(error));
 
@@ -203,6 +203,9 @@ const loadingContainer = document.querySelector(
 const ticketContainer = document.querySelector(
   ".ticket-container"
 ) as HTMLDivElement;
+const notNumberMessage = document.querySelector(
+  ".notNumberError"
+) as HTMLSpanElement;
 const submitButton = document.querySelector("#submit") as HTMLInputElement;
 
 let forms: PayForm[] = [];
@@ -212,16 +215,29 @@ const handlePaymentForm = (evt) => {
     evt.preventDefault();
 
     const name = evt.target.elements.name.value;
-    const idNumber = evt.target.elements.idNumber.value;
-    const cardNumber = evt.target.elements.cardNumber.value;
-    const month = evt.target.elements.month.value;
-    const year = evt.target.elements.year.value;
+    const idNumber = parseInt(evt.target.elements.idNumber.value, 10);
+    const cardNumber = parseInt(evt.target.elements.cardNumber.value, 10);
+    const month = parseInt(evt.target.elements.month.value, 10);
+    const year = parseInt(evt.target.elements.year.value, 10);
 
-    forms.push(new PayForm(name, idNumber, cardNumber, month, year));
+    if (isNaN(idNumber) || isNaN(cardNumber) || isNaN(month) || isNaN(year)) {
+      notNumberMessage.style.display = "block";
+      return;
+    }
+
+    forms.push(
+      new PayForm(
+        name,
+        idNumber.toString(),
+        cardNumber.toString(),
+        month.toString(),
+        year.toString()
+      )
+    );
     console.dir(forms);
 
+    notNumberMessage.style.display = "none";
     displayMovieTicket();
-    paymentForm.style.display = "none";
   } catch (error) {
     console.log(error);
   }
@@ -236,32 +252,41 @@ const displayMovieTicket = () => {
   }, []);
 
   const ticketHTML = `<div class="ticket">
-  <span onclick="closeTicket()" class="material-symbols-outlined">
-close
-</span>
-    <h1>${selectedMovie!.name}</h1>
+    <span onclick="closeTicket()" class="material-symbols-outlined ticket__exit">
+      close
+    </span>
     <img class="ticket__image" src="${selectedMovie!.image}" />
+   
+    <div class="ticket__Details">
+     <h2>${selectedMovie!.name}</h2>
+
+     <div class="ticket__date-Time">
     <div class="ticket__screenDate">${selectedScreening.screenDate}</div>
     <div class="ticket__screenTime">${selectedScreening.screenTime}</div>
+    </div>
+   
     <div class="ticket__cinema"> Cinema ${selectedCinema.cinemaName} </div>
-    <div class="ticket__venue"> Venue ${selectedScreening.venue}</div>
-    <div class="ticket__line">Line: ${selectedLines.join(" ")}</div>
-    <div class="ticket__seats">Seats: ${selectedSeats
+    
+  
+    <span class="ticket__label"> Venue </span>
+    <span class="ticket__label"> Line </span>
+    <span class="ticket__label"> Seats </span>
+
+    <div class="ticket__venue-seat-line">
+    <div class="ticket__venue"> ${selectedScreening.venue}</div>
+    <div class="ticket__line"> ${selectedLines.join(", ")}</div>
+    <div class="ticket__seats"> ${selectedSeats
       .map((seat) => `${seat.seat}`)
       .join(", ")}</div>
-    </div>
-  `;
+      </div>
+      </div>
+  </div>`;
 
   ticketContainer.innerHTML = ticketHTML;
   ticketContainer.style.display = "block";
-
-  // Clear form inputs
-  name.value = "";
-  idNumber.value = "";
-  cardNumber.value = "";
-  month.value = "";
-  year.value = "";
+  paymentForm.style.display = "none";
 };
+displayMovieTicket();
 
 function closeTicket() {
   document.querySelector(".ticket")!.remove();
