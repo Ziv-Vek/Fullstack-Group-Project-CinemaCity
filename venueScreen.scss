@@ -15,6 +15,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+// Navbar -
 .navbar {
   width: 100%;
   background-color: $bgBlue;
@@ -41,6 +42,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Screening -
 .screening {
   @include flex-horizontal();
   padding: 14px 60px 14px 0;
@@ -76,10 +78,12 @@ body::-webkit-scrollbar {
   }
 }
 
+// Entire venue page -
 .venuePageFull {
   position: relative;
 }
 
+// Page title -
 .title {
   @include grid-center;
 
@@ -88,6 +92,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Venue seats -
 .venue {
   &__line {
     display: flex;
@@ -117,6 +122,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Selection explanation -
 .selection-explained {
   width: 200px;
   display: flex;
@@ -149,6 +155,7 @@ body::-webkit-scrollbar {
   margin-bottom: 80px;
 }
 
+// No chosen seats -
 .seat-error-message {
   display: none;
   text-align: center;
@@ -160,6 +167,7 @@ body::-webkit-scrollbar {
   margin-top: -50px;
 }
 
+// Order ticket button -
 .order-container {
   display: flex;
   align-items: center;
@@ -188,29 +196,37 @@ body::-webkit-scrollbar {
   }
 }
 
+// Payment input not number message -
 .notNumberError {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 0 20px;
   letter-spacing: 2px;
   color: rgb(178, 15, 15);
   text-shadow: 3px 3px 5px rgb(90, 90, 90);
   display: none;
 }
 
+// Payment header -
 legend {
   text-align: center;
   font-size: 40px;
   color: white;
 }
 
+// Payment form -
 .credit-form {
   @include popupCenter;
-  background-color: #1889f2f0;
   z-index: 200;
+  background-color: #1889f2f0;
   border-radius: 20px;
   width: 400px;
+  height: 500px;
   text-align: center;
+  margin-bottom: 30px;
+  opacity: 0;
   display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
 
   &__lable {
     margin: 15px 0 5px 0;
@@ -232,7 +248,7 @@ legend {
 
   &__month,
   &__year {
-    width: 30px;
+    width: 40px;
     text-align: center;
   }
 
@@ -242,8 +258,10 @@ legend {
   }
 
   &__submit {
+    width: 150px;
     padding: 2px 10px;
-    margin: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 18px;
@@ -255,103 +273,332 @@ legend {
   &__submit:hover {
     transform: scale(110%);
   }
+
+  input {
+    color: rgb(160, 160, 31);
+  }
 }
 
-.ticket {
-  @include popupCenter;
-  width: 500px;
-  height: 350px;
-  background-color: white;
-  box-shadow: 5px 5px 30px black;
-  border-radius: 20px;
+// Movie ticket container -
+.ticket-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  span {
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  span:hover {
-    transform: scale(140%);
-    font-weight: bolder;
-  }
-
-  &__exit {
+  .ticket {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 550px;
+    background-color: white;
+    z-index: 1000;
+    opacity: 0;
+    animation: fade-in 0.3s ease-in-out forwards;
+
+    &__TImage {
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    &__exit {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      color: red;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &__exit:hover {
+      transform: scale(120%);
+      font-weight: bold;
+    }
+
+    &__image {
+      position: absolute;
+      top: 170px;
+      left: 200px;
+      z-index: 900;
+
+      img {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+      }
+    }
+
+    &__name,
+    &__screenDate1,
+    &__screenTime1,
+    &__cinema,
+    &__screenDate2,
+    &__screenTime2,
+    &__labelVenue,
+    &__labelLine,
+    &__labelSeats,
+    &__label,
+    &__venue,
+    &__seats,
+    &__line {
+      position: absolute;
+      z-index: 900;
+    }
+
+    &__name {
+      top: 170px;
+      left: 300px;
+      font-size: 23px;
+      text-align: center;
+      width: 200px;
+    }
+
+    &__cinema {
+      top: 210px;
+      left: 300px;
+      text-align: center;
+      font-size: 20px;
+      width: 200px;
+    }
+
+    &__screenDate1 {
+      top: 260px;
+      left: 390px;
+      width: 110px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    &__screenTime1 {
+      top: 285px;
+      left: 390px;
+      width: 110px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    &__scan1 {
+      position: absolute;
+      top: 245px;
+      right: 210px;
+      z-index: 900;
+      width: 80px;
+    }
+
+    &__screenDate2 {
+      transform: rotate(90deg);
+      top: 200px;
+      left: 130px;
+    }
+
+    &__screenTime2 {
+      transform: rotate(90deg);
+      top: 270px;
+      left: 143px;
+    }
+
+    &__labelVenue,
+    &__labelLine,
+    &__labelSeats {
+      transform: rotate(90deg);
+    }
+
+    &__labelVenue {
+      top: 180px;
+      left: 100px;
+    }
+
+    &__labelLine {
+      top: 230px;
+      left: 107px;
+    }
+
+    &__labelSeats {
+      top: 285px;
+      left: 104px;
+    }
+
+    &__venue,
+    &__line,
+    &__seats {
+      transform: rotate(90deg);
+      text-align: center;
+    }
+
+    &__venue {
+      width: 40px;
+      height: 40px;
+      top: 172px;
+      left: 65px;
+    }
+
+    &__line {
+      width: 60px;
+      height: 40px;
+      top: 222px;
+      left: 56px;
+    }
+
+    &__seats {
+      width: 60px;
+      height: 45px;
+      top: 277px;
+      left: 57px;
+    }
+
+    &__scan2 {
+      position: absolute;
+      top: 180px;
+      left: 510px;
+      transform: rotate(-90deg);
+      z-index: 900;
+      width: 130px;
+    }
+
+    &__mailMessage {
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: green;
+    }
+  }
+}
+
+// Loading animation -
+.loading-container {
+  @include popupCenter;
+  background-color: #1889f2f0;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Helvetica sans-serif;
+  opacity: 0;
+  display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.loader {
+  height: $loader-dot--size;
+  width: $loader--width;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &--dot {
+    animation: loader 3s ease-in-out infinite;
+    height: $loader-dot--size;
+    width: $loader-dot--size;
+    border-radius: 100%;
+    background-color: black;
+    position: absolute;
+    border: 1px solid white;
+
+    &:first-child {
+      background-color: #8cc759;
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(2) {
+      background-color: #8c6daf;
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+      background-color: #ef5d74;
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+      background-color: #f9a74b;
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(5) {
+      background-color: #60beeb;
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(6) {
+      background-color: #fbef5a;
+      animation-delay: 0s;
+    }
   }
 
-  &__image {
-    width: 200px;
-    height: 100%;
-    border-radius: 20px 0 0 20px;
-    border-right: 3px dashed white;
-    border-image: repeating-linear-gradient(
-        to bottom,
-        transparent 20px,
-        transparent 40px,
-        black 25px,
-        black 70px
-      )
-      1;
-    border-image-slice: 1;
+  &--text {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    right: 0;
+    width: 4rem;
+    margin: auto;
+
+    &:after {
+      content: "Loading";
+      font-weight: bold;
+      animation: loading-text 3s infinite;
+    }
+  }
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
   }
 
-  h2 {
-    color: $mainBlue;
-    text-align: center;
+  45% {
+    transform: translateX($loader--width - $loader-dot--size);
   }
 
-  &__Details {
-    flex-direction: column;
-    padding: 40px 20px;
-    font-size: 20px;
-    letter-spacing: 1px;
-    margin: 0 auto;
+  65% {
+    transform: translateX($loader--width - $loader-dot--size);
   }
 
-  &__date-Time {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 150px;
-    border-bottom: 3px solid black;
-    padding-top: 20px;
-    font-size: 20px;
+  95% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loading-text {
+  0% {
+    content: "Loading";
   }
 
-  &__cinema {
-    font-size: 20px;
-    text-align: center;
-    padding-top: 10px;
-    margin-bottom: 30px;
+  25% {
+    content: "Loading.";
   }
 
-  &__label {
-    color: $mainBlue;
-    padding-left: 4px;
-    padding-right: 4px;
+  50% {
+    content: "Loading..";
   }
 
-  &__venue-seat-line {
-    @include grid-center;
-    grid-template-columns: 3fr 3fr 3fr;
-    grid-template-rows: 1fr;
-    width: 255px;
+  75% {
+    content: "Loading...";
   }
+}
 
-  &__venue,
-  &__line,
-  &__seats {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 10px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
+// Fading of the containers -
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

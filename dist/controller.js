@@ -1,22 +1,29 @@
 // Header -
-var images = [
-    "./assets/imgCover/fastXCover.jpeg",
-    "./assets/imgCover/mermaidCover.jpeg",
-    "./assets/imgCover/screamCover.jpg",
-];
-var currentImageIndex = 0;
-var imageElement = document.querySelector(".header");
-function changeCoverImage() {
-    if (imageElement) {
-        imageElement.style.backgroundImage = "url(" + images[currentImageIndex] + ")";
-        currentImageIndex = (currentImageIndex + 1) % images.length;
+var carousel = document.querySelector(".header");
+var imageContainers = Array.from(document.querySelectorAll(".image-container"));
+var currentIndex = 0;
+function showImage(index) {
+    if (carousel) {
+        carousel.classList.add("fade-in");
+        imageContainers.forEach(function (container, i) {
+            container.classList.remove("active");
+            container.classList.add(i === index ? "active" : "middle");
+        });
+        setTimeout(function () {
+            carousel.classList.remove("fade-in");
+        }, 700);
     }
 }
-window.addEventListener("load", function () {
-    imageElement = document.querySelector(".header");
-    changeCoverImage();
-    setInterval(changeCoverImage, 3000);
-});
+function startTimer() {
+    setInterval(function () {
+        currentIndex = (currentIndex + 1) % imageContainers.length;
+        showImage(currentIndex);
+    }, 5000);
+}
+if (carousel) {
+    showImage(currentIndex);
+    startTimer();
+}
 // Render movie cards -
 function renderMovieCards(movies) {
     var movieCardsHTML = "";

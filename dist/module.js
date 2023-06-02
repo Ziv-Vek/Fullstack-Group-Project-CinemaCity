@@ -56,8 +56,9 @@ var Cart = /** @class */ (function () {
     return Cart;
 }());
 var PayForm = /** @class */ (function () {
-    function PayForm(name, idNumber, cardNumber, month, year) {
+    function PayForm(name, email, idNumber, cardNumber, month, year) {
         this.name = name;
+        this.email = email;
         this.idNumber = idNumber;
         this.cardNumber = cardNumber;
         this.month = month;

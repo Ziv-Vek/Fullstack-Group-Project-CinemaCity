@@ -33,11 +33,12 @@
     <script src="./dist/venueScreen.js" defer></script>
 
     <title>ZIA Cinema - Order Your Tickets</title>
+    <link rel="icon" href="./assets/zia.png" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <img src="./assets/img/logo.png" alt="zia_cinema" class="zia-logo" />
+      <img src="./assets/logo.png" alt="zia_cinema" class="zia-logo" />
 
       <div class="screening"></div>
     </nav>
@@ -46,8 +47,6 @@
       <span class="material-symbols-outlined"> arrow_back </span>
       <p>BACK</p>
     </a>
-
-    <div class="movie_details"></div>
 
     <div class="venuePageFull">
       <div class="title">
@@ -73,7 +72,10 @@
 
       <fieldset class="credit-form">
         <legend>Payment</legend>
-        <div class="notNumberError">Must Enter Numbers</div>
+
+        <div class="notNumberError">
+          Id Number, Card Number and Expiration Date Must Include Numbers Only !
+        </div>
 
         <form onsubmit="handlePaymentForm(event)">
           <label class="credit-form__lable" for="name">Full Name</label>
@@ -88,6 +90,18 @@
           />
           <br />
 
+          <label class="credit-form__lable" for="email"> Email </label>
+          <br />
+          <input
+            class="credit-form__input"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="israel@israeli.com"
+            required
+          />
+          <br />
+
           <label class="credit-form__lable" for="idNumber">ID Number</label>
           <br />
           <input
@@ -98,6 +112,7 @@
             required
             minlength="9"
             maxlength="9"
+            placeholder="0-1234567-8"
           />
           <br />
 
@@ -122,24 +137,27 @@
           <br />
           <input
             class="credit-form__month"
-            type="text"
+            type="number"
             name="month"
             id="month"
-            placeholder="03"
+            placeholder="01"
             maxlength="2"
-            minlength="2"
+            min="1"
+            max="12"
           />
           <span class="credit-form__slash">/</span>
           <input
             class="credit-form__year"
-            type="text"
+            type="number"
             name="year"
             id="year"
             placeholder="27"
             maxlength="2"
-            minlength="2"
+            min="23"
+            max="30"
           />
           <br />
+
           <input
             class="credit-form__submit"
             type="submit"
@@ -150,7 +168,18 @@
         </form>
       </fieldset>
 
-      <div class="loading-container"></div>
+      <div class="loading-container">
+        <div class="loader">
+          <div class="loader--dot"></div>
+          <div class="loader--dot"></div>
+          <div class="loader--dot"></div>
+          <div class="loader--dot"></div>
+          <div class="loader--dot"></div>
+          <div class="loader--dot"></div>
+          <div class="loader--text"></div>
+        </div>
+      </div>
+
       <div class="ticket-container" id="ticketContainer"></div>
     </div>
   </body>

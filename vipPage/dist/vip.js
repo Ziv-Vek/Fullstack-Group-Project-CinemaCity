@@ -1,3 +1,5 @@
+var activeMenu = null;
+var activeButton = null;
 function handleClick(button, menu) {
     if (activeButton === button) {
         if (activeMenu === menu) {
@@ -15,6 +17,7 @@ function handleClick(button, menu) {
         activeButton = button;
     }
 }
+// All buttons -
 var telAvivButton = document.querySelector("#telAvivButton");
 var haifaButton = document.querySelector("#haifaButton");
 var ashdodButton = document.querySelector("#ashdodButton");
@@ -22,8 +25,7 @@ var rishonButton = document.querySelector("#rishonButton");
 var beerShevaButton = document.querySelector("#beerShevaButton");
 var vipMenuTlvHaifaBeer = document.querySelector(".menuTLV-BeerSheva-Haifa");
 var menuRishonAshdod = document.querySelector(".menuRishonAshdod");
-var activeMenu = null;
-var activeButton = null;
+// Event listener for each button -
 telAvivButton.addEventListener("click", function () {
     return handleClick(telAvivButton, vipMenuTlvHaifaBeer);
 });

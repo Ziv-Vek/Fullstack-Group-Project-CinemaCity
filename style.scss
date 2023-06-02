@@ -16,6 +16,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+// Navbar -
 .navbar {
   width: 100%;
   background-color: $bgBlue;
@@ -33,37 +34,70 @@ body::-webkit-scrollbar {
   }
 }
 
-// Header -
-header {
-  position: relative;
+// Header images -
+.header {
   width: 100%;
   height: 600px;
-  background: no-repeat center center/cover;
-  transition: 1s linear;
-  z-index: 2;
+  position: relative;
+  overflow: hidden;
 }
 
-header::before {
-  content: "";
-  position: absolute;
+.image-container {
   width: 100%;
-  height: 30%;
-  background: linear-gradient(180deg, $bgBlue, transparent);
+  height: 100%;
+  position: absolute;
   top: 0;
-  z-index: -1;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-header::after {
+.image-container.active {
+  opacity: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container.left {
+  transform: translateX(-100%);
+}
+
+.image-container.right {
+  transform: translateX(100%);
+}
+
+.header.fade-in .image-container {
+  transition: opacity 0.5s ease-in-out, transform 0.5s 0.5s ease-in-out;
+}
+
+.header.fade-in .image-container.active {
+  transform: translateX(0);
+}
+
+.header::before,
+.header::after {
   content: "";
   position: absolute;
   width: 100%;
-  height: 30%;
-  background: linear-gradient(180deg, transparent, $bgBlue);
-  bottom: 0;
-  z-index: -1;
+  height: 20%;
+  z-index: 200;
 }
 
-// Search -
+.header::before {
+  top: 0;
+  background: linear-gradient(-180deg, #0c5394, transparent);
+}
+
+.header::after {
+  bottom: 0;
+  background: linear-gradient(0deg, #0c5394, transparent);
+}
+
+// Search bar -
 .search {
   @include flex-vertical();
   width: 715px;
@@ -116,7 +150,7 @@ header::after {
   }
 }
 
-// movie cards -
+// Movie cards -
 .movieCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -226,6 +260,7 @@ header::after {
   }
 }
 
+// Trailer button -
 #trailerBtn {
   position: absolute;
   top: 10px;
@@ -243,6 +278,7 @@ header::after {
   transform: scale(120%);
 }
 
+// Movie cards (hours - continued) -
 .movieDetails__hours-container::-webkit-scrollbar {
   width: 0.8em;
 }
@@ -263,6 +299,7 @@ header::after {
   background: #4adede;
 }
 
+// Trailer container popup -
 .trailer_container {
   background-color: #80808091;
   position: fixed;

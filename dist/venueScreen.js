@@ -1,4 +1,4 @@
-/// Present screening details in Navbar
+// Present screening details in Navbar -
 var screeningDetails = document.querySelector(".screening");
 var selectedScreeningRaw = getData("selectedMovie").split(", ");
 var cinemas = getData("cinemaData");
@@ -13,6 +13,7 @@ function renderDetails(element, renderDetails) {
 var html = document.querySelector(".venue_view");
 var movieDetails = document.querySelector(".movie_details");
 var venueData = [];
+// Render screening in navbar -
 var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedScreening) {
     var screeningDate = new Date(selectedScreening.screenDate);
     var dateString = screeningDate.toLocaleString("default", {
@@ -24,6 +25,7 @@ var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedS
     screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
 };
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
+// Selected seats -
 var selectedSeats = [];
 fetch("venue.json")
     .then(function (response) { return response.json(); })
@@ -41,6 +43,7 @@ fetch("venue.json")
     enableSeatsSelection();
     handlePaymentForm(Event);
 })["catch"](function (error) { return console.log(error); });
+// Taken seats status -
 function updateSeatTakenStatus(seats, selectionIndex) {
     seats.forEach(function (seat) {
         var foundIndex = selectionIndex.findIndex(function (data) { return seat.line === data.line && seat.seatID === data.seatID; });
@@ -77,6 +80,7 @@ function seatsRender(seats) {
     }
     html.append.apply(html, lineElements);
 }
+// Render taken seats -
 function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     var seatElement = document.createElement("div");
     seatElement.classList.add("venue__seat");
@@ -90,6 +94,7 @@ function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     }
     element.appendChild(seatElement);
 }
+// Seat selection -
 var enableSeatsSelection = function () {
     var allSeats = document.querySelectorAll(".venue__seat");
     allSeats.forEach(function (seat) {
@@ -117,7 +122,7 @@ var enableSeatsSelection = function () {
         });
     });
 };
-/////////////////////////////////////////////////////
+// Order tickets button -
 var orderBtn = document.querySelector(".order-container__order-btn");
 var paymentForm = document.querySelector(".credit-form");
 var seatErrorMessage = document.querySelector(".seat-error-message");
@@ -130,7 +135,7 @@ orderBtn.addEventListener("click", function () {
         paymentForm.style.display = "block";
     }
 });
-/////////////////////////////////////////////////////
+// Payment form -
 var loadingContainer = document.querySelector(".loading-container");
 var ticketContainer = document.querySelector(".ticket-container");
 var notNumberMessage = document.querySelector(".notNumberError");
@@ -139,24 +144,33 @@ var forms = [];
 var handlePaymentForm = function (evt) {
     try {
         evt.preventDefault();
+        paymentForm.style.display = "none";
+        loadingContainer.style.display = "block";
         var name = evt.target.elements.name.value;
+        var email = evt.target.elements.email.value;
         var idNumber = parseInt(evt.target.elements.idNumber.value, 10);
         var cardNumber = parseInt(evt.target.elements.cardNumber.value, 10);
         var month = parseInt(evt.target.elements.month.value, 10);
         var year = parseInt(evt.target.elements.year.value, 10);
         if (isNaN(idNumber) || isNaN(cardNumber) || isNaN(month) || isNaN(year)) {
             notNumberMessage.style.display = "block";
+            paymentForm.style.display = "block";
+            loadingContainer.style.display = "none";
             return;
         }
-        forms.push(new PayForm(name, idNumber.toString(), cardNumber.toString(), month.toString(), year.toString()));
+        forms.push(new PayForm(name, email, idNumber.toString(), cardNumber.toString(), month, year));
         console.dir(forms);
         notNumberMessage.style.display = "none";
-        displayMovieTicket();
+        setTimeout(function () {
+            loadingContainer.style.display = "none";
+            displayMovieTicket();
+        }, 10000);
     }
     catch (error) {
         console.log(error);
     }
 };
+// Render movie tickets after purchase -
 var displayMovieTicket = function () {
     var selectedLines = selectedSeats.reduce(function (lines, seat) {
         if (!lines.includes(seat.line)) {
@@ -164,14 +178,25 @@ var displayMovieTicket = function () {
         }
         return lines;
     }, []);
-    var ticketHTML = "<div class=\"ticket\">\n    <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n      close\n    </span>\n    <img class=\"ticket__image\" src=\"" + selectedMovie.image + "\" />\n   \n    <div class=\"ticket__Details\">\n     <h2>" + selectedMovie.name + "</h2>\n\n     <div class=\"ticket__date-Time\">\n    <div class=\"ticket__screenDate\">" + selectedScreening.screenDate + "</div>\n    <div class=\"ticket__screenTime\">" + selectedScreening.screenTime + "</div>\n    </div>\n   \n    <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n    \n  \n    <span class=\"ticket__label\"> Venue </span>\n    <span class=\"ticket__label\"> Line </span>\n    <span class=\"ticket__label\"> Seats </span>\n\n    <div class=\"ticket__venue-seat-line\">\n    <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n    <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n    <div class=\"ticket__seats\"> " + selectedSeats
+    var ticketHTML = "\n <div class=\"ticket\">\n     <img class=\"ticket__TImage\" src=\"./vipPage/ticket-no-bg.png\" />\n\n     <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n       close\n     </span>\n\n     <div class=\"ticket__image\">\n     <img src=\"" + selectedMovie.image + "\" />\n     </div>\n   \n    <div class=\"ticket__Details\">\n        <h2 class=\"ticket__name\">" + selectedMovie.name + "</h2>\n\n        <div class=\"ticket__screenDate1\">" + selectedScreening.screenDate + "</div>\n        <div class=\"ticket__screenTime1\">" + selectedScreening.screenTime + "</div>\n        <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n        <img class=\"ticket__scan1\" src=\"../vipPage/scanTicket.png\" />\n    \n       <div class=\"ticket__screenDate2\">" + selectedScreening.screenDate + "</div>\n       <div class=\"ticket__screenTime2\">" + selectedScreening.screenTime + "</div>\n\n       <span class=\"ticket__labelVenue\"> Venue </span>\n       <span class=\"ticket__labelLine\"> Line </span>\n       <span class=\"ticket__labelSeats\"> Seats </span>\n\n        <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n        <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n        <div class=\"ticket__seats\"> " + selectedSeats
         .map(function (seat) { return "" + seat.seat; })
-        .join(", ") + "</div>\n      </div>\n      </div>\n  </div>";
+        .join(", ") + " </div>\n\n        <img class=\"ticket__scan2\" src=\"../vipPage/scanTicket.png\" />\n\n        <span class=\"ticket__mailMessage\"> A Copy Of Your Tickets Was Sent To Your Email ! </span>\n    </div>\n  </div>";
+    // Reset selectedSeats array
+    selectedSeats.length = 0;
+    // Reset seat background color
+    var allSeats = document.querySelectorAll(".venue__seat");
+    allSeats.forEach(function (seat) {
+        seat.style.backgroundColor = "white";
+    });
+    // Clear all input fields in the payment form
+    var formInputs = paymentForm.querySelectorAll("input:not([type='submit'])");
+    formInputs.forEach(function (input) {
+        input.value = "";
+    });
     ticketContainer.innerHTML = ticketHTML;
     ticketContainer.style.display = "block";
     paymentForm.style.display = "none";
 };
-displayMovieTicket();
 function closeTicket() {
-    document.querySelector(".ticket").remove();
+    document.querySelector(".ticket ").remove();
 }

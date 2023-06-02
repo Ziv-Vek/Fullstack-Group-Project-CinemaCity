@@ -99,9 +99,10 @@ class Cart implements _Cart {
 class PayForm {
   constructor(
     public name: string,
+    public email: string,
     public idNumber: string,
     public cardNumber: string,
-    public month: string,
-    public year: string
+    public month: number,
+    public year: number
   ) {}
 }
