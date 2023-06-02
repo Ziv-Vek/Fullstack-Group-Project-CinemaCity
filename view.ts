@@ -1,4 +1,4 @@
-// - Movie Cards - //
+//#region Main page Movie Cards elements
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
 
@@ -6,7 +6,9 @@ const movieCardsContainer = document.querySelector(".movieCards");
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
+//#endregion
 
+//#region Main page search elements
 // Cinema menu search
 const searchLocationMenu: NodeListOf<HTMLDivElement> =
   document.querySelectorAll(".search__location-menu");
@@ -35,5 +37,12 @@ const cinemaSecondaryDropdown = document.querySelector(
 const datesSecondaryDropdown = document.querySelector(
   ".search__dates-dropdown"
 ) as HTMLDivElement;
-// VIP button
+//#endregion
+
+//#region Main page VIP elements
 const vipButton = document.querySelector(".vipButton");
+//#endregion
+
+//#region Movie page
+
+//#endregion
