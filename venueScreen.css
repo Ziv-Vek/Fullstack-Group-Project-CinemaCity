@@ -345,19 +345,21 @@ legend {
 .ticket__venue, .ticket__line, .ticket__seats {
   rotate: 90deg;
   text-align: center;
-  left: 20px;
 }
 .ticket__venue {
   width: 40px;
   top: 180px;
+  left: 20px;
 }
 .ticket__line {
   width: 60px;
-  top: 240px;
+  top: 230px;
+  left: 10px;
 }
 .ticket__seats {
   width: 60px;
-  top: 300px;
+  top: 280px;
+  left: 10px;
 }
 .ticket__scan2 {
   position: absolute;

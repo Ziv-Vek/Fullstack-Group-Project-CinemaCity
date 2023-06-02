@@ -387,22 +387,24 @@ legend {
   &__seats {
     rotate: 90deg;
     text-align: center;
-    left: 20px;
   }
 
   &__venue {
     width: 40px;
     top: 180px;
+    left: 20px;
   }
 
   &__line {
     width: 60px;
-    top: 240px;
+    top: 230px;
+    left: 10px;
   }
 
   &__seats {
     width: 60px;
-    top: 300px;
+    top: 280px;
+    left: 10px;
   }
 
   &__scan2 {
