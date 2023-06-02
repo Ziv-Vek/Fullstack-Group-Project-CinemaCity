@@ -102,7 +102,6 @@ class PayForm {
     public idNumber: string,
     public cardNumber: string,
     public month: string,
-    public year: string,
-    public seatCount: string
+    public year: string
   ) {}
 }

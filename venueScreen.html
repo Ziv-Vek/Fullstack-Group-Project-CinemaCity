@@ -49,93 +49,109 @@
 
     <div class="movie_details"></div>
 
-    <div class="title">
-      <p class="title__text">Choose your seats</p>
-    </div>
+    <div class="venuePageFull">
+      <div class="title">
+        <p class="title__text">Choose Your Seats</p>
+      </div>
 
-    <div class="selection-explained">
-      <div class="selection-explained__gray-seat"></div>
-      <span class="selection-explained__text">Taken</span>
-      <div class="selection-explained__green-seat"></div>
-      <span>Selected</span>
-    </div>
+      <div class="selection-explained">
+        <div class="selection-explained__gray-seat"></div>
+        <span class="selection-explained__text">Taken</span>
+        <div class="selection-explained__green-seat"></div>
+        <span>Selected</span>
+      </div>
 
-    <div class="venue-container">
       <div class="venue_view"></div>
 
-      <div class="seat-error-message">You Must Choose Seats First !</div>
+      <span class="seat-error-message">You Must Choose Seats First !</span>
+
+      <div class="order-container">
+        <button type="submit" class="order-container__order-btn">
+          Order Tickets
+        </button>
+      </div>
+
+      <fieldset class="credit-form">
+        <legend>Payment</legend>
+        <div class="notNumberError">Must Enter Numbers</div>
+
+        <form onsubmit="handlePaymentForm(event)">
+          <label class="credit-form__lable" for="name">Full Name</label>
+          <br />
+          <input
+            class="credit-form__input"
+            type="text"
+            name="name"
+            id="name"
+            required
+            minlength="4"
+          />
+          <br />
+
+          <label class="credit-form__lable" for="idNumber">ID Number</label>
+          <br />
+          <input
+            class="credit-form__input"
+            type="text"
+            name="idNumber"
+            id="idNumber"
+            required
+            minlength="9"
+            maxlength="9"
+          />
+          <br />
+
+          <label class="credit-form__lable" for="cardNumber"
+            >Credit Card Number</label
+          >
+          <br />
+          <input
+            class="credit-form__cardNumber"
+            type="text"
+            name="cardNumber"
+            id="cardNumber"
+            required
+            maxlength="16"
+            placeholder="1234 - 1234 - 1234 - 1234"
+          />
+          <br />
+
+          <label class="credit-form__lable" for="expired"
+            >Expiration Date</label
+          >
+          <br />
+          <input
+            class="credit-form__month"
+            type="text"
+            name="month"
+            id="month"
+            placeholder="03"
+            maxlength="2"
+            minlength="2"
+          />
+          <span class="credit-form__slash">/</span>
+          <input
+            class="credit-form__year"
+            type="text"
+            name="year"
+            id="year"
+            placeholder="27"
+            maxlength="2"
+            minlength="2"
+          />
+          <br />
+          <input
+            class="credit-form__submit"
+            type="submit"
+            name="submit"
+            id="submit"
+            value="PAY"
+          />
+        </form>
+      </fieldset>
+
+      <div class="loading-container"></div>
+      <div class="ticket-container" id="ticketContainer"></div>
     </div>
-
-    <div class="order-container">
-      <button type="submit" class="order-container__order-btn">
-        Order Tickets
-      </button>
-    </div>
-
-    <form class="credit-form" onsubmit="handlePaymentForm(event)">
-      <label class="credit-form__lable" for="name">Full Name</label>
-      <br />
-      <input
-        class="credit-form__input"
-        type="text"
-        name="name"
-        id="name"
-        required
-        minlength="4"
-      />
-      <br />
-
-      <label class="credit-form__lable" for="idNumber">ID Number</label>
-      <br />
-      <input
-        class="credit-form__input"
-        type="text"
-        name="idNumber"
-        id="idNumber"
-        required
-        minlength="9"
-        maxlength="9"
-      />
-      <br />
-
-      <label class="credit-form__lable" for="cardNumber"
-        >Credit Card Number</label
-      >
-      <br />
-      <input
-        class="credit-form__input"
-        type="text"
-        name="cardNumber"
-        id="cardNumber"
-        required
-        maxlength="16"
-      />
-      <br />
-
-      <label class="credit-form__lable" for="expired">Expiration Date</label>
-      <br />
-      <input
-        class="credit-form__month"
-        type="text"
-        name="month"
-        id="month"
-        placeholder="03"
-        maxlength="2"
-      />
-      <span>/</span>
-      <input
-        class="credit-form__year"
-        type="text"
-        name="year"
-        id="year"
-        placeholder="27"
-        maxlength="2"
-      />
-      <br />
-      <input type="submit" name="submit" id="submit" />
-    </form>
-
-    <div class="loading-container"></div>
-    <div class="ticket-container"></div>
   </body>
 </html>

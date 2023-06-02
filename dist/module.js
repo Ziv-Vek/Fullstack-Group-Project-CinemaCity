@@ -56,13 +56,12 @@ var Cart = /** @class */ (function () {
     return Cart;
 }());
 var PayForm = /** @class */ (function () {
-    function PayForm(name, idNumber, cardNumber, month, year, seatCount) {
+    function PayForm(name, idNumber, cardNumber, month, year) {
         this.name = name;
         this.idNumber = idNumber;
         this.cardNumber = cardNumber;
         this.month = month;
         this.year = year;
-        this.seatCount = seatCount;
     }
     return PayForm;
 }());
