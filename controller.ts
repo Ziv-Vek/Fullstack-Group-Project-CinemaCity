@@ -1,25 +1,36 @@
 // Header -
-const images = [
-  "./assets/imgCover/fastXCover.jpeg",
-  "./assets/imgCover/mermaidCover.jpeg",
-  "./assets/imgCover/screamCover.jpg",
-];
+const carousel: HTMLElement | null = document.querySelector(".header");
+const imageContainers: HTMLElement[] = Array.from(
+  document.querySelectorAll(".image-container")
+);
+let currentIndex: number = 0;
 
-let currentImageIndex = 0;
-let imageElement = document.querySelector(".header") as HTMLDivElement;
+function showImage(index: number): void {
+  if (carousel) {
+    carousel.classList.add("fade-in");
 
-function changeCoverImage() {
-  if (imageElement) {
-    imageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
-    currentImageIndex = (currentImageIndex + 1) % images.length;
+    imageContainers.forEach((container: HTMLElement, i: number) => {
+      container.classList.remove("active");
+      container.classList.add(i === index ? "active" : "middle");
+    });
+
+    setTimeout(() => {
+      carousel.classList.remove("fade-in");
+    }, 700);
   }
 }
 
-window.addEventListener("load", () => {
-  imageElement = document.querySelector(".header") as HTMLDivElement;
-  changeCoverImage();
-  setInterval(changeCoverImage, 3000);
-});
+function startTimer(): void {
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % imageContainers.length;
+    showImage(currentIndex);
+  }, 5000);
+}
+
+if (carousel) {
+  showImage(currentIndex);
+  startTimer();
+}
 
 // Render movie cards -
 function renderMovieCards(movies: any[]) {
