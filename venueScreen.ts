@@ -1,4 +1,4 @@
-/// Present screening details in Navbar
+// Present screening details in Navbar -
 const screeningDetails = document.querySelector(".screening") as HTMLDivElement;
 
 interface Seat {
@@ -31,6 +31,7 @@ const html = document.querySelector(".venue_view") as HTMLDivElement;
 const movieDetails = document.querySelector(".movie_details") as HTMLDivElement;
 const venueData: Seat[] = [];
 
+// Render screening in navbar -
 const renderScreeningInNavbar = (
   selectedMovie: Movie,
   selectedCinema: Cinema,
@@ -58,6 +59,7 @@ const renderScreeningInNavbar = (
 
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
 
+// Selected seats -
 const selectedSeats: { line: number; seat: number }[] = [];
 fetch("venue.json")
   .then((response) => response.json())
@@ -78,6 +80,7 @@ fetch("venue.json")
   })
   .catch((error) => console.log(error));
 
+// Taken seats status -
 function updateSeatTakenStatus(seats: Seat[], selectionIndex: any[]) {
   seats.forEach((seat) => {
     const foundIndex = selectionIndex.findIndex(
@@ -121,6 +124,7 @@ function seatsRender(seats: Seat[]) {
   html.append(...lineElements);
 }
 
+// Render taken seats -
 function seatsRenderTaken(
   isTaken: boolean,
   isSelected: boolean,
@@ -143,6 +147,7 @@ function seatsRenderTaken(
   element.appendChild(seatElement);
 }
 
+// Seat selection -
 const enableSeatsSelection = () => {
   const allSeats: NodeListOf<HTMLElement> =
     document.querySelectorAll(".venue__seat");
@@ -178,7 +183,7 @@ const enableSeatsSelection = () => {
   });
 };
 
-/////////////////////////////////////////////////////
+// Order tickets button -
 const orderBtn = document.querySelector(
   ".order-container__order-btn"
 ) as HTMLButtonElement;
@@ -196,7 +201,7 @@ orderBtn.addEventListener("click", () => {
   }
 });
 
-/////////////////////////////////////////////////////
+// Payment form -
 const loadingContainer = document.querySelector(
   ".loading-container"
 ) as HTMLDivElement;
@@ -214,6 +219,9 @@ const handlePaymentForm = (evt) => {
   try {
     evt.preventDefault();
 
+    paymentForm.style.display = "none";
+    loadingContainer.style.display = "block";
+
     const name = evt.target.elements.name.value;
     const email = evt.target.elements.email.value;
     const idNumber = parseInt(evt.target.elements.idNumber.value, 10);
@@ -223,6 +231,8 @@ const handlePaymentForm = (evt) => {
 
     if (isNaN(idNumber) || isNaN(cardNumber) || isNaN(month) || isNaN(year)) {
       notNumberMessage.style.display = "block";
+      paymentForm.style.display = "block";
+      loadingContainer.style.display = "none";
       return;
     }
 
@@ -239,12 +249,17 @@ const handlePaymentForm = (evt) => {
     console.dir(forms);
 
     notNumberMessage.style.display = "none";
-    displayMovieTicket();
+
+    setTimeout(() => {
+      loadingContainer.style.display = "none";
+      displayMovieTicket();
+    }, 10000);
   } catch (error) {
     console.log(error);
   }
 };
 
+// Render movie tickets after purchase -
 const displayMovieTicket = () => {
   const selectedLines = selectedSeats.reduce((lines: number[], seat: any) => {
     if (!lines.includes(seat.line)) {

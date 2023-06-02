@@ -1313,7 +1313,7 @@
         "uuid": 52,
         "movieID": 12,
         "screenTime": "12:30",
-        "screenDate": "6 14 2023",
+        "screenDate": "6 15 2023",
         "venue": 4,
         "seats": {
           "index": [
@@ -1423,7 +1423,7 @@
         "uuid": 56,
         "movieID": 9,
         "screenTime": "16:00",
-        "screenDate": "6 15 2023",
+        "screenDate": "6 16 2023",
         "venue": 2,
         "seats": {
           "index": [
@@ -1450,7 +1450,7 @@
         "uuid": 57,
         "movieID": 1,
         "screenTime": "16:30",
-        "screenDate": "6 15 2023",
+        "screenDate": "6 16 2023",
         "venue": 3,
         "seats": {
           "index": [
@@ -1469,7 +1469,7 @@
         "uuid": 58,
         "movieID": 12,
         "screenTime": "16:20",
-        "screenDate": "6 15 2023",
+        "screenDate": "6 16 2023",
         "venue": 4,
         "seats": {
           "index": [
@@ -1498,7 +1498,7 @@
         "uuid": 59,
         "movieID": 3,
         "screenTime": "16:30",
-        "screenDate": "6 15 2023",
+        "screenDate": "6 17 2023",
         "venue": 5,
         "seats": {
           "index": [
@@ -1529,7 +1529,7 @@
         "uuid": 60,
         "movieID": 2,
         "screenTime": "17:00",
-        "screenDate": "6 15 2023",
+        "screenDate": "6 17 2023",
         "venue": 6,
         "seats": {
           "index": [
@@ -1604,7 +1604,7 @@
         "uuid": 63,
         "movieID": 11,
         "screenTime": "19:20",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 18 2023",
         "venue": 3,
         "seats": {
           "index": [
@@ -1629,7 +1629,7 @@
         "uuid": 64,
         "movieID": 1,
         "screenTime": "19:30",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 18 2023",
         "venue": 4,
         "seats": {
           "index": [
@@ -1660,7 +1660,7 @@
         "uuid": 65,
         "movieID": 10,
         "screenTime": "19:40",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 18 2023",
         "venue": 5,
         "seats": {
           "index": [
@@ -1689,7 +1689,7 @@
         "uuid": 66,
         "movieID": 13,
         "screenTime": "19:40",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 19 2023",
         "venue": 6,
         "seats": {
           "index": [
@@ -1712,7 +1712,7 @@
         "uuid": 67,
         "movieID": 1,
         "screenTime": "22:30",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 19 2023",
         "venue": 1,
         "seats": {
           "index": [
@@ -1743,7 +1743,7 @@
         "uuid": 68,
         "movieID": 3,
         "screenTime": "23:00",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 19 2023",
         "venue": 2,
         "seats": {
           "index": [
@@ -1770,7 +1770,7 @@
         "uuid": 69,
         "movieID": 8,
         "screenTime": "23:30",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 20 2023",
         "venue": 3,
         "seats": {
           "index": [
@@ -1789,7 +1789,7 @@
         "uuid": 70,
         "movieID": 4,
         "screenTime": "23:30",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 20 2023",
         "venue": 4,
         "seats": {
           "index": [
@@ -1820,7 +1820,7 @@
         "uuid": 71,
         "movieID": 13,
         "screenTime": "00:00",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 20 2023",
         "venue": 5,
         "seats": {
           "index": [
@@ -1849,7 +1849,7 @@
         "uuid": 72,
         "movieID": 4,
         "screenTime": "00:00",
-        "screenDate": "6 17 2023",
+        "screenDate": "6 20 2023",
         "venue": 6,
         "seats": {
           "index": [

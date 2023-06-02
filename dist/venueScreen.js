@@ -1,4 +1,4 @@
-/// Present screening details in Navbar
+// Present screening details in Navbar -
 var screeningDetails = document.querySelector(".screening");
 var selectedScreeningRaw = getData("selectedMovie").split(", ");
 var cinemas = getData("cinemaData");
@@ -13,6 +13,7 @@ function renderDetails(element, renderDetails) {
 var html = document.querySelector(".venue_view");
 var movieDetails = document.querySelector(".movie_details");
 var venueData = [];
+// Render screening in navbar -
 var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedScreening) {
     var screeningDate = new Date(selectedScreening.screenDate);
     var dateString = screeningDate.toLocaleString("default", {
@@ -24,6 +25,7 @@ var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedS
     screeningDetails.innerHTML = "<img\n  src=\"" + selectedMovie.image + "\"\n  class=\"screening__movie-img\" />\n  <div class=\"screening__text-container\">\n  <p class=\"screening__text-container__title\">" + selectedMovie.name + "</p>\n  <p class=\"screening__text-container__details\">" + selectedCinema.cinemaName + "</p>\n  <p class=\"screening__text-container__details\">" + dateString + ", " + selectedScreening.screenTime + " </p>\n  <p class=\"screening__text-container__details\">Venue " + selectedScreening.venue + " </p>\n  </div>";
 };
 renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening);
+// Selected seats -
 var selectedSeats = [];
 fetch("venue.json")
     .then(function (response) { return response.json(); })
@@ -41,6 +43,7 @@ fetch("venue.json")
     enableSeatsSelection();
     handlePaymentForm(Event);
 })["catch"](function (error) { return console.log(error); });
+// Taken seats status -
 function updateSeatTakenStatus(seats, selectionIndex) {
     seats.forEach(function (seat) {
         var foundIndex = selectionIndex.findIndex(function (data) { return seat.line === data.line && seat.seatID === data.seatID; });
@@ -77,6 +80,7 @@ function seatsRender(seats) {
     }
     html.append.apply(html, lineElements);
 }
+// Render taken seats -
 function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     var seatElement = document.createElement("div");
     seatElement.classList.add("venue__seat");
@@ -90,6 +94,7 @@ function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
     }
     element.appendChild(seatElement);
 }
+// Seat selection -
 var enableSeatsSelection = function () {
     var allSeats = document.querySelectorAll(".venue__seat");
     allSeats.forEach(function (seat) {
@@ -117,7 +122,7 @@ var enableSeatsSelection = function () {
         });
     });
 };
-/////////////////////////////////////////////////////
+// Order tickets button -
 var orderBtn = document.querySelector(".order-container__order-btn");
 var paymentForm = document.querySelector(".credit-form");
 var seatErrorMessage = document.querySelector(".seat-error-message");
@@ -130,7 +135,7 @@ orderBtn.addEventListener("click", function () {
         paymentForm.style.display = "block";
     }
 });
-/////////////////////////////////////////////////////
+// Payment form -
 var loadingContainer = document.querySelector(".loading-container");
 var ticketContainer = document.querySelector(".ticket-container");
 var notNumberMessage = document.querySelector(".notNumberError");
@@ -139,6 +144,8 @@ var forms = [];
 var handlePaymentForm = function (evt) {
     try {
         evt.preventDefault();
+        paymentForm.style.display = "none";
+        loadingContainer.style.display = "block";
         var name = evt.target.elements.name.value;
         var email = evt.target.elements.email.value;
         var idNumber = parseInt(evt.target.elements.idNumber.value, 10);
@@ -147,17 +154,23 @@ var handlePaymentForm = function (evt) {
         var year = parseInt(evt.target.elements.year.value, 10);
         if (isNaN(idNumber) || isNaN(cardNumber) || isNaN(month) || isNaN(year)) {
             notNumberMessage.style.display = "block";
+            paymentForm.style.display = "block";
+            loadingContainer.style.display = "none";
             return;
         }
         forms.push(new PayForm(name, email, idNumber.toString(), cardNumber.toString(), month, year));
         console.dir(forms);
         notNumberMessage.style.display = "none";
-        displayMovieTicket();
+        setTimeout(function () {
+            loadingContainer.style.display = "none";
+            displayMovieTicket();
+        }, 10000);
     }
     catch (error) {
         console.log(error);
     }
 };
+// Render movie tickets after purchase -
 var displayMovieTicket = function () {
     var selectedLines = selectedSeats.reduce(function (lines, seat) {
         if (!lines.includes(seat.line)) {

@@ -204,13 +204,16 @@ legend {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1889f2f0;
   z-index: 200;
+  background-color: #1889f2f0;
   border-radius: 20px;
   width: 400px;
+  height: 500px;
   text-align: center;
   margin-bottom: 30px;
+  opacity: 0;
   display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
 }
 .credit-form__lable {
   margin: 15px 0 5px 0;
@@ -226,7 +229,7 @@ legend {
   border-radius: 5px;
 }
 .credit-form__month, .credit-form__year {
-  width: 30px;
+  width: 40px;
   text-align: center;
 }
 .credit-form__slash {
@@ -234,8 +237,10 @@ legend {
   font-weight: bolder;
 }
 .credit-form__submit {
+  width: 150px;
   padding: 2px 10px;
-  margin: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
   letter-spacing: 2px;
   font-weight: bold;
   font-size: 18px;
@@ -265,6 +270,8 @@ legend {
   height: 550px;
   background-color: white;
   z-index: 1000;
+  opacity: 0;
+  animation: fade-in 0.3s ease-in-out forwards;
 }
 .ticket-container .ticket__TImage {
   width: 700px;
@@ -363,18 +370,21 @@ legend {
 }
 .ticket-container .ticket__venue {
   width: 40px;
-  top: 180px;
-  left: 70px;
+  height: 40px;
+  top: 172px;
+  left: 65px;
 }
 .ticket-container .ticket__line {
   width: 60px;
-  top: 240px;
-  left: 70px;
+  height: 40px;
+  top: 222px;
+  left: 56px;
 }
 .ticket-container .ticket__seats {
-  width: 55px;
-  top: 298px;
-  left: 72px;
+  width: 60px;
+  height: 45px;
+  top: 277px;
+  left: 57px;
 }
 .ticket-container .ticket__scan2 {
   position: absolute;
@@ -390,4 +400,123 @@ legend {
   left: 50%;
   transform: translateX(-50%);
   color: green;
+}
+
+.loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1889f2f0;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Helvetica sans-serif;
+  opacity: 0;
+  display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.loader {
+  height: 20px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.loader--dot {
+  animation: loader 3s ease-in-out infinite;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: black;
+  position: absolute;
+  border: 1px solid white;
+}
+.loader--dot:first-child {
+  background-color: #8cc759;
+  animation-delay: 0.5s;
+}
+.loader--dot:nth-child(2) {
+  background-color: #8c6daf;
+  animation-delay: 0.4s;
+}
+.loader--dot:nth-child(3) {
+  background-color: #ef5d74;
+  animation-delay: 0.3s;
+}
+.loader--dot:nth-child(4) {
+  background-color: #f9a74b;
+  animation-delay: 0.2s;
+}
+.loader--dot:nth-child(5) {
+  background-color: #60beeb;
+  animation-delay: 0.1s;
+}
+.loader--dot:nth-child(6) {
+  background-color: #fbef5a;
+  animation-delay: 0s;
+}
+.loader--text {
+  position: absolute;
+  top: 200%;
+  left: 0;
+  right: 0;
+  width: 4rem;
+  margin: auto;
+}
+.loader--text:after {
+  content: "Loading";
+  font-weight: bold;
+  animation: loading-text 3s infinite;
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(230px);
+  }
+  65% {
+    transform: translateX(230px);
+  }
+  95% {
+    transform: translateX(0);
+  }
+}
+@keyframes loading-text {
+  0% {
+    content: "Loading";
+  }
+  25% {
+    content: "Loading.";
+  }
+  50% {
+    content: "Loading..";
+  }
+  75% {
+    content: "Loading...";
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

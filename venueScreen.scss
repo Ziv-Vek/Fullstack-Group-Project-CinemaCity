@@ -15,6 +15,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+// Navbar -
 .navbar {
   width: 100%;
   background-color: $bgBlue;
@@ -41,6 +42,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Screening -
 .screening {
   @include flex-horizontal();
   padding: 14px 60px 14px 0;
@@ -76,10 +78,12 @@ body::-webkit-scrollbar {
   }
 }
 
+// Entire venue page -
 .venuePageFull {
   position: relative;
 }
 
+// Page title -
 .title {
   @include grid-center;
 
@@ -88,6 +92,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Venue seats -
 .venue {
   &__line {
     display: flex;
@@ -117,6 +122,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Selection explanation -
 .selection-explained {
   width: 200px;
   display: flex;
@@ -149,6 +155,7 @@ body::-webkit-scrollbar {
   margin-bottom: 80px;
 }
 
+// No chosen seats -
 .seat-error-message {
   display: none;
   text-align: center;
@@ -160,6 +167,7 @@ body::-webkit-scrollbar {
   margin-top: -50px;
 }
 
+// Order ticket button -
 .order-container {
   display: flex;
   align-items: center;
@@ -188,6 +196,7 @@ body::-webkit-scrollbar {
   }
 }
 
+// Payment input not number message -
 .notNumberError {
   text-align: center;
   font-size: 16px;
@@ -198,21 +207,26 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+// Payment header -
 legend {
   text-align: center;
   font-size: 40px;
   color: white;
 }
 
+// Payment form -
 .credit-form {
   @include popupCenter;
-  background-color: #1889f2f0;
   z-index: 200;
+  background-color: #1889f2f0;
   border-radius: 20px;
   width: 400px;
+  height: 500px;
   text-align: center;
   margin-bottom: 30px;
+  opacity: 0;
   display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
 
   &__lable {
     margin: 15px 0 5px 0;
@@ -234,7 +248,7 @@ legend {
 
   &__month,
   &__year {
-    width: 30px;
+    width: 40px;
     text-align: center;
   }
 
@@ -244,8 +258,10 @@ legend {
   }
 
   &__submit {
+    width: 150px;
     padding: 2px 10px;
-    margin: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 18px;
@@ -263,6 +279,7 @@ legend {
   }
 }
 
+// Movie ticket container -
 .ticket-container {
   display: flex;
   flex-direction: column;
@@ -278,6 +295,8 @@ legend {
     height: 550px;
     background-color: white;
     z-index: 1000;
+    opacity: 0;
+    animation: fade-in 0.3s ease-in-out forwards;
 
     &__TImage {
       width: 700px;
@@ -410,20 +429,23 @@ legend {
 
     &__venue {
       width: 40px;
-      top: 180px;
-      left: 70px;
+      height: 40px;
+      top: 172px;
+      left: 65px;
     }
 
     &__line {
       width: 60px;
-      top: 240px;
-      left: 70px;
+      height: 40px;
+      top: 222px;
+      left: 56px;
     }
 
     &__seats {
-      width: 55px;
-      top: 298px;
-      left: 72px;
+      width: 60px;
+      height: 45px;
+      top: 277px;
+      left: 57px;
     }
 
     &__scan2 {
@@ -442,5 +464,141 @@ legend {
       transform: translateX(-50%);
       color: green;
     }
+  }
+}
+
+// Loading animation -
+.loading-container {
+  @include popupCenter;
+  background-color: #1889f2f0;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Helvetica sans-serif;
+  opacity: 0;
+  display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.loader {
+  height: $loader-dot--size;
+  width: $loader--width;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &--dot {
+    animation: loader 3s ease-in-out infinite;
+    height: $loader-dot--size;
+    width: $loader-dot--size;
+    border-radius: 100%;
+    background-color: black;
+    position: absolute;
+    border: 1px solid white;
+
+    &:first-child {
+      background-color: #8cc759;
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(2) {
+      background-color: #8c6daf;
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+      background-color: #ef5d74;
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+      background-color: #f9a74b;
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(5) {
+      background-color: #60beeb;
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(6) {
+      background-color: #fbef5a;
+      animation-delay: 0s;
+    }
+  }
+
+  &--text {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    right: 0;
+    width: 4rem;
+    margin: auto;
+
+    &:after {
+      content: "Loading";
+      font-weight: bold;
+      animation: loading-text 3s infinite;
+    }
+  }
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
+  }
+
+  45% {
+    transform: translateX($loader--width - $loader-dot--size);
+  }
+
+  65% {
+    transform: translateX($loader--width - $loader-dot--size);
+  }
+
+  95% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loading-text {
+  0% {
+    content: "Loading";
+  }
+
+  25% {
+    content: "Loading.";
+  }
+
+  50% {
+    content: "Loading..";
+  }
+
+  75% {
+    content: "Loading...";
+  }
+}
+
+// Fading of the containers -
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
