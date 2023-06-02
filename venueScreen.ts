@@ -215,6 +215,7 @@ const handlePaymentForm = (evt) => {
     evt.preventDefault();
 
     const name = evt.target.elements.name.value;
+    const email = evt.target.elements.email.value;
     const idNumber = parseInt(evt.target.elements.idNumber.value, 10);
     const cardNumber = parseInt(evt.target.elements.cardNumber.value, 10);
     const month = parseInt(evt.target.elements.month.value, 10);
@@ -228,6 +229,7 @@ const handlePaymentForm = (evt) => {
     forms.push(
       new PayForm(
         name,
+        email,
         idNumber.toString(),
         cardNumber.toString(),
         month.toString(),
@@ -251,43 +253,50 @@ const displayMovieTicket = () => {
     return lines;
   }, []);
 
-  const ticketHTML = `<div class="ticket">
-    <span onclick="closeTicket()" class="material-symbols-outlined ticket__exit">
-      close
-    </span>
-    <img class="ticket__image" src="${selectedMovie!.image}" />
+  const ticketHTML = `
+ <div class="ticket">
+     <img class="ticket__TImage" src="./vipPage/ticket-no-bg.png" />
+
+     <span onclick="closeTicket()" class="material-symbols-outlined ticket__exit">
+       close
+     </span>
+
+     <div class="ticket__image">
+     <img src="${selectedMovie!.image}" />
+     </div>
    
     <div class="ticket__Details">
-     <h2>${selectedMovie!.name}</h2>
+        <h2 class="ticket__name">${selectedMovie!.name}</h2>
 
-     <div class="ticket__date-Time">
-    <div class="ticket__screenDate">${selectedScreening.screenDate}</div>
-    <div class="ticket__screenTime">${selectedScreening.screenTime}</div>
-    </div>
-   
-    <div class="ticket__cinema"> Cinema ${selectedCinema.cinemaName} </div>
+        <div class="ticket__screenDate1">${selectedScreening.screenDate}</div>
+        <div class="ticket__screenTime1">${selectedScreening.screenTime}</div>
+        <div class="ticket__cinema"> Cinema ${selectedCinema.cinemaName} </div>
+        <img class="ticket__scan1" src="../vipPage/scanTicket.png" />
     
-  
-    <span class="ticket__label"> Venue </span>
-    <span class="ticket__label"> Line </span>
-    <span class="ticket__label"> Seats </span>
+       <div class="ticket__screenDate2">${selectedScreening.screenDate}</div>
+       <div class="ticket__screenTime2">${selectedScreening.screenTime}</div>
 
-    <div class="ticket__venue-seat-line">
-    <div class="ticket__venue"> ${selectedScreening.venue}</div>
-    <div class="ticket__line"> ${selectedLines.join(", ")}</div>
-    <div class="ticket__seats"> ${selectedSeats
-      .map((seat) => `${seat.seat}`)
-      .join(", ")}</div>
-      </div>
-      </div>
+       <span class="ticket__labelVenue"> Venue </span>
+       <span class="ticket__labelLine"> Line </span>
+       <span class="ticket__labelSeats"> Seats </span>
+
+        <div class="ticket__venue"> ${selectedScreening.venue}</div>
+        <div class="ticket__line"> ${selectedLines.join(", ")}</div>
+        <div class="ticket__seats"> ${selectedSeats
+          .map((seat) => `${seat.seat}`)
+          .join(", ")} </div>
+
+        <img class="ticket__scan2" src="../vipPage/scanTicket.png" />
+
+        <span class="ticket__mailMessage"> A Copy Of Your Tickets Was Sent To Your Email ! </span>
+    </div>
   </div>`;
 
   ticketContainer.innerHTML = ticketHTML;
   ticketContainer.style.display = "block";
   paymentForm.style.display = "none";
 };
-displayMovieTicket();
 
 function closeTicket() {
-  document.querySelector(".ticket")!.remove();
+  document.querySelector(".ticket ")!.remove();
 }

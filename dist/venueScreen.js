@@ -140,6 +140,7 @@ var handlePaymentForm = function (evt) {
     try {
         evt.preventDefault();
         var name = evt.target.elements.name.value;
+        var email = evt.target.elements.email.value;
         var idNumber = parseInt(evt.target.elements.idNumber.value, 10);
         var cardNumber = parseInt(evt.target.elements.cardNumber.value, 10);
         var month = parseInt(evt.target.elements.month.value, 10);
@@ -148,7 +149,7 @@ var handlePaymentForm = function (evt) {
             notNumberMessage.style.display = "block";
             return;
         }
-        forms.push(new PayForm(name, idNumber.toString(), cardNumber.toString(), month.toString(), year.toString()));
+        forms.push(new PayForm(name, email, idNumber.toString(), cardNumber.toString(), month.toString(), year.toString()));
         console.dir(forms);
         notNumberMessage.style.display = "none";
         displayMovieTicket();
@@ -164,14 +165,13 @@ var displayMovieTicket = function () {
         }
         return lines;
     }, []);
-    var ticketHTML = "<div class=\"ticket\">\n    <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n      close\n    </span>\n    <img class=\"ticket__image\" src=\"" + selectedMovie.image + "\" />\n   \n    <div class=\"ticket__Details\">\n     <h2>" + selectedMovie.name + "</h2>\n\n     <div class=\"ticket__date-Time\">\n    <div class=\"ticket__screenDate\">" + selectedScreening.screenDate + "</div>\n    <div class=\"ticket__screenTime\">" + selectedScreening.screenTime + "</div>\n    </div>\n   \n    <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n    \n  \n    <span class=\"ticket__label\"> Venue </span>\n    <span class=\"ticket__label\"> Line </span>\n    <span class=\"ticket__label\"> Seats </span>\n\n    <div class=\"ticket__venue-seat-line\">\n    <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n    <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n    <div class=\"ticket__seats\"> " + selectedSeats
+    var ticketHTML = "\n <div class=\"ticket\">\n     <img class=\"ticket__TImage\" src=\"./vipPage/ticket-no-bg.png\" />\n\n     <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n       close\n     </span>\n\n     <div class=\"ticket__image\">\n     <img src=\"" + selectedMovie.image + "\" />\n     </div>\n   \n    <div class=\"ticket__Details\">\n        <h2 class=\"ticket__name\">" + selectedMovie.name + "</h2>\n\n        <div class=\"ticket__screenDate1\">" + selectedScreening.screenDate + "</div>\n        <div class=\"ticket__screenTime1\">" + selectedScreening.screenTime + "</div>\n        <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n        <img class=\"ticket__scan1\" src=\"../vipPage/scanTicket.png\" />\n    \n       <div class=\"ticket__screenDate2\">" + selectedScreening.screenDate + "</div>\n       <div class=\"ticket__screenTime2\">" + selectedScreening.screenTime + "</div>\n\n       <span class=\"ticket__labelVenue\"> Venue </span>\n       <span class=\"ticket__labelLine\"> Line </span>\n       <span class=\"ticket__labelSeats\"> Seats </span>\n\n        <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n        <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n        <div class=\"ticket__seats\"> " + selectedSeats
         .map(function (seat) { return "" + seat.seat; })
-        .join(", ") + "</div>\n      </div>\n      </div>\n  </div>";
+        .join(", ") + " </div>\n\n        <img class=\"ticket__scan2\" src=\"../vipPage/scanTicket.png\" />\n\n        <span class=\"ticket__mailMessage\"> A Copy Of Your Tickets Was Sent To Your Email ! </span>\n    </div>\n  </div>";
     ticketContainer.innerHTML = ticketHTML;
     ticketContainer.style.display = "block";
     paymentForm.style.display = "none";
 };
-displayMovieTicket();
 function closeTicket() {
-    document.querySelector(".ticket").remove();
+    document.querySelector(".ticket ").remove();
 }

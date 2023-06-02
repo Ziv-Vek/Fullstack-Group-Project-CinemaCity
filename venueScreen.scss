@@ -190,7 +190,8 @@ body::-webkit-scrollbar {
 
 .notNumberError {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 0 20px;
   letter-spacing: 2px;
   color: rgb(178, 15, 15);
   text-shadow: 3px 3px 5px rgb(90, 90, 90);
@@ -210,6 +211,7 @@ legend {
   border-radius: 20px;
   width: 400px;
   text-align: center;
+  margin-bottom: 30px;
   display: none;
 
   &__lable {
@@ -255,103 +257,168 @@ legend {
   &__submit:hover {
     transform: scale(110%);
   }
+
+  input {
+    color: rgb(160, 160, 31);
+  }
 }
 
 .ticket {
-  @include popupCenter;
-  width: 500px;
-  height: 350px;
+  position: relative;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 600px;
+  height: 550px;
   background-color: white;
-  box-shadow: 5px 5px 30px black;
-  border-radius: 20px;
-  display: flex;
 
-  span {
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  span:hover {
-    transform: scale(140%);
-    font-weight: bolder;
+  &__TImage {
+    @include popupCenter;
+    width: 700px;
   }
 
   &__exit {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 80px;
+    right: 0;
+    color: red;
+    cursor: pointer;
   }
 
   &__image {
-    width: 200px;
-    height: 100%;
-    border-radius: 20px 0 0 20px;
-    border-right: 3px dashed white;
-    border-image: repeating-linear-gradient(
-        to bottom,
-        transparent 20px,
-        transparent 40px,
-        black 25px,
-        black 70px
-      )
-      1;
-    border-image-slice: 1;
+    position: absolute;
+    top: 170px;
+    left: 150px;
+    z-index: 900;
+
+    img {
+      width: 100px;
+      height: 150px;
+      border-radius: 10px;
+    }
   }
 
-  h2 {
-    color: $mainBlue;
+  &__name,
+  &__screenDate1,
+  &__screenTime1,
+  &__cinema,
+  &__screenDate2,
+  &__screenTime2,
+  &__labelVenue,
+  &__labelLine,
+  &__labelSeats,
+  &__label,
+  &__venue,
+  &__seats,
+  &__line {
+    position: absolute;
+    z-index: 900;
+  }
+
+  &__name {
+    top: 170px;
+    left: 250px;
+    font-size: 23px;
     text-align: center;
-  }
-
-  &__Details {
-    flex-direction: column;
-    padding: 40px 20px;
-    font-size: 20px;
-    letter-spacing: 1px;
-    margin: 0 auto;
-  }
-
-  &__date-Time {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 150px;
-    border-bottom: 3px solid black;
-    padding-top: 20px;
-    font-size: 20px;
+    width: 200px;
   }
 
   &__cinema {
-    font-size: 20px;
+    top: 210px;
+    left: 250px;
     text-align: center;
-    padding-top: 10px;
-    margin-bottom: 30px;
+    font-size: 18px;
+    width: 200px;
   }
 
-  &__label {
-    color: $mainBlue;
-    padding-left: 4px;
-    padding-right: 4px;
+  &__screenDate1 {
+    top: 260px;
+    left: 360px;
   }
 
-  &__venue-seat-line {
-    @include grid-center;
-    grid-template-columns: 3fr 3fr 3fr;
-    grid-template-rows: 1fr;
-    width: 255px;
+  &__screenTime1 {
+    top: 285px;
+    left: 375px;
+  }
+
+  &__scan1 {
+    position: absolute;
+    top: 250px;
+    right: 260px;
+    z-index: 900;
+    width: 80px;
+  }
+
+  &__screenDate2 {
+    rotate: 90deg;
+    top: 200px;
+    left: 85px;
+  }
+
+  &__screenTime2 {
+    rotate: 90deg;
+    top: 270px;
+    left: 98px;
+  }
+
+  &__labelVenue,
+  &__labelLine,
+  &__labelSeats {
+    rotate: 90deg;
+  }
+
+  &__labelVenue {
+    top: 180px;
+    left: 60px;
+  }
+
+  &__labelLine {
+    top: 230px;
+    left: 66px;
+  }
+
+  &__labelSeats {
+    top: 280px;
+    left: 63px;
   }
 
   &__venue,
   &__line,
   &__seats {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 10px;
+    rotate: 90deg;
     text-align: center;
-    font-size: 22px;
-    font-weight: bold;
+    left: 20px;
+  }
+
+  &__venue {
+    width: 40px;
+    top: 180px;
+  }
+
+  &__line {
+    width: 60px;
+    top: 240px;
+  }
+
+  &__seats {
+    width: 60px;
+    top: 300px;
+  }
+
+  &__scan2 {
+    position: absolute;
+    top: 185px;
+    right: 10px;
+    rotate: -90deg;
+    z-index: 900;
+    width: 130px;
+  }
+
+  &__mailMessage {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translate(-50%);
+    color: green;
   }
 }

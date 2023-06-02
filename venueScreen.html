@@ -73,7 +73,9 @@
 
       <fieldset class="credit-form">
         <legend>Payment</legend>
-        <div class="notNumberError">Must Enter Numbers</div>
+        <div class="notNumberError">
+          Id Number, Card Number and Expiration Date Must Include Numbers Only !
+        </div>
 
         <form onsubmit="handlePaymentForm(event)">
           <label class="credit-form__lable" for="name">Full Name</label>
@@ -88,6 +90,18 @@
           />
           <br />
 
+          <label class="credit-form__lable" for="email"> Email </label>
+          <br />
+          <input
+            class="credit-form__input"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="israel@israeli.com"
+            required
+          />
+          <br />
+
           <label class="credit-form__lable" for="idNumber">ID Number</label>
           <br />
           <input
@@ -98,6 +112,7 @@
             required
             minlength="9"
             maxlength="9"
+            placeholder="0-1234567-8"
           />
           <br />
 
