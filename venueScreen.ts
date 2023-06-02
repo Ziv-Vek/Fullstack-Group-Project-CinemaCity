@@ -232,8 +232,8 @@ const handlePaymentForm = (evt) => {
         email,
         idNumber.toString(),
         cardNumber.toString(),
-        month.toString(),
-        year.toString()
+        month,
+        year
       )
     );
     console.dir(forms);
@@ -291,6 +291,24 @@ const displayMovieTicket = () => {
         <span class="ticket__mailMessage"> A Copy Of Your Tickets Was Sent To Your Email ! </span>
     </div>
   </div>`;
+
+  // Reset selectedSeats array
+  selectedSeats.length = 0;
+
+  // Reset seat background color
+  const allSeats: NodeListOf<HTMLElement> =
+    document.querySelectorAll(".venue__seat");
+  allSeats.forEach((seat) => {
+    seat.style.backgroundColor = "white";
+  });
+
+  // Clear all input fields in the payment form
+  const formInputs: NodeListOf<HTMLInputElement> = paymentForm.querySelectorAll(
+    "input:not([type='submit'])"
+  );
+  formInputs.forEach((input) => {
+    input.value = "";
+  });
 
   ticketContainer.innerHTML = ticketHTML;
   ticketContainer.style.display = "block";
