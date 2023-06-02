@@ -48,5 +48,4 @@ const screeningWrapperDiv = document.querySelector(
   ".screening-wrapper"
 ) as HTMLDivElement;
 
-
 //#endregion

@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var queryString = window.location.search;
+// MOVIE INFO FROM THE CLICKED MOVIE CARD :
 // Retrieve transferred movie data from the URL query parameter
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
