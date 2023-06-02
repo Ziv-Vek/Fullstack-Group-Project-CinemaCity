@@ -1,0 +1,244 @@
+@import "../mixin";
+@import "../variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-image: linear-gradient(#0c5394, #1889f2, #35b9ed);
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  width: 100%;
+
+  &__nav {
+    display: flex;
+    width: 95px;
+    height: 35px;
+    margin: 20px 0 40px 20px;
+    padding: 5px;
+    box-shadow: 5px 5px 10px #0c4173;
+    border-radius: 10px;
+    text-decoration: none;
+    color: yellow;
+    transition: all 0.5s ease-in-out;
+
+    p {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+  }
+
+  &__nav:hover {
+    transform: scale(110%);
+  }
+}
+
+.newMoviePage {
+  position: relative;
+  letter-spacing: 0.5px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__image,
+  &__title,
+  &__description,
+  &__ageLimit,
+  &__generalInfo {
+    margin-bottom: 20px;
+  }
+
+  &__image {
+    margin-right: 20px;
+  }
+
+  &__title {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    color: white;
+    width: 330px;
+    font-size: 20px;
+    margin-right: 20px;
+    padding-bottom: 50px;
+  }
+
+  &__ageLimit {
+    width: 35px;
+    height: 35px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+
+  &__generalInfo {
+    color: white;
+  }
+
+  &__trailer {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+.movie-image {
+  width: 300px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(43, 43, 43);
+}
+
+// Search -
+.search {
+  @include flex-vertical();
+  width: 715px;
+  height: 125px;
+  background-color: var(--color-blue-400);
+  margin: auto;
+  border-radius: 10px;
+  @include mainBoxShadow;
+  margin-bottom: 25px;
+
+  &__header {
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-white);
+  }
+
+  &__search_groups {
+    @include flex-horizontal();
+    gap: 30px;
+  }
+
+  &__btn {
+    width: 155px;
+    height: 37px;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    @include bottomShadow;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 700;
+
+    &:hover {
+      background-color: var(--color-blue-700);
+    }
+  }
+
+  &__secondary-search {
+    display: none;
+    width: 800px;
+    background-color: var(--color-blue-400-05);
+
+    &--visible {
+      @include flex-vertical();
+    }
+
+    &--invisible {
+      display: none;
+    }
+  }
+}
+
+.screening-wrapper {
+  @include flex-vertical();
+  //align-items: flex-start;
+}
+
+.screening {
+  @include flex-horizontal();
+  justify-content: space-between;
+  width: 50%;
+  padding: 0 $default-sides-padding;
+  margin-bottom: 10px;
+
+  border-bottom: 2px solid black;
+
+  &__dates-container {
+    @include flex-vertical();
+    margin-bottom: 10px;
+  }
+
+  &__date-containter {
+    @include flex-horizontal();
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-blue-700);
+  }
+
+  &__hours-container {
+    display: grid;
+    height: 100px;
+    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-rows: 2fr 2fr;
+    grid-gap: 15px;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.8em;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #1e2f97;
+      border-radius: 100vw;
+      margin-block: 0.2em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #1aa7ec;
+      border: 0.15em solid #1e2f97;
+      border-radius: 100vw;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #4adede;
+    }
+  }
+
+  &__cinema {
+    color: var(--color-white);
+    font-size: 48px;
+    font-weight: 700;
+    -webkit-text-stroke: 1px var(--color-black);
+    padding-right: $default-sides-padding;
+  }
+
+  &__date {
+    color: var(--color-white);
+    font-size: 32px;
+    font-weight: 700;
+    -webkit-text-stroke: 1px var(--color-black);
+    padding: 0 $default-sides-padding;
+    margin-right: 30px;
+  }
+
+  &__hour {
+    @include grid-center();
+    background-color: #0c1f42;
+    border-radius: 10px;
+    width: 118px;
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+    -webkit-text-stroke: 1px #35b9edc0;
+  }
+}
