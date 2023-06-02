@@ -159,16 +159,15 @@ body::-webkit-scrollbar {
   }
 }
 
-.screening-wrapper {
-  @include flex-vertical();
-  //align-items: flex-start;
-}
+// .screening-wrapper {
+//   @include grid-center();
+// }
 
 .screening {
   @include flex-horizontal();
   justify-content: space-between;
-  width: 50%;
-  padding: 0 $default-sides-padding;
+  margin: auto;
+  width: 60vw;
   margin-bottom: 10px;
 
   border-bottom: 2px solid black;

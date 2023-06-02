@@ -11,3 +11,18 @@ const moviesAndCinemasManager: MoviesAndCinemasManager =
   new MoviesAndCinemasManager();
 const searchFieldsRenderer = new SearchFieldsRenderer();
 const searchHandler = new SearchHandler();
+
+let moviePageManager: MoviePageManager;
+let moviePageRenderer: MoviePageRenderer;
+
+async function main() {
+  let allCinemas: Cinema[] = await this.getData("cinemaData");
+  let allMovies: Movie[] = await this.getData("movieData");
+
+  this.moviePageRenderer = new MoviePageRenderer(movieData.uuid, allCinemas);
+  this.moviePageManager = new MoviePageManager();
+
+  searchFieldsRenderer.populateLocations(allCinemas, false);
+}
+
+main();

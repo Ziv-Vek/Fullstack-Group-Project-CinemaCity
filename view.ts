@@ -44,5 +44,9 @@ const vipButton = document.querySelector(".vipButton");
 //#endregion
 
 //#region Movie page
+const screeningWrapperDiv = document.querySelector(
+  ".screening-wrapper"
+) as HTMLDivElement;
+
 
 //#endregion

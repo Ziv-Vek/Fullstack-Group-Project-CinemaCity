@@ -23,4 +23,5 @@ var datesSecondaryDropdown = document.querySelector(".search__dates-dropdown");
 var vipButton = document.querySelector(".vipButton");
 //#endregion
 //#region Movie page
+var screeningWrapperDiv = document.querySelector(".screening-wrapper");
 //#endregion
