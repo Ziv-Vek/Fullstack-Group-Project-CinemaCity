@@ -1,3 +1,6 @@
+let activeMenu: HTMLDivElement | null = null;
+let activeButton: HTMLDivElement | null = null;
+
 function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
   if (activeButton === button) {
     if (activeMenu === menu) {
@@ -15,6 +18,7 @@ function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
   }
 }
 
+// All buttons -
 const telAvivButton = document.querySelector(
   "#telAvivButton"
 ) as HTMLDivElement;
@@ -31,9 +35,7 @@ const menuRishonAshdod = document.querySelector(
   ".menuRishonAshdod"
 ) as HTMLDivElement;
 
-let activeMenu: HTMLDivElement | null = null;
-let activeButton: HTMLDivElement | null = null;
-
+// Event listener for each button -
 telAvivButton.addEventListener("click", () =>
   handleClick(telAvivButton, vipMenuTlvHaifaBeer)
 );

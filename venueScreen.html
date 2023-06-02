@@ -33,11 +33,12 @@
     <script src="./dist/venueScreen.js" defer></script>
 
     <title>ZIA Cinema - Order Your Tickets</title>
+    <link rel="icon" href="./assets/zia.png" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <img src="./assets/img/logo.png" alt="zia_cinema" class="zia-logo" />
+      <img src="./assets/logo.png" alt="zia_cinema" class="zia-logo" />
 
       <div class="screening"></div>
     </nav>
@@ -46,8 +47,6 @@
       <span class="material-symbols-outlined"> arrow_back </span>
       <p>BACK</p>
     </a>
-
-    <div class="movie_details"></div>
 
     <div class="venuePageFull">
       <div class="title">
@@ -73,6 +72,7 @@
 
       <fieldset class="credit-form">
         <legend>Payment</legend>
+
         <div class="notNumberError">
           Id Number, Card Number and Expiration Date Must Include Numbers Only !
         </div>
@@ -157,6 +157,7 @@
             max="30"
           />
           <br />
+
           <input
             class="credit-form__submit"
             type="submit"
@@ -178,6 +179,7 @@
           <div class="loader--text"></div>
         </div>
       </div>
+
       <div class="ticket-container" id="ticketContainer"></div>
     </div>
   </body>
