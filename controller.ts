@@ -241,14 +241,14 @@ class SearchHandler {
       }
     }
 
-    searchFieldsRenderer.updateSearchTitle(
-      searchFilter,
-      filteredMovies[0].name
-    );
+    // searchFieldsRenderer.updateSearchTitle(
+    //   searchFilter,
+    //   filteredMovies[0].name
+    // );
 
-    searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
+    //searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
 
-    renderMovieCards(filteredMovies);
+    //renderMovieCards(filteredMovies);
   }
 
   public onDateSelect(searchFilter: string, dateTimeStamp: string, eve) {
@@ -514,14 +514,13 @@ class SearchFieldsRenderer {
   public populateMovies(movies: any[]) {
     this.movies = movies;
 
+    console.log(movies[0]);
+
     searchMoviesMenu.innerHTML = movies
       .map((movie) => {
         return `<li>
-        <a
-          class="dropdown-item"
-          onclick="searchHandler.onMovieSelect('search__movies-dropdown', '${movie.uuid}', event)"
-          >${movie.name}</a>
-      </li>`;
+      <a class="dropdown-item" href="./moviePage/moviePage.html?id=${movie.uuid}" onclick="transferMovieData(event, ${movie.uuid})">${movie.name}</a>
+    </li>`;
       })
       .join("");
   }

@@ -149,9 +149,12 @@ var SearchHandler = /** @class */ (function () {
                 break;
             }
         }
-        searchFieldsRenderer.updateSearchTitle(searchFilter, filteredMovies[0].name);
-        searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
-        renderMovieCards(filteredMovies);
+        // searchFieldsRenderer.updateSearchTitle(
+        //   searchFilter,
+        //   filteredMovies[0].name
+        // );
+        //searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
+        //renderMovieCards(filteredMovies);
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve) {
         var newDate = new Date(dateTimeStamp);
@@ -324,9 +327,10 @@ var SearchFieldsRenderer = /** @class */ (function () {
     };
     SearchFieldsRenderer.prototype.populateMovies = function (movies) {
         this.movies = movies;
+        console.log(movies[0]);
         searchMoviesMenu.innerHTML = movies
             .map(function (movie) {
-            return "<li>\n        <a\n          class=\"dropdown-item\"\n          onclick=\"searchHandler.onMovieSelect('search__movies-dropdown', '" + movie.uuid + "', event)\"\n          >" + movie.name + "</a>\n      </li>";
+            return "<li>\n      <a class=\"dropdown-item\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">" + movie.name + "</a>\n    </li>";
         })
             .join("");
     };
