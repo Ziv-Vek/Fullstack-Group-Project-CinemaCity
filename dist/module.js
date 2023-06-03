@@ -20,25 +20,6 @@ var Cinema = /** @class */ (function () {
     }
     return Cinema;
 }());
-var MoviesAndCinemasManager = /** @class */ (function () {
-    function MoviesAndCinemasManager() {
-        this.movies = [];
-    }
-    Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemasArr", {
-        get: function () {
-            return this.cinemasArr;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    MoviesAndCinemasManager.prototype.setCinemasArr = function (data) {
-        this.cinemasArr = data;
-    };
-    MoviesAndCinemasManager.prototype.addMovie = function (movie) {
-        this.movies.push(movie);
-    };
-    return MoviesAndCinemasManager;
-}());
 var EventForm = /** @class */ (function () {
     function EventForm(name, email, number) {
         this.name = name;
