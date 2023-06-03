@@ -21,15 +21,19 @@ class Movie implements IMovie {
     public description: string,
     public trailerURL: string,
     public cinemaID: number[]
-  ) {
-    //moviesAndCinemasManager.addMovie(this);
-  }
+  ) {}
 }
 
 interface Seats {
   index: [{ line: number; seatID: number }];
   status: boolean;
   accessability: boolean;
+}
+
+interface Seat {
+  line: number;
+  seatID: number;
+  isTaken: boolean;
 }
 
 class Cinema {
@@ -48,12 +52,6 @@ class Cinema {
   ) {}
 }
 
-// class venue {
-//   moviesList: Movie[] = [];
-
-//   constructor() {}
-// }
-
 class MoviesAndCinemasManager {
   private movies: Movie[] = [];
   public cinemasArr: object;
@@ -65,34 +63,19 @@ class MoviesAndCinemasManager {
   }
 
   public setCinemasArr(data: any) {
-    // console.log(data);
-    // console.log(data[2].cinemaName);
-
     this.cinemasArr = data;
   }
 
   public addMovie(movie: Movie) {
     this.movies.push(movie);
   }
-
-  // public get getMoviesArr(): Movie[] {
-  //   return this.movies;
-  // }
 }
 
-interface _Cart {
-  barcode: string;
-  price: number;
-  movieID: number;
-  seats: { line: number; seatID: number };
-}
-
-class Cart implements _Cart {
+class EventForm {
   constructor(
-    public barcode: string,
-    public price: number,
-    public movieID: number,
-    public seats: { line: number; seatID: number }
+    public name: string,
+    public email: string,
+    public number: string
   ) {}
 }
 

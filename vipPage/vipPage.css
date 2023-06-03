@@ -1,3 +1,13 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-blue-100: #35b9ed;
+  --color-blue-400: #1889f2;
+  --color-blue-400-05: #1889f282;
+  --color-blue-700: #0c5394;
+  --color-yellow-200: #dbca0b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +24,8 @@ body::-webkit-scrollbar {
 }
 
 .navbar {
-  background-color: #0c4173;
-  box-shadow: 0 3px 10px #0c4173;
+  background-color: var(--color-blue-700);
+  box-shadow: 0 5px 5px var(--color-blue-700);
   width: 100%;
 }
 .navbar__nav {
@@ -24,11 +34,11 @@ body::-webkit-scrollbar {
   height: 35px;
   margin: 20px 0 40px 20px;
   padding: 5px;
-  background-color: #0c4173;
-  box-shadow: 5px 5px 10px #0c4173;
+  background-color: var(--color-blue-700);
+  box-shadow: 5px 5px 10px var(--color-blue-700);
   border-radius: 10px;
   text-decoration: none;
-  color: yellow;
+  color: var(--color-yellow-200);
   transition: all 0.5s ease-in-out;
 }
 .navbar__nav p {
@@ -43,7 +53,7 @@ h1 {
   font-size: 100px;
   text-align: center;
   margin: 30px 0 20px 0;
-  color: #0c4173;
+  color: var(--color-blue-700);
   letter-spacing: 15px;
   text-shadow: 5px 5px 15px black;
 }
@@ -63,8 +73,8 @@ h1 {
   box-shadow: 2px 2px 5px black;
   font-size: 30px;
   letter-spacing: 2px;
-  background-color: #35b9ed;
-  color: #0c5394;
+  background-color: var(--color-blue-100);
+  color: var(--color-blue-700);
   text-align: center;
   cursor: pointer;
 }
@@ -83,7 +93,7 @@ h1 {
 #rishonButton:hover,
 #beerShevaButton:hover {
   transform: scale(110%);
-  color: yellow;
+  color: var(--color-yellow-200);
 }
 
 .menuTLV-BeerSheva-Haifa,
@@ -91,8 +101,8 @@ h1 {
   width: 650px;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 5px 5px 10px black;
-  background-color: #0c4173;
+  box-shadow: 5px 5px 10px rgb(43, 43, 43);
+  background-color: var(--color-blue-700);
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -111,7 +121,7 @@ h1 {
 .menuTLV-BeerSheva-Haifa h3,
 .menuRishonAshdod h3 {
   padding-top: 30px;
-  color: #35b9ed;
+  color: var(--color-blue-100);
 }
 .menuTLV-BeerSheva-Haifa__last,
 .menuRishonAshdod__last {

@@ -48,11 +48,13 @@
       <p>BACK</p>
     </a>
 
+    <!-- Venue Page -->
     <div class="venuePageFull">
       <div class="title">
         <p class="title__text">Choose Your Seats</p>
       </div>
 
+      <!-- Seat selection -->
       <div class="selection-explained">
         <div class="selection-explained__gray-seat"></div>
         <span class="selection-explained__text">Taken</span>
@@ -62,14 +64,95 @@
 
       <div class="venue_view"></div>
 
+      <!-- Seat error message -->
       <span class="seat-error-message">You Must Choose Seats First !</span>
 
+      <!-- Lone seat error message -->
+      <span class="lone-seat-message"
+        >Make Sure You Didn't Leave a Lone Seat In Your Row Please.</span
+      >
+
+      <!-- Too many seats selected message -->
+      <div class="too-many-message">
+        <span
+          onclick="closeMessage()"
+          id="closeMessage"
+          class="material-symbols-outlined"
+        >
+          close
+        </span>
+        <p class="message-text">
+          Are We Having A Party ? <br />
+          To Complete Your Order You Can Leave Your Information Down Below
+          <br />
+          And We Will Contact You Before This Business Day Ends <br />
+          To Help You Plan Your Event ! <br />
+          <br />
+          Thank You For Your Patience !
+        </p>
+
+        <div class="numbers-only">Please Enter a Valid Phone Number.</div>
+
+        <div class="text-only">Name Should Be In Text Only.</div>
+
+        <div class="valid-email">Please Enter a Valid Email.</div>
+
+        <form onsubmit="handleEventForm(event)">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="NAME"
+            minlength="4"
+            required
+          />
+          <br />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            minlength="6"
+            required
+          />
+          <br />
+          <input
+            type="text"
+            name="number"
+            id="number"
+            placeholder="PHONE NUMBER"
+            minlength="9"
+            maxlength="10"
+            required
+          />
+          <br />
+          <input type="submit" name="submit" class="too-many-message__submit" />
+        </form>
+      </div>
+
+      <div class="thanks-message">
+        <span
+          onclick="closeThanksMessage()"
+          id="closeThanksMessage"
+          class="material-symbols-outlined"
+        >
+          close
+        </span>
+        <br />
+        <p>
+          Thank You ! <br />
+          A Representative Of Our Cinema Will Contact You Shortly.
+        </p>
+      </div>
+
+      <!-- Order tickets -->
       <div class="order-container">
         <button type="submit" class="order-container__order-btn">
           Order Tickets
         </button>
       </div>
 
+      <!-- Payment form -->
       <fieldset class="credit-form">
         <legend>Payment</legend>
 
@@ -168,6 +251,7 @@
         </form>
       </fieldset>
 
+      <!-- Loading animation -->
       <div class="loading-container">
         <div class="loader">
           <div class="loader--dot"></div>
@@ -180,6 +264,7 @@
         </div>
       </div>
 
+      <!-- Movie ticket -->
       <div class="ticket-container" id="ticketContainer"></div>
     </div>
   </body>

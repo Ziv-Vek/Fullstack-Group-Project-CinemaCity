@@ -5,6 +5,7 @@
   --color-blue-400: #1889f2;
   --color-blue-400-05: #1889f282;
   --color-blue-700: #0c5394;
+  --color-yellow-200: #dbca0b;
 }
 
 * {
@@ -146,7 +147,8 @@ body::-webkit-scrollbar {
   margin-bottom: 80px;
 }
 
-.seat-error-message {
+.seat-error-message,
+.lone-seat-message {
   display: none;
   text-align: center;
   letter-spacing: 3px;
@@ -155,6 +157,63 @@ body::-webkit-scrollbar {
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: -50px;
+}
+
+.too-many-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0c4173;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+}
+.too-many-message #closeMessage {
+  cursor: pointer;
+}
+.too-many-message input {
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+.too-many-message__submit {
+  background-color: white;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.5s ease-in-out;
+}
+.too-many-message__submit:hover {
+  transform: scale(110%);
+  color: var(--color-yellow-200);
+}
+
+.numbers-only,
+.text-only,
+.valid-email {
+  padding-bottom: 10px;
+  color: red;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 10px black;
+  display: none;
+}
+
+.thanks-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0c4173;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+}
+.thanks-message #closeThanksMessage {
+  cursor: pointer;
 }
 
 .order-container {
@@ -208,7 +267,6 @@ legend {
   background-color: #1889f2f0;
   border-radius: 20px;
   width: 400px;
-  height: 500px;
   text-align: center;
   margin-bottom: 30px;
   opacity: 0;

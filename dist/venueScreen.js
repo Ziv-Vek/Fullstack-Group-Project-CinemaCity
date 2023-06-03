@@ -1,5 +1,4 @@
 // Present screening details in Navbar -
-var screeningDetails = document.querySelector(".screening");
 var selectedScreeningRaw = getData("selectedMovie").split(", ");
 var cinemas = getData("cinemaData");
 var selectedCinema = cinemas.find(function (result) { return result.id === Number(selectedScreeningRaw[1]); });
@@ -10,8 +9,6 @@ console.log(selectedScreening);
 function renderDetails(element, renderDetails) {
     element.innerHTML = renderDetails;
 }
-var html = document.querySelector(".venue_view");
-var movieDetails = document.querySelector(".movie_details");
 var venueData = [];
 // Render screening in navbar -
 var renderScreeningInNavbar = function (selectedMovie, selectedCinema, selectedScreening) {
@@ -41,7 +38,6 @@ fetch("venue.json")
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
     enableSeatsSelection();
-    handlePaymentForm(Event);
 })["catch"](function (error) { return console.log(error); });
 // Taken seats status -
 function updateSeatTakenStatus(seats, selectionIndex) {
@@ -50,15 +46,16 @@ function updateSeatTakenStatus(seats, selectionIndex) {
         seat.isTaken = foundIndex !== -1;
     });
 }
+var lineSeatsMap = {
+    1: 10,
+    2: 10,
+    3: 10,
+    4: 12,
+    5: 14,
+    6: 14
+};
+// Render seats -
 function seatsRender(seats) {
-    var lineSeatsMap = {
-        1: 10,
-        2: 10,
-        3: 10,
-        4: 12,
-        5: 14,
-        6: 14
-    };
     var lineElements = [];
     var _loop_1 = function (line) {
         var seatsPerLine = lineSeatsMap[line] || 0;
@@ -123,23 +120,50 @@ var enableSeatsSelection = function () {
     });
 };
 // Order tickets button -
-var orderBtn = document.querySelector(".order-container__order-btn");
-var paymentForm = document.querySelector(".credit-form");
-var seatErrorMessage = document.querySelector(".seat-error-message");
 orderBtn.addEventListener("click", function () {
     if (selectedSeats.length === 0) {
         seatErrorMessage.style.display = "block";
     }
+    else if (selectedSeats.length > 5) {
+        tooManySeatsMessage.style.display = "block";
+    }
     else {
         seatErrorMessage.style.display = "none";
+        tooManySeatsMessage.style.display = "none";
         paymentForm.style.display = "block";
     }
 });
+// Event form -
+var events = [];
+var handleEventForm = function (evt) {
+    try {
+        evt.preventDefault();
+        var name = evt.target.elements.name.value;
+        var email = evt.target.elements.email.value;
+        var number = parseInt(evt.target.elements.number.value);
+        if (isNaN(number)) {
+            numbersOnly.style.display = "block";
+            return;
+        }
+        else if (!/^[a-zA-Z]+$/.test(name)) {
+            textOnly.style.display = "block";
+            return;
+        }
+        else if (!isValidEmail(email)) {
+            validEmail.style.display = "block";
+            return;
+        }
+        events.push(new EventForm(name, email, number.toString()));
+        console.dir(events);
+        evt.target.reset();
+        closeMessage();
+        thanksMessage.style.display = "block";
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
 // Payment form -
-var loadingContainer = document.querySelector(".loading-container");
-var ticketContainer = document.querySelector(".ticket-container");
-var notNumberMessage = document.querySelector(".notNumberError");
-var submitButton = document.querySelector("#submit");
 var forms = [];
 var handlePaymentForm = function (evt) {
     try {
@@ -178,9 +202,9 @@ var displayMovieTicket = function () {
         }
         return lines;
     }, []);
-    var ticketHTML = "\n <div class=\"ticket\">\n     <img class=\"ticket__TImage\" src=\"./vipPage/ticket-no-bg.png\" />\n\n     <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n       close\n     </span>\n\n     <div class=\"ticket__image\">\n     <img src=\"" + selectedMovie.image + "\" />\n     </div>\n   \n    <div class=\"ticket__Details\">\n        <h2 class=\"ticket__name\">" + selectedMovie.name + "</h2>\n\n        <div class=\"ticket__screenDate1\">" + selectedScreening.screenDate + "</div>\n        <div class=\"ticket__screenTime1\">" + selectedScreening.screenTime + "</div>\n        <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n        <img class=\"ticket__scan1\" src=\"../vipPage/scanTicket.png\" />\n    \n       <div class=\"ticket__screenDate2\">" + selectedScreening.screenDate + "</div>\n       <div class=\"ticket__screenTime2\">" + selectedScreening.screenTime + "</div>\n\n       <span class=\"ticket__labelVenue\"> Venue </span>\n       <span class=\"ticket__labelLine\"> Line </span>\n       <span class=\"ticket__labelSeats\"> Seats </span>\n\n        <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n        <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n        <div class=\"ticket__seats\"> " + selectedSeats
+    var ticketHTML = "\n <div class=\"ticket\">\n     <img class=\"ticket__TImage\" src=\"./assets/ticket-no-bg.png\" />\n\n     <span onclick=\"closeTicket()\" class=\"material-symbols-outlined ticket__exit\">\n       close\n     </span>\n\n     <div class=\"ticket__image\">\n     <img src=\"" + selectedMovie.image + "\" />\n     </div>\n   \n    <div class=\"ticket__Details\">\n        <h2 class=\"ticket__name\">" + selectedMovie.name + "</h2>\n\n        <div class=\"ticket__screenDate1\">" + selectedScreening.screenDate + "</div>\n        <div class=\"ticket__screenTime1\">" + selectedScreening.screenTime + "</div>\n        <div class=\"ticket__cinema\"> Cinema " + selectedCinema.cinemaName + " </div>\n        <img class=\"ticket__scan1\" src=\"../assets/scanTicket.png\" />\n    \n       <div class=\"ticket__screenDate2\">" + selectedScreening.screenDate + "</div>\n       <div class=\"ticket__screenTime2\">" + selectedScreening.screenTime + "</div>\n\n       <span class=\"ticket__labelVenue\"> Venue </span>\n       <span class=\"ticket__labelLine\"> Line </span>\n       <span class=\"ticket__labelSeats\"> Seats </span>\n\n        <div class=\"ticket__venue\"> " + selectedScreening.venue + "</div>\n        <div class=\"ticket__line\"> " + selectedLines.join(", ") + "</div>\n        <div class=\"ticket__seats\"> " + selectedSeats
         .map(function (seat) { return "" + seat.seat; })
-        .join(", ") + " </div>\n\n        <img class=\"ticket__scan2\" src=\"../vipPage/scanTicket.png\" />\n\n        <span class=\"ticket__mailMessage\"> A Copy Of Your Tickets Was Sent To Your Email ! </span>\n    </div>\n  </div>";
+        .join(", ") + " </div>\n\n        <img class=\"ticket__scan2\" src=\"../assets/scanTicket.png\" />\n\n        <span class=\"ticket__mailMessage\"> A Copy Of Your Tickets Was Sent To Your Email ! </span>\n    </div>\n  </div>";
     // Reset selectedSeats array
     selectedSeats.length = 0;
     // Reset seat background color
@@ -197,6 +221,17 @@ var displayMovieTicket = function () {
     ticketContainer.style.display = "block";
     paymentForm.style.display = "none";
 };
+// Helpful functions -
 function closeTicket() {
     document.querySelector(".ticket ").remove();
+}
+function closeMessage() {
+    tooManySeatsMessage.remove();
+}
+function closeThanksMessage() {
+    thanksMessage.remove();
+}
+function isValidEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }

@@ -156,7 +156,8 @@ body::-webkit-scrollbar {
 }
 
 // No chosen seats -
-.seat-error-message {
+.seat-error-message,
+.lone-seat-message {
   display: none;
   text-align: center;
   letter-spacing: 3px;
@@ -165,6 +166,63 @@ body::-webkit-scrollbar {
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: -50px;
+}
+
+// Too many seats selected -
+.too-many-message {
+  @include popupCenter;
+  background-color: #0c4173;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+
+  #closeMessage {
+    cursor: pointer;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 0 20px;
+  }
+
+  &__submit {
+    background-color: white;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__submit:hover {
+    transform: scale(110%);
+    color: $ziaYellow;
+  }
+}
+
+.numbers-only,
+.text-only,
+.valid-email {
+  padding-bottom: 10px;
+  color: red;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 10px black;
+  display: none;
+}
+
+.thanks-message {
+  @include popupCenter;
+  background-color: #0c4173;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+
+  #closeThanksMessage {
+    cursor: pointer;
+  }
 }
 
 // Order ticket button -
@@ -221,7 +279,6 @@ legend {
   background-color: #1889f2f0;
   border-radius: 20px;
   width: 400px;
-  height: 500px;
   text-align: center;
   margin-bottom: 30px;
   opacity: 0;

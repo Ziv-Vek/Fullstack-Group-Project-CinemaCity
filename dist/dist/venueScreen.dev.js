@@ -1,6 +1,6 @@
 "use strict";
 
-/// Present screening details in Navbar
+// Present screening details in Navbar -
 var screeningDetails = document.querySelector(".screening");
 var selectedScreeningRaw = getData("selectedMovie").split(", ");
 var cinemas = getData("cinemaData");
@@ -11,12 +11,10 @@ var movies = getData("movieData");
 var selectedMovie = movies.find(function (result) {
   return result.uuid === Number(selectedScreeningRaw[0]);
 });
-var selectedScreenin = selectedCinema.movieList.find(function (result) {
+var selectedScreening = selectedCinema.movieList.find(function (result) {
   return result.uuid === Number(selectedScreeningRaw[3]);
 });
 console.log(selectedScreening);
-var selectionData = selectedScreening;
-var movieViewDetails = "\n<div>\n<lable>Movie Name: </lable></div>";
 
 function renderDetails(element, renderDetails) {
   element.innerHTML = renderDetails;
@@ -24,13 +22,22 @@ function renderDetails(element, renderDetails) {
 
 var html = document.querySelector(".venue_view");
 var movieDetails = document.querySelector(".movie_details");
-var venueData = [];
+var venueData = []; // Render screening in navbar -
 
-var renderScreeningInNavbar = function renderScreeningInNavbar(movie, cinema) {
-  screeningDetails.innerHTML = '<img\n  src="./assets/imgCover/fastXCover.jpeg"\n  alt=""\n  class="screening__movie-img" />\n  <div class="screening__text-container">\n  <p class="screening__text-container__title">fast x</p>\n  <p class="screening__text-container__cinema">dasf</p>\n  <p class="screening__text-container__date">dafsd</p>\n  </div>';
+var renderScreeningInNavbar = function renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening) {
+  var screeningDate = new Date(selectedScreening.screenDate);
+  var dateString = screeningDate.toLocaleString("default", {
+    weekday: "long",
+    day: "2-digit",
+    month: "short"
+  });
+  console.log(selectedScreening);
+  screeningDetails.innerHTML = '<img\n  src="' + selectedMovie.image + '"\n  class="screening__movie-img" />\n  <div class="screening__text-container">\n  <p class="screening__text-container__title">' + selectedMovie.name + '</p>\n  <p class="screening__text-container__details">' + selectedCinema.cinemaName + '</p>\n  <p class="screening__text-container__details">' + dateString + ", " + selectedScreening.screenTime + ' </p>\n  <p class="screening__text-container__details">Venue ' + selectedScreening.venue + " </p>\n  </div>";
 };
 
-var selected = [];
+renderScreeningInNavbar(selectedMovie, selectedCinema, selectedScreening); // Selected seats -
+
+var selectedSeats = [];
 fetch("venue.json").then(function (response) {
   return response.json();
 }).then(function (data) {
@@ -42,11 +49,12 @@ fetch("venue.json").then(function (response) {
       isTaken: seat.isTaken
     });
   });
-  updateSeatTakenStatus(venueData, selectionData.seats.index);
+  updateSeatTakenStatus(venueData, selectedScreening.seats.index);
   seatsRender(venueData);
+  enableSeatsSelection();
 })["catch"](function (error) {
   return console.log(error);
-});
+}); // Taken seats status -
 
 function updateSeatTakenStatus(seats, selectionIndex) {
   seats.forEach(function (seat) {
@@ -77,8 +85,11 @@ function seatsRender(seats) {
       var foundSeat = seats.find(function (s) {
         return s.line === line && s.seatID === seat;
       });
+      var isSelected = selectedSeats.some(function (s) {
+        return s.line === line && s.seat === seat;
+      });
       var isTaken = foundSeat ? foundSeat.isTaken : false;
-      seatsRenderTaken(isTaken, lineElement, seat, line);
+      seatsRenderTaken(isTaken, isSelected, lineElement, seat, line);
     };
 
     for (var seat = 1; seat <= seatsPerLine; seat++) {
@@ -93,9 +104,10 @@ function seatsRender(seats) {
   }
 
   html.append.apply(html, lineElements);
-}
+} // Render taken seats -
 
-function seatsRenderTaken(isTaken, element, seat, line) {
+
+function seatsRenderTaken(isTaken, isSelected, element, seat, line) {
   var seatElement = document.createElement("div");
   seatElement.classList.add("venue__seat");
   seatElement.classList.add(line + "-" + seat);
@@ -103,54 +115,178 @@ function seatsRenderTaken(isTaken, element, seat, line) {
 
   if (isTaken) {
     seatElement.classList.replace("venue__seat", "venue__seat--taken");
+  } else if (isSelected) {
+    seatElement.style.backgroundColor = "rgb(150, 247, 140)";
   }
 
   element.appendChild(seatElement);
-}
+} // Seat selection -
 
-setTimeout(function () {
+
+var enableSeatsSelection = function enableSeatsSelection() {
   var allSeats = document.querySelectorAll(".venue__seat");
   allSeats.forEach(function (seat) {
     seat.addEventListener("click", function () {
       var selectedSeat = seat.classList[1].split("-");
       var line = Number(selectedSeat[0]);
       var seatID = Number(selectedSeat[1]);
-      var seatIndex = selected.findIndex(function (rs) {
+      var seatIndex = selectedSeats.findIndex(function (rs) {
         return rs.line === line && rs.seat === seatID;
       });
+      var isSeatTaken = seat.classList.contains("venue__seat--taken");
+
+      if (isSeatTaken) {
+        return seatErrorMessage;
+      }
 
       if (seatIndex !== -1) {
-        selected.splice(seatIndex, 1); // Remove the selected seat from the array
+        selectedSeats.splice(seatIndex, 1); // Remove the selected seat from the array
 
         seat.style.backgroundColor = "white";
       } else {
-        seat.style.backgroundColor = "green";
-        selected.push({
+        seat.style.backgroundColor = "rgb(150, 247, 140)";
+        selectedSeats.push({
           line: line,
           seat: seatID
         });
       }
 
-      console.log(selected);
+      console.log(selectedSeats);
     });
   });
-}, 100); // Render movie tickets -
+}; // Order tickets button -
 
-var renderMovieTickets = function renderMovieTickets(movies, cinema) {
-  var movieTickets = "";
-  movies.forEach(function (movie) {
-    var seats = movie.seats.map(function (seat) {
-      return "Line " + seat.line + ", Seat " + seat.seatID;
-    }).join(", ");
-    movieTickets += '<div class="ticket"> \n      <div>' + movie.uuid + "</div>\n      <h1>" + movie.name + '</h1>\n      <img class="ticket__image" src="' + movie.image + '" />\n      <div class="ticket__screenDate">' + movie.screenDate + '</div> \n      <div class="ticket__screenTime">' + movie.screenTime + '</div>\n      <div class="ticket__venue">' + cinema.cinemaName + " - Venue " + movie.venue[0] + '</div> \n      <div class="ticket__seats">Selected Seats: ' + seats + "</div> \n    </div>";
+
+var orderBtn = document.querySelector(".order-container__order-btn");
+var paymentForm = document.querySelector(".credit-form");
+var seatErrorMessage = document.querySelector(".seat-error-message");
+var tooManySeatsMessage = document.querySelector(".too-many-message");
+orderBtn.addEventListener("click", function () {
+  if (selectedSeats.length === 0) {
+    seatErrorMessage.style.display = "block";
+  } else if (selectedSeats.length > 5) {
+    tooManySeatsMessage.style.display = "block";
+  } else {
+    seatErrorMessage.style.display = "none";
+    tooManySeatsMessage.style.display = "none";
+    paymentForm.style.display = "block";
+  }
+}); // Event form -
+
+var numbersOnly = document.querySelector(".numbers-only");
+var textOnly = document.querySelector(".text-only");
+var validEmail = document.querySelector(".valid-email");
+var thanksMessage = document.querySelector(".thanks-message");
+var events = [];
+
+var handleEventForm = function handleEventForm(evt) {
+  try {
+    evt.preventDefault();
+    var name = evt.target.elements.name.value;
+    var email = evt.target.elements.email.value;
+    var number = parseInt(evt.target.elements.number.value);
+
+    if (isNaN(number)) {
+      numbersOnly.style.display = "block";
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(name)) {
+      textOnly.style.display = "block";
+      return;
+    } else if (!isValidEmail(email)) {
+      validEmail.style.display = "block";
+      return;
+    }
+
+    events.push(new EventForm(name, email, number.toString()));
+    console.dir(events);
+    evt.target.reset();
+    closeMessage();
+    thanksMessage.style.display = "block";
+  } catch (error) {
+    console.log(error);
+  }
+}; // Payment form -
+
+
+var loadingContainer = document.querySelector(".loading-container");
+var ticketContainer = document.querySelector(".ticket-container");
+var notNumberMessage = document.querySelector(".notNumberError");
+var submitButton = document.querySelector("#submit");
+var forms = [];
+
+var handlePaymentForm = function handlePaymentForm(evt) {
+  try {
+    evt.preventDefault();
+    paymentForm.style.display = "none";
+    loadingContainer.style.display = "block";
+    var name = evt.target.elements.name.value;
+    var email = evt.target.elements.email.value;
+    var idNumber = parseInt(evt.target.elements.idNumber.value, 10);
+    var cardNumber = parseInt(evt.target.elements.cardNumber.value, 10);
+    var month = parseInt(evt.target.elements.month.value, 10);
+    var year = parseInt(evt.target.elements.year.value, 10);
+
+    if (isNaN(idNumber) || isNaN(cardNumber) || isNaN(month) || isNaN(year)) {
+      notNumberMessage.style.display = "block";
+      paymentForm.style.display = "block";
+      loadingContainer.style.display = "none";
+      return;
+    }
+
+    forms.push(new PayForm(name, email, idNumber.toString(), cardNumber.toString(), month, year));
+    console.dir(forms);
+    notNumberMessage.style.display = "none";
+    setTimeout(function () {
+      loadingContainer.style.display = "none";
+      displayMovieTicket();
+    }, 10000);
+  } catch (error) {
+    console.log(error);
+  }
+}; // Render movie tickets after purchase -
+
+
+var displayMovieTicket = function displayMovieTicket() {
+  var selectedLines = selectedSeats.reduce(function (lines, seat) {
+    if (!lines.includes(seat.line)) {
+      lines.push(seat.line);
+    }
+
+    return lines;
+  }, []);
+  var ticketHTML = '\n <div class="ticket">\n     <img class="ticket__TImage" src="./vipPage/ticket-no-bg.png" />\n\n     <span onclick="closeTicket()" class="material-symbols-outlined ticket__exit">\n       close\n     </span>\n\n     <div class="ticket__image">\n     <img src="' + selectedMovie.image + '" />\n     </div>\n   \n    <div class="ticket__Details">\n        <h2 class="ticket__name">' + selectedMovie.name + '</h2>\n\n        <div class="ticket__screenDate1">' + selectedScreening.screenDate + '</div>\n        <div class="ticket__screenTime1">' + selectedScreening.screenTime + '</div>\n        <div class="ticket__cinema"> Cinema ' + selectedCinema.cinemaName + ' </div>\n        <img class="ticket__scan1" src="../vipPage/scanTicket.png" />\n    \n       <div class="ticket__screenDate2">' + selectedScreening.screenDate + '</div>\n       <div class="ticket__screenTime2">' + selectedScreening.screenTime + '</div>\n\n       <span class="ticket__labelVenue"> Venue </span>\n       <span class="ticket__labelLine"> Line </span>\n       <span class="ticket__labelSeats"> Seats </span>\n\n        <div class="ticket__venue"> ' + selectedScreening.venue + '</div>\n        <div class="ticket__line"> ' + selectedLines.join(", ") + '</div>\n        <div class="ticket__seats"> ' + selectedSeats.map(function (seat) {
+    return "" + seat.seat;
+  }).join(", ") + ' </div>\n\n        <img class="ticket__scan2" src="../vipPage/scanTicket.png" />\n\n        <span class="ticket__mailMessage"> A Copy Of Your Tickets Was Sent To Your Email ! </span>\n    </div>\n  </div>'; // Reset selectedSeats array
+
+  selectedSeats.length = 0; // Reset seat background color
+
+  var allSeats = document.querySelectorAll(".venue__seat");
+  allSeats.forEach(function (seat) {
+    seat.style.backgroundColor = "white";
+  }); // Clear all input fields in the payment form
+
+  var formInputs = paymentForm.querySelectorAll("input:not([type='submit'])");
+  formInputs.forEach(function (input) {
+    input.value = "";
   });
-  var ticketContainer = document.querySelector(".ticket-container");
-  ticketContainer.innerHTML = movieTickets;
+  ticketContainer.innerHTML = ticketHTML;
+  ticketContainer.style.display = "block";
+  paymentForm.style.display = "none";
 };
 
-function goToPayment() {
-  setData("selectedSeats", selected);
-  setData("orderMovie", selectedScreening);
-  setData("cinemaSelected", selectedCinema);
-  setData("movieDetails", selectedMovie);
+function closeTicket() {
+  document.querySelector(".ticket ").remove();
+}
+
+function closeMessage() {
+  tooManySeatsMessage.remove();
+}
+
+function closeThanksMessage() {
+  thanksMessage.remove();
+}
+
+function isValidEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }

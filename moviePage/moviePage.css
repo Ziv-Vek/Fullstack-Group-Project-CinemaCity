@@ -5,6 +5,7 @@
   --color-blue-400: #1889f2;
   --color-blue-400-05: #1889f282;
   --color-blue-700: #0c5394;
+  --color-yellow-200: #dbca0b;
 }
 
 * {
@@ -15,7 +16,7 @@
 }
 
 body {
-  background-image: linear-gradient(#0c5394, #1889f2, #35b9ed);
+  background-image: linear-gradient(var(--color-blue-700), var(--color-blue-400), var(--color-blue-100));
 }
 
 body::-webkit-scrollbar {
@@ -34,7 +35,7 @@ body::-webkit-scrollbar {
   box-shadow: 5px 5px 10px #0c4173;
   border-radius: 10px;
   text-decoration: none;
-  color: yellow;
+  color: var(--color-yellow-200);
   transition: all 0.5s ease-in-out;
 }
 .navbar__nav p {
@@ -182,7 +183,6 @@ body::-webkit-scrollbar {
   grid-template-columns: 3fr 3fr 3fr;
   grid-template-rows: 2fr 2fr;
   grid-gap: 15px;
-  overflow-x: auto;
 }
 .screening__hours-container::-webkit-scrollbar {
   width: 0.8em;

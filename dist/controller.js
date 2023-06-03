@@ -1,6 +1,4 @@
 // Header -
-var carousel = document.querySelector(".header");
-var imageContainers = Array.from(document.querySelectorAll(".image-container"));
 var currentIndex = 0;
 function showImage(index) {
     if (carousel) {
@@ -67,6 +65,7 @@ function openTrailer(mov) {
     var movieCardsContainer = document.querySelector(".trailer_popup");
     movieCardsContainer.innerHTML += popup;
 }
+// Close trailer popup -
 function closePopup() {
     document.querySelector(".trailer_container").remove();
 }
@@ -169,12 +168,6 @@ var SearchHandler = /** @class */ (function () {
                 break;
             }
         }
-        // searchFieldsRenderer.updateSearchTitle(
-        //   searchFilter,
-        //   filteredMovies[0].name
-        // );
-        //searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
-        //renderMovieCards(filteredMovies);
     };
     SearchHandler.prototype.onDateSelect = function (searchFilter, dateTimeStamp, eve, cinemaName, isPrimarySearch) {
         var newDate = new Date(dateTimeStamp);

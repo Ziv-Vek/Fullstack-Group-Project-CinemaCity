@@ -1,3 +1,6 @@
+@import "../mixin";
+@import "../variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +17,8 @@ body::-webkit-scrollbar {
 
 // Navbar -
 .navbar {
-  background-color: #0c4173;
-  box-shadow: 0 3px 10px #0c4173;
+  background-color: $bgBlue;
+  box-shadow: 0 5px 5px $bgBlue;
   width: 100%;
 
   &__nav {
@@ -24,11 +27,11 @@ body::-webkit-scrollbar {
     height: 35px;
     margin: 20px 0 40px 20px;
     padding: 5px;
-    background-color: #0c4173;
-    box-shadow: 5px 5px 10px #0c4173;
+    background-color: $bgBlue;
+    box-shadow: 5px 5px 10px $bgBlue;
     border-radius: 10px;
     text-decoration: none;
-    color: yellow;
+    color: $ziaYellow;
     transition: all 0.5s ease-in-out;
 
     p {
@@ -47,14 +50,13 @@ h1 {
   font-size: 100px;
   text-align: center;
   margin: 30px 0 20px 0;
-  color: #0c4173;
+  color: $bgBlue;
   letter-spacing: 15px;
   text-shadow: 5px 5px 15px black;
 }
 
 .menu-buttons {
   height: auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +70,8 @@ h1 {
     box-shadow: 2px 2px 5px black;
     font-size: 30px;
     letter-spacing: 2px;
-    background-color: #35b9ed;
-    color: #0c5394;
+    background-color: $mainBlue;
+    color: $bgBlue;
     text-align: center;
     cursor: pointer;
   }
@@ -89,7 +91,7 @@ h1 {
 #rishonButton:hover,
 #beerShevaButton:hover {
   transform: scale(110%);
-  color: yellow;
+  color: $ziaYellow;
 }
 
 // Menus -
@@ -98,8 +100,8 @@ h1 {
   width: 650px;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 5px 5px 10px black;
-  background-color: #0c4173;
+  @include mainBoxShadow;
+  background-color: $bgBlue;
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -117,7 +119,7 @@ h1 {
 
   h3 {
     padding-top: 30px;
-    color: #35b9ed;
+    color: $mainBlue;
   }
 
   &__last {

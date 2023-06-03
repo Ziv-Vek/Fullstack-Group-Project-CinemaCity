@@ -5,6 +5,7 @@
   --color-blue-400: #1889f2;
   --color-blue-400-05: #1889f282; // 0.51 opacity
   --color-blue-700: #0c5394;
+  --color-yellow-200: #dbca0b; //ZIA Yellow
 }
 
 // Variables:
@@ -18,7 +19,11 @@ $page-height: 850.75px;
 
 $mainBlue: var(--color-blue-100);
 
+$middleBlue: var(--color-blue-400);
+
 $bgBlue: var(--color-blue-700);
+
+$ziaYellow: var(--color-yellow-200);
 
 $loader--width: 250px;
 $loader-dot--size: 20px;

@@ -3,7 +3,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const movieDataString = urlParams.get("data") as string;
-const movieData: Movie = JSON.parse(decodeURIComponent(movieDataString));
+const movieData: Movie = JSON.parse(decodeURIComponent(movieDataString!));
 
 populateMoviePage(movieData);
 ////////////////////////////////////////////////////////////////////////////////////////

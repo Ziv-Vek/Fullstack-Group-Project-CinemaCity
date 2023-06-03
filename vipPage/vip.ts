@@ -18,23 +18,6 @@ function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
   }
 }
 
-// All buttons -
-const telAvivButton = document.querySelector(
-  "#telAvivButton"
-) as HTMLDivElement;
-const haifaButton = document.querySelector("#haifaButton") as HTMLDivElement;
-const ashdodButton = document.querySelector("#ashdodButton") as HTMLDivElement;
-const rishonButton = document.querySelector("#rishonButton") as HTMLDivElement;
-const beerShevaButton = document.querySelector(
-  "#beerShevaButton"
-) as HTMLDivElement;
-const vipMenuTlvHaifaBeer = document.querySelector(
-  ".menuTLV-BeerSheva-Haifa"
-) as HTMLDivElement;
-const menuRishonAshdod = document.querySelector(
-  ".menuRishonAshdod"
-) as HTMLDivElement;
-
 // Event listener for each button -
 telAvivButton.addEventListener("click", () =>
   handleClick(telAvivButton, vipMenuTlvHaifaBeer)

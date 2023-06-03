@@ -1,8 +1,4 @@
 // Header -
-const carousel: HTMLElement | null = document.querySelector(".header");
-const imageContainers: HTMLElement[] = Array.from(
-  document.querySelectorAll(".image-container")
-);
 let currentIndex: number = 0;
 
 function showImage(index: number): void {
@@ -149,6 +145,7 @@ function openTrailer(mov: number) {
   movieCardsContainer.innerHTML += popup;
 }
 
+// Close trailer popup -
 function closePopup() {
   document.querySelector(".trailer_container")!.remove();
 }
@@ -268,15 +265,6 @@ class SearchHandler {
         break;
       }
     }
-
-    // searchFieldsRenderer.updateSearchTitle(
-    //   searchFilter,
-    //   filteredMovies[0].name
-    // );
-
-    //searchFieldsRenderer.renderSecondarySearchMenus(null, filteredMovies[0]);
-
-    //renderMovieCards(filteredMovies);
   }
 
   public onDateSelect(

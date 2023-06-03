@@ -1,12 +1,4 @@
 // Present screening details in Navbar -
-const screeningDetails = document.querySelector(".screening") as HTMLDivElement;
-
-interface Seat {
-  line: number;
-  seatID: number;
-  isTaken: boolean;
-}
-
 const selectedScreeningRaw = getData("selectedMovie").split(", ");
 const cinemas = getData("cinemaData");
 const selectedCinema = cinemas.find(
@@ -27,8 +19,6 @@ function renderDetails(element: HTMLDivElement, renderDetails: string) {
   element.innerHTML = renderDetails;
 }
 
-const html = document.querySelector(".venue_view") as HTMLDivElement;
-const movieDetails = document.querySelector(".movie_details") as HTMLDivElement;
 const venueData: Seat[] = [];
 
 // Render screening in navbar -
@@ -76,7 +66,6 @@ fetch("venue.json")
     updateSeatTakenStatus(venueData, selectedScreening.seats.index);
     seatsRender(venueData);
     enableSeatsSelection();
-    handlePaymentForm(Event);
   })
   .catch((error) => console.log(error));
 
@@ -90,16 +79,17 @@ function updateSeatTakenStatus(seats: Seat[], selectionIndex: any[]) {
   });
 }
 
-function seatsRender(seats: Seat[]) {
-  const lineSeatsMap: Record<number, number> = {
-    1: 10,
-    2: 10,
-    3: 10,
-    4: 12,
-    5: 14,
-    6: 14,
-  };
+const lineSeatsMap: Record<number, number> = {
+  1: 10,
+  2: 10,
+  3: 10,
+  4: 12,
+  5: 14,
+  6: 14,
+};
 
+// Render seats -
+function seatsRender(seats: Seat[]) {
   const lineElements: HTMLElement[] = [];
 
   for (let line = 1; line <= 6; line++) {
@@ -178,41 +168,60 @@ const enableSeatsSelection = () => {
           seat: seatID,
         });
       }
+
       console.log(selectedSeats);
     });
   });
 };
 
 // Order tickets button -
-const orderBtn = document.querySelector(
-  ".order-container__order-btn"
-) as HTMLButtonElement;
-const paymentForm = document.querySelector(".credit-form") as HTMLFormElement;
-const seatErrorMessage = document.querySelector(
-  ".seat-error-message"
-) as HTMLDivElement;
-
 orderBtn.addEventListener("click", () => {
   if (selectedSeats.length === 0) {
     seatErrorMessage.style.display = "block";
+  } else if (selectedSeats.length > 5) {
+    tooManySeatsMessage.style.display = "block";
   } else {
     seatErrorMessage.style.display = "none";
+    tooManySeatsMessage.style.display = "none";
     paymentForm.style.display = "block";
   }
 });
 
-// Payment form -
-const loadingContainer = document.querySelector(
-  ".loading-container"
-) as HTMLDivElement;
-const ticketContainer = document.querySelector(
-  ".ticket-container"
-) as HTMLDivElement;
-const notNumberMessage = document.querySelector(
-  ".notNumberError"
-) as HTMLSpanElement;
-const submitButton = document.querySelector("#submit") as HTMLInputElement;
+// Event form -
+const events: EventForm[] = [];
 
+const handleEventForm = (evt) => {
+  try {
+    evt.preventDefault();
+
+    const name = evt.target.elements.name.value;
+    const email = evt.target.elements.email.value;
+    const number = parseInt(evt.target.elements.number.value);
+
+    if (isNaN(number)) {
+      numbersOnly.style.display = "block";
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(name)) {
+      textOnly.style.display = "block";
+      return;
+    } else if (!isValidEmail(email)) {
+      validEmail.style.display = "block";
+      return;
+    }
+
+    events.push(new EventForm(name, email, number.toString()));
+    console.dir(events);
+
+    evt.target.reset();
+    closeMessage();
+
+    thanksMessage.style.display = "block";
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Payment form -
 let forms: PayForm[] = [];
 
 const handlePaymentForm = (evt) => {
@@ -270,7 +279,7 @@ const displayMovieTicket = () => {
 
   const ticketHTML = `
  <div class="ticket">
-     <img class="ticket__TImage" src="./vipPage/ticket-no-bg.png" />
+     <img class="ticket__TImage" src="./assets/ticket-no-bg.png" />
 
      <span onclick="closeTicket()" class="material-symbols-outlined ticket__exit">
        close
@@ -286,7 +295,7 @@ const displayMovieTicket = () => {
         <div class="ticket__screenDate1">${selectedScreening.screenDate}</div>
         <div class="ticket__screenTime1">${selectedScreening.screenTime}</div>
         <div class="ticket__cinema"> Cinema ${selectedCinema.cinemaName} </div>
-        <img class="ticket__scan1" src="../vipPage/scanTicket.png" />
+        <img class="ticket__scan1" src="../assets/scanTicket.png" />
     
        <div class="ticket__screenDate2">${selectedScreening.screenDate}</div>
        <div class="ticket__screenTime2">${selectedScreening.screenTime}</div>
@@ -301,7 +310,7 @@ const displayMovieTicket = () => {
           .map((seat) => `${seat.seat}`)
           .join(", ")} </div>
 
-        <img class="ticket__scan2" src="../vipPage/scanTicket.png" />
+        <img class="ticket__scan2" src="../assets/scanTicket.png" />
 
         <span class="ticket__mailMessage"> A Copy Of Your Tickets Was Sent To Your Email ! </span>
     </div>
@@ -330,6 +339,20 @@ const displayMovieTicket = () => {
   paymentForm.style.display = "none";
 };
 
+// Helpful functions -
 function closeTicket() {
   document.querySelector(".ticket ")!.remove();
+}
+
+function closeMessage() {
+  tooManySeatsMessage.remove();
+}
+
+function closeThanksMessage() {
+  thanksMessage.remove();
+}
+
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
