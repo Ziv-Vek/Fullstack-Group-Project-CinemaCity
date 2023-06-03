@@ -24,6 +24,7 @@ class Movie implements IMovie {
   ) {}
 }
 
+// Venue Seats -
 interface Seats {
   index: [{ line: number; seatID: number }];
   status: boolean;
@@ -36,6 +37,7 @@ interface Seat {
   isTaken: boolean;
 }
 
+// Cinema (locations) -
 class Cinema {
   constructor(
     public id: number,
@@ -71,6 +73,7 @@ class MoviesAndCinemasManager {
   }
 }
 
+// Event form -
 class EventForm {
   constructor(
     public name: string,
@@ -79,6 +82,7 @@ class EventForm {
   ) {}
 }
 
+// Payment form -
 class PayForm {
   constructor(
     public name: string,

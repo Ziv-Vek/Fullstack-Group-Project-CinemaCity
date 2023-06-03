@@ -120,8 +120,12 @@ body::-webkit-scrollbar {
   color: white;
 }
 
+.venue_view {
+  margin-bottom: 80px;
+}
+
 .selection-explained {
-  width: 200px;
+  width: 230px;
   display: flex;
   margin: 0 auto;
   margin-bottom: 30px;
@@ -141,79 +145,6 @@ body::-webkit-scrollbar {
 }
 .selection-explained__text {
   margin-right: 50px;
-}
-
-.venue_view {
-  margin-bottom: 80px;
-}
-
-.seat-error-message,
-.lone-seat-message {
-  display: none;
-  text-align: center;
-  letter-spacing: 3px;
-  color: red;
-  text-shadow: 2px 2px 5px #424242;
-  font-size: 20px;
-  margin-bottom: 20px;
-  margin-top: -50px;
-}
-
-.too-many-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #0c4173;
-  text-align: center;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  display: none;
-}
-.too-many-message #closeMessage {
-  cursor: pointer;
-}
-.too-many-message input {
-  margin-bottom: 10px;
-  padding: 0 20px;
-}
-.too-many-message__submit {
-  background-color: white;
-  border: none;
-  border-radius: 0 0 10px 10px;
-  transition: all 0.5s ease-in-out;
-}
-.too-many-message__submit:hover {
-  transform: scale(110%);
-  color: var(--color-yellow-200);
-}
-
-.numbers-only,
-.text-only,
-.valid-email {
-  padding-bottom: 10px;
-  color: red;
-  letter-spacing: 2px;
-  text-shadow: 3px 3px 10px black;
-  display: none;
-}
-
-.thanks-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #0c4173;
-  font-size: 20px;
-  text-align: center;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  display: none;
-}
-.thanks-message #closeThanksMessage {
-  cursor: pointer;
 }
 
 .order-container {
@@ -242,16 +173,6 @@ body::-webkit-scrollbar {
   transform: scale(105%);
 }
 
-.notNumberError {
-  text-align: center;
-  font-size: 16px;
-  padding: 0 20px;
-  letter-spacing: 2px;
-  color: #b20f0f;
-  text-shadow: 3px 3px 5px #5a5a5a;
-  display: none;
-}
-
 legend {
   text-align: center;
   font-size: 40px;
@@ -272,6 +193,16 @@ legend {
   opacity: 0;
   display: none;
   animation: fade-in 0.5s ease-in-out forwards;
+}
+.credit-form__closeMessage {
+  padding-top: 10px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.credit-form__closeMessage:hover {
+  transform: scale(120%);
+  color: red;
+  font-weight: bold;
 }
 .credit-form__lable {
   margin: 15px 0 5px 0;
@@ -577,4 +508,98 @@ legend {
   to {
     opacity: 0;
   }
+}
+.seat-error-message {
+  display: none;
+  text-align: center;
+  letter-spacing: 3px;
+  color: red;
+  text-shadow: 2px 2px 5px #424242;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: -50px;
+}
+
+.too-many-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0c4173;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+.too-many-message__closeMessage {
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.too-many-message__closeMessage:hover {
+  transform: scale(120%);
+  color: red;
+  font-weight: bold;
+}
+.too-many-message input {
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+.too-many-message__submit {
+  background-color: white;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.5s ease-in-out;
+}
+.too-many-message__submit:hover {
+  transform: scale(110%);
+  color: var(--color-yellow-200);
+}
+
+.numbers-only,
+.text-only,
+.valid-email {
+  padding-bottom: 10px;
+  color: red;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 10px black;
+  display: none;
+}
+
+.notNumberError {
+  text-align: center;
+  font-size: 16px;
+  padding: 0 20px;
+  letter-spacing: 2px;
+  color: #b20f0f;
+  text-shadow: 3px 3px 5px #5a5a5a;
+  display: none;
+}
+
+.thanks-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0c4173;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  display: none;
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+.thanks-message__closeThanksMessage {
+  padding-top: 10px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.thanks-message__closeThanksMessage:hover {
+  transform: scale(120%);
+  color: red;
+  font-weight: bold;
 }

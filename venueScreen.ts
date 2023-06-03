@@ -213,8 +213,9 @@ const handleEventForm = (evt) => {
     console.dir(events);
 
     evt.target.reset();
-    closeMessage();
+    closeSeatsMessage();
 
+    resetFormElements();
     thanksMessage.style.display = "block";
   } catch (error) {
     console.log(error);
@@ -261,6 +262,7 @@ const handlePaymentForm = (evt) => {
 
     setTimeout(() => {
       loadingContainer.style.display = "none";
+      resetFormElements();
       displayMovieTicket();
     }, 10000);
   } catch (error) {
@@ -344,15 +346,24 @@ function closeTicket() {
   document.querySelector(".ticket ")!.remove();
 }
 
-function closeMessage() {
+function closeSeatsMessage() {
   tooManySeatsMessage.remove();
 }
 
-function closeThanksMessage() {
+function closeMessage() {
   thanksMessage.remove();
+  paymentForm.remove();
 }
 
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+function resetFormElements() {
+  seatErrorMessage.style.display = "none";
+  tooManySeatsMessage.style.display = "none";
+  notNumberMessage.style.display = "none";
+  paymentForm.style.display = "none";
+  loadingContainer.style.display = "none";
 }

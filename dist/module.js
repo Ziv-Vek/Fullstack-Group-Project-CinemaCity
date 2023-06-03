@@ -12,6 +12,7 @@ var Movie = /** @class */ (function () {
     }
     return Movie;
 }());
+// Cinema (locations) -
 var Cinema = /** @class */ (function () {
     function Cinema(id, cinemaName, movieList) {
         this.id = id;
@@ -39,6 +40,7 @@ var MoviesAndCinemasManager = /** @class */ (function () {
     };
     return MoviesAndCinemasManager;
 }());
+// Event form -
 var EventForm = /** @class */ (function () {
     function EventForm(name, email, number) {
         this.name = name;
@@ -47,6 +49,7 @@ var EventForm = /** @class */ (function () {
     }
     return EventForm;
 }());
+// Payment form -
 var PayForm = /** @class */ (function () {
     function PayForm(name, email, idNumber, cardNumber, month, year) {
         this.name = name;

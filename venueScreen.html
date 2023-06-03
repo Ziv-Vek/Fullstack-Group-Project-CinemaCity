@@ -59,29 +59,24 @@
         <div class="selection-explained__gray-seat"></div>
         <span class="selection-explained__text">Taken</span>
         <div class="selection-explained__green-seat"></div>
-        <span>Selected</span>
+        <span>Your Selections</span>
       </div>
 
+      <!-- Venue seats -->
       <div class="venue_view"></div>
 
       <!-- Seat error message -->
       <span class="seat-error-message">You Must Choose Seats First !</span>
 
-      <!-- Lone seat error message -->
-      <span class="lone-seat-message"
-        >Make Sure You Didn't Leave a Lone Seat In Your Row Please.</span
-      >
-
-      <!-- Too many seats selected message -->
+      <!-- Too many seats selected message popup -->
       <div class="too-many-message">
         <span
-          onclick="closeMessage()"
-          id="closeMessage"
-          class="material-symbols-outlined"
+          onclick="closeSeatsMessage()"
+          class="material-symbols-outlined too-many-message__closeMessage"
         >
           close
         </span>
-        <p class="message-text">
+        <p>
           Are We Having A Party ? <br />
           To Complete Your Order You Can Leave Your Information Down Below
           <br />
@@ -91,12 +86,14 @@
           Thank You For Your Patience !
         </p>
 
+        <!-- Form error messages -->
         <div class="numbers-only">Please Enter a Valid Phone Number.</div>
 
         <div class="text-only">Name Should Be In Text Only.</div>
 
         <div class="valid-email">Please Enter a Valid Email.</div>
 
+        <!-- Event form -->
         <form onsubmit="handleEventForm(event)">
           <input
             type="text"
@@ -130,11 +127,11 @@
         </form>
       </div>
 
+      <!-- Thank you message popup -->
       <div class="thanks-message">
         <span
-          onclick="closeThanksMessage()"
-          id="closeThanksMessage"
-          class="material-symbols-outlined"
+          onclick="closeMessage()"
+          class="material-symbols-outlined thanks-message__closeThanksMessage"
         >
           close
         </span>
@@ -145,7 +142,7 @@
         </p>
       </div>
 
-      <!-- Order tickets -->
+      <!-- Order tickets button -->
       <div class="order-container">
         <button type="submit" class="order-container__order-btn">
           Order Tickets
@@ -154,12 +151,21 @@
 
       <!-- Payment form -->
       <fieldset class="credit-form">
+        <span
+          onclick="closeMessage()"
+          class="material-symbols-outlined credit-form__closeMessage"
+        >
+          close
+        </span>
+
         <legend>Payment</legend>
 
+        <!-- Not numbers error message -->
         <div class="notNumberError">
           Id Number, Card Number and Expiration Date Must Include Numbers Only !
         </div>
 
+        <!-- Payment form inputs -->
         <form onsubmit="handlePaymentForm(event)">
           <label class="credit-form__lable" for="name">Full Name</label>
           <br />
