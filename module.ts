@@ -24,16 +24,12 @@ class Movie implements IMovie {
   ) {}
 }
 
-interface Seats {
-  index: [{ line: number; seatID: number }];
-  status: boolean;
-  accessability: boolean;
-}
-
-interface Seat {
+class Seat {
   line: number;
   seatID: number;
   isTaken: boolean;
+
+  constructor() {}
 }
 
 class Cinema {

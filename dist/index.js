@@ -34,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var headerManager = new HeaderManager();
 var searchFieldsRenderer = new SearchFieldsRenderer();
 var searchHandler = new SearchHandler();
 var movies = [];
@@ -62,6 +63,8 @@ function main() {
                         })];
                 case 2:
                     _a.sent();
+                    headerManager.showImage(0);
+                    headerManager.startTimer();
                     searchFieldsRenderer.populateMovies(getData("movieData"));
                     searchFieldsRenderer.populateLocations(getData("cinemaData"), true);
                     return [2 /*return*/];

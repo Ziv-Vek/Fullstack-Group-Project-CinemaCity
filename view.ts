@@ -1,4 +1,4 @@
-// # region Main page
+//#region Main page
 // Movie Cards elements
 const movieCards = document.querySelector(".movieCards") as HTMLDivElement;
 const movieCardsContainer = document.querySelector(".movieCards");
@@ -13,9 +13,9 @@ const imageContainers: HTMLElement[] = Array.from(
 const secondarySearchArea = document.querySelector(
   ".search__secondary-search"
 ) as HTMLDivElement;
-// # endRegion
+//#endregion
 
-// # region Main page search elements
+//#region Main page search elements
 // Cinema menu search
 const searchLocationMenu: NodeListOf<HTMLDivElement> =
   document.querySelectorAll(".search__location-menu");
@@ -48,19 +48,19 @@ const cinemaSecondaryDropdown = document.querySelector(
 const datesSecondaryDropdown = document.querySelector(
   ".search__dates-dropdown"
 ) as HTMLDivElement;
-// # endRegion
+//#endregion
 
-// # region Main page VIP elements
+//#region Main page VIP elements
 const vipButton = document.querySelector(".vipButton");
-// # endRegion
+//#endregion
 
-// # region Movie page
+//#region Movie page
 const screeningWrapperDiv = document.querySelector(
   ".screening-wrapper"
 ) as HTMLDivElement;
-// # endRegion
+//#endregion
 
-// # region Venue page
+//#region Venue page
 // Present screening details in Navbar
 const screeningDetails = document.querySelector(".screening") as HTMLDivElement;
 
@@ -110,9 +110,9 @@ const loadingContainer = document.querySelector(
 const ticketContainer = document.querySelector(
   ".ticket-container"
 ) as HTMLDivElement;
-// # endRegion
+//#endregion
 
-// # region VIP page
+//#region VIP page
 // All buttons
 const telAvivButton = document.querySelector(
   "#telAvivButton"
@@ -135,4 +135,4 @@ const vipMenuTlvHaifaBeer = document.querySelector(
 const menuRishonAshdod = document.querySelector(
   ".menuRishonAshdod"
 ) as HTMLDivElement;
-// # endRegion
+//#endregion
