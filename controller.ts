@@ -33,7 +33,7 @@ class HeaderManager {
 class MovieCardManager {}
 
 // Render movie cards -
-function renderMovieCards(movies: any[]) {
+const renderMovieCards = (movies: any[]) => {
   let movieCardsHTML = "";
 
   movies.forEach((movie) => {
@@ -69,7 +69,7 @@ function renderMovieCards(movies: any[]) {
   });
 
   movieCardsContainer!.innerHTML = movieCardsHTML;
-}
+};
 
 const generateHoursHtml = (movieUuid: number): string => {
   let cinema: Cinema | null = searchHandler.getSelectedCinema;
@@ -121,7 +121,7 @@ const onHourSelection = (
 };
 
 // Open trailer -
-function openTrailer(mov: number) {
+const openTrailer = (mov: number) => {
   const selectedMovie = movies.find((element) => element.uuid === Number(mov));
 
   console.log();
@@ -147,15 +147,15 @@ function openTrailer(mov: number) {
   ) as HTMLDivElement;
 
   movieCardsContainer.innerHTML += popup;
-}
+};
 
 // Close trailer popup -
-function closePopup() {
+const closePopup = () => {
   document.querySelector(".trailer_container")!.remove();
-}
+};
 
 // Transfer data to movie page -
-function transferMovieData(event: Event, movieId: number) {
+const transferMovieData = (event: Event, movieId: number) => {
   event.preventDefault();
 
   const movie = this.movies.find((movie) => movie.uuid === movieId);
@@ -167,9 +167,9 @@ function transferMovieData(event: Event, movieId: number) {
 
     window.location.href = moviePageURL;
   }
-}
+};
 
-function populateMoviePage(movie: Movie) {
+const populateMoviePage = (movie: Movie) => {
   document.querySelector(
     "#movieImage"
   )!.innerHTML = `<img src="../${movie.image}" class="movie-image"/>`;
@@ -190,7 +190,7 @@ function populateMoviePage(movie: Movie) {
   iframe.width = "500px";
   iframe.height = "300px";
   movieTrailerContainer.appendChild(iframe);
-}
+};
 
 /** Handles user search selections */
 class SearchHandler {

@@ -1,3 +1,4 @@
+var _this = this;
 /**Responsible for showing and cycling through movie images in the page header */
 var HeaderManager = /** @class */ (function () {
     function HeaderManager() {
@@ -33,13 +34,13 @@ var MovieCardManager = /** @class */ (function () {
     return MovieCardManager;
 }());
 // Render movie cards -
-function renderMovieCards(movies) {
+var renderMovieCards = function (movies) {
     var movieCardsHTML = "";
     movies.forEach(function (movie) {
         movieCardsHTML += "<div class=\"movieCard\">\n    <div class=\"movieImage\">\n      <img src=\"" + movie.image + "\" />\n    </div>\n    <div class=\"movieDetails\">\n      <h2 class=\"movieDetails__movieName\">" + movie.name + "</h2>\n      <span onclick=\"openTrailer('" + movie.uuid + "')\" id=\"trailerBtn\" class=\"material-symbols-outlined movieDetails__trailerButton\">play_circle</span>\n      <p class=\"movieDetails__movieDescription\">" + movie.description + "</p>\n\n      <div class=\"movieDetails__moreInfo\">\n      <p class=\"movieDetails__genre\">Genre: " + movie.genre.join(", ") + "</p>\n      <p class=\"movieDetails__ageLimit\">Age Limit: " + movie.ageLimit + "</p>\n      <p class=\"movieDetails__screenDuration\">Screen Duration: " + movie.screenDuration + "</p>\n      <p class=\"movieDetails__premiere\">Premiere: " + movie.premiere + "</p>\n   </div>\n\n      <div class=\"movieDetails__hours-container\">\n      " + generateHoursHtml(movie.uuid) + "\n      \n      </div>\n      <a class=\"movieDetails__moviePageButton\" href=\"./moviePage/moviePage.html?id=" + movie.uuid + "\" onclick=\"transferMovieData(event, " + movie.uuid + ")\">MOVIE PAGE</a>\n    </div>\n  </div>";
     });
     movieCardsContainer.innerHTML = movieCardsHTML;
-}
+};
 var generateHoursHtml = function (movieUuid) {
     var cinema = searchHandler.getSelectedCinema;
     var screenTimes = [];
@@ -68,29 +69,29 @@ var onHourSelection = function (movieUuid, cinemaId, screenTime, screenUuid) {
     setData("selectedMovie", movieUuid + ", " + cinemaId + ", " + screenTime + ", " + screenUuid);
 };
 // Open trailer -
-function openTrailer(mov) {
+var openTrailer = function (mov) {
     var selectedMovie = movies.find(function (element) { return element.uuid === Number(mov); });
     console.log();
     var popup = "<div class=\"trailer_container\">\n  <div class=\"trailer_container__exitBox\">\n  <div class=\"trailer_container-exit\" onclick=\"closePopup()\">\n  <span class=\"material-symbols-outlined trailer_container-exitBtn\">\n  close\n  </span>\n  </div>\n  <div class=\"trailer_container-content\">\n    <h2>" + selectedMovie.name + "</h2>\n    <iframe  width=\"640\" height=\"360\" \n      src=\"" + selectedMovie.trailerURL + "\"\n      frameborder=\"0\"\n    ></iframe>\n  </div>\n  </div>\n</div>";
     var movieCardsContainer = document.querySelector(".trailer_popup");
     movieCardsContainer.innerHTML += popup;
-}
+};
 // Close trailer popup -
-function closePopup() {
+var closePopup = function () {
     document.querySelector(".trailer_container").remove();
-}
+};
 // Transfer data to movie page -
-function transferMovieData(event, movieId) {
+var transferMovieData = function (event, movieId) {
     event.preventDefault();
-    var movie = this.movies.find(function (movie) { return movie.uuid === movieId; });
+    var movie = _this.movies.find(function (movie) { return movie.uuid === movieId; });
     if (movie) {
         var movieData = movie;
         var movieDataString = encodeURIComponent(JSON.stringify(movieData));
         var moviePageURL = "./moviePage/moviePage.html?data=" + movieDataString;
         window.location.href = moviePageURL;
     }
-}
-function populateMoviePage(movie) {
+};
+var populateMoviePage = function (movie) {
     document.querySelector("#movieImage").innerHTML = "<img src=\"../" + movie.image + "\" class=\"movie-image\"/>";
     document.querySelector("#movieTitle").textContent = movie.name;
     document.querySelector("#movieDescription").textContent = movie.description;
@@ -108,7 +109,7 @@ function populateMoviePage(movie) {
     iframe.width = "500px";
     iframe.height = "300px";
     movieTrailerContainer.appendChild(iframe);
-}
+};
 /** Handles user search selections */
 var SearchHandler = /** @class */ (function () {
     function SearchHandler() {

@@ -1,7 +1,7 @@
 let activeMenu: HTMLDivElement | null = null;
 let activeButton: HTMLDivElement | null = null;
 
-function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
+const handleClick = (button: HTMLDivElement, menu: HTMLDivElement) => {
   if (activeButton === button) {
     if (activeMenu === menu) {
       activeMenu.style.display = "none";
@@ -16,7 +16,7 @@ function handleClick(button: HTMLDivElement, menu: HTMLDivElement) {
     activeMenu = menu;
     activeButton = button;
   }
-}
+};
 
 // Event listener for each button -
 telAvivButton.addEventListener("click", () =>

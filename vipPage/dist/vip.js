@@ -1,6 +1,6 @@
 var activeMenu = null;
 var activeButton = null;
-function handleClick(button, menu) {
+var handleClick = function (button, menu) {
     if (activeButton === button) {
         if (activeMenu === menu) {
             activeMenu.style.display = "none";
@@ -16,7 +16,7 @@ function handleClick(button, menu) {
         activeMenu = menu;
         activeButton = button;
     }
-}
+};
 // Event listener for each button -
 telAvivButton.addEventListener("click", function () {
     return handleClick(telAvivButton, vipMenuTlvHaifaBeer);
