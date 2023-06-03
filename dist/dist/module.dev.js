@@ -1,27 +1,5 @@
 "use strict";
 
-var Cinema =
-/** @class */
-function () {
-  function Cinema(id, cinemaName, movieList) {
-    this.id = id;
-    this.cinemaName = cinemaName;
-    this.movieList = movieList; //moviesAndCinemasManager.addCinema(this);
-  }
-
-  return Cinema;
-}();
-
-var venue =
-/** @class */
-function () {
-  function venue() {
-    this.moviesList = [];
-  }
-
-  return venue;
-}();
-
 var Movie =
 /** @class */
 function () {
@@ -34,65 +12,49 @@ function () {
     this.screenDuration = screenDuration;
     this.description = description;
     this.trailerURL = trailerURL;
-    this.cinemaID = cinemaID; //moviesAndCinemasManager.addMovie(this);
+    this.cinemaID = cinemaID;
   }
 
   return Movie;
+}(); // Cinema (locations) -
+
+
+var Cinema =
+/** @class */
+function () {
+  function Cinema(id, cinemaName, movieList) {
+    this.id = id;
+    this.cinemaName = cinemaName;
+    this.movieList = movieList;
+  }
+
+  return Cinema;
 }();
 
-var MoviesAndCinemasManager =
+var EventForm =
 /** @class */
 function () {
-  function MoviesAndCinemasManager() {
-    this.movies = [];
+  function EventForm(name, email, number) {
+    this.name = name;
+    this.email = email;
+    this.number = number;
   }
 
-  Object.defineProperty(MoviesAndCinemasManager.prototype, "getCinemasArr", {
-    get: function get() {
-      return this.cinemasArr;
-    },
-    enumerable: false,
-    configurable: true
-  });
-
-  MoviesAndCinemasManager.prototype.setCinemasArr = function (data) {
-    // console.log(data);
-    // console.log(data[2].cinemaName);
-    this.cinemasArr = data;
-  };
-
-  MoviesAndCinemasManager.prototype.addMovie = function (movie) {
-    this.movies.push(movie);
-  };
-
-  return MoviesAndCinemasManager;
-}(); //let cinemasArr: any;
+  return EventForm;
+}(); // Payment form -
 
 
-fetch("cinema.json").then(function (response) {
-  return response.json();
-}).then(function (data) {
-  if (data.length === 0) throw new Error("Data from cinema.json is empty");
-  handleJsonCinemaData(data);
-})["catch"](function (error) {
-  return console.log(error);
-});
-
-var handleJsonCinemaData = function handleJsonCinemaData(data) {
-  if (!MoviesAndCinemasManager) throw new Error("MoviesAndCinemasManager not found."); //cinemasArr = data;
-
-  moviesAndCinemasManager.setCinemasArr(data);
-};
-
-var Cart =
+var PayForm =
 /** @class */
 function () {
-  function Cart(barcode, price, movieID, seats) {
-    this.barcode = barcode;
-    this.price = price;
-    this.movieID = movieID;
-    this.seats = seats;
+  function PayForm(name, email, idNumber, cardNumber, month, year) {
+    this.name = name;
+    this.email = email;
+    this.idNumber = idNumber;
+    this.cardNumber = cardNumber;
+    this.month = month;
+    this.year = year;
   }
 
-  return Cart;
+  return PayForm;
 }();
