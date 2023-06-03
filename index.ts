@@ -1,3 +1,4 @@
+const headerManager = new HeaderManager();
 const searchFieldsRenderer = new SearchFieldsRenderer();
 const searchHandler = new SearchHandler();
 
@@ -25,6 +26,8 @@ async function main() {
       console.log(error);
     });
 
+  headerManager.showImage(0);
+  headerManager.startTimer();
   searchFieldsRenderer.populateMovies(getData("movieData"));
   searchFieldsRenderer.populateLocations(getData("cinemaData"), true);
 }

@@ -1,27 +1,37 @@
-// Header -
-var currentIndex = 0;
-function showImage(index) {
-    if (carousel) {
-        carousel.classList.add("fade-in");
-        imageContainers.forEach(function (container, i) {
-            container.classList.remove("active");
-            container.classList.add(i === index ? "active" : "middle");
-        });
-        setTimeout(function () {
-            carousel.classList.remove("fade-in");
-        }, 700);
+/**Responsible for showing and cycling through movie images in the page header */
+var HeaderManager = /** @class */ (function () {
+    function HeaderManager() {
+        this.currentIndex = 0;
+        this.fadeOutInterval = 700;
+        this.switchImageInterval = 5000;
     }
-}
-function startTimer() {
-    setInterval(function () {
-        currentIndex = (currentIndex + 1) % imageContainers.length;
-        showImage(currentIndex);
-    }, 5000);
-}
-if (carousel) {
-    showImage(currentIndex);
-    startTimer();
-}
+    HeaderManager.prototype.showImage = function (index) {
+        if (carousel) {
+            carousel.classList.add("fade-in");
+            imageContainers.forEach(function (container, i) {
+                container.classList.remove("active");
+                container.classList.add(i === index ? "active" : "middle");
+            });
+            setTimeout(function () {
+                carousel.classList.remove("fade-in");
+            }, this.fadeOutInterval);
+        }
+    };
+    HeaderManager.prototype.startTimer = function () {
+        var _this = this;
+        setInterval(function () {
+            _this.currentIndex = (_this.currentIndex + 1) % imageContainers.length;
+            _this.showImage(_this.currentIndex);
+        }, this.switchImageInterval);
+    };
+    return HeaderManager;
+}());
+/** Responsible for the rendering and logic of a movie card */
+var MovieCardManager = /** @class */ (function () {
+    function MovieCardManager() {
+    }
+    return MovieCardManager;
+}());
 // Render movie cards -
 function renderMovieCards(movies) {
     var movieCardsHTML = "";

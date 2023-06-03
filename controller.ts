@@ -1,32 +1,36 @@
-// Header -
-let currentIndex: number = 0;
+/**Responsible for showing and cycling through movie images in the page header */
+class HeaderManager {
+  currentIndex: number = 0;
+  private fadeOutInterval: number = 700;
+  private switchImageInterval: number = 5000;
 
-function showImage(index: number): void {
-  if (carousel) {
-    carousel.classList.add("fade-in");
+  constructor() {}
 
-    imageContainers.forEach((container: HTMLElement, i: number) => {
-      container.classList.remove("active");
-      container.classList.add(i === index ? "active" : "middle");
-    });
+  public showImage(index: number): void {
+    if (carousel) {
+      carousel.classList.add("fade-in");
 
-    setTimeout(() => {
-      carousel.classList.remove("fade-in");
-    }, 700);
+      imageContainers.forEach((container: HTMLElement, i: number) => {
+        container.classList.remove("active");
+        container.classList.add(i === index ? "active" : "middle");
+      });
+
+      setTimeout(() => {
+        carousel.classList.remove("fade-in");
+      }, this.fadeOutInterval);
+    }
+  }
+
+  public startTimer(): void {
+    setInterval(() => {
+      this.currentIndex = (this.currentIndex + 1) % imageContainers.length;
+      this.showImage(this.currentIndex);
+    }, this.switchImageInterval);
   }
 }
 
-function startTimer(): void {
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % imageContainers.length;
-    showImage(currentIndex);
-  }, 5000);
-}
-
-if (carousel) {
-  showImage(currentIndex);
-  startTimer();
-}
+/** Responsible for the rendering and logic of a movie card */
+class MovieCardManager {}
 
 // Render movie cards -
 function renderMovieCards(movies: any[]) {

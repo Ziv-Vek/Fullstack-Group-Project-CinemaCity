@@ -12,6 +12,11 @@ var Movie = /** @class */ (function () {
     }
     return Movie;
 }());
+var Seat = /** @class */ (function () {
+    function Seat() {
+    }
+    return Seat;
+}());
 // Cinema (locations) -
 var Cinema = /** @class */ (function () {
     function Cinema(id, cinemaName, movieList) {

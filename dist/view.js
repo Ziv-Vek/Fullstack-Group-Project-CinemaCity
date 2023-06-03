@@ -1,4 +1,4 @@
-// # region Main page
+//#region Main page
 // Movie Cards elements
 var movieCards = document.querySelector(".movieCards");
 var movieCardsContainer = document.querySelector(".movieCards");
@@ -7,8 +7,8 @@ var carousel = document.querySelector(".header");
 var imageContainers = Array.from(document.querySelectorAll(".image-container"));
 // genreOptions function and filterMoviesByGenre function
 var secondarySearchArea = document.querySelector(".search__secondary-search");
-// # endRegion
-// # region Main page search elements
+//#endregion
+//#region Main page search elements
 // Cinema menu search
 var searchLocationMenu = document.querySelectorAll(".search__location-menu");
 // Date menu search
@@ -22,14 +22,14 @@ var genreSecondaryDropdown = document.querySelector(".search__genre-dropdown");
 // cinema secondary dropdown list
 var cinemaSecondaryDropdown = document.querySelector(".search__secondary-dropdown-cinemas");
 var datesSecondaryDropdown = document.querySelector(".search__dates-dropdown");
-// # endRegion
-// # region Main page VIP elements
+//#endregion
+//#region Main page VIP elements
 var vipButton = document.querySelector(".vipButton");
-// # endRegion
-// # region Movie page
+//#endregion
+//#region Movie page
 var screeningWrapperDiv = document.querySelector(".screening-wrapper");
-// # endRegion
-// # region Venue page
+//#endregion
+//#region Venue page
 // Present screening details in Navbar
 var screeningDetails = document.querySelector(".screening");
 var html = document.querySelector(".venue_view");
@@ -52,8 +52,8 @@ var thanksMessage = document.querySelector(".thanks-message");
 var loadingContainer = document.querySelector(".loading-container");
 // Movie ticket container
 var ticketContainer = document.querySelector(".ticket-container");
-// # endRegion
-// # region VIP page
+//#endregion
+//#region VIP page
 // All buttons
 var telAvivButton = document.querySelector("#telAvivButton");
 var haifaButton = document.querySelector("#haifaButton");
@@ -62,4 +62,4 @@ var rishonButton = document.querySelector("#rishonButton");
 var beerShevaButton = document.querySelector("#beerShevaButton");
 var vipMenuTlvHaifaBeer = document.querySelector(".menuTLV-BeerSheva-Haifa");
 var menuRishonAshdod = document.querySelector(".menuRishonAshdod");
-// # endRegion
+//#endregion
