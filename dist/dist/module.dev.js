@@ -16,8 +16,15 @@ function () {
   }
 
   return Movie;
-}(); // Cinema (locations) -
+}();
 
+var Seat =
+/** @class */
+function () {
+  function Seat() {}
+
+  return Seat;
+}();
 
 var Cinema =
 /** @class */
@@ -29,7 +36,8 @@ function () {
   }
 
   return Cinema;
-}();
+}(); // Event form -
+
 
 var EventForm =
 /** @class */
