@@ -54,25 +54,6 @@ class Cinema {
   ) {}
 }
 
-class MoviesAndCinemasManager {
-  private movies: Movie[] = [];
-  public cinemasArr: object;
-
-  constructor() {}
-
-  public get getCinemasArr() {
-    return this.cinemasArr;
-  }
-
-  public setCinemasArr(data: any) {
-    this.cinemasArr = data;
-  }
-
-  public addMovie(movie: Movie) {
-    this.movies.push(movie);
-  }
-}
-
 // Event form -
 class EventForm {
   constructor(
