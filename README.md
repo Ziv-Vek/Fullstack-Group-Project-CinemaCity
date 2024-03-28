@@ -6,21 +6,15 @@ This project was developed by using HTML, CSS, and JavaScript.
 
 ## Table of Contents
 
-- [Demo](#demo)
 - [Screenshots](#screenshots)
 - [Features](#features)
 - [Installation](#installation)
-- [Running the Game](#running-the-game)
-- [How to Play](#how-to-play)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Screenshots
-<img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-01.png" width="400px" /><img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-02.png" width="400px" />
-<img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-03.png" width="400px" /><img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-04.png" width="400px" />
-<img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-05.png" width="400px" /><img src="https://github.com/Ziv-Vek/Assets/blob/main/images/ZIA%20Cinema/screenshot-06.png" width="400px" />
-
+<img src="/assets/screenshots/screenshot-01.png" width="400px" /><img src="/assets/screenshots/screenshot-02.png" width="400px" />
+<img src="/assets/screenshots/screenshot-03.png" width="400px" /><img src="/assets/screenshots/screenshot-04.png" width="400px" />
+<img src="/assets/screenshots/screenshot-05.png" width="400px" /><img src="/assets/screenshots/screenshot-06.png" width="400px" />
 
 ## Features
 
